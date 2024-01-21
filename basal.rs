@@ -73,6 +73,7 @@ impl Food {
 
 }
 
+
 fn harris_benedict_bmr(gender: &Gender, age: u32, weight_kg: f64, height_cm: f64) -> f64 {
 
     match gender {
@@ -99,7 +100,7 @@ fn mifflin_st_jeor_bmr(gender: &Gender, age: u32, weight_kg: f64, height_cm: f64
 
 }
 
-fn generate_html_table(foods: &[Food]) -> String {
+fn generate_html_table_for_foods(foods: &[Food]) -> String {
     let mut table_html = String::from("<table>
         <tr>
             <th>Alimento</th>
@@ -134,12 +135,90 @@ fn find_food_info<'a>(foods: &'a [Food], name: &str) -> Option<&'a Food> {
         .and_then(|food_type| foods.iter().find(|food| food.food_type == food_type))
 }
 
+struct DietItem<'a> {
+
+    mealType: MealType,
+    wichFood: &'a Food,
+    grams: f64,
+
+}
+
+impl DietItem<'_> {
+
+    fn new<'a>(mealType: MealType, wichFood: &'a Food, grams: f64) -> DietItem<'a> {
+        DietItem { mealType, wichFood, grams }
+    }
+
+}
+
+
+enum MealType {
+
+    Breakfast,
+    Lunch,
+    Snack,
+    Dinner,
+
+}
+
+struct Diet<'a> {
+
+    breakfast: Vec<DietItem<'a>>,
+    lunch: Vec<DietItem<'a>>,
+    snack: Vec<DietItem<'a>>,
+    dinner: Vec<DietItem<'a>>
+
+}
+
+impl<'a> Diet<'a> {
+
+    fn addDietMeal(&mut self, mealType: MealType, wichFood: &'a Food, grams: f64) {
+        match mealType {
+            MealType::Breakfast => {
+                self.breakfast.push(DietItem::new(mealType, wichFood, grams));
+            }
+            MealType::Lunch => {
+                self.lunch.push(DietItem::new(mealType, wichFood, grams));
+            }
+            MealType::Snack => {
+                self.snack.push(DietItem::new(mealType, wichFood, grams));
+            }
+            MealType::Dinner => {
+                self.dinner.push(DietItem::new(mealType, wichFood, grams));
+            }
+        }
+    }
+
+}
+
+fn generate_html_table_for_diet(dietItens: Vec<DietItem>) -> String {
+    let mut table_html = String::from("<table>
+        <tr>
+            <th>Alimento</th>
+            <th>Quantidade(g)</th>
+            <th>Calorias</th>
+        </tr>");
+
+    for dietItem in dietItens {
+        let row = format!("<tr>
+                <td>{:?}</td>
+                <td>{}</td>
+                <td>{}</td>
+            </tr>", 
+            dietItem.wichFood.food_type, dietItem.grams, dietItem.wichFood.calories(100.0));
+        table_html.push_str(&row);
+    }
+
+    table_html.push_str("</table>");
+    table_html
+}
+
 fn main() {
 
     let gender = Gender::Male;
-    let age = 21;
-    let weight = 68.0;
-    let height = 163.0;
+    let age = 35;
+    let weight = 78.0;
+    let height = 177.0;
 
     let bmr_harris = harris_benedict_bmr(&gender, age, weight, height);
     let bmr_mifflin = mifflin_st_jeor_bmr(&gender, age, weight, height);
@@ -159,17 +238,13 @@ fn main() {
         Food::new(FoodType::Azeite, 0.0, 0.0, 0.0, 0.0, 15.0),
     ];
 
-    let apple = find_food_info(&foods, "Pao_integral");
-    match apple {
-        Some(food) => println!("Alimento encontrado: {:?} com {} calorias em 100 gramas", food, food.calories(100.0)),
-        None => println!("Alimento não encontrado: maçã"),
-    }
+    let eggs = find_food_info(&foods, "Ovo").unwrap();
+    let mut diet = Diet { breakfast:vec![], lunch:vec![], snack:vec![], dinner:vec![] };
+    diet.addDietMeal(MealType::Breakfast, eggs, 100.0);
+    println!("Alimento encontrado: {:?} com {} calorias em 100 gramas", eggs, eggs.calories(100.0));
 
-
-
-
-
-    let table_html = generate_html_table(&foods);
+    let table_html_foods = generate_html_table_for_foods(&foods);
+    let table_html_diet = generate_html_table_for_diet(diet.breakfast);
 
     let mut html_output = String::new();
     write!(&mut html_output,
@@ -187,9 +262,10 @@ fn main() {
                     <p>Metabolismo basal (Harris-Benedict): {:.2} calorias/dia</p>
                     <p>Metabolismo basal (Mifflin-St Jeor): {:.2} calorias/dia</p>
                     {}
+                    {}
                 </div>
             </body>
-        </html>", bmr_harris, bmr_mifflin, table_html)
+        </html>", bmr_harris, bmr_mifflin, table_html_foods, table_html_diet)
         .unwrap();
 
     let mut file = File::create("bmr_result.html").unwrap();
