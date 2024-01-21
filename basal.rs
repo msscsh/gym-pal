@@ -1,6 +1,7 @@
 use std::fs::File;
 use std::io::Write;
 use std::fmt::Write as FmtWrite;
+use std::fmt;
 
 enum Gender {
 
@@ -151,7 +152,6 @@ impl DietItem<'_> {
 
 }
 
-
 enum MealType {
 
     Breakfast,
@@ -159,6 +159,16 @@ enum MealType {
     Snack,
     Dinner,
 
+}
+impl fmt::Display for MealType {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{}", match self {
+            MealType::Breakfast => "Café da Manhã",
+            MealType::Lunch => "Almoço",
+            MealType::Snack => "Lanche",
+            MealType::Dinner => "Jantar",
+        })
+    }
 }
 
 struct Diet<'a> {
@@ -192,12 +202,17 @@ impl<'a> Diet<'a> {
 }
 
 fn generate_html_table_for_diet(dietItens: Vec<DietItem>) -> String {
-    let mut table_html = String::from("<table>
-        <tr>
-            <th>Alimento</th>
-            <th>Quantidade(g)</th>
-            <th>Calorias</th>
-        </tr>");
+    let mut table_html = String::from(format!("<table class=\"smallTable\">
+        <thead>
+            <tr>
+                <th colspan=\"3\" style=\"text-align: center;\">{}</th>
+            </tr>
+            <tr>
+                <th>Alimento</th>
+                <th>Quantidade(g)</th>
+                <th>Calorias</th>
+            </tr>
+        </thead>", &dietItens[0].mealType));
 
     for dietItem in dietItens {
         let row = format!("<tr>
@@ -239,12 +254,18 @@ fn main() {
     ];
 
     let eggs = find_food_info(&foods, "Ovo").unwrap();
+
     let mut diet = Diet { breakfast:vec![], lunch:vec![], snack:vec![], dinner:vec![] };
     diet.addDietMeal(MealType::Breakfast, eggs, 100.0);
-    println!("Alimento encontrado: {:?} com {} calorias em 100 gramas", eggs, eggs.calories(100.0));
+    diet.addDietMeal(MealType::Lunch, eggs, 200.0);
+    diet.addDietMeal(MealType::Snack, eggs, 300.0);
+    diet.addDietMeal(MealType::Dinner, eggs, 400.0);
 
     let table_html_foods = generate_html_table_for_foods(&foods);
-    let table_html_diet = generate_html_table_for_diet(diet.breakfast);
+    let table_html_diet_breakfast = generate_html_table_for_diet(diet.breakfast);
+    let table_html_diet_lunch = generate_html_table_for_diet(diet.lunch);
+    let table_html_diet_snack = generate_html_table_for_diet(diet.snack);
+    let table_html_diet_dinner = generate_html_table_for_diet(diet.dinner);
 
     let mut html_output = String::new();
     write!(&mut html_output,
@@ -263,9 +284,12 @@ fn main() {
                     <p>Metabolismo basal (Mifflin-St Jeor): {:.2} calorias/dia</p>
                     {}
                     {}
+                    {}
+                    {}
+                    {}
                 </div>
             </body>
-        </html>", bmr_harris, bmr_mifflin, table_html_foods, table_html_diet)
+        </html>", bmr_harris, bmr_mifflin, table_html_foods, table_html_diet_breakfast, table_html_diet_lunch, table_html_diet_snack, table_html_diet_dinner)
         .unwrap();
 
     let mut file = File::create("bmr_result.html").unwrap();
