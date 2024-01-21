@@ -135,10 +135,12 @@ fn main() {
                 <link rel=\"stylesheet\" href=\"style.css\">
             </head>
             <body>
-                <h1>Resultado do Metabolismo Basal</h1>
-                <p>Metabolismo basal (Harris-Benedict): {:.2} calorias/dia</p>
-                <p>Metabolismo basal (Mifflin-St Jeor): {:.2} calorias/dia</p>
-                {}
+                <div class=\"content\" >
+                    <h1>Resultado do Metabolismo Basal</h1>
+                    <p>Metabolismo basal (Harris-Benedict): {:.2} calorias/dia</p>
+                    <p>Metabolismo basal (Mifflin-St Jeor): {:.2} calorias/dia</p>
+                    {}
+                </div>
             </body>
         </html>", bmr_harris, bmr_mifflin, table_html)
         .unwrap();
