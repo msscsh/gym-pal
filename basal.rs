@@ -9,13 +9,39 @@ enum Gender {
 
 }
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq, Eq)]
 enum FoodType {
 
-    Apple,
+    Frango,
+    Ovo,
+    Arroz,
+    PaoIntegral,
+    BananaPrata,
+    Aveia,
+    Alface,
+    Azeite
 
 }
 
+impl FoodType {
+
+    fn from_str(name: &str) -> Option<FoodType> {
+        match name.to_lowercase().as_str() {
+            "frango" => Some(FoodType::Frango),
+            "ovo" => Some(FoodType::Ovo),
+            "arroz" => Some(FoodType::Arroz),
+            "pao_integral" => Some(FoodType::PaoIntegral),
+            "Banana_prata" => Some(FoodType::BananaPrata),
+            "aveia" => Some(FoodType::Aveia),
+            "alface" => Some(FoodType::Alface),
+            "azeite" => Some(FoodType::Azeite),
+            _ => None,
+        }
+    }
+
+}
+
+#[derive(Debug)]
 struct Food {
 
     food_type: FoodType,
@@ -38,7 +64,7 @@ impl Food {
     }
 
     fn calories(&self, grams: f64) -> f64 {
-        let carbs_calories = (self.sugars + self.starches) * 4.0; // Supondo que as fibras não contribuem tanto para as calorias
+        let carbs_calories = (self.sugars + self.starches) * 4.0;
         let protein_calories = self.protein * 4.0;
         let fat_calories = self.fats * 9.0;
 
@@ -103,12 +129,17 @@ fn generate_html_table(foods: &[Food]) -> String {
     table_html
 }
 
+fn find_food_info<'a>(foods: &'a [Food], name: &str) -> Option<&'a Food> {
+    FoodType::from_str(name)
+        .and_then(|food_type| foods.iter().find(|food| food.food_type == food_type))
+}
+
 fn main() {
 
     let gender = Gender::Male;
-    let age = 30;
-    let weight = 75.0;
-    let height = 173.0;
+    let age = 21;
+    let weight = 68.0;
+    let height = 163.0;
 
     let bmr_harris = harris_benedict_bmr(&gender, age, weight, height);
     let bmr_mifflin = mifflin_st_jeor_bmr(&gender, age, weight, height);
@@ -116,11 +147,27 @@ fn main() {
     println!("Metabolismo basal (Harris-Benedict): {:.2} calorias/dia", bmr_harris);
     println!("Metabolismo basal (Mifflin-St Jeor): {:.2} calorias/dia", bmr_mifflin);
 
+
+    //100 gramas
+    //food_type, sugars, fibers, starches, protein, fats
     let foods = vec![
-        Food::new(FoodType::Apple, 15.0, 2.4, 7.6, 0.5, 0.3),
+        Food::new(FoodType::Frango, 0.0, 0.0, 1.3, 22.0, 1.0),
+        Food::new(FoodType::Ovo, 0.0, 0.0, 1.2, 12.6, 10.0), //20 porções em 30 // porção 58g // 3 ovos 174g // 4 ovos 232g
+        Food::new(FoodType::Arroz, 8.3, 2.1, 36.0, 4.1, 1.4),
+        Food::new(FoodType::PaoIntegral, 0.0, 4.0, 68.0, 8.0, 0.4),
+        Food::new(FoodType::Alface, 0.0, 1.83, 0.0, 1.35, 0.3),
+        Food::new(FoodType::Azeite, 0.0, 0.0, 0.0, 0.0, 15.0),
     ];
 
-    println!("Calorias em 100 gramas de maçã: {} calorias", &foods[0].calories(100.0));
+    let apple = find_food_info(&foods, "Pao_integral");
+    match apple {
+        Some(food) => println!("Alimento encontrado: {:?} com {} calorias em 100 gramas", food, food.calories(100.0)),
+        None => println!("Alimento não encontrado: maçã"),
+    }
+
+
+
+
 
     let table_html = generate_html_table(&foods);
 
