@@ -25,6 +25,10 @@ table {
   margin-top: 1em;
 }
 
+.smallTable {
+  width: 70%;
+}
+
 th, td {
   border: 1px solid #ddd;
   padding: 8px;
