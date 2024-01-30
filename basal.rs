@@ -220,7 +220,7 @@ fn generate_html_table_for_diet(dietItens: Vec<DietItem>) -> String {
                 <td>{}</td>
                 <td>{}</td>
             </tr>", 
-            dietItem.wichFood.food_type, dietItem.grams, dietItem.wichFood.calories(100.0));
+            dietItem.wichFood.food_type, dietItem.grams, dietItem.wichFood.calories(dietItem.grams));
         table_html.push_str(&row);
     }
 
@@ -231,9 +231,9 @@ fn generate_html_table_for_diet(dietItens: Vec<DietItem>) -> String {
 fn main() {
 
     let gender = Gender::Male;
-    let age = 35;
-    let weight = 78.0;
-    let height = 177.0;
+    let age = 30;
+    let weight = 75.0;
+    let height = 173.0;
 
     let bmr_harris = harris_benedict_bmr(&gender, age, weight, height);
     let bmr_mifflin = mifflin_st_jeor_bmr(&gender, age, weight, height);
