@@ -228,6 +228,32 @@ fn generate_html_table_for_diet(dietItens: Vec<DietItem>) -> String {
     table_html
 }
 
+fn build_diet(foods: &[Food]) -> Diet {
+
+    let frango = find_food_info(&foods, "Frango").unwrap();
+    let ovo = find_food_info(&foods, "Ovo").unwrap();
+    let arroz = find_food_info(&foods, "Arroz").unwrap();
+    let paoIntegral = find_food_info(&foods, "Pao_integral").unwrap();
+    let alface = find_food_info(&foods, "Alface").unwrap();
+    let azeite = find_food_info(&foods, "Azeite").unwrap();
+
+    let mut diet = Diet { breakfast:vec![], lunch:vec![], snack:vec![], dinner:vec![] };
+
+    diet.addDietMeal(MealType::Breakfast, ovo, 232.0);
+    diet.addDietMeal(MealType::Breakfast, paoIntegral, 75.0);
+
+    diet.addDietMeal(MealType::Lunch, frango, 200.0);
+    diet.addDietMeal(MealType::Lunch, arroz, 100.0);
+
+    diet.addDietMeal(MealType::Snack, ovo, 232.0);
+    diet.addDietMeal(MealType::Snack, paoIntegral, 75.0);
+
+    diet.addDietMeal(MealType::Dinner, frango, 200.0);
+    diet.addDietMeal(MealType::Dinner, arroz, 100.0);
+
+    return diet
+}
+
 fn main() {
 
     let gender = Gender::Male;
@@ -241,7 +267,6 @@ fn main() {
     println!("Metabolismo basal (Harris-Benedict): {:.2} calorias/dia", bmr_harris);
     println!("Metabolismo basal (Mifflin-St Jeor): {:.2} calorias/dia", bmr_mifflin);
 
-
     //100 gramas
     //food_type, sugars, fibers, starches, protein, fats
     let foods = vec![
@@ -253,13 +278,7 @@ fn main() {
         Food::new(FoodType::Azeite, 0.0, 0.0, 0.0, 0.0, 15.0),
     ];
 
-    let eggs = find_food_info(&foods, "Ovo").unwrap();
-
-    let mut diet = Diet { breakfast:vec![], lunch:vec![], snack:vec![], dinner:vec![] };
-    diet.addDietMeal(MealType::Breakfast, eggs, 100.0);
-    diet.addDietMeal(MealType::Lunch, eggs, 200.0);
-    diet.addDietMeal(MealType::Snack, eggs, 300.0);
-    diet.addDietMeal(MealType::Dinner, eggs, 400.0);
+    let diet = build_diet(&foods);
 
     let table_html_foods = generate_html_table_for_foods(&foods);
     let table_html_diet_breakfast = generate_html_table_for_diet(diet.breakfast);
