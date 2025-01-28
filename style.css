@@ -1,56 +1,3 @@
-/*body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-}
-
-h1 {
-    color: #333;
-    text-align: center;
-    margin: 0;
-}
-
-p {
-    color: #666;
-    margin: 0;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-  margin-top: 1em;
-}
-
-.smallTable {
-  width: 70%;
-}
-
-th, td {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-th {
-  background-color: #f2f2f2;
-  color: black;
-}
-
-.content {
-  width: 80%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 10em;
-  font-size: 1.5rem;
-}*/
-
-
 :root {
   --cinza-claro: #f2f2f2;
   --cinza-medio: #ddd;
@@ -134,7 +81,6 @@ th, td {
   text-align: left;
 }
 
-/* Botões */
 button {
   background-color: var(--amarelo-medio);
   color: var(--preto);
@@ -149,7 +95,7 @@ button {
   color: white;
 }
 
-.divBotoesTabela {
+.divBotoesTabelaTreino {
   padding-top: 20px;
 }
 
@@ -159,4 +105,13 @@ button {
     padding: 6px 12px;
     cursor: pointer;
     background-color: var(--amarelo-claro);
+}
+
+.zoom {
+  transform: scale(2);
+}
+
+.divTabelaTreinos {
+  height: 300px; /* Ajuste a altura conforme necessário */
+  overflow-y: auto;
 }

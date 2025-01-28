@@ -6,7 +6,7 @@
 </head>
 <body>
 
-	<div id="container" class="containerFlexPilha">
+	<div id="container" class="containerFlexPilha zoom">
 
 		<div id="divAdicionarExercicio">
 		    <form id="meuFormulario">
@@ -18,19 +18,22 @@
 		    </form>
 		</div>
 
-		<div id="divTabela">
-		    <table id="minhaTabela">
-		        <thead>
-		            <tr>
-		                <th>Nome</th>
-		                <th>Carga</th>
-		            </tr>
-		        </thead>
-		        <tbody>
-		        </tbody>
-		    </table>
+		<div id="divTreinos" class="divTreinos">
 
-			<div id="divBotoesTabela" class="divBotoesTabela">
+			<div id="divTabelaTreinos" class="divTabelaTreinos">
+			    <table id="tabelaTreinos" class="tabelaTreinos">
+			        <thead>
+			            <tr>
+			                <th>Nome</th>
+			                <th>Carga</th>
+			            </tr>
+			        </thead>
+			        <tbody>
+			        </tbody>
+			    </table>
+			</div>
+
+			<div id="divBotoesTabelaTreino" class="divBotoesTabelaTreino">
 			    <button onclick="exportarJSON()">Exportar JSON</button>
 			    <button id="excluir" class="botaoExcluir" onclick="excluirTodosRegistros()">Excluir Tudo</button>
 			    <input type="file" id="botaoImportarJsonDeTreino" class="botaoImportarJsonDeTreino">

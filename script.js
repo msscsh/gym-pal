@@ -25,7 +25,7 @@ function adicionarRegistro() {
 
 function exibirTabela() {
 
-    const tabela = document.getElementById('minhaTabela').getElementsByTagName('tbody')[0];
+    const tabela = document.getElementById('tabelaTreinos').getElementsByTagName('tbody')[0];
     tabela.innerHTML = '';
 
     const dados = JSON.parse(localStorage.getItem('meusDados')) || [];
