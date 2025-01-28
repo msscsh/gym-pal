@@ -1,4 +1,4 @@
-body {
+/*body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     text-align: center;
@@ -48,7 +48,7 @@ th {
   justify-content: center;
   padding-top: 10em;
   font-size: 1.5rem;
-}
+}*/
 
 
 :root {
@@ -59,9 +59,18 @@ th {
   --amarelo-medio: #edf03c;
   --amarelo-escuro: #f8fc0d;
   --preto: #000;
+  --vermelho: #d6480b;
 }
 
-/* Estilos gerais */
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: var(--cinza-claro);
@@ -71,6 +80,36 @@ table {
   border-collapse: collapse;
   margin: 0 auto;
   display: table;
+}
+
+.container {
+  max-width: 800px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+.containerFlexPilha {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.containerFlexCarrossel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.containerGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
 table td:last-child {
@@ -97,7 +136,7 @@ th, td {
 
 /* Botões */
 button {
-  background-color: var(--amarelo-claro);
+  background-color: var(--amarelo-medio);
   color: var(--preto);
   border: none;
   padding: 10px 20px;
@@ -105,7 +144,19 @@ button {
   cursor: pointer;
 }
 
-button.excluir {
-  background-color: var(--cinza-escuro);
+.botaoExcluir {
+  background-color: var(--vermelho);
   color: white;
+}
+
+.divBotoesTabela {
+  padding-top: 20px;
+}
+
+.botaoImportarJsonDeTreino {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: var(--amarelo-claro);
 }

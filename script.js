@@ -1,5 +1,5 @@
 function downloadJSON(jsonData) {
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(jsonData));
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(jsonData);
     const downloadLink = document.createElement("a");
     downloadLink.setAttribute("href", dataStr);
     downloadLink.setAttribute("download", "meu_arquivo.json");
@@ -40,6 +40,7 @@ function exibirTabela() {
 
         const botaoExcluir = document.createElement('button');
         botaoExcluir.textContent = 'DEL';
+        botaoExcluir.classList.add('botaoExcluir');
         botaoExcluir.onclick = () => {
             excluirRegistro(index);
         };
@@ -67,6 +68,21 @@ function excluirTodosRegistros() {
         exibirTabela();
     }
 }
+
+const input = document.getElementById('botaoImportarJsonDeTreino');
+input.addEventListener('change', () => {
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    const json = JSON.parse(reader.result);
+    localStorage.setItem('meusDados', JSON.stringify(json));
+    console.log('JSON importado com sucesso!');
+    exibirTabela();
+  };
+
+  reader.readAsText(input.files[0]);
+});
+
 
 window.onload = function() {
     exibirTabela();

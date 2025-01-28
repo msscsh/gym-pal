@@ -6,31 +6,46 @@
 </head>
 <body>
 
-	<div id="divAdicionarExercicio">
-	    <form id="meuFormulario">
-	        <label for="nome">Nome:</label>
-	        <input type="text" id="nome">
-	        <label for="carga">Carga:</label>
-	        <input type="number" id="carga">
-	        <button type="button" onclick="adicionarRegistro()">Adicionar</button>
-	    </form>
+	<ul id="menu">
+	    <li><a href="#" data-target="div1">Div 1</a></li>
+	    <li><a href="#" data-target="div2">Div 2</a></li>
+	    <li><a href="#" data-target="div3">Div 3</a></li>
+	</ul>
+
+	<div id="container" class="containerFlexPilha">
+
+		<div id="divAdicionarExercicio">
+		    <form id="meuFormulario">
+		        <label for="nome">Nome:</label>
+		        <input type="text" id="nome">
+		        <label for="carga">Carga:</label>
+		        <input type="number" id="carga">
+		        <button type="button" onclick="adicionarRegistro()">Adicionar</button>
+		    </form>
+		</div>
+
+		<div id="divTabela">
+		    <table id="minhaTabela">
+		        <thead>
+		            <tr>
+		                <th>Nome</th>
+		                <th>Carga</th>
+		            </tr>
+		        </thead>
+		        <tbody>
+		        </tbody>
+		    </table>
+
+			<div id="divBotoesTabela" class="divBotoesTabela">
+			    <button onclick="exportarJSON()">Exportar JSON</button>
+			    <button id="excluir" class="botaoExcluir" onclick="excluirTodosRegistros()">Excluir Tudo</button>
+			    <input type="file" id="botaoImportarJsonDeTreino" class="botaoImportarJsonDeTreino">
+			</div>
+
+		</div>
+
 	</div>
 
-	<div id="divTabela">
-	    <table id="minhaTabela">
-	        <thead>
-	            <tr>
-	                <th>Nome</th>
-	                <th>Carga</th>
-	            </tr>
-	        </thead>
-	        <tbody>
-	        </tbody>
-	    </table>
-	</div>
-
-    <button onclick="exportarJSON()">Exportar JSON</button>
-    <button id="excluir" onclick="excluirTodosRegistros()">Excluir Tudo</button>
-    <script src="script.js"></script>
+	<script src="script.js"></script>
 </body>
 </html>
