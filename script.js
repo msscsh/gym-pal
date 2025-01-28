@@ -69,20 +69,41 @@ function excluirTodosRegistros() {
     }
 }
 
-const input = document.getElementById('botaoImportarJsonDeTreino');
-input.addEventListener('change', () => {
-  const reader = new FileReader();
 
-  reader.onload = () => {
-    const json = JSON.parse(reader.result);
-    localStorage.setItem('meusDados', JSON.stringify(json));
-    console.log('JSON importado com sucesso!');
-    exibirTabela();
-  };
+function criarListenerDeImportacaoDeJson() {
+    const input = document.getElementById('botaoImportarJsonDeTreino');
+    input.addEventListener('change', () => {
+      const reader = new FileReader();
 
-  reader.readAsText(input.files[0]);
-});
+      reader.onload = () => {
+        const json = JSON.parse(reader.result);
+        localStorage.setItem('meusDados', JSON.stringify(json));
+        console.log('JSON importado com sucesso!');
+        exibirTabela();
+      };
 
+      reader.readAsText(input.files[0]);
+    });
+}
+
+function criarListenerDeZoom() {
+
+    const input = document.getElementById('zoomInput');
+    const elementoZoom = document.getElementById('container');
+
+    input.addEventListener('input', () => {
+        const valorZoom = input.value;
+        elementoZoom.style.transform = `scale(${valorZoom})`;
+    });
+
+}
+
+function init() {
+    criarListenerDeImportacaoDeJson();
+    criarListenerDeZoom();
+}
+
+init()
 
 window.onload = function() {
     exibirTabela();
