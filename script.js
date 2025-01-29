@@ -48,13 +48,22 @@ function limparCamposNaTela() {
     document.getElementById('intensidade').value = ''
 }
 
+function alterarExibicaoConformeTamanhoDaTabela(isTabelaVazia) {
+    if (isTabelaVazia) {
+        document.getElementById('tabelaTreinos').style.display = 'none';
+        document.getElementById('mensagem').textContent = 'Você ainda não possui registros de treinos.';        
+        document.getElementById('divTabelaTreinos').classList.add('encolherDiv');
+    }
+    else {
+        document.getElementById('tabelaTreinos').removeAttribute('style');
+        document.getElementById('mensagem').textContent = '';  
+        document.getElementById('divTabelaTreinos').classList.remove('encolherDiv');
+    }
+}
 
-function exibirTabela() {
-
+function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dados) {
     const tabela = document.getElementById('tabelaTreinos').getElementsByTagName('tbody')[0];
     tabela.innerHTML = '';
-
-    const dados = JSON.parse(localStorage.getItem('meusDados')) || [];
     dados.forEach((registro, index) => {
         const novaLinha = tabela.insertRow();
         const celulaExercicio = novaLinha.insertCell();
@@ -74,6 +83,20 @@ function exibirTabela() {
         };
         celulaAcoes.appendChild(botaoExcluir);
     });
+}
+
+function exibirTabela() {
+
+    const dados = JSON.parse(localStorage.getItem('meusDados')) || [];
+
+    if (dados.length > 0) {
+        alterarExibicaoConformeTamanhoDaTabela(false);
+        criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dados)
+    }
+    else {
+        alterarExibicaoConformeTamanhoDaTabela(true);
+    }
+
 }
 
 function identificarEmojiDeIntensidadeDoExercicio(valor) {

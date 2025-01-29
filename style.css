@@ -94,6 +94,10 @@ label {
   padding-right: 20px;
 }
 
+p {
+  text-align: center;
+}
+
 button {
   background-color: var(--amarelo-medio);
   color: var(--preto);
@@ -148,6 +152,11 @@ button {
 }
 
 .divTabelaTreinos {
-  height: 300px; /* Ajuste a altura conforme necessário */
-  overflow-y: auto;
+  height: 300px;
+  overflow-y: auto;  
+  transition: height 0.5s ease-in-out;
+}
+
+.encolherDiv {
+  height: 100px;
 }
