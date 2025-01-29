@@ -8,7 +8,7 @@
 
 	<div id="container" class="containerFlexPilha zoom">
 		
-		<div id="divConfiguracaoDeTela">
+		<div id="divConfiguracaoDeTela" class="divConfiguracaoDeTela">
 			<input type="number" id="zoomInput" placeholder="Um pouco de zoom?">
 		</div>
 
@@ -18,7 +18,17 @@
 		        <input type="text" id="exercicio">
 		        <label for="carga">Carga:</label>
 		        <input type="number" id="carga">
-		        <button type="button" onclick="adicionarRegistro()">Adicionar</button>
+		        <label for="intensidade">Intensidade:</label>
+		        <select id="intensidade">
+					<option value="muito leve">😁</option>
+					<option value="leve">🙂</option>
+					<option value="moderado">😐</option>
+					<option value="pesado">😰</option>
+					<option value="muito pesado">🥵</option>
+				</select>
+				<div id="divBotaoAdicionar" class="divBotaoAdicionar">
+		        	<button type="button" onclick="adicionarRegistro()">Adicionar</button>
+		    	</div>
 		    </form>
 		</div>
 
@@ -30,6 +40,7 @@
 			            <tr>
 			                <th>Exercício</th>
 			                <th>Carga</th>
+			                <th>Intensidade</th>
 			            </tr>
 			        </thead>
 			        <tbody>

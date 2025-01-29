@@ -32,7 +32,8 @@ function mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(objeto, nomeAntigo, no
 function adicionarRegistro() {
     const exercicio = document.getElementById('exercicio').value;
     const carga = document.getElementById('carga').value;
-    const novoRegistro = { exercicio, carga };
+    const intensidade = document.getElementById('intensidade').value;
+    const novoRegistro = { exercicio, carga, intensidade };
     let dados = JSON.parse(localStorage.getItem('meusDados')) || [];
     dados.push(novoRegistro);
     localStorage.setItem('meusDados', JSON.stringify(dados));
@@ -57,10 +58,12 @@ function exibirTabela() {
         const novaLinha = tabela.insertRow();
         const celulaExercicio = novaLinha.insertCell();
         const celulaCarga = novaLinha.insertCell();
+        const celulaIntensidade = novaLinha.insertCell();
         const celulaAcoes = novaLinha.insertCell();
 
         celulaExercicio.textContent = registro.exercicio;
         celulaCarga.textContent = registro.carga;
+        celulaIntensidade.textContent = registro.intensidade;
 
         const botaoExcluir = document.createElement('button');
         botaoExcluir.textContent = 'DEL';
