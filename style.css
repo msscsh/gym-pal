@@ -15,11 +15,6 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  font-family: Arial, sans-serif;
-}
-
-body {
-  font-family: Arial, sans-serif;
   background-color: var(--cinza-claro);
 }
 
@@ -114,3 +109,13 @@ button {
   height: 300px; /* Ajuste a altura conforme necessário */
   overflow-y: auto;
 }
+
+.divConfiguracaoDeTela {
+  padding-bottom: 20px;
+}
+
+.divBotaoAdicionar {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
