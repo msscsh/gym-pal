@@ -198,4 +198,4 @@ function init() {
     };
 }
 
-init()
+init();
