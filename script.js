@@ -45,6 +45,7 @@ function adicionarRegistro() {
 function limparCamposNaTela() {
     document.getElementById('exercicio').value = ''
     document.getElementById('carga').value = ''
+    document.getElementById('intensidade').value = ''
 }
 
 
@@ -63,7 +64,7 @@ function exibirTabela() {
 
         celulaExercicio.textContent = registro.exercicio;
         celulaCarga.textContent = registro.carga;
-        celulaIntensidade.textContent = registro.intensidade;
+        celulaIntensidade.textContent = identificarEmojiDeIntensidadeDoExercicio(registro.intensidade);
 
         const botaoExcluir = document.createElement('button');
         botaoExcluir.textContent = 'DEL';
@@ -74,6 +75,31 @@ function exibirTabela() {
         celulaAcoes.appendChild(botaoExcluir);
     });
 }
+
+function identificarEmojiDeIntensidadeDoExercicio(valor) {
+
+    if (valor === 'muito leve') {
+        emoji = '\u{1F601}';
+    }
+    else if (valor === 'leve') {
+        emoji = '\u{1F642}';
+    }
+    else if (valor === 'moderado') {
+        emoji = '\u{1F610}';
+    }
+    else if (valor === 'pesado') {
+        emoji = '\u{1F630}';
+    }
+    else if (valor === 'muito pesado') {
+        emoji = '\u{1F975}';
+    }
+    else {
+        emoji = 'sem emoji definido';
+    }
+
+    return emoji;
+}
+
 
 function excluirRegistro(index) {
     let dados = JSON.parse(localStorage.getItem('meusDados')) || [];
@@ -126,6 +152,7 @@ function criarListenerDeZoom() {
 }
 
 function init() {
+    limparCamposNaTela();
     criarListenerDeImportacaoDeJson();
     criarListenerDeZoom();
     ajustarVersaoDoJSON();

@@ -64,6 +64,11 @@ table tr:nth-child(even) {
   background-color: var(--amarelo-claro)
 }
 
+table td:nth-child(2n), table td:nth-child(3n) {
+  text-align: center;
+}
+
+
 form {
   text-align: center;
   margin-bottom: 20px;
