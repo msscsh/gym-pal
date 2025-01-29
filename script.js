@@ -35,7 +35,7 @@ function adicionarRegistro() {
     const intensidade = document.getElementById('intensidade').value;
     const novoRegistro = { exercicio, carga, intensidade };
     let dados = JSON.parse(localStorage.getItem('meusDados')) || [];
-    dados.push(novoRegistro);
+    dados.unshift(novoRegistro);
     localStorage.setItem('meusDados', JSON.stringify(dados));
     limparCamposNaTela();
     exibirTabela();
