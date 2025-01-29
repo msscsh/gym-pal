@@ -77,7 +77,7 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dados) {
 
         const botaoExcluir = document.createElement('button');
         botaoExcluir.textContent = 'DEL';
-        botaoExcluir.classList.add('botaoExcluir');
+        botaoExcluir.classList.add('botaoExcluirRegistroDeTreino');
         botaoExcluir.onclick = () => {
             excluirRegistro(index);
         };

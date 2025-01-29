@@ -16,6 +16,7 @@ body {
   align-items: center;
   height: 100vh;
   background-color: var(--cinza-claro);
+  font-size: small;
 }
 
 table {
@@ -103,11 +104,18 @@ button {
   color: var(--preto);
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 30px;
   cursor: pointer;
 }
 
-.botaoExcluir {
+.botaoExcluirRegistroDeTreino {
+  background-color: var(--vermelho);
+  color: white;
+  font-size: x-small;
+}
+
+
+.botaoExcluirTodosOsDados {
   background-color: var(--vermelho);
   color: white;
 }
