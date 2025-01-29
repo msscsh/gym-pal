@@ -20,6 +20,8 @@ function adicionarRegistro() {
     let dados = JSON.parse(localStorage.getItem('meusDados')) || [];
     dados.push(novoRegistro);
     localStorage.setItem('meusDados', JSON.stringify(dados));
+    document.getElementById('nome').value = ''
+    document.getElementById('carga').value = ''
     exibirTabela();
 }
 
