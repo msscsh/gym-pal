@@ -13,17 +13,39 @@ function exportarJSON() {
     downloadJSON(jsonSalvo);
 }
 
+function ajustarVersaoDoJSON() {
+
+    const dados = JSON.parse(localStorage.getItem('meusDados')) || [];
+    dados.forEach(objeto => {
+        mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(objeto, 'nome', 'exercicio');
+    });
+    localStorage.setItem('meusDados', JSON.stringify(dados));
+}
+
+function mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(objeto, nomeAntigo, nomeAtual) {
+    if (nomeAntigo in objeto) {
+        objeto[nomeAtual] = objeto[nomeAntigo];
+        delete objeto[nomeAntigo];
+    }
+}
+
 function adicionarRegistro() {
-    const nome = document.getElementById('nome').value;
+    const exercicio = document.getElementById('exercicio').value;
     const carga = document.getElementById('carga').value;
-    const novoRegistro = { nome, carga };
+    const novoRegistro = { exercicio, carga };
     let dados = JSON.parse(localStorage.getItem('meusDados')) || [];
     dados.push(novoRegistro);
     localStorage.setItem('meusDados', JSON.stringify(dados));
-    document.getElementById('nome').value = ''
-    document.getElementById('carga').value = ''
+    limparCamposNaTela();
     exibirTabela();
 }
+
+
+function limparCamposNaTela() {
+    document.getElementById('exercicio').value = ''
+    document.getElementById('carga').value = ''
+}
+
 
 function exibirTabela() {
 
@@ -33,11 +55,11 @@ function exibirTabela() {
     const dados = JSON.parse(localStorage.getItem('meusDados')) || [];
     dados.forEach((registro, index) => {
         const novaLinha = tabela.insertRow();
-        const celulaNome = novaLinha.insertCell();
+        const celulaExercicio = novaLinha.insertCell();
         const celulaCarga = novaLinha.insertCell();
         const celulaAcoes = novaLinha.insertCell();
 
-        celulaNome.textContent = registro.nome;
+        celulaExercicio.textContent = registro.exercicio;
         celulaCarga.textContent = registro.carga;
 
         const botaoExcluir = document.createElement('button');
@@ -103,10 +125,11 @@ function criarListenerDeZoom() {
 function init() {
     criarListenerDeImportacaoDeJson();
     criarListenerDeZoom();
+    ajustarVersaoDoJSON();
+
+    window.onload = function() {
+        exibirTabela();
+    };
 }
 
 init()
-
-window.onload = function() {
-    exibirTabela();
-};

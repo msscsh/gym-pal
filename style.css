@@ -65,7 +65,6 @@ table td:last-child {
   background-color: var(--cinza-claro);
 }
 
-
 table tr:nth-child(even) {
   background-color: var(--amarelo-claro)
 }
