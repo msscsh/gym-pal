@@ -33,20 +33,22 @@
 			<input type="number" id="zoomInput" placeholder="Um pouco de zoom?">
 		</div>
 
-		<div id="divAdicionarExercicio">
+		<div id="divAdicionarExercicio" class="divAdicionarExercicio">
 		    <form id="meuFormulario">
-		        <label for="exercicio">Exercício:</label>
-		        <input type="text" id="exercicio">
-		        <label for="carga">Carga:</label>
-		        <input type="number" id="carga">
-		        <label for="intensidade">Intensidade:</label>
-		        <select id="intensidade">
-					<option value="muito leve">😁&nbsp;&nbsp;&nbsp;&nbsp;muito leve</option>
-					<option value="leve">🙂&nbsp;&nbsp;&nbsp;&nbsp;leve</option>
-					<option value="moderado">😐&nbsp;&nbsp;&nbsp;&nbsp;moderado</option>
-					<option value="pesado">😰&nbsp;&nbsp;&nbsp;&nbsp;pesado</option>
-					<option value="muito pesado">🥵&nbsp;&nbsp;&nbsp;&nbsp;muito pesado</option>
-				</select>
+				<div id="divCamposAdicionarExercicio" class="divCamposAdicionarExercicio containerGrid">
+			        <label for="exercicio">Exercício:</label>
+			        <input type="text" id="exercicio">
+			        <label for="carga">Carga:</label>
+			        <input type="number" id="carga">
+			        <label for="intensidade">Intensidade:</label>
+			        <select id="intensidade">
+						<option value="muito leve">😁&nbsp;&nbsp;&nbsp;&nbsp;muito leve</option>
+						<option value="leve">🙂&nbsp;&nbsp;&nbsp;&nbsp;leve</option>
+						<option value="moderado">😐&nbsp;&nbsp;&nbsp;&nbsp;moderado</option>
+						<option value="pesado">😰&nbsp;&nbsp;&nbsp;&nbsp;pesado</option>
+						<option value="muito pesado">🥵&nbsp;&nbsp;&nbsp;&nbsp;muito pesado</option>
+					</select>
+		    	</div>
 				<div id="divBotaoAdicionar" class="divBotaoAdicionar">
 		        	<button type="button" onclick="adicionarRegistro()">Adicionar</button>
 		    	</div>

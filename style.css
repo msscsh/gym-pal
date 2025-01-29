@@ -19,16 +19,9 @@ body {
 }
 
 table {
-  border-collapse: collapse;
-  margin: 0 auto;
+/*  border-collapse: collapse;*/
+/*  margin: 0 auto;*/
   display: table;
-}
-
-.container {
-  max-width: 800px;
-  padding: 20px;
-  background-color: #f0f0f0;
-  border-radius: 10px;
 }
 
 .containerFlexPilha {
@@ -45,8 +38,8 @@ table {
 
 .containerGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+/*  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));*/
+  grid-template-columns: repeat(2, 1fr); 
 }
 
 table {
@@ -54,30 +47,51 @@ table {
   border-collapse: collapse;
 }
 
+th {
+  padding-bottom: 4px;
+  text-align: center;
+}
+
+td {
+  border: 1px solid var(--cinza-medio);
+  padding: 4px;
+  text-align: left;
+}
+
+table tr:first-child td {
+  border-top: none;
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
 table td:last-child {
   border-right: none;
   border-top: none;
-  background-color: var(--cinza-claro);
+/*  background-color: var(--cinza-claro);*/
 }
 
 table tr:nth-child(even) {
   background-color: var(--amarelo-claro)
 }
 
+table td:nth-child(1n){
+  padding-left: 4px;
+  border-left: none;
+}
+
 table td:nth-child(2n), table td:nth-child(3n) {
   text-align: center;
 }
 
-
 form {
   text-align: center;
-  margin-bottom: 20px;
 }
 
-th, td {
-  border: 1px solid var(--cinza-medio);
-  padding: 15px;
-  text-align: left;
+label {
+  text-align: right;
+  padding-right: 20px;
 }
 
 button {
@@ -110,13 +124,18 @@ button {
   transform: scale(1);
 }
 
-.divTabelaTreinos {
-  height: 300px; /* Ajuste a altura conforme necessário */
-  overflow-y: auto;
-}
-
 .divConfiguracaoDeTela {
   padding-bottom: 20px;
+}
+
+.divAdicionarExercicio {
+  border: 1px solid var(--cinza-medio);
+}
+
+.divCamposAdicionarExercicio {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .divBotaoAdicionar {
@@ -124,3 +143,11 @@ button {
   padding-top: 20px;
 }
 
+.divTreinos {
+  padding-top: 20px;
+}
+
+.divTabelaTreinos {
+  height: 300px; /* Ajuste a altura conforme necessário */
+  overflow-y: auto;
+}
