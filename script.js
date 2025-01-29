@@ -33,7 +33,8 @@ function adicionarRegistro() {
     const exercicio = document.getElementById('exercicio').value;
     const carga = document.getElementById('carga').value;
     const intensidade = document.getElementById('intensidade').value;
-    const novoRegistro = { exercicio, carga, intensidade };
+    const timestampDoExercicio = Date.now();
+    const novoRegistro = { exercicio, carga, intensidade, timestampDoExercicio };
     let dados = JSON.parse(localStorage.getItem('meusDados')) || [];
     dados.unshift(novoRegistro);
     localStorage.setItem('meusDados', JSON.stringify(dados));
@@ -69,11 +70,13 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dados) {
         const celulaExercicio = novaLinha.insertCell();
         const celulaCarga = novaLinha.insertCell();
         const celulaIntensidade = novaLinha.insertCell();
+        const celulaDataHoraExercicio = novaLinha.insertCell();
         const celulaAcoes = novaLinha.insertCell();
 
         celulaExercicio.textContent = registro.exercicio;
         celulaCarga.textContent = registro.carga;
         celulaIntensidade.textContent = identificarEmojiDeIntensidadeDoExercicio(registro.intensidade);
+        celulaDataHoraExercicio.textContent = converterTimestampParaFormatacaoDataEHora(registro.timestampDoExercicio);
 
         const botaoExcluir = document.createElement('button');
         botaoExcluir.textContent = 'DEL';
@@ -83,6 +86,16 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dados) {
         };
         celulaAcoes.appendChild(botaoExcluir);
     });
+}
+
+function converterTimestampParaFormatacaoDataEHora(timestamp) {
+    if (timestamp) {
+        const data = new Date(timestamp);
+        const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+        const dataFormatadaPersonalizada = data.toLocaleString('pt-BR', options);
+        return dataFormatadaPersonalizada;
+    }
+    return "sem registro de data";
 }
 
 function exibirTabela() {
