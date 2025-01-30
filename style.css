@@ -13,6 +13,59 @@
   transition: transform 0.3s ease;
 }
 
+.menu {
+  left: 1%;
+  top: 1%;
+  right: 0px;
+  bottom: 0px;
+  z-index: 3;
+  background-color: black;
+  position: absolute;
+  max-width: 5%;
+  max-height: 10%;
+  min-width: 5%;
+  min-height: 10%;
+  border-radius: 50%;
+  overflow: hidden;
+/*  padding: 13px;*/
+/*  margin: 15px;*/
+}
+
+.menu img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.menuLateral {
+  left: 1%;
+  top: 6%;
+  right: 0px;
+  bottom: 0px;
+  z-index: 2;
+  background-color: black;
+  position: absolute;
+  border-radius: 2%;
+  overflow: auto;
+/*  margin: 15px;*/
+/*  transition: width 1s ease, height 1s ease;*/
+  min-width: 5%;
+  min-height: 0%;
+  max-width: 5%;
+  max-height: 90%;
+  height: 0%;
+  transition: height 1.5s ease;
+}
+
+.animarMenuDeCimaPraBaixo {
+  height: 90%;
+}
+
+.animarMenuDeBaixoPraCima {
+  height: 0%;
+}
+
 html {
   z-index:2; 
   height: 100%;
@@ -20,9 +73,10 @@ html {
   padding: 0;
   overflow: scroll;
   flex: 1;
-  border: 5px solid transparent;
+  border: 15px solid transparent;
   border-left: none;
   border-right: none;
+  border-top: none;
   border-image: repeating-linear-gradient(45deg, var(--amarelo-claro), var(--preto), var(--amarelo-escuro) 30px) 60;
   box-sizing: border-box;
   max-height: 100%;
@@ -59,6 +113,7 @@ table {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 
 .containerGrid {

@@ -187,6 +187,16 @@ function criarListenerDeZoom() {
 
 }
 
+function mostrarDiv() {
+    const divLateral = document.getElementById('menuLateral');
+    if ( !divLateral.classList.contains("animarMenuDeCimaPraBaixo") ) {
+        divLateral.classList.add("animarMenuDeCimaPraBaixo");
+    }
+    else {
+        divLateral.classList.remove("animarMenuDeCimaPraBaixo");  
+    }
+}
+
 function init() {
     limparCamposNaTela();
     criarListenerDeImportacaoDeJson();
