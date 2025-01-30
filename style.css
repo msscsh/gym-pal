@@ -21,14 +21,30 @@
   z-index: 3;
   background-color: black;
   position: absolute;
-  max-width: 5%;
-  max-height: 10%;
-  min-width: 5%;
-  min-height: 10%;
   border-radius: 50%;
   overflow: hidden;
-/*  padding: 13px;*/
-/*  margin: 15px;*/
+}
+
+@media (max-width: 850px) {
+  .menu {
+    width: 50px; /* Largura fixa: 500px */
+    height: 50px; /* Largura fixa: 500px */
+  }
+  .menuLateral {
+    width: 50px; /* Largura fixa: 500px */
+    height: 500px; /* Largura fixa: 500px */
+  }
+}
+
+@media (min-width: 851px) {
+  .menu {
+    width: 100px; /* Largura fixa: 500px */
+    height: 100px; /* Largura fixa: 500px */
+  }
+  .menuLateral {
+    width: 100px; /* Largura fixa: 500px */
+    height: 80%; /* Largura fixa: 500px */
+  }
 }
 
 .menu img {
@@ -48,22 +64,18 @@
   position: absolute;
   border-radius: 2%;
   overflow: auto;
-/*  margin: 15px;*/
-/*  transition: width 1s ease, height 1s ease;*/
-  min-width: 5%;
-  min-height: 0%;
-  max-width: 5%;
-  max-height: 90%;
   height: 0%;
   transition: height 1.5s ease;
 }
 
-.animarMenuDeCimaPraBaixo {
-  height: 90%;
+@media (max-height: 1500px) {
 }
 
-.animarMenuDeBaixoPraCima {
-  height: 0%;
+@media (min-height: 1501px) {
+}
+
+.animarMenuDeCimaPraBaixo {
+  height: 90%;
 }
 
 html {
