@@ -9,20 +9,40 @@
   --vermelho: #d6480b;
 }
 
-body {
+.zoom {
+  transition: transform 0.3s ease;
+}
+
+html {
+  z-index:2; 
+  height: 100%;
   margin: 0;
-  margin-top: 20px;
+  padding: 0;
+  overflow: scroll;
+  flex: 1;
+  border: 15px solid black;
+  box-sizing: border-box;
+  max-height: 100%;
+  max-width: 100%;
+  justify-content: center;
+  display: flex;
+}
+
+body {
+  z-index:1; 
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  overflow: scroll;
   background-color: var(--cinza-claro);
   font-size: small;
+  min-height: 100%;
+  min-width: 100%;
 }
 
 table {
-/*  border-collapse: collapse;*/
-/*  margin: 0 auto;*/
   display: table;
 }
 
@@ -133,10 +153,6 @@ button {
     background-color: var(--amarelo-claro);
 }
 
-.zoom {
-  transform: scale(1);
-}
-
 .divConfiguracaoDeTela {
   padding-bottom: 20px;
 }
@@ -161,11 +177,11 @@ button {
 }
 
 .divTabelaTreinos {
-  height: 300px;
+/*  height: 300px;*/
   overflow-y: auto;  
   transition: height 0.5s ease-in-out;
 }
 
 .encolherDiv {
-  height: 100px;
+/*  height: 100px;*/
 }
