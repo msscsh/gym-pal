@@ -30,23 +30,37 @@ function mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(objeto, nomeAntigo, no
 }
 
 function adicionarRegistro() {
+
+    const index = document.getElementById('index').value;
     const exercicio = document.getElementById('exercicio').value;
     const carga = document.getElementById('carga').value;
     const intensidade = document.getElementById('intensidade').value;
-    const timestampDoExercicio = Date.now();
-    const novoRegistro = { exercicio, carga, intensidade, timestampDoExercicio };
+
     let dados = JSON.parse(localStorage.getItem('meusDados')) || [];
-    dados.unshift(novoRegistro);
+
+    if (index) {
+        let itemAlvo = dados[index];
+        itemAlvo.exercicio = exercicio;
+        itemAlvo.carga = carga;
+        itemAlvo.intensidade = intensidade;
+        dados[index] = itemAlvo;
+    }
+    else {
+        const timestampDoExercicio = Date.now();
+        const novoRegistro = { exercicio, carga, intensidade, timestampDoExercicio };
+        dados.unshift(novoRegistro);
+    }
+
     localStorage.setItem('meusDados', JSON.stringify(dados));
     limparCamposNaTela();
-    exibirTabela();
+    mostrarTabelaDeTreinos();
 }
-
 
 function limparCamposNaTela() {
     document.getElementById('exercicio').value = ''
     document.getElementById('carga').value = ''
     document.getElementById('intensidade').value = ''
+    document.getElementById('index').value = ''
 }
 
 function alterarExibicaoConformeTamanhoDaTabela(isTabelaVazia) {
@@ -84,6 +98,15 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dados) {
         botaoExcluir.onclick = () => {
             excluirRegistro(index);
         };
+
+        const botaoEditar = document.createElement('button');
+        botaoEditar.textContent = 'EDIT';
+        botaoEditar.classList.add('botaoEditarRegistroDeTreino');
+        botaoEditar.onclick = () => {
+            editarRegistro(index);
+        };
+
+        celulaAcoes.appendChild(botaoEditar);
         celulaAcoes.appendChild(botaoExcluir);
     });
 }
@@ -136,25 +159,31 @@ function identificarEmojiDeIntensidadeDoExercicio(valor) {
     return emoji;
 }
 
+function editarRegistro(index) {
+    let dados = JSON.parse(localStorage.getItem('meusDados')) || [];
+    const itemParaEditar = dados[index];
+    document.getElementById('exercicio').value = itemParaEditar.exercicio;
+    document.getElementById('carga').value = itemParaEditar.carga;
+    document.getElementById('intensidade').value = itemParaEditar.intensidade;
+    document.getElementById('index').value = index;
+    mostrarTelaParaAdicionarUmaExecucaoDeTreino();
+}
 
 function excluirRegistro(index) {
     let dados = JSON.parse(localStorage.getItem('meusDados')) || [];
     dados.splice(index, 1);
     localStorage.setItem('meusDados', JSON.stringify(dados));
-    exibirTabela();
 }
 
 function excluirUltimoRegistro() {
     let dados = JSON.parse(localStorage.getItem('meusDados')) || [];
     dados.pop();
     localStorage.setItem('meusDados', JSON.stringify(dados));
-    exibirTabela();
 }
 
 function excluirTodosRegistros() {
     if (confirm("Tem certeza que deseja excluir todos os registros?")) {
         localStorage.clear();
-        exibirTabela();
     }
 }
 
@@ -197,15 +226,37 @@ function mostrarDiv() {
     }
 }
 
+function mostrarTabelaDeTreinos() {
+    exibirTabela();
+    document.getElementById("divAdicionarExercicio").style.display = "none";
+    document.getElementById("divConfiguracaoDeTela").style.display = "none";
+    document.getElementById("divTreinos").style.display = "";
+}
+
+function mostrarTelaParaAdicionarUmaExecucaoDeTreino() {
+    document.getElementById("divAdicionarExercicio").style.display = "";
+    document.getElementById("divConfiguracaoDeTela").style.display = "none";
+    document.getElementById("divTreinos").style.display = "none";
+}
+
+function mostrarTelaParaConfigurar() {
+    document.getElementById("divAdicionarExercicio").style.display = "none";
+    document.getElementById("divConfiguracaoDeTela").style.display = "";
+    document.getElementById("divTreinos").style.display = "none";
+}
+
+function limparApresentacao() {
+    document.getElementById("divAdicionarExercicio").style.display = "none";
+    document.getElementById("divConfiguracaoDeTela").style.display = "none";
+    document.getElementById("divTreinos").style.display = "none";
+}
+
 function init() {
     limparCamposNaTela();
     criarListenerDeImportacaoDeJson();
     criarListenerDeZoom();
     ajustarVersaoDoJSON();
-
-    window.onload = function() {
-        exibirTabela();
-    };
+    limparApresentacao();
 }
 
 init();

@@ -66,6 +66,15 @@
   overflow: auto;
   height: 0%;
   transition: height 1.5s ease;
+  color: white;
+}
+
+.itemDeMenuTabelaDeTreino {
+  margin-top: 70px !important;
+}
+
+.itemDeMenu {
+  margin: 10px;
 }
 
 @media (max-height: 1500px) {
@@ -205,6 +214,11 @@ button {
   font-size: x-small;
 }
 
+.botaoEditarRegistroDeTreino {
+  background-color: var(--preto);
+  color: white;
+  font-size: x-small;
+}
 
 .botaoExcluirTodosOsDados {
   background-color: var(--vermelho);

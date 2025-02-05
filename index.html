@@ -50,6 +50,7 @@
 							<option value="pesado">😰&nbsp;&nbsp;&nbsp;&nbsp;pesado</option>
 							<option value="muito pesado">🥵&nbsp;&nbsp;&nbsp;&nbsp;muito pesado</option>
 						</select>
+						<input type="hidden" id="index">
 			    	</div>
 					<div id="divBotaoAdicionar" class="divBotaoAdicionar">
 			        	<button type="button" onclick="adicionarRegistro()">Adicionar</button>
@@ -88,10 +89,19 @@
 		</div>
 
 		<div class="containerFlexCarrossel">
-			<div class="menu" onclick="mostrarDiv()">
-	  			<img src="home.png" alt="home">
+			<div id="divMenu" class="menu" onclick="mostrarDiv()">
+	  			<img id="imagemDoMenu" src="home.png" alt="home">
 			</div>
-			<div id="menuLateral" class="menuLateral" >
+			<div id="menuLateral" class="menuLateral containerFlexPilha" >
+				<div id="itemDeMenuTabelaDeTreino" class="itemDeMenuTabelaDeTreino itemDeMenu" onclick="mostrarTabelaDeTreinos()">
+					Histórico
+				</div>
+				<div id="itemDeMenuAdicionarTreino" class="itemDeMenu" onclick="mostrarTelaParaAdicionarUmaExecucaoDeTreino()">
+					+ Treino
+				</div>
+				<div id="itemDeMenuConfiguracaoDeTela" class="itemDeMenu" onclick="mostrarTelaParaConfigurar()">
+					Configs
+				</div>
 			</div>
 		</div>
 
