@@ -13,6 +13,9 @@ function exportarJSON() {
     downloadJSON(jsonSalvo);
 }
 
+/**
+ * Somente quando houver alterações no json
+ * */
 function ajustarVersaoDoJSON() {
 
     const dados = JSON.parse(localStorage.getItem('meusDados')) || [];
@@ -186,7 +189,6 @@ function excluirTodosRegistros() {
         localStorage.clear();
     }
 }
-
 
 function criarListenerDeImportacaoDeJson() {
     const input = document.getElementById('botaoImportarJsonDeTreino');
