@@ -35,11 +35,25 @@
 				<input type="number" id="zoomInput" placeholder="Um pouco de zoom?">
 			</div>
 
+			<div id="divConfiguracaoDeTreino" class="divConfiguracaoDeTreino">
+				<div id="divConfigurarExercicios" class="divConfigurarExercicios containerGrid">
+					<ul id="exerciciosCadastrados"></ul>
+
+					<div id="divCamposAdicionarExercicio" class="divCamposAdicionarExercicio containerFlexCarrossel">
+				        <label for="addExercicio">Exercicio:</label>
+				        <input type="text" id="addExercicio">
+				        <button class="botaoAdicionarExercicioNoSistema" onclick="adicionarExercicioNoSistema()">Adicionar</button>
+					</div>
+				</div>
+			</div>
+
 			<div id="divAdicionarExercicio" class="divAdicionarExercicio">
 			    <form id="meuFormulario">
 					<div id="divCamposAdicionarExercicio" class="divCamposAdicionarExercicio containerGrid">
 				        <label for="exercicio">Exercício:</label>
-				        <input type="text" id="exercicio">
+				        <!-- <input type="text" id="exercicio"> -->
+				        <select id="exercicio">
+						</select>
 				        <label for="carga">Carga:</label>
 				        <input type="number" id="carga">
 				        <label for="intensidade">Intensidade:</label>
@@ -98,6 +112,9 @@
 				</div>
 				<div id="itemDeMenuAdicionarTreino" class="itemDeMenu" onclick="mostrarTelaParaAdicionarUmaExecucaoDeTreino()">
 					+ Treino
+				</div>
+				<div id="itemDeMenuConfigurarTreino" class="itemDeMenu" onclick="mostrarTelaParaConfigurarTreino()">
+					Montagem
 				</div>
 				<div id="itemDeMenuConfiguracaoDeTela" class="itemDeMenu" onclick="mostrarTelaParaConfigurar()">
 					Configs

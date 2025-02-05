@@ -236,21 +236,78 @@ function mostrarTabelaDeTreinos() {
 }
 
 function mostrarTelaParaAdicionarUmaExecucaoDeTreino() {
+    preencherComboDeExercicios();
     document.getElementById("divAdicionarExercicio").style.display = "";
     document.getElementById("divConfiguracaoDeTela").style.display = "none";
     document.getElementById("divTreinos").style.display = "none";
+    document.getElementById("divConfiguracaoDeTreino").style.display = "none";
 }
 
 function mostrarTelaParaConfigurar() {
     document.getElementById("divAdicionarExercicio").style.display = "none";
     document.getElementById("divConfiguracaoDeTela").style.display = "";
     document.getElementById("divTreinos").style.display = "none";
+    document.getElementById("divConfiguracaoDeTreino").style.display = "none";
+}
+
+function mostrarTelaParaConfigurarTreino() {
+    apresentarExerciciosCadastrados();
+    document.getElementById("divAdicionarExercicio").style.display = "none";
+    document.getElementById("divConfiguracaoDeTela").style.display = "none";
+    document.getElementById("divTreinos").style.display = "none";
+    document.getElementById("divConfiguracaoDeTreino").style.display = "";
 }
 
 function limparApresentacao() {
     document.getElementById("divAdicionarExercicio").style.display = "none";
     document.getElementById("divConfiguracaoDeTela").style.display = "none";
     document.getElementById("divTreinos").style.display = "none";
+    document.getElementById("divConfiguracaoDeTreino").style.display = "none";
+}
+
+function formatarStringParaApresentacao(str) {
+  str = str.trim().replace(/\s+/g, '');
+  str = str.toLowerCase();
+  str = str.replace(/[^a-z0-9]/g, '');
+  return str;
+}
+
+function adicionarExercicioNoSistema() {
+
+    const nomeDoExercicio = document.getElementById("addExercicio").value;
+
+    if( nomeDoExercicio ) {
+        let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
+        const nomeId = formatarStringParaApresentacao(nomeDoExercicio);
+        const novoRegistro = { nomeId, nomeDoExercicio};
+        exerciciosCadastrados.unshift(novoRegistro);
+        localStorage.setItem('exerciciosCadastrados', JSON.stringify(exerciciosCadastrados));
+    }
+
+    document.getElementById("addExercicio").value = '';
+    apresentarExerciciosCadastrados();
+}
+
+function apresentarExerciciosCadastrados() {
+    let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
+    const lista = document.getElementById('exerciciosCadastrados');
+    lista.innerHTML = '';
+    exerciciosCadastrados.forEach(item => {
+      const li = document.createElement('li');
+      li.innerHTML = `<strong>${item.nomeDoExercicio}:</strong> ${item.nomeId}`;
+      lista.appendChild(li);
+    });
+}
+
+function preencherComboDeExercicios() {
+    const exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
+    const select = document.getElementById('exercicio');
+    exerciciosCadastrados.forEach(opcao => {
+      const option = document.createElement('option');
+      option.value = opcao.nomeId;
+      option.text = opcao.nomeDoExercicio;
+      select.appendChild(option);
+    });
 }
 
 function init() {

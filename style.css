@@ -208,6 +208,13 @@ button {
   cursor: pointer;
 }
 
+.botaoAdicionarExercicioNoSistema {
+  margin-left: 10px;
+  background-color: var(--preto);
+  color: white;
+  font-size: x-small;
+}
+
 .botaoExcluirRegistroDeTreino {
   background-color: var(--vermelho);
   color: white;
