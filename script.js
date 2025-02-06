@@ -288,10 +288,10 @@ function adicionarExercicioNoSistema() {
         const novoRegistro = {nomeDoExercicio};
         exerciciosCadastrados.push(novoRegistro);
         exerciciosCadastrados.sort((atual, seguinte) => {
-            if (atual.nomeDoExercicio < seguinte.nomeDoExercicio) {
+            if (atual.nomeDoExercicio.substring(0,3) < seguinte.nomeDoExercicio.substring(0,3)) {
                 return -1;
             }
-            if (atual.nomeDoExercicio > seguinte.nomeDoExercicio) {
+            if (atual.nomeDoExercicio.substring(0,3) > seguinte.nomeDoExercicio.substring(0,3)) {
                 return 1;
             }
             return 0;
