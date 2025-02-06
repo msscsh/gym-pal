@@ -191,7 +191,7 @@ function excluirRegistro(index) {
 }
 
 function excluirTodosRegistros() {
-    if (confirm("Tem certeza que deseja excluir todos os registros?")) {
+    if (confirm("Tem certeza que deseja excluir TODOS os registros?\n\nVocê pode exportar os registros NO BOTÃO AO LADO antes de realizar esta exclusão.")) {
         localStorage.setItem('meusDados', JSON.stringify([]));
     }
 }
