@@ -199,7 +199,7 @@ function excluirUltimoRegistro() {
 
 function excluirTodosRegistros() {
     if (confirm("Tem certeza que deseja excluir todos os registros?")) {
-        localStorage.clear();
+        localStorage.setItem('meusDados', JSON.stringify([]));
     }
 }
 
