@@ -20,7 +20,7 @@ function ajustarProblemasNosJSON() {
 
     let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
     exerciciosCadastrados.forEach(exercicioCadastrado => {
-        delete exercicioCadastrado[nomeId];
+        delete exercicioCadastrado['nomeId'];
     });
     localStorage.setItem('exerciciosCadastrados', JSON.stringify(exerciciosCadastrados));
 
