@@ -233,6 +233,7 @@ function mostrarTabelaDeTreinos() {
     document.getElementById("divAdicionarExercicio").style.display = "none";
     document.getElementById("divConfiguracaoDeTela").style.display = "none";
     document.getElementById("divTreinos").style.display = "";
+    document.getElementById("divConfiguracaoDeTreino").style.display = "none";
 }
 
 function mostrarTelaParaAdicionarUmaExecucaoDeTreino() {
