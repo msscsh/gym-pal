@@ -69,12 +69,12 @@
   color: white;
 }
 
-.itemDeMenuTabelaDeTreino {
-  margin-top: 70px !important;
+.itemDeMenuPrimeiro {
+  margin-top: 80px !important;
 }
 
 .itemDeMenu {
-  margin: 10px;
+  margin: 20px;
 }
 
 @media (max-height: 1500px) {
