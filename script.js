@@ -17,15 +17,10 @@ function exportarJSON() {
  * Somente quando houver alterações no json
  * */
 function ajustarProblemasNosJSON() {
-
     const meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
-
     meusDados.forEach(umDado => {
-        const nomeAmigavelParaApresentacao = recuperNomeDeApresentacaoDoExercicio(umDado.exercicio);
-        umDado.exercicio = nomeAmigavelParaApresentacao;
         // mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(umDado, 'nome', 'exercicio');
     });
-
     localStorage.setItem('meusDados', JSON.stringify(meusDados));
 }
 
@@ -34,15 +29,6 @@ function mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(objeto, nomeAntigo, no
         objeto[nomeAtual] = objeto[nomeAntigo];
         delete objeto[nomeAntigo];
     }
-}
-
-function recuperNomeDeApresentacaoDoExercicio(exercicioId) {
-    const exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
-    exerciciosCadastrados.forEach(exercicioCadastrado => {
-        if ( exercicioCadastrado.nomeId === exercicioId) {
-            return exercicioCadastrado.nomeDoExercicio;
-        }
-    });
 }
 
 function adicionarRegistro() {
@@ -292,9 +278,8 @@ function adicionarExercicioNoSistema() {
 
     if( nomeDoExercicio ) {
         let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
-        const nomeId = formatarStringParaApresentacao(nomeDoExercicio);
-        const novoRegistro = { nomeId, nomeDoExercicio};
-        exerciciosCadastrados.add(novoRegistro);
+        const novoRegistro = { nomeDoExercicio};
+        exerciciosCadastrados.push(novoRegistro);
         exerciciosCadastrados.sort();
         localStorage.setItem('exerciciosCadastrados', JSON.stringify(exerciciosCadastrados));
     }
@@ -307,9 +292,9 @@ function apresentarExerciciosCadastrados() {
     let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
     const lista = document.getElementById('exerciciosCadastrados');
     lista.innerHTML = '';
-    exerciciosCadastrados.forEach(item => {
+    exerciciosCadastrados.forEach(exercicioCadastrado => {
       const li = document.createElement('li');
-      li.innerHTML = `<strong>${item.nomeDoExercicio}:</strong> ${item.nomeId}`;
+      li.innerHTML = `<strong>${exercicioCadastrado.nomeDoExercicio}:</strong>`;
       lista.appendChild(li);
     });
 }
