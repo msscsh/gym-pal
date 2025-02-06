@@ -315,7 +315,7 @@ function apresentarExerciciosCadastrados() {
     lista.innerHTML = '';
     exerciciosCadastrados.forEach(exercicioCadastrado => {
       const li = document.createElement('li');
-      li.innerHTML = `<strong>${exercicioCadastrado.nomeDoExercicio}:</strong>`;
+      li.innerHTML = `<strong>${exercicioCadastrado.nomeDoExercicio}</strong>`;
       lista.appendChild(li);
     });
 }
