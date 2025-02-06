@@ -303,6 +303,7 @@ function apresentarExerciciosCadastrados() {
 function preencherComboDeExercicios() {
     const exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
     const select = document.getElementById('exercicio');
+    select.innerHTML = '';
     exerciciosCadastrados.forEach(opcao => {
       const option = document.createElement('option');
       option.value = opcao.nomeId;
