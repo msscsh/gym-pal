@@ -17,11 +17,18 @@ function exportarJSON() {
  * Somente quando houver alterações no json
  * */
 function ajustarProblemasNosJSON() {
-    const meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
-    meusDados.forEach(umDado => {
-        // mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(umDado, 'nome', 'exercicio');
+
+    let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
+    exerciciosCadastrados.forEach(exercicioCadastrado => {
+        delete exercicioCadastrado[nomeId];
     });
-    localStorage.setItem('meusDados', JSON.stringify(meusDados));
+    localStorage.setItem('exerciciosCadastrados', JSON.stringify(exerciciosCadastrados));
+
+    // const meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
+    // meusDados.forEach(umDado => {
+        // mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(umDado, 'nome', 'exercicio');
+    // });
+    // localStorage.setItem('meusDados', JSON.stringify(meusDados));
 }
 
 function mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(objeto, nomeAntigo, nomeAtual) {
@@ -280,7 +287,6 @@ function adicionarExercicioNoSistema() {
         let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
         const novoRegistro = { nomeDoExercicio};
         exerciciosCadastrados.push(novoRegistro);
-        exerciciosCadastrados.sort();
         localStorage.setItem('exerciciosCadastrados', JSON.stringify(exerciciosCadastrados));
     }
 
