@@ -224,7 +224,7 @@ function criarListenerDeZoom() {
 
 }
 
-function mostrarDiv() {
+function mostrarMenuLateral() {
     const divLateral = document.getElementById('menuLateral');
     if ( !divLateral.classList.contains("animarMenuDeCimaPraBaixo") ) {
         divLateral.classList.add("animarMenuDeCimaPraBaixo");
@@ -245,8 +245,7 @@ function apresentarDivAlvo(divAlvo) {
     }
 }
 
-function realizarAcoesParaDivAlvoAntesDaApresentacao() {
-
+function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
     if ( divAlvo === 'divTreinos' ) {
         exibirTabela();
     }
@@ -256,7 +255,6 @@ function realizarAcoesParaDivAlvoAntesDaApresentacao() {
     else if ( divAlvo === 'divConfiguracaoDeTreino' ) {
         apresentarExerciciosCadastrados();
     }
-
 }
 
 function limparApresentacao() {

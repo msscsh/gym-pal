@@ -103,20 +103,20 @@
 		</div>
 
 		<div class="containerFlexCarrossel">
-			<div id="divMenu" class="menu" onclick="mostrarDiv()">
+			<div id="divMenu" class="menu" onclick="mostrarMenuLateral()">
 	  			<img id="imagemDoMenu" src="home.png" alt="home">
 			</div>
 			<div id="menuLateral" class="menuLateral containerFlexPilha" >
-				<div id="itemDeMenuTabelaDeTreino" class="itemDeMenuPrimeiro itemDeMenu" onclick="mostrarTabelaDeTreinos()">
+				<div id="itemDeMenuTabelaDeTreino" class="itemDeMenuPrimeiro itemDeMenu" onclick="apresentarDivAlvo('divTreinos')">
 					Histórico
 				</div>
-				<div id="itemDeMenuAdicionarTreino" class="itemDeMenu" onclick="mostrarTelaParaAdicionarUmaExecucaoDeTreino()">
+				<div id="itemDeMenuAdicionarTreino" class="itemDeMenu" onclick="apresentarDivAlvo('divAdicionarExercicio')">
 					+ Treino
 				</div>
-				<div id="itemDeMenuConfigurarTreino" class="itemDeMenu" onclick="mostrarTelaParaConfigurarTreino()">
+				<div id="itemDeMenuConfigurarTreino" class="itemDeMenu" onclick="apresentarDivAlvo('divConfiguracaoDeTreino')">
 					Montagem
 				</div>
-				<div id="itemDeMenuConfiguracaoDeTela" class="itemDeMenu" onclick="mostrarTelaParaConfigurar()">
+				<div id="itemDeMenuConfiguracaoDeTela" class="itemDeMenu" onclick="apresentarDivAlvo('divConfiguracaoDeTela')">
 					Configs
 				</div>
 			</div>
