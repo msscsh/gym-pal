@@ -280,7 +280,8 @@ function adicionarExercicioNoSistema() {
         let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
         const nomeId = formatarStringParaApresentacao(nomeDoExercicio);
         const novoRegistro = { nomeId, nomeDoExercicio};
-        exerciciosCadastrados.unshift(novoRegistro);
+        exerciciosCadastrados.add(novoRegistro);
+        exerciciosCadastrados.sort();
         localStorage.setItem('exerciciosCadastrados', JSON.stringify(exerciciosCadastrados));
     }
 
