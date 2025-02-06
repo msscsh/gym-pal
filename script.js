@@ -307,7 +307,7 @@ function preencherComboDeExercicios() {
     select.innerHTML = '';
     exerciciosCadastrados.forEach(opcao => {
       const option = document.createElement('option');
-      option.value = opcao.nomeId;
+      option.value = opcao.nomeDoExercicio;
       option.text = opcao.nomeDoExercicio;
       select.appendChild(option);
     });
