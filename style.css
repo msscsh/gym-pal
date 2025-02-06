@@ -63,6 +63,8 @@
   background-color: black;
   position: absolute;
   border-radius: 2%;
+  overflow: auto;
+  overflow-x: hidden;
   height: 0%;
   transition: height 1.5s ease;
   color: white;
