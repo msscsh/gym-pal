@@ -33,6 +33,13 @@
 			
 			<div id="divConfiguracaoDeTela" class="divConfiguracaoDeTela">
 				<input type="number" id="zoomInput" placeholder="Um pouco de zoom?">
+
+				<div id="divBotoesTabelaTreino" class="divBotoesTabelaTreino">
+				    <button onclick="exportarJSON()">Exportar meus dados</button>
+				    <button id="excluir" class="botaoExcluirTodosOsDados" onclick="excluirTodosRegistros()">Excluir Tudo</button>
+				    <input type="file" id="botaoImportarJsonDeTreino" class="botaoImportarJsonDeTreino">
+				</div>
+
 			</div>
 
 			<div id="divConfiguracaoDeTreino" class="divConfiguracaoDeTreino">
@@ -89,12 +96,6 @@
 					<div id="divMensagemDeTabelaVazia">
 						<p id="mensagem"></p>
 					</div>
-				</div>
-
-				<div id="divBotoesTabelaTreino" class="divBotoesTabelaTreino">
-				    <button onclick="exportarJSON()">Exportar meus dados</button>
-				    <button id="excluir" class="botaoExcluirTodosOsDados" onclick="excluirTodosRegistros()">Excluir Tudo</button>
-				    <input type="file" id="botaoImportarJsonDeTreino" class="botaoImportarJsonDeTreino">
 				</div>
 
 			</div>
