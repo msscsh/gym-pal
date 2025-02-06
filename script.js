@@ -1,16 +1,22 @@
-function downloadJSON(jsonData) {
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(jsonData);
-    const downloadLink = document.createElement("a");
-    downloadLink.setAttribute("href", dataStr);
-    downloadLink.setAttribute("download", "meu_arquivo.json");
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-    document.body.removeChild(downloadLink);
-}
+// function downloadJSON(jsonData) {
+    // const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(jsonData);
+    // const downloadLink = document.createElement("a");
+    // downloadLink.setAttribute("href", dataStr);
+    // downloadLink.setAttribute("download", "meu_arquivo.json");
+    // document.body.appendChild(downloadLink);
+    // downloadLink.click();
+    // document.body.removeChild(downloadLink);
+// }
 
 function exportarJSON() {
     const jsonSalvo = localStorage.getItem('meusDados');
-    downloadJSON(jsonSalvo);
+    const jsonComQuebrasDeLinha = jsonSalvo.replace(/\\n/g, '\r\n'); // Ou '\n'
+    const bytes = new TextEncoder().encode(jsonComQuebrasDeLinha);
+    const blob = new Blob([bytes], { type: 'application/json' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'meus_dados_de_treino.json';
+    link.click();
 }
 
 /**
@@ -18,17 +24,17 @@ function exportarJSON() {
  * */
 function ajustarProblemasNosJSON() {
 
-    let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
-    exerciciosCadastrados.forEach(exercicioCadastrado => {
-        delete exercicioCadastrado['nomeId'];
-    });
-    localStorage.setItem('exerciciosCadastrados', JSON.stringify(exerciciosCadastrados));
+    // let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
+    // exerciciosCadastrados.forEach(exercicioCadastrado => {
+    //     delete exercicioCadastrado['nomeId'];
+    // });
+    // localStorage.setItem('exerciciosCadastrados', JSON.stringify(exerciciosCadastrados));
 
-    // const meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
+    const meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
     // meusDados.forEach(umDado => {
         // mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(umDado, 'nome', 'exercicio');
     // });
-    // localStorage.setItem('meusDados', JSON.stringify(meusDados));
+    localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
 }
 
 function mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(objeto, nomeAntigo, nomeAtual) {
