@@ -66,7 +66,7 @@ function adicionarRegistro() {
         dados.unshift(novoRegistro);
     }
 
-    localStorage.setItem('meusDados', JSON.stringify(dados));
+    localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
     limparCamposNaTela();
     mostrarTabelaDeTreinos();
 }
@@ -187,13 +187,7 @@ function editarRegistro(index) {
 function excluirRegistro(index) {
     let dados = JSON.parse(localStorage.getItem('meusDados')) || [];
     dados.splice(index, 1);
-    localStorage.setItem('meusDados', JSON.stringify(dados));
-}
-
-function excluirUltimoRegistro() {
-    let dados = JSON.parse(localStorage.getItem('meusDados')) || [];
-    dados.pop();
-    localStorage.setItem('meusDados', JSON.stringify(dados));
+    localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
 }
 
 function excluirTodosRegistros() {
@@ -209,7 +203,7 @@ function criarListenerDeImportacaoDeJson() {
 
       reader.onload = () => {
         const json = JSON.parse(reader.result);
-        localStorage.setItem('meusDados', JSON.stringify(json));
+        localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
         console.log('JSON importado com sucesso!');
         exibirTabela();
       };
