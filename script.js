@@ -15,7 +15,7 @@ function exportarJSON() {
     const blob = new Blob([bytes], { type: 'application/json' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = 'meus_dados_de_treino.json';
+    link.download = `meus_dados_de_treino_ts_${Date.now()}.json`;
     link.click();
 }
 
