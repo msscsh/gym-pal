@@ -16,13 +16,17 @@ function exportarJSON() {
 /**
  * Somente quando houver alterações no json
  * */
-function ajustarVersaoDoJSON() {
+function ajustarProblemasNosJSON() {
 
-    const dados = JSON.parse(localStorage.getItem('meusDados')) || [];
-    dados.forEach(objeto => {
-        mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(objeto, 'nome', 'exercicio');
+    const meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
+
+    meusDados.forEach(umDado => {
+        const nomeAmigavelParaApresentacao = recuperNomeDeApresentacaoDoExercicio(umDado.exercicio);
+        umDado.exercicio = nomeAmigavelParaApresentacao;
+        // mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(umDado, 'nome', 'exercicio');
     });
-    localStorage.setItem('meusDados', JSON.stringify(dados));
+
+    localStorage.setItem('meusDados', JSON.stringify(meusDados));
 }
 
 function mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(objeto, nomeAntigo, nomeAtual) {
@@ -30,6 +34,15 @@ function mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(objeto, nomeAntigo, no
         objeto[nomeAtual] = objeto[nomeAntigo];
         delete objeto[nomeAntigo];
     }
+}
+
+function recuperNomeDeApresentacaoDoExercicio(exercicioId) {
+    const exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
+    exerciciosCadastrados.forEach(exercicioCadastrado => {
+        if ( exercicioCadastrado.nomeId === exercicioId) {
+            return exercicioCadastrado.nomeDoExercicio;
+        }
+    });
 }
 
 function adicionarRegistro() {
@@ -317,7 +330,7 @@ function init() {
     limparCamposNaTela();
     criarListenerDeImportacaoDeJson();
     criarListenerDeZoom();
-    ajustarVersaoDoJSON();
+    ajustarProblemasNosJSON();
     limparApresentacao();
 }
 
