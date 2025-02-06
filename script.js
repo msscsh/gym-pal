@@ -287,7 +287,7 @@ function adicionarExercicioNoSistema() {
         let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
         const novoRegistro = {nomeDoExercicio};
         exerciciosCadastrados.push(novoRegistro);
-        pessoas.sort((atual, seguinte) => {
+        exerciciosCadastrados.sort((atual, seguinte) => {
             if (atual.nomeDoExercicio < seguinte.nomeDoExercicio) {
                 return -1;
             }
