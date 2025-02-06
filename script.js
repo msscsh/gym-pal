@@ -234,42 +234,33 @@ function mostrarDiv() {
     }
 }
 
-function mostrarTabelaDeTreinos() {
-    exibirTabela();
-    document.getElementById("divAdicionarExercicio").style.display = "none";
-    document.getElementById("divConfiguracaoDeTela").style.display = "none";
-    document.getElementById("divTreinos").style.display = "";
-    document.getElementById("divConfiguracaoDeTreino").style.display = "none";
-}
-
-function mostrarTelaParaAdicionarUmaExecucaoDeTreino() {
-    preencherComboDeExercicios();
-    document.getElementById("divAdicionarExercicio").style.display = "";
-    document.getElementById("divConfiguracaoDeTela").style.display = "none";
-    document.getElementById("divTreinos").style.display = "none";
-    document.getElementById("divConfiguracaoDeTreino").style.display = "none";
-}
-
-function mostrarTelaParaConfigurar() {
-    document.getElementById("divAdicionarExercicio").style.display = "none";
-    document.getElementById("divConfiguracaoDeTela").style.display = "";
-    document.getElementById("divTreinos").style.display = "none";
-    document.getElementById("divConfiguracaoDeTreino").style.display = "none";
-}
-
-function mostrarTelaParaConfigurarTreino() {
-    apresentarExerciciosCadastrados();
+function apresentarDivAlvo(divAlvo) {
+    realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo);
     document.getElementById("divAdicionarExercicio").style.display = "none";
     document.getElementById("divConfiguracaoDeTela").style.display = "none";
     document.getElementById("divTreinos").style.display = "none";
-    document.getElementById("divConfiguracaoDeTreino").style.display = "";
+    document.getElementById("divConfiguracaoDeTreino").style.display = "none";
+    if ( divAlvo ) {
+        document.getElementById(divAlvo).style.display = "";
+    }
+}
+
+function realizarAcoesParaDivAlvoAntesDaApresentacao() {
+
+    if ( divAlvo === 'divTreinos' ) {
+        exibirTabela();
+    }
+    else if ( divAlvo === 'divAdicionarExercicio' ) {
+        preencherComboDeExercicios();
+    }
+    else if ( divAlvo === 'divConfiguracaoDeTreino' ) {
+        apresentarExerciciosCadastrados();
+    }
+
 }
 
 function limparApresentacao() {
-    document.getElementById("divAdicionarExercicio").style.display = "none";
-    document.getElementById("divConfiguracaoDeTela").style.display = "none";
-    document.getElementById("divTreinos").style.display = "none";
-    document.getElementById("divConfiguracaoDeTreino").style.display = "none";
+    apresentarDivAlvo();
 }
 
 function formatarStringParaApresentacao(str) {
