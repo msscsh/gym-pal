@@ -51,7 +51,7 @@ function adicionarRegistro() {
     const carga = document.getElementById('carga').value;
     const intensidade = document.getElementById('intensidade').value;
 
-    let dados = JSON.parse(localStorage.getItem('meusDados')) || [];
+    let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
 
     if (index) {
         let itemAlvo = dados[index];
@@ -63,7 +63,7 @@ function adicionarRegistro() {
     else {
         const timestampDoExercicio = Date.now();
         const novoRegistro = { exercicio, carga, intensidade, timestampDoExercicio };
-        dados.unshift(novoRegistro);
+        meusDados.unshift(novoRegistro);
     }
 
     localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
