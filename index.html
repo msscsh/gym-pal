@@ -32,18 +32,21 @@
 		<div id="container" class="containerFlexPilha">
 			
 			<div id="divConfiguracaoDeTela" class="divConfiguracaoDeTela">
-				<input type="number" id="zoomInput" placeholder="Um pouco de zoom?">
 
-				<div id="divBotoesTabelaTreino" class="divBotoesTabelaTreino">
-				    <button onclick="exportarJSON()">Exportar meus dados</button>
-				    <button id="excluir" class="botaoExcluirTodosOsDados" onclick="excluirTodosRegistros()">Excluir Tudo</button>
-				    <input type="file" id="botaoImportarJsonDeTreino" class="botaoImportarJsonDeTreino">
+				<div class="containerFlexPilha">
+					<input type="number" id="zoomInput" placeholder="Um pouco de zoom?">
+
+					<div id="divBotoesTabelaTreino" class="divBotoesTabelaTreino">
+					    <button onclick="exportarJSON()">Exportar meus dados</button>
+					    <button id="excluir" class="botaoExcluirTodosOsDados" onclick="excluirTodosRegistros()">Excluir Tudo</button>
+					    <input type="file" id="botaoImportarJsonDeTreino" class="botaoImportarJsonDeTreino">
+					</div>
 				</div>
 
 			</div>
 
 			<div id="divConfiguracaoDeTreino" class="divConfiguracaoDeTreino">
-				<div id="divConfigurarExercicios" class="divConfigurarExercicios containerGrid">
+				<div class="containerFlexPilha">
 					<ul id="exerciciosCadastrados"></ul>
 
 					<div id="divCamposAdicionarExercicio" class="divCamposAdicionarExercicio containerFlexCarrossel">

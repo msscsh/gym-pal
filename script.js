@@ -262,10 +262,10 @@ function limparApresentacao() {
 }
 
 function formatarStringParaApresentacao(str) {
-  str = str.trim().replace(/\s+/g, '');
-  str = str.toLowerCase();
-  str = str.replace(/[^a-z0-9]/g, '');
-  return str;
+    str = str.trim().replace(/\s+/g, '');
+    str = str.toLowerCase();
+    str = str.replace(/[^a-z0-9]/g, '');
+    return str;
 }
 
 function adicionarExercicioNoSistema() {
