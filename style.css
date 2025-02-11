@@ -224,6 +224,14 @@ button {
   margin-right: 20px;
 }
 
+.botaoPesquisarExecucoesAnterioresDoTreino {
+  background-color: var(--preto);
+  color: white;
+  font-size: x-small;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 .botaoExcluirRegistroDeTreino {
   background-color: var(--vermelho);
   color: white;

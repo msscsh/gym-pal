@@ -91,7 +91,7 @@ function alterarExibicaoConformeTamanhoDaTabela(isTabelaVazia) {
     }
 }
 
-function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dados) {
+function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dados, isAcoes) {
     const tabela = document.getElementById('tabelaTreinos').getElementsByTagName('tbody')[0];
     tabela.innerHTML = '';
     dados.forEach((registro, index) => {
@@ -100,37 +100,53 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dados) {
         const celulaCarga = novaLinha.insertCell();
         const celulaIntensidade = novaLinha.insertCell();
         const celulaDataHoraExercicio = novaLinha.insertCell();
-        const celulaAcoes = novaLinha.insertCell();
 
         celulaExercicio.textContent = registro.exercicio;
         celulaCarga.textContent = registro.carga;
         celulaIntensidade.textContent = identificarEmojiDeIntensidadeDoExercicio(registro.intensidade);
         celulaDataHoraExercicio.textContent = converterTimestampParaFormatacaoDataEHora(registro.timestampDoExercicio);
 
-        const botaoExcluir = document.createElement('button');
-        botaoExcluir.textContent = 'DEL';
-        botaoExcluir.classList.add('botaoExcluirRegistroDeTreino');
-        botaoExcluir.onclick = () => {
-            excluirRegistro(index);
-        };
+        if (isAcoes) {
 
-        const botaoEditar = document.createElement('button');
-        botaoEditar.textContent = 'EDIT';
-        botaoEditar.classList.add('botaoEditarRegistroDeTreino');
-        botaoEditar.onclick = () => {
-            editarRegistro(index);
-        };
+            const celulaAcoes = novaLinha.insertCell();
 
-        const botaoAdicionarExecucaoDeTreino = document.createElement('button');
-        botaoAdicionarExecucaoDeTreino.textContent = '+';
-        botaoAdicionarExecucaoDeTreino.classList.add('botaoAdicionarExecucaoDeTreino');
-        botaoAdicionarExecucaoDeTreino.onclick = () => {
-            adicionarExecucao(index);
-        };
+            const botaoExcluir = document.createElement('button');
+            botaoExcluir.textContent = 'DEL';
+            botaoExcluir.classList.add('botaoExcluirRegistroDeTreino');
+            botaoExcluir.onclick = () => {
+                excluirRegistro(index);
+            };
 
-        celulaAcoes.appendChild(botaoEditar);
-        celulaAcoes.appendChild(botaoAdicionarExecucaoDeTreino);
-        celulaAcoes.appendChild(botaoExcluir);
+            const botaoEditar = document.createElement('button');
+            botaoEditar.textContent = 'EDIT';
+            botaoEditar.classList.add('botaoEditarRegistroDeTreino');
+            botaoEditar.onclick = () => {
+                editarRegistro(index);
+            };
+
+            const botaoAdicionarExecucaoDeTreino = document.createElement('button');
+            botaoAdicionarExecucaoDeTreino.textContent = '+';
+            botaoAdicionarExecucaoDeTreino.classList.add('botaoAdicionarExecucaoDeTreino');
+            botaoAdicionarExecucaoDeTreino.onclick = () => {
+                adicionarExecucao(index);
+            };
+
+
+            const botaoPesquisarExecucoesAnterioresDoTreino = document.createElement('button');
+            botaoPesquisarExecucoesAnterioresDoTreino.textContent = '\u{1F50D}';
+            botaoPesquisarExecucoesAnterioresDoTreino.classList.add('botaoPesquisarExecucoesAnterioresDoTreino');
+            botaoPesquisarExecucoesAnterioresDoTreino.onclick = () => {
+                pesquisarExecucoesAnterioresDoTreino(index);
+            };
+
+            celulaAcoes.appendChild(botaoEditar);
+            celulaAcoes.appendChild(botaoPesquisarExecucoesAnterioresDoTreino);
+            celulaAcoes.appendChild(botaoAdicionarExecucaoDeTreino);
+
+            celulaAcoes.appendChild(botaoExcluir);
+
+        }
+
     });
 }
 
@@ -150,7 +166,7 @@ function exibirTabela() {
 
     if (meusDados.length > 0) {
         alterarExibicaoConformeTamanhoDaTabela(false);
-        criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados)
+        criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, true);
     }
     else {
         alterarExibicaoConformeTamanhoDaTabela(true);
@@ -180,6 +196,23 @@ function identificarEmojiDeIntensidadeDoExercicio(valor) {
     }
 
     return emoji;
+}
+
+function pesquisarExecucoesAnterioresDoTreino(index) {
+    let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
+    const itemParaPesquisar = meusDados[index];
+    let dadosFiltrado = [];
+    meusDados.forEach((registro) => {
+        if(registro.exercicio.toLowerCase() == itemParaPesquisar.exercicio.toLowerCase()) {
+            dadosFiltrado.unshift(registro);
+        }
+    });
+
+    apresentarDivAlvo('divTreinos');
+    if (dadosFiltrado.length > 0) {
+        criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dadosFiltrado, false);
+    }
+
 }
 
 function adicionarExecucao(index) {
