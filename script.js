@@ -121,7 +121,15 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dados) {
             editarRegistro(index);
         };
 
+        const botaoAdicionarExecucaoDeTreino = document.createElement('button');
+        botaoAdicionarExecucaoDeTreino.textContent = '+';
+        botaoAdicionarExecucaoDeTreino.classList.add('botaoAdicionarExecucaoDeTreino');
+        botaoAdicionarExecucaoDeTreino.onclick = () => {
+            adicionarExecucao(index);
+        };
+
         celulaAcoes.appendChild(botaoEditar);
+        celulaAcoes.appendChild(botaoAdicionarExecucaoDeTreino);
         celulaAcoes.appendChild(botaoExcluir);
     });
 }
@@ -138,11 +146,11 @@ function converterTimestampParaFormatacaoDataEHora(timestamp) {
 
 function exibirTabela() {
 
-    const dados = JSON.parse(localStorage.getItem('meusDados')) || [];
+    const meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
 
-    if (dados.length > 0) {
+    if (meusDados.length > 0) {
         alterarExibicaoConformeTamanhoDaTabela(false);
-        criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dados)
+        criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados)
     }
     else {
         alterarExibicaoConformeTamanhoDaTabela(true);
@@ -174,20 +182,30 @@ function identificarEmojiDeIntensidadeDoExercicio(valor) {
     return emoji;
 }
 
+function adicionarExecucao(index) {
+    let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
+    const itemParaEditar = meusDados[index];
+    document.getElementById('exercicio').value = itemParaEditar.exercicio;
+    document.getElementById('carga').value = itemParaEditar.carga;
+    document.getElementById('intensidade').value = itemParaEditar.intensidade;
+    apresentarDivAlvo('divAdicionarExercicio');
+}
+
 function editarRegistro(index) {
-    let dados = JSON.parse(localStorage.getItem('meusDados')) || [];
-    const itemParaEditar = dados[index];
+    let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
+    const itemParaEditar = meusDados[index];
     document.getElementById('exercicio').value = itemParaEditar.exercicio;
     document.getElementById('carga').value = itemParaEditar.carga;
     document.getElementById('intensidade').value = itemParaEditar.intensidade;
     document.getElementById('index').value = index;
-    mostrarTelaParaAdicionarUmaExecucaoDeTreino();
+    apresentarDivAlvo('divAdicionarExercicio');
 }
 
 function excluirRegistro(index) {
-    let dados = JSON.parse(localStorage.getItem('meusDados')) || [];
-    dados.splice(index, 1);
+    let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
+    meusDados.splice(index, 1);
     localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
+    apresentarDivAlvo('divTreinos');
 }
 
 function excluirTodosRegistros() {
@@ -202,7 +220,7 @@ function criarListenerDeImportacaoDeJson() {
       const reader = new FileReader();
 
       reader.onload = () => {
-        const json = JSON.parse(reader.result);
+        const meusDados = JSON.parse(reader.result);
         localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
         console.log('JSON importado com sucesso!');
         exibirTabela();

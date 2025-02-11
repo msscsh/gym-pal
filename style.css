@@ -216,13 +216,23 @@ button {
   font-size: x-small;
 }
 
+.botaoAdicionarExecucaoDeTreino {
+  background-color: var(--preto);
+  color: white;
+  font-size: x-small;
+  margin-left: 5px;
+  margin-right: 20px;
+}
+
 .botaoExcluirRegistroDeTreino {
   background-color: var(--vermelho);
   color: white;
   font-size: x-small;
+  margin-right: 5px;
 }
 
 .botaoEditarRegistroDeTreino {
+  margin-left: 5px;
   background-color: var(--preto);
   color: white;
   font-size: x-small;
