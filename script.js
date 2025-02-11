@@ -91,7 +91,7 @@ function alterarExibicaoConformeTamanhoDaTabela(isTabelaVazia) {
     }
 }
 
-function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dados, isAcoes) {
+function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dados, isAcoesApresentacaoDefault) {
     const tabela = document.getElementById('tabelaTreinos').getElementsByTagName('tbody')[0];
     tabela.innerHTML = '';
     dados.forEach((registro, index) => {
@@ -106,7 +106,7 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dados, isAcoe
         celulaIntensidade.textContent = identificarEmojiDeIntensidadeDoExercicio(registro.intensidade);
         celulaDataHoraExercicio.textContent = converterTimestampParaFormatacaoDataEHora(registro.timestampDoExercicio);
 
-        if (isAcoes) {
+        if (isAcoesApresentacaoDefault) {
 
             const celulaAcoes = novaLinha.insertCell();
 
@@ -145,6 +145,16 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dados, isAcoe
 
             celulaAcoes.appendChild(botaoExcluir);
 
+        }
+        else {
+            const celulaAcoes = novaLinha.insertCell();
+            const botaoVoltar = document.createElement('button');
+            botaoVoltar.textContent = '<<';
+            botaoVoltar.classList.add('botaoAdicionarExecucaoDeTreino');
+            botaoVoltar.onclick = () => {
+                apresentarDivAlvo('divTreinos');
+            };
+            celulaAcoes.appendChild(botaoVoltar);
         }
 
     });
@@ -202,15 +212,18 @@ function pesquisarExecucoesAnterioresDoTreino(index) {
     let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
     const itemParaPesquisar = meusDados[index];
     let dadosFiltrado = [];
-    meusDados.forEach((registro) => {
-        if(registro.exercicio.toLowerCase() == itemParaPesquisar.exercicio.toLowerCase()) {
-            dadosFiltrado.unshift(registro);
+    meusDados.forEach((registro, indexRegistros) => {
+        if( (registro.exercicio.trim().toLowerCase() == itemParaPesquisar.exercicio.trim().toLowerCase()) && (indexRegistros > index) ) {
+            dadosFiltrado.push(registro);
         }
     });
 
     apresentarDivAlvo('divTreinos');
     if (dadosFiltrado.length > 0) {
         criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dadosFiltrado, false);
+    }
+    else {
+        alert('Nenhum histórico deste exercício foi encontrado')
     }
 
 }
