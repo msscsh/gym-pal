@@ -46,15 +46,22 @@ function mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(objeto, nomeAntigo, no
 
 function adicionarRegistro() {
     const index = document.getElementById('index').value;
-    const exercicio = document.getElementById('exercicio').value;
+    let exercicio = document.getElementById('exercicio').value;
     const carga = document.getElementById('carga').value;
     const intensidade = document.getElementById('intensidade').value;
+
+    let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
+    exerciciosCadastrados.forEach(exercicioCadastrado => {
+        if ( exercicioCadastrado.nomeDoExercicio.trim().toLowerCase() == document.getElementById('exercicio').value.trim().toLowerCase() ) {
+            exercicio = exercicioCadastrado.nomeDoExercicio;
+        }
+    });
 
     let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
 
     if (index) {
         let itemAlvo = meusDados[index];
-        itemAlvo.exercicio = exercicio.trim().toLowerCase();
+        itemAlvo.exercicio = exercicio.trim();
         itemAlvo.carga = carga;
         itemAlvo.intensidade = intensidade;
         meusDados[index] = itemAlvo;
@@ -380,9 +387,9 @@ function apresentarExerciciosCadastrados() {
     const lista = document.getElementById('exerciciosCadastrados');
     lista.innerHTML = '';
     exerciciosCadastrados.forEach(exercicioCadastrado => {
-      const li = document.createElement('li');
-      li.innerHTML = `<strong>${exercicioCadastrado.nomeDoExercicio}</strong>`;
-      lista.appendChild(li);
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${exercicioCadastrado.nomeDoExercicio}</strong>`;
+        lista.appendChild(li);
     });
 }
 
