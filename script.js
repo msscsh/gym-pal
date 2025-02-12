@@ -121,6 +121,7 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, is
         else {
             document.getElementById("botaoExecucaoEspecifica").style.display = "";
             document.getElementById("botaoExecucaoGenerica").style.display = "none";
+            document.getElementById("botaoVoltarNoHistoricoDeTreino").style.display = "";
         }
 
     });
@@ -279,6 +280,8 @@ function apresentarDivAlvo(divAlvo) {
     if( document.getElementById('menuLateral').classList.contains("animarMenuDeCimaPraBaixo") ) {
         document.getElementById("divMenu").click();
     }
+
+    document.getElementById("botaoVoltarNoHistoricoDeTreino").style.display = "none";
 
     realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo);
     document.getElementById("divAdicionarExercicio").style.display = "none";
