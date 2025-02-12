@@ -45,7 +45,6 @@ function mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(objeto, nomeAntigo, no
 }
 
 function adicionarRegistro() {
-
     const index = document.getElementById('index').value;
     const exercicio = document.getElementById('exercicio').value;
     const carga = document.getElementById('carga').value;
@@ -55,7 +54,7 @@ function adicionarRegistro() {
 
     if (index) {
         let itemAlvo = meusDados[index];
-        itemAlvo.exercicio = exercicio;
+        itemAlvo.exercicio = exercicio.trim().toLowerCase();
         itemAlvo.carga = carga;
         itemAlvo.intensidade = intensidade;
         meusDados[index] = itemAlvo;
@@ -67,7 +66,6 @@ function adicionarRegistro() {
     }
 
     localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
-    limparCamposNaTela();
     apresentarDivAlvo('divTreinos');
 }
 
@@ -231,20 +229,20 @@ function pesquisarExecucoesAnterioresDoTreino(index) {
 function adicionarExecucaoDeTreinoEspecifico(index) {
     let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
     const itemParaEditar = meusDados[index];
-    document.getElementById('exercicio').value = itemParaEditar.exercicio;
+    apresentarDivAlvo('divAdicionarExercicio');
+    document.getElementById('exercicio').value = itemParaEditar.exercicio.trim().toLowerCase();
     document.getElementById('carga').value = itemParaEditar.carga;
     document.getElementById('intensidade').value = itemParaEditar.intensidade;
-    apresentarDivAlvo('divAdicionarExercicio');
 }
 
 function editarExecucaoDeTreinoEspecifico(index) {
     let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
     const itemParaEditar = meusDados[index];
-    document.getElementById('exercicio').value = itemParaEditar.exercicio;
+    apresentarDivAlvo('divEditarExercicio');
+    document.getElementById('exercicio').value = itemParaEditar.exercicio.trim().toLowerCase();
     document.getElementById('carga').value = itemParaEditar.carga;
     document.getElementById('intensidade').value = itemParaEditar.intensidade;
     document.getElementById('index').value = index;
-    apresentarDivAlvo('divEditarExercicio');
 }
 
 function excluirRegistro(index) {
@@ -324,6 +322,7 @@ function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
     else if ( divAlvo === 'divAdicionarExercicio' ) {
         document.getElementById('btnConfirmarAlteracaoDeRegistro').style.display = 'none';
         document.getElementById('btnConfirmarAdicaoDeRegistro').style.display = '';
+        limparCamposNaTela();
         preencherComboDeExercicios();
     }
     else if ( divAlvo === 'divEditarExercicio' ) {
@@ -388,14 +387,13 @@ function preencherComboDeExercicios() {
     select.innerHTML = '';
     exerciciosCadastrados.forEach(opcao => {
       const option = document.createElement('option');
-      option.value = opcao.nomeDoExercicio;
-      option.text = opcao.nomeDoExercicio;
+      option.value = opcao.nomeDoExercicio.trim().toLowerCase();
+      option.text = opcao.nomeDoExercicio.trim();
       select.appendChild(option);
     });
 }
 
 function init() {
-    limparCamposNaTela();
     criarListenerDeImportacaoDeJson();
     criarListenerDeZoom();
     //ajustarProblemasNosJSON();
