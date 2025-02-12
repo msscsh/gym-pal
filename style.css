@@ -208,6 +208,9 @@ button {
   padding: 10px 20px;
   border-radius: 30px;
   cursor: pointer;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .btnConfirmarAdicaoDeRegistro, .btnConfirmarAlteracaoDeRegistro {
@@ -293,11 +296,13 @@ button {
 }
 
 .botaoImportarJsonDeTreino {
-    border: 1px solid #ccc;
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
     background-color: var(--amarelo-claro);
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .divConfiguracaoDeTela {
