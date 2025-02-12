@@ -211,7 +211,7 @@ function adicionarExecucaoDeTreinoEspecifico(index) {
     apresentarDivAlvo('divAdicionarExercicio');
     document.getElementById('exercicio').value = itemParaEditar.exercicio.trim().toLowerCase();
     document.getElementById('carga').value = itemParaEditar.carga;
-    document.getElementById('intensidade').value = itemParaEditar.intensidade;
+    // document.getElementById('intensidade').value = itemParaEditar.intensidade;
 }
 
 function editarExecucaoDeTreinoEspecifico(index) {
