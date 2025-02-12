@@ -96,7 +96,7 @@ function alterarExibicaoConformeTamanhoDaTabela(isTabelaVazia) {
     }
 }
 
-function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, isAcoesApresentacaoDefault) {
+function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, isApresentacaoDefault) {
     const tabela = document.getElementById('tabelaTreinos').getElementsByTagName('tbody')[0];
     tabela.innerHTML = '';
     meusDados.forEach((registro, index) => {
@@ -111,16 +111,12 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, is
         celulaIntensidade.textContent = identificarEmojiDeIntensidadeDoExercicio(registro.intensidade);
         celulaDataHoraExercicio.textContent = converterTimestampParaFormatacaoDataEHora(registro.timestampDoExercicio);
 
-        const celulaAcoes = novaLinha.insertCell();
-
-        if (isAcoesApresentacaoDefault) {
+        if (isApresentacaoDefault) {
+            const celulaAcoes = novaLinha.insertCell();
             criarBotaoNoElementoComAcao(celulaAcoes, '\u{1F4DD}', 'botaoEditarExecucaoDeTreinoEspecifico', editarExecucaoDeTreinoEspecifico, index);
             criarBotaoNoElementoComAcao(celulaAcoes, '+', 'botaoAdicionarExecucaoDeTreinoEspecifico', adicionarExecucaoDeTreinoEspecifico, index);
             criarBotaoNoElementoComAcao(celulaAcoes, '\u{1F50D}', 'botaoPesquisarExecucoesAnterioresDoTreino', pesquisarExecucoesAnterioresDoTreino, index);
             criarBotaoNoElementoComAcao(celulaAcoes, '\u{1F5D1}', 'botaoExcluirRegistroDeTreino', excluirRegistro, index);
-        }
-        else {
-            criarBotaoNoElementoComAcao(celulaAcoes, '<<', 'botaoVoltarListaDeTreinos', apresentarDivAlvo, 'divTreinos')
         }
 
     });
@@ -368,11 +364,15 @@ function preencherComboDeExercicios() {
     const exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
     const select = document.getElementById('exercicio');
     select.innerHTML = '';
+    const optionDefault = document.createElement('option');
+    optionDefault.value = '';
+    optionDefault.text = '';
+    select.appendChild(optionDefault);
     exerciciosCadastrados.forEach(opcao => {
-      const option = document.createElement('option');
-      option.value = opcao.nomeDoExercicio.trim().toLowerCase();
-      option.text = opcao.nomeDoExercicio.trim();
-      select.appendChild(option);
+        const option = document.createElement('option');
+        option.value = opcao.nomeDoExercicio.trim().toLowerCase();
+        option.text = opcao.nomeDoExercicio.trim();
+        select.appendChild(option);
     });
 }
 
