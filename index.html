@@ -37,7 +37,7 @@
 					<input type="number" id="zoomInput" placeholder="Um pouco de zoom?">
 
 					<div id="divBotoesTabelaTreino" class="divBotoesTabelaTreino">
-					    <button onclick="exportarJSON()">Exportar meus dados</button>
+					    <button class="botaoImportarJsonDeTreino" onclick="exportarJSON()">Exportar meus dados</button>
 					    <button id="excluir" class="botaoExcluirTodosOsDados" onclick="excluirTodosRegistros()">Excluir Tudo</button>
 					    <input type="file" id="botaoImportarJsonDeTreino" class="botaoImportarJsonDeTreino">
 					</div>
@@ -104,8 +104,10 @@
 					</div>
 				</div>
 
-				<div class="containerFlexCarrossel">
-				    <button class="botaoAdicionarExecucaoDeTreino" onclick="apresentarDivAlvo('divAdicionarExercicio')">+1 execução</button>
+				<div id="divBotoesTabelaTreino" class="containerFlexCarrossel">
+				    <button id="botaoExecucaoGenerica" class="botaoAdicionarExecucaoDeTreino" style="display: none;" onclick="apresentarDivAlvo('divAdicionarExercicioGenerico')">+1 execução</button>
+				    <button id="botaoExecucaoEspecifica" class="botaoAdicionarExecucaoDeTreino" style="display: none;" onclick="apresentarDivAlvo('divAdicionarExercicioEspecifico')">+1 execução específica</button>
+				    <button class="botaoAdicionarExecucaoDeTreino" type="button" onclick="apresentarDivAlvo('divTreinos')">Histórico de treino</button>
 				</div>
 
 			</div>

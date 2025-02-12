@@ -118,6 +118,10 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, is
             criarBotaoNoElementoComAcao(celulaAcoes, '\u{1F50D}', 'botaoPesquisarExecucoesAnterioresDoTreino', pesquisarExecucoesAnterioresDoTreino, index);
             criarBotaoNoElementoComAcao(celulaAcoes, '\u{1F5D1}', 'botaoExcluirRegistroDeTreino', excluirRegistro, index);
         }
+        else {
+            document.getElementById("botaoExecucaoEspecifica").style.display = "";
+            document.getElementById("botaoExecucaoGenerica").style.display = "none";
+        }
 
     });
 }
@@ -285,7 +289,7 @@ function apresentarDivAlvo(divAlvo) {
         if ( document.getElementById(divAlvo) ) {
             document.getElementById(divAlvo).style.display = "";
         }
-        else if ( divAlvo == 'divEditarExercicio' ) {
+        else if ( divAlvo == 'divEditarExercicio' || divAlvo === 'divAdicionarExercicioGenerico' || divAlvo === 'divAdicionarExercicioEspecifico' ) {
             document.getElementById("divAdicionarExercicio").style.display = "";
         }
         else {
@@ -296,9 +300,11 @@ function apresentarDivAlvo(divAlvo) {
 
 function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
     if ( divAlvo === 'divTreinos' ) {
-        exibirTabela();
+        exibirTabela();        
+        document.getElementById("botaoExecucaoEspecifica").style.display = "none";
+        document.getElementById("botaoExecucaoGenerica").style.display = "";
     }
-    else if ( divAlvo === 'divAdicionarExercicio' ) {
+    else if ( divAlvo === 'divAdicionarExercicio' || divAlvo === 'divAdicionarExercicioGenerico' || divAlvo === 'divAdicionarExercicioEspecifico' ) {
         document.getElementById('btnConfirmarAlteracaoDeRegistro').style.display = 'none';
         document.getElementById('btnConfirmarAdicaoDeRegistro').style.display = '';
         limparCamposNaTela();
@@ -312,6 +318,17 @@ function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
     else if ( divAlvo === 'divConfiguracaoDeTreino' ) {
         apresentarExerciciosCadastrados();
     }
+
+    if ( divAlvo === 'divAdicionarExercicioEspecifico' ) {
+        const tabela = document.getElementById("tabelaTreinos");
+        if (tabela && tabela.tBodies.length > 0) {
+            document.getElementById('exercicio').value = tabela.tBodies[0].rows[0].firstChild.innerHTML.trim().toLowerCase();
+        }
+    }
+    else if ( divAlvo === 'divAdicionarExercicioGenerico' ) {
+        document.getElementById('exercicio').value = '';
+    }
+
 }
 
 function limparApresentacao() {
