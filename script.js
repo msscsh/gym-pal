@@ -111,58 +111,29 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, is
         celulaIntensidade.textContent = identificarEmojiDeIntensidadeDoExercicio(registro.intensidade);
         celulaDataHoraExercicio.textContent = converterTimestampParaFormatacaoDataEHora(registro.timestampDoExercicio);
 
+        const celulaAcoes = novaLinha.insertCell();
+
         if (isAcoesApresentacaoDefault) {
-
-            const celulaAcoes = novaLinha.insertCell();
-
-            const botaoEditarExecucaoDeTreinoEspecifico = document.createElement('button');
-            botaoEditarExecucaoDeTreinoEspecifico.textContent = '\u{1F4DD}';
-            botaoEditarExecucaoDeTreinoEspecifico.classList.add('botaoEditarExecucaoDeTreinoEspecifico');
-            botaoEditarExecucaoDeTreinoEspecifico.onclick = () => {
-                editarExecucaoDeTreinoEspecifico(index);
-            };
-
-            const botaoAdicionarExecucaoDeTreinoEspecifico = document.createElement('button');
-            botaoAdicionarExecucaoDeTreinoEspecifico.textContent = '+';
-            botaoAdicionarExecucaoDeTreinoEspecifico.classList.add('botaoAdicionarExecucaoDeTreinoEspecifico');
-            botaoAdicionarExecucaoDeTreinoEspecifico.onclick = () => {
-                adicionarExecucaoDeTreinoEspecifico(index);
-            };
-
-            const botaoPesquisarExecucoesAnterioresDoTreino = document.createElement('button');
-            botaoPesquisarExecucoesAnterioresDoTreino.textContent = '\u{1F50D}';
-            botaoPesquisarExecucoesAnterioresDoTreino.classList.add('botaoPesquisarExecucoesAnterioresDoTreino');
-            botaoPesquisarExecucoesAnterioresDoTreino.onclick = () => {
-                pesquisarExecucoesAnterioresDoTreino(index);
-            };
-
-            celulaAcoes.appendChild(botaoEditarExecucaoDeTreinoEspecifico);
-            celulaAcoes.appendChild(botaoAdicionarExecucaoDeTreinoEspecifico);
-            celulaAcoes.appendChild(botaoPesquisarExecucoesAnterioresDoTreino);
-
-
-            const botaoExcluir = document.createElement('button');
-            botaoExcluir.textContent = '\u{1F5D1}';
-            botaoExcluir.classList.add('botaoExcluirRegistroDeTreino');
-            botaoExcluir.onclick = () => {
-                excluirRegistro(index);
-            };
-
-            celulaAcoes.appendChild(botaoExcluir);
-
+            criarBotaoNoElementoComAcao(celulaAcoes, '\u{1F4DD}', 'botaoEditarExecucaoDeTreinoEspecifico', editarExecucaoDeTreinoEspecifico, index);
+            criarBotaoNoElementoComAcao(celulaAcoes, '+', 'botaoAdicionarExecucaoDeTreinoEspecifico', adicionarExecucaoDeTreinoEspecifico, index);
+            criarBotaoNoElementoComAcao(celulaAcoes, '\u{1F50D}', 'botaoPesquisarExecucoesAnterioresDoTreino', pesquisarExecucoesAnterioresDoTreino, index);
+            criarBotaoNoElementoComAcao(celulaAcoes, '\u{1F5D1}', 'botaoExcluirRegistroDeTreino', excluirRegistro, index);
         }
         else {
-            const celulaAcoes = novaLinha.insertCell();
-            const botaoVoltar = document.createElement('button');
-            botaoVoltar.textContent = '<<';
-            botaoVoltar.classList.add('botaoVoltarListaDeTreinos');
-            botaoVoltar.onclick = () => {
-                apresentarDivAlvo('divTreinos');
-            };
-            celulaAcoes.appendChild(botaoVoltar);
+            criarBotaoNoElementoComAcao(celulaAcoes, '<<', 'botaoVoltarListaDeTreinos', apresentarDivAlvo, 'divTreinos')
         }
 
     });
+}
+
+function criarBotaoNoElementoComAcao(elementoPai, texto, classe, funcaoDoBotao, argumentoDaFuncao) {
+    const botao = document.createElement('button');
+    botao.textContent = texto;
+    botao.classList.add(classe);
+    botao.onclick = () => {
+        funcaoDoBotao(argumentoDaFuncao);
+    };
+    elementoPai.appendChild(botao);
 }
 
 function converterTimestampParaFormatacaoDataEHora(timestamp) {
