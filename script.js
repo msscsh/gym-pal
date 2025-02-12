@@ -54,11 +54,11 @@ function adicionarRegistro() {
     let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
 
     if (index) {
-        let itemAlvo = dados[index];
+        let itemAlvo = meusDados[index];
         itemAlvo.exercicio = exercicio;
         itemAlvo.carga = carga;
         itemAlvo.intensidade = intensidade;
-        dados[index] = itemAlvo;
+        meusDados[index] = itemAlvo;
     }
     else {
         const timestampDoExercicio = Date.now();
@@ -91,10 +91,10 @@ function alterarExibicaoConformeTamanhoDaTabela(isTabelaVazia) {
     }
 }
 
-function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dados, isAcoesApresentacaoDefault) {
+function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, isAcoesApresentacaoDefault) {
     const tabela = document.getElementById('tabelaTreinos').getElementsByTagName('tbody')[0];
     tabela.innerHTML = '';
-    dados.forEach((registro, index) => {
+    meusDados.forEach((registro, index) => {
         const novaLinha = tabela.insertRow();
         const celulaExercicio = novaLinha.insertCell();
         const celulaCarga = novaLinha.insertCell();
