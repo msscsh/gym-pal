@@ -2,7 +2,7 @@
   --cinza-claro: #f2f2f2;
   --cinza-medio: #ddd;
   --cinza-escuro: #333;
-  --amarelo-claro: #f3f56c;
+  --amarelo-claro: #d4d4d4;
   --amarelo-medio: #edf03c;
   --amarelo-escuro: #f8fc0d;
   --preto: #000;
@@ -76,6 +76,7 @@
 
 .itemDeMenu {
   margin: 20px;
+  font-size: x-small;
 }
 
 @media (max-height: 1500px) {
@@ -209,27 +210,50 @@ button {
   cursor: pointer;
 }
 
-.botaoAdicionarExercicioNoSistema {
-  margin-left: 10px;
-  background-color: var(--preto);
-  color: white;
-  font-size: x-small;
+.btnConfirmarAdicaoDeRegistro, .btnConfirmarAlteracaoDeRegistro {
+  background-color: var(--amarelo-medio);
+  margin-top: 20px;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
 }
 
-.botaoAdicionarExecucaoDeTreino {
+.botaoVoltarNoHistoricoDeTreino {
+  background-color: var(--preto);
+  color: white;
+  margin-top: 10px;
+  border-color: var(--amarelo-medio);
+  border-width: 2px;
+  border-style: solid;
+}
+
+.botaoEditarExecucaoDeTreinoEspecifico {
+  margin-left: 5px;
+  background-color: var(--preto);
+  font-size: x-small;
+  border-color: var(--amarelo-medio);
+  border-width: 2px;
+  border-style: solid;
+}
+
+.botaoAdicionarExecucaoDeTreinoEspecifico {
   background-color: var(--preto);
   color: white;
   font-size: x-small;
   margin-left: 5px;
-  margin-right: 20px;
+  border-color: var(--amarelo-medio);
+  border-width: 2px;
+  border-style: solid;
 }
 
 .botaoPesquisarExecucoesAnterioresDoTreino {
   background-color: var(--preto);
-  color: white;
   font-size: x-small;
   margin-left: 5px;
-  margin-right: 5px;
+  margin-right: 20px;
+  border-color: var(--amarelo-medio);
+  border-width: 2px;
+  border-style: solid;
 }
 
 .botaoExcluirRegistroDeTreino {
@@ -237,13 +261,18 @@ button {
   color: white;
   font-size: x-small;
   margin-right: 5px;
+  border-color: white;
+  border-width: 1px;
+  border-style: solid;
 }
 
-.botaoEditarRegistroDeTreino {
-  margin-left: 5px;
+.botaoAdicionarExecucaoDeTreino {
   background-color: var(--preto);
   color: white;
-  font-size: x-small;
+  margin-top: 20px;
+  border-color: var(--amarelo-medio);
+  border-width: 2px;
+  border-style: solid;
 }
 
 .botaoExcluirTodosOsDados {

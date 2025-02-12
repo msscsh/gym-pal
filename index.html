@@ -74,9 +74,12 @@
 							<option value="muito pesado">🥵&nbsp;&nbsp;&nbsp;&nbsp;muito pesado</option>
 						</select>
 						<input type="hidden" id="index">
+				        <label ></label>
+			        	<button id="btnConfirmarAdicaoDeRegistro" class="btnConfirmarAdicaoDeRegistro" style="display: none;" type="button" onclick="adicionarRegistro()">Adicionar</button>
+			        	<button id="btnConfirmarAlteracaoDeRegistro" class="btnConfirmarAlteracaoDeRegistro" style="display: none;" type="button" onclick="adicionarRegistro()">Alterar</button>
 			    	</div>
 					<div id="divBotaoAdicionar" class="divBotaoAdicionar">
-			        	<button type="button" onclick="adicionarRegistro()">Adicionar</button>
+			        	<button class="botaoVoltarNoHistoricoDeTreino" type="button" onclick="apresentarDivAlvo('divTreinos')">Histórico de treino</button>
 			    	</div>
 			    </form>
 			</div>
@@ -101,6 +104,10 @@
 					</div>
 				</div>
 
+				<div class="containerFlexCarrossel">
+				    <button class="botaoAdicionarExecucaoDeTreino" onclick="apresentarDivAlvo('divAdicionarExercicio')">+1 execução</button>
+				</div>
+
 			</div>
 
 		</div>
@@ -113,14 +120,11 @@
 				<div id="itemDeMenuTabelaDeTreino" class="itemDeMenuPrimeiro itemDeMenu" onclick="apresentarDivAlvo('divTreinos')">
 					Histórico
 				</div>
-				<div id="itemDeMenuAdicionarTreino" class="itemDeMenu" onclick="apresentarDivAlvo('divAdicionarExercicio')">
-					+ Treino
-				</div>
 				<div id="itemDeMenuConfigurarTreino" class="itemDeMenu" onclick="apresentarDivAlvo('divConfiguracaoDeTreino')">
-					Montagem
+					Criar Treino
 				</div>
 				<div id="itemDeMenuConfiguracaoDeTela" class="itemDeMenu" onclick="apresentarDivAlvo('divConfiguracaoDeTela')">
-					Configs
+					Configurações
 				</div>
 			</div>
 		</div>

@@ -68,7 +68,7 @@ function adicionarRegistro() {
 
     localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
     limparCamposNaTela();
-    mostrarTabelaDeTreinos();
+    apresentarDivAlvo('divTreinos');
 }
 
 function limparCamposNaTela() {
@@ -110,27 +110,19 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, is
 
             const celulaAcoes = novaLinha.insertCell();
 
-            const botaoExcluir = document.createElement('button');
-            botaoExcluir.textContent = 'DEL';
-            botaoExcluir.classList.add('botaoExcluirRegistroDeTreino');
-            botaoExcluir.onclick = () => {
-                excluirRegistro(index);
+            const botaoEditarExecucaoDeTreinoEspecifico = document.createElement('button');
+            botaoEditarExecucaoDeTreinoEspecifico.textContent = '\u{1F4DD}';
+            botaoEditarExecucaoDeTreinoEspecifico.classList.add('botaoEditarExecucaoDeTreinoEspecifico');
+            botaoEditarExecucaoDeTreinoEspecifico.onclick = () => {
+                editarExecucaoDeTreinoEspecifico(index);
             };
 
-            const botaoEditar = document.createElement('button');
-            botaoEditar.textContent = 'EDIT';
-            botaoEditar.classList.add('botaoEditarRegistroDeTreino');
-            botaoEditar.onclick = () => {
-                editarRegistro(index);
+            const botaoAdicionarExecucaoDeTreinoEspecifico = document.createElement('button');
+            botaoAdicionarExecucaoDeTreinoEspecifico.textContent = '+';
+            botaoAdicionarExecucaoDeTreinoEspecifico.classList.add('botaoAdicionarExecucaoDeTreinoEspecifico');
+            botaoAdicionarExecucaoDeTreinoEspecifico.onclick = () => {
+                adicionarExecucaoDeTreinoEspecifico(index);
             };
-
-            const botaoAdicionarExecucaoDeTreino = document.createElement('button');
-            botaoAdicionarExecucaoDeTreino.textContent = '+';
-            botaoAdicionarExecucaoDeTreino.classList.add('botaoAdicionarExecucaoDeTreino');
-            botaoAdicionarExecucaoDeTreino.onclick = () => {
-                adicionarExecucao(index);
-            };
-
 
             const botaoPesquisarExecucoesAnterioresDoTreino = document.createElement('button');
             botaoPesquisarExecucoesAnterioresDoTreino.textContent = '\u{1F50D}';
@@ -139,10 +131,18 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, is
                 pesquisarExecucoesAnterioresDoTreino(index);
             };
 
-            celulaAcoes.appendChild(botaoEditar);
+            celulaAcoes.appendChild(botaoEditarExecucaoDeTreinoEspecifico);
+            celulaAcoes.appendChild(botaoAdicionarExecucaoDeTreinoEspecifico);
             celulaAcoes.appendChild(botaoPesquisarExecucoesAnterioresDoTreino);
-            celulaAcoes.appendChild(botaoAdicionarExecucaoDeTreino);
 
+
+            const botaoExcluir = document.createElement('button');
+            botaoExcluir.textContent = '\u{1F5D1}';
+            botaoExcluir.classList.add('botaoExcluirRegistroDeTreino');
+            botaoExcluir.onclick = () => {
+                excluirRegistro(index);
+            };
+            
             celulaAcoes.appendChild(botaoExcluir);
 
         }
@@ -228,7 +228,7 @@ function pesquisarExecucoesAnterioresDoTreino(index) {
 
 }
 
-function adicionarExecucao(index) {
+function adicionarExecucaoDeTreinoEspecifico(index) {
     let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
     const itemParaEditar = meusDados[index];
     document.getElementById('exercicio').value = itemParaEditar.exercicio;
@@ -237,14 +237,14 @@ function adicionarExecucao(index) {
     apresentarDivAlvo('divAdicionarExercicio');
 }
 
-function editarRegistro(index) {
+function editarExecucaoDeTreinoEspecifico(index) {
     let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
     const itemParaEditar = meusDados[index];
     document.getElementById('exercicio').value = itemParaEditar.exercicio;
     document.getElementById('carga').value = itemParaEditar.carga;
     document.getElementById('intensidade').value = itemParaEditar.intensidade;
     document.getElementById('index').value = index;
-    apresentarDivAlvo('divAdicionarExercicio');
+    apresentarDivAlvo('divEditarExercicio');
 }
 
 function excluirRegistro(index) {
@@ -305,7 +305,15 @@ function apresentarDivAlvo(divAlvo) {
     document.getElementById("divTreinos").style.display = "none";
     document.getElementById("divConfiguracaoDeTreino").style.display = "none";
     if ( divAlvo ) {
-        document.getElementById(divAlvo).style.display = "";
+        if ( document.getElementById(divAlvo) ) {
+            document.getElementById(divAlvo).style.display = "";
+        }
+        else if ( divAlvo == 'divEditarExercicio' ) {
+            document.getElementById("divAdicionarExercicio").style.display = "";
+        }
+        else {
+            console.log('Div inexistente: ' + divAlvo);
+        }
     }
 }
 
@@ -314,6 +322,13 @@ function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
         exibirTabela();
     }
     else if ( divAlvo === 'divAdicionarExercicio' ) {
+        document.getElementById('btnConfirmarAlteracaoDeRegistro').style.display = 'none';
+        document.getElementById('btnConfirmarAdicaoDeRegistro').style.display = '';
+        preencherComboDeExercicios();
+    }
+    else if ( divAlvo === 'divEditarExercicio' ) {
+        document.getElementById('btnConfirmarAlteracaoDeRegistro').style.display = '';
+        document.getElementById('btnConfirmarAdicaoDeRegistro').style.display = 'none';
         preencherComboDeExercicios();
     }
     else if ( divAlvo === 'divConfiguracaoDeTreino' ) {
@@ -322,7 +337,7 @@ function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
 }
 
 function limparApresentacao() {
-    apresentarDivAlvo();
+    apresentarDivAlvo('divTreinos');
 }
 
 function formatarStringParaApresentacao(str) {
@@ -383,7 +398,7 @@ function init() {
     limparCamposNaTela();
     criarListenerDeImportacaoDeJson();
     criarListenerDeZoom();
-    ajustarProblemasNosJSON();
+    //ajustarProblemasNosJSON();
     limparApresentacao();
 }
 
