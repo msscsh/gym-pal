@@ -140,9 +140,9 @@ function criarBotaoNoElementoComAcao(elementoPai, texto, classe, funcaoDoBotao, 
 function converterTimestampParaFormatacaoDataEHora(timestamp) {
     if (timestamp) {
         const data = new Date(timestamp);
-        const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+        const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'};
         const dataFormatadaPersonalizada = data.toLocaleString('pt-BR', options);
-        return dataFormatadaPersonalizada;
+        return dataFormatadaPersonalizada.replace(',', ' -');
     }
     return "sem registro de data";
 }
