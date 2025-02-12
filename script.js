@@ -140,9 +140,17 @@ function criarBotaoNoElementoComAcao(elementoPai, texto, classe, funcaoDoBotao, 
 function converterTimestampParaFormatacaoDataEHora(timestamp) {
     if (timestamp) {
         const data = new Date(timestamp);
-        const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'};
+        // const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'};
+
+        const options = {
+          weekday: "long",
+          month: "long",
+          day: "numeric",
+          dayPeriod: "long",
+        };
+
         const dataFormatadaPersonalizada = data.toLocaleString('pt-BR', options);
-        return dataFormatadaPersonalizada.replace(',', ' -');
+        return dataFormatadaPersonalizada.replace(',', ' -').replace('-feira -', ',').replace(' às da ', ', de ');
     }
     return "sem registro de data";
 }
