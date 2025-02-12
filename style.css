@@ -66,7 +66,7 @@
   overflow: auto;
   overflow-x: hidden;
   height: 0%;
-  transition: height 1.5s ease;
+  transition: height 0.6s ease;
   color: white;
 }
 
@@ -86,7 +86,7 @@
 }
 
 .animarMenuDeCimaPraBaixo {
-  height: 90%;
+  height: 50%;
 }
 
 html {

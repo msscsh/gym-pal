@@ -297,6 +297,11 @@ function mostrarMenuLateral() {
 }
 
 function apresentarDivAlvo(divAlvo) {
+    
+    if( document.getElementById('menuLateral').classList.contains("animarMenuDeCimaPraBaixo") ) {
+        document.getElementById("divMenu").click();
+    }
+
     realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo);
     document.getElementById("divAdicionarExercicio").style.display = "none";
     document.getElementById("divConfiguracaoDeTela").style.display = "none";
