@@ -266,10 +266,9 @@ button {
   border-style: solid;
 }
 
-.botaoAdicionarExecucaoDeTreino {
+.botaoVoltarListaDeTreinos {
   background-color: var(--preto);
   color: white;
-  margin-top: 20px;
   border-color: var(--amarelo-medio);
   border-width: 2px;
   border-style: solid;

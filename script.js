@@ -142,7 +142,7 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, is
             botaoExcluir.onclick = () => {
                 excluirRegistro(index);
             };
-            
+
             celulaAcoes.appendChild(botaoExcluir);
 
         }
@@ -150,7 +150,7 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, is
             const celulaAcoes = novaLinha.insertCell();
             const botaoVoltar = document.createElement('button');
             botaoVoltar.textContent = '<<';
-            botaoVoltar.classList.add('botaoAdicionarExecucaoDeTreino');
+            botaoVoltar.classList.add('botaoVoltarListaDeTreinos');
             botaoVoltar.onclick = () => {
                 apresentarDivAlvo('divTreinos');
             };
