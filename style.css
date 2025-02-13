@@ -122,6 +122,10 @@ body {
   min-width: 100%;
 }
 
+h3 {
+  text-align: center;
+}
+
 table {
   display: table;
 }
@@ -332,6 +336,19 @@ button {
   max-height: 80vh;
   overflow-y: auto;  
   transition: height 0.5s ease-in-out;
+}
+
+.divFichaTreino {
+    display: inline-block;
+    min-width: 20vh;
+    min-height: 20vh;
+    cursor: pointer;
+    background-color: var(--amarelo-claro);
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    margin: 5px;
+    padding: 3px;
 }
 
 .encolherDiv {

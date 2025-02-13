@@ -46,6 +46,12 @@
 			</div>
 
 			<div id="divConfiguracaoDeTreino" class="divConfiguracaoDeTreino">
+				<div id="divFichasDeTreino" class="containerFlexCarrossel">
+				</div>
+				<div class="containerFlexPilha">
+		        	<button id="botaoAdicionarFichaDeTreino" class="botaoAdicionarExercicioNoSistema" onclick="criarFichaDeTreino()">+1 Ficha</button>
+		        	<button id="botaoSalvarFichaDeTreino" class="botaoAdicionarExercicioNoSistema" onclick="adicionarFichasDeTreino()">Salvar</button>
+				</div>
 				<div class="containerFlexPilha">
 					<ul id="exerciciosCadastrados"></ul>
 
@@ -75,8 +81,8 @@
 						</select>
 						<input type="hidden" id="index">
 				        <label ></label>
-			        	<button id="btnConfirmarAdicaoDeRegistro" class="btnConfirmarAdicaoDeRegistro" style="display: none;" type="button" onclick="adicionarRegistro()">Adicionar</button>
-			        	<button id="btnConfirmarAlteracaoDeRegistro" class="btnConfirmarAlteracaoDeRegistro" style="display: none;" type="button" onclick="adicionarRegistro()">Alterar</button>
+			        	<button id="btnConfirmarAdicaoDeRegistro" class="btnConfirmarAdicaoDeRegistro" style="display: none;" type="button" onclick="adicionarRegistroDeExecucao()">Adicionar</button>
+			        	<button id="btnConfirmarAlteracaoDeRegistro" class="btnConfirmarAlteracaoDeRegistro" style="display: none;" type="button" onclick="adicionarRegistroDeExecucao()">Alterar</button>
 			    	</div>
 					<div id="divBotaoAdicionar" class="divBotaoAdicionar">
 			        	<button class="botaoVoltarNoHistoricoDeTreino" type="button" onclick="apresentarDivAlvo('divTreinos')">Histórico de treino</button>

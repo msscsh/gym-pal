@@ -44,7 +44,139 @@ function mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(objeto, nomeAntigo, no
     }
 }
 
-function adicionarRegistro() {
+function criarFichaDeTreino(index) {
+    const novaDiv = document.createElement('div');
+    if( !index ) {
+        index = 1;
+        document.getElementById("botaoAdicionarFichaDeTreino").style.display = "none";
+    }
+    else if ( index >= 1) {
+        document.getElementById('botaoMaisDo'+(index-1)).style.display = "none";
+        document.getElementById('botaoMenosDo'+(index-1)).style.display = "none";
+    }
+    novaDiv.id = 'divTreino'+index;
+    novaDiv.className = 'divFichaTreino';
+    const divPai = document.getElementById('divFichasDeTreino');
+    divPai.appendChild(novaDiv);
+    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoMaisDo'+index, '+1 Ficha', 'botaoAdicionarExecucaoDeTreinoEspecifico', criarFichaDeTreino, index+1);
+    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoMenosDo'+index, '-1', 'botaoExcluirRegistroDeTreino', removerFichaDeTreino, index);
+    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoIncluirExercicioNaFicha'+index, '+1', 'botaoIncluirExercicioNaFicha', incluirExercicioNaFicha, index);
+    const elementoSelect = preencherComboDeExercicios().cloneNode(true);
+    elementoSelect.id = 'sel'+novaDiv.id;
+    novaDiv.appendChild(elementoSelect);
+}
+
+function removerFichaDeTreino(index) {
+    document.getElementById('divTreino'+index).remove();
+    if (index == '1') {
+        document.getElementById("botaoAdicionarFichaDeTreino").style.display = "";
+        document.getElementById('divTreino'+index).remove();
+    }
+    else {
+        document.getElementById('botaoMaisDo'+(index-1)).style.display = "";
+        document.getElementById('botaoMenosDo'+(index-1)).style.display = "";
+    }
+}
+
+function incluirExercicioNaFicha(index) {
+
+    let lista; 
+    if ( !document.getElementById('listaExerciciosDaFicha'+index) ) {
+        lista = document.createElement('ul');
+        lista.id = "listaExerciciosDaFicha"+index;
+        document.getElementById('divTreino'+index).appendChild(lista);
+    }
+    else {
+        lista = document.getElementById('listaExerciciosDaFicha'+index);
+    }
+
+    const li = document.createElement('li');
+    li.innerHTML = `<strong>${document.getElementById('seldivTreino'+index).value}</strong>`;
+    lista.appendChild(li);
+
+}
+
+function removerFichaDeTreino(index) {
+    document.getElementById('divTreino'+index).remove();
+    if (index == '1') {
+        document.getElementById("botaoAdicionarFichaDeTreino").style.display = "";
+        document.getElementById('divTreino'+index).remove();
+    }
+    else {
+        document.getElementById('botaoMaisDo'+(index-1)).style.display = "";
+        document.getElementById('botaoMenosDo'+(index-1)).style.display = "";
+    }
+}
+
+function adicionarFichasDeTreino() {
+
+    const divFichas = document.getElementById("divFichasDeTreino");
+    minhasFichas = [];
+    if (divFichas) {
+        const divsFilhas = divFichas.querySelectorAll("div");
+        divsFilhas.forEach(div => {
+            const ul = div.querySelector("ul");
+            if (ul) {
+                const itens = ul.querySelectorAll("li");
+                const conteudo = [];
+                itens.forEach(li => {
+                    const strong = li.querySelector("strong");
+                    if (strong) {
+                        conteudo.push(strong.textContent);
+                    }
+                });
+                minhasFichas.push({nome: div.id, treino: conteudo});
+            }
+        });
+        localStorage.setItem('minhasFichas', JSON.stringify(minhasFichas, null, 2));
+    }
+    else {
+        console.log("Elemento divFichasDeTreino não encontrado.");
+    }
+
+}
+
+function exibirFichasDeTreino() {
+    const divFichas = document.getElementById("divFichasDeTreino");
+
+    if (divFichas) {
+        const minhasFichas = localStorage.getItem('minhasFichas');
+
+        if (minhasFichas) {
+            const fichas = JSON.parse(minhasFichas);
+            divFichas.innerHTML = '';
+            fichas.forEach(ficha => {
+                const divFicha = document.createElement('div');
+                divFicha.id = ficha.nome;
+                divFicha.className = 'divFichaTreino';
+
+                const tituloFicha = document.createElement('h3');
+                tituloFicha.textContent = ficha.nome;
+                divFicha.appendChild(tituloFicha);
+
+                const ulTreino = document.createElement('ul');
+                ficha.treino.forEach(exercicio => {
+                    const liExercicio = document.createElement('li');
+                    liExercicio.textContent = exercicio;
+                    ulTreino.appendChild(liExercicio);
+                });
+                divFicha.appendChild(ulTreino);
+                divFichas.appendChild(divFicha);
+            });
+        }
+        else {
+            console.log("Nenhuma ficha de treino encontrada no localStorage.");
+            const mensagem = document.createElement('p');
+            mensagem.textContent = "Nenhuma ficha de treino encontrada.";
+            divFichas.appendChild(mensagem);
+        }
+    }
+    else {
+        console.log("Elemento divFichasDeTreino não encontrado.");
+    }
+}
+
+function adicionarRegistroDeExecucao() {
     const index = document.getElementById('index').value;
     let exercicio = document.getElementById('exercicio').value;
     const carga = document.getElementById('carga').value;
@@ -127,6 +259,11 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, is
     });
 }
 
+function criarBotaoNoElementoComAcaoComID(elementoPai, id, texto, classe, funcaoDoBotao, argumentoDaFuncao) {
+    criarBotaoNoElementoComAcao(elementoPai, texto, classe, funcaoDoBotao, argumentoDaFuncao)
+    elementoPai.lastElementChild.id=id;
+}
+
 function criarBotaoNoElementoComAcao(elementoPai, texto, classe, funcaoDoBotao, argumentoDaFuncao) {
     const botao = document.createElement('button');
     botao.textContent = texto;
@@ -140,15 +277,12 @@ function criarBotaoNoElementoComAcao(elementoPai, texto, classe, funcaoDoBotao, 
 function converterTimestampParaFormatacaoDataEHora(timestamp) {
     if (timestamp) {
         const data = new Date(timestamp);
-        // const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'};
-
         const options = {
-          weekday: "long",
-          month: "long",
-          day: "numeric",
-          dayPeriod: "long",
+            weekday: "long",
+            month: "long",
+            day: "numeric",
+            dayPeriod: "long",
         };
-
         const dataFormatadaPersonalizada = data.toLocaleString('pt-BR', options);
         return dataFormatadaPersonalizada.replace(',', ' -').replace('-feira -', ',').replace(' às da ', ', de ');
     }
@@ -328,6 +462,7 @@ function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
     }
     else if ( divAlvo === 'divConfiguracaoDeTreino' ) {
         apresentarExerciciosCadastrados();
+        exibirFichasDeTreino();
     }
 
     if ( divAlvo === 'divAdicionarExercicioEspecifico' ) {
@@ -402,6 +537,7 @@ function preencherComboDeExercicios() {
         option.text = opcao.nomeDoExercicio.trim();
         select.appendChild(option);
     });
+    return select;
 }
 
 function init() {
