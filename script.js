@@ -416,7 +416,7 @@ function pesquisarTodasAsExecucoesAnterioresDoTreino(exercicio) {
             dadosFiltrado.push(registro);
         }
     });
-    
+
     if (dadosFiltrado.length > 0) {
         apresentarDivAlvo('divTreinos');
         criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dadosFiltrado, false);
@@ -585,6 +585,25 @@ function formatarStringParaApresentacao(str) {
     return str;
 }
 
+function excluirExercicioNoSistema(nomeDoExercicio) {
+
+    if (confirm("Tem certeza que deseja excluir ("+nomeDoExercicio+") ?")) {
+
+        if( nomeDoExercicio ) {
+            let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
+
+            const exerciciosCadastradosAtualizados = exerciciosCadastrados.filter((registro) => {
+              return registro.nomeDoExercicio.trim().toLowerCase() !== nomeDoExercicio.trim().toLowerCase();
+            });
+
+            localStorage.setItem('exerciciosCadastrados', JSON.stringify(exerciciosCadastradosAtualizados));
+        }
+
+        apresentarExerciciosCadastrados();
+    }
+
+}
+
 function adicionarExercicioNoSistema() {
 
     const nomeDoExercicio = document.getElementById("addExercicio").value;
@@ -616,11 +635,28 @@ function apresentarExerciciosCadastrados() {
     rotuloExerciciosCadastrados.style.display = "";
     lista.innerHTML = '';
     exerciciosCadastrados.forEach(exercicioCadastrado => {
+
         const li = document.createElement('li');
-        li.innerHTML = `<strong>${exercicioCadastrado.nomeDoExercicio}</strong>`;
-        li.onclick = () => {
+
+        const divExcluir = document.createElement('div');
+        divExcluir.innerHTML = '\u{274C}';
+        divExcluir.onclick = () => {
+            excluirExercicioNoSistema(exercicioCadastrado.nomeDoExercicio);
+        };
+        li.appendChild(divExcluir);
+
+        const divPesquisar = document.createElement('div');
+        divPesquisar.innerHTML = '\u{1F441}';
+        divPesquisar.onclick = () => {
             pesquisarTodasAsExecucoesAnterioresDoTreino(exercicioCadastrado.nomeDoExercicio);
         };
+        li.appendChild(divPesquisar);
+
+        const strong = document.createElement('strong');
+        strong.innerHTML = exercicioCadastrado.nomeDoExercicio;
+        li.appendChild(strong);
+
+        li.classList.add('containerGridReduzido');
         lista.appendChild(li);
     });
 }

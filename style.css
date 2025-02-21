@@ -151,7 +151,12 @@ table {
 
 .containerGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); 
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.containerGridReduzido {
+  display: grid;
+  grid-template-columns: 20px 20px 1fr;
 }
 
 table {
