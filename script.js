@@ -52,7 +52,9 @@ function criarFichaDeTreino(index) {
     }
     else if ( index >= 1) {
         document.getElementById('botaoMaisDo'+(index-1)).style.display = "none";
-        document.getElementById('botaoMenosDo'+(index-1)).style.display = "none"; 
+        document.getElementById('botaoMenosDo'+(index-1)).style.display = "none";
+        let selectAnterior = document.getElementById('seldivTreino'+(index-1));
+        selectAnterior.classList.add('comprimirSelectExerciciosCadastrados');
     }
     novaDiv.id = 'divTreino'+index;
     novaDiv.className = 'divFichaTreino';
@@ -65,6 +67,13 @@ function criarFichaDeTreino(index) {
     lista.id = "listaExerciciosDaFicha"+index;
     lista.className = 'listagemDeExerciciosDaFicha';
     novaDiv.appendChild(lista);
+
+    let inputNome = document.createElement('input');
+    inputNome.id = "inputNomeDaFicha"+index;
+    inputNome.type = 'text';
+    inputNome.className = 'inputNomeDaFicha';
+    inputNome.placeholder = 'Digite o nome desta ficha';
+    novaDiv.appendChild(inputNome);
 
     criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoIncluirExercicioNaFicha'+index, '+1', 'botaoAdicionarExecucaoDeTreinoEspecifico adicionarExerciciosNaFichaDeTreino', incluirExercicioNaFicha, index);
     const elementoSelect = preencherComboDeExercicios().cloneNode(true);
@@ -85,6 +94,8 @@ function removerFichaDeTreino(index) {
     else {
         document.getElementById('botaoMaisDo'+(index-1)).style.display = "";
         document.getElementById('botaoMenosDo'+(index-1)).style.display = "";
+        let selectAnterior = document.getElementById('seldivTreino'+(index-1));
+        selectAnterior.classList.remove('comprimirSelectExerciciosCadastrados');
     }
 }
 
