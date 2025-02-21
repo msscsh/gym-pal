@@ -418,10 +418,15 @@ function editarExecucaoDeTreinoEspecifico(index) {
 }
 
 function excluirRegistro(index) {
+
     let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
-    meusDados.splice(index, 1);
-    localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
-    apresentarDivAlvo('divTreinos');
+    let itemAlvo = meusDados[index];
+
+    if (confirm("Tem certeza que deseja excluir ("+itemAlvo.exercicio+"-"+itemAlvo.carga+"-"+itemAlvo.intensidade+") ?")) {
+        meusDados.splice(index, 1);
+        localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
+        apresentarDivAlvo('divTreinos');
+    }
 }
 
 function excluirTodosRegistros() {
