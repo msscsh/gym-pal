@@ -154,6 +154,11 @@ table {
   grid-template-columns: repeat(2, 1fr); 
 }
 
+.containerGrid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
