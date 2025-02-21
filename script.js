@@ -52,7 +52,7 @@ function criarFichaDeTreino(index) {
     }
     else if ( index >= 1) {
         document.getElementById('botaoMaisDo'+(index-1)).style.display = "none";
-        document.getElementById('botaoMenosDo'+(index-1)).style.display = "none";
+        document.getElementById('botaoMenosDo'+(index-1)).style.display = "none"; 
     }
     novaDiv.id = 'divTreino'+index;
     novaDiv.className = 'divFichaTreino';
@@ -64,12 +64,15 @@ function criarFichaDeTreino(index) {
     const elementoSelect = preencherComboDeExercicios().cloneNode(true);
     elementoSelect.id = 'sel'+novaDiv.id;
     novaDiv.appendChild(elementoSelect);
+
+    document.getElementById("botaoSalvarFichaDeTreino").style.display = '';
 }
 
 function removerFichaDeTreino(index) {
     document.getElementById('divTreino'+index).remove();
     if (index == '1') {
         document.getElementById("botaoAdicionarFichaDeTreino").style.display = "";
+        document.getElementById("botaoSalvarFichaDeTreino").style.display = 'none';
         document.getElementById('divTreino'+index).remove();
     }
     else {
@@ -96,19 +99,7 @@ function incluirExercicioNaFicha(index) {
 
 }
 
-function removerFichaDeTreino(index) {
-    document.getElementById('divTreino'+index).remove();
-    if (index == '1') {
-        document.getElementById("botaoAdicionarFichaDeTreino").style.display = "";
-        document.getElementById('divTreino'+index).remove();
-    }
-    else {
-        document.getElementById('botaoMaisDo'+(index-1)).style.display = "";
-        document.getElementById('botaoMenosDo'+(index-1)).style.display = "";
-    }
-}
-
-function adicionarFichasDeTreino() {
+function salvarFichasDeTreino() {
 
     const divFichas = document.getElementById("divFichasDeTreino");
     minhasFichas = [];
@@ -129,11 +120,18 @@ function adicionarFichasDeTreino() {
             }
         });
         localStorage.setItem('minhasFichas', JSON.stringify(minhasFichas, null, 2));
+        ajustarApresentacaoDeBotoesDaCriacaoDeFicha();
     }
     else {
         console.log("Elemento divFichasDeTreino não encontrado.");
     }
 
+}
+
+function excluirFichasDeTreino() {
+    if (confirm("Tem certeza que deseja excluir TODAS as fichas de treino?")) {
+        localStorage.removeItem('minhasFichas');
+    }
 }
 
 function exibirFichasDeTreino() {
@@ -164,16 +162,33 @@ function exibirFichasDeTreino() {
                 divFichas.appendChild(divFicha);
             });
         }
-        else {
-            console.log("Nenhuma ficha de treino encontrada no localStorage.");
-            const mensagem = document.createElement('p');
-            mensagem.textContent = "Nenhuma ficha de treino encontrada.";
-            divFichas.appendChild(mensagem);
-        }
     }
     else {
         console.log("Elemento divFichasDeTreino não encontrado.");
     }
+}
+
+function ajustarApresentacaoDeBotoesDaCriacaoDeFicha() {
+
+    const divFichas = document.getElementById("divFichasDeTreino"); //depende da montage das divs e nao do storage
+    if (divFichas) {
+        const divsFilhas = divFichas.querySelectorAll("div");
+        if (divsFilhas.length >= 1) {
+            document.getElementById("botaoAdicionarFichaDeTreino").style.display = '';
+        }
+        else {
+            document.getElementById("botaoAdicionarFichaDeTreino").style.display = '';
+        }
+    }
+
+    const minhasFichas = localStorage.getItem('minhasFichas');
+    if (minhasFichas) {
+        document.getElementById("botaoExcluirFichaDeTreino").style.display = '';
+    }
+    else {
+        document.getElementById("botaoExcluirFichaDeTreino").style.display = 'none';
+    }
+
 }
 
 function adicionarRegistroDeExecucao() {
@@ -463,6 +478,7 @@ function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
     else if ( divAlvo === 'divConfiguracaoDeTreino' ) {
         apresentarExerciciosCadastrados();
         exibirFichasDeTreino();
+        ajustarApresentacaoDeBotoesDaCriacaoDeFicha();
     }
 
     if ( divAlvo === 'divAdicionarExercicioEspecifico' ) {

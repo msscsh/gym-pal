@@ -49,8 +49,9 @@
 				<div id="divFichasDeTreino" class="containerFlexCarrossel">
 				</div>
 				<div class="containerFlexPilha">
-		        	<button id="botaoAdicionarFichaDeTreino" class="botaoAdicionarExercicioNoSistema" onclick="criarFichaDeTreino()">+1 Ficha</button>
-		        	<button id="botaoSalvarFichaDeTreino" class="botaoAdicionarExercicioNoSistema" onclick="adicionarFichasDeTreino()">Salvar</button>
+		        	<button id="botaoAdicionarFichaDeTreino" onclick="criarFichaDeTreino()">+1 Ficha</button>
+		        	<button id="botaoSalvarFichaDeTreino" style="display: none;" onclick="salvarFichasDeTreino()">Salvar Ficha</button>
+		        	<button id="botaoExcluirFichaDeTreino" class="botaoExcluirTodosOsDados" onclick="excluirFichasDeTreino()">Excluir Ficha</button>
 				</div>
 				<div class="containerFlexPilha">
 					<ul id="exerciciosCadastrados"></ul>
