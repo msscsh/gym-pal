@@ -124,6 +124,12 @@ body {
 
 h3 {
   text-align: center;
+  margin-top: 0px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0px;
 }
 
 table {
@@ -145,7 +151,6 @@ table {
 
 .containerGrid {
   display: grid;
-/*  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));*/
   grid-template-columns: repeat(2, 1fr); 
 }
 
@@ -176,7 +181,6 @@ table tr:last-child td {
 table td:last-child {
   border-right: none;
   border-top: none;
-/*  background-color: var(--cinza-claro);*/
 }
 
 table tr:nth-child(even) {
@@ -367,6 +371,17 @@ button {
   transition: height 0.5s ease-in-out;
 }
 
+.divFichaTreinoApresentacao {
+    background-color: var(--amarelo-claro);
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    margin: 5px;
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
 .divFichaTreino {    
     display: grid;
     grid-template-areas:
@@ -440,6 +455,3 @@ button {
   margin-top: 10px !important;
 }
 
-.encolherDiv {
-/*  height: 100px;*/
-}

@@ -155,7 +155,7 @@ function exibirFichasDeTreino() {
             fichas.forEach(ficha => {
                 const divFicha = document.createElement('div');
                 divFicha.id = ficha.nome;
-                divFicha.className = 'divFichaTreino';
+                divFicha.className = 'divFichaTreinoApresentacao';
 
                 const tituloFicha = document.createElement('h3');
                 tituloFicha.textContent = ficha.nome;
