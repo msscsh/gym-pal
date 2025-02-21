@@ -100,7 +100,7 @@ html {
   border-left: none;
   border-right: none;
   border-top: none;
-  border-image: repeating-linear-gradient(45deg, var(--amarelo-claro), var(--preto), var(--amarelo-escuro) 30px) 60;
+/*  border-image: repeating-linear-gradient(45deg, var(--amarelo-claro), var(--preto), var(--amarelo-escuro) 30px) 60;*/
   box-sizing: border-box;
   max-height: 100%;
   max-width: 100%;
