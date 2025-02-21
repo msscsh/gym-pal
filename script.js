@@ -103,6 +103,13 @@ function removerFichaDeTreino(index) {
         let selectAnterior = document.getElementById('seldivTreino'+(index-1));
         selectAnterior.classList.remove('comprimirSelectExerciciosCadastrados');
     }
+    
+    const gridContainer = document.getElementById('divFichasDeTreino');
+    const numItens = gridContainer.children.length;
+    let numCols = Math.ceil(Math.sqrt(numItens));
+    let numRows = Math.ceil(numItens / numCols);
+    gridContainer.style.gridTemplateColumns = `repeat(${numCols}, 1fr)`;
+    gridContainer.style.gridTemplateRows = `repeat(${numRows}, 1fr)`;
 }
 
 function incluirExercicioNaFicha(index) {
