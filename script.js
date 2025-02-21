@@ -553,6 +553,8 @@ function adicionarExercicioNoSistema() {
 function apresentarExerciciosCadastrados() {
     let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
     const lista = document.getElementById('exerciciosCadastrados');
+    const rotuloExerciciosCadastrados = document.getElementById('rotuloExerciciosCadastrados');
+    rotuloExerciciosCadastrados.style.display = "";
     lista.innerHTML = '';
     exerciciosCadastrados.forEach(exercicioCadastrado => {
         const li = document.createElement('li');
