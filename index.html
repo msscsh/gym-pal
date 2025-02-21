@@ -41,27 +41,29 @@
 					    <button id="excluir" class="botaoExcluirTodosOsDados" onclick="excluirTodosRegistros()">Excluir Tudo</button>
 					    <input type="file" id="botaoImportarJsonDeTreino" class="botaoImportarJsonDeTreino">
 					</div>
+
+					<div class="divExerciciosCadastrados containerFlexPilha bordear">
+						<h3 id="rotuloExerciciosCadastrados" style="display:none">Exercícios cadastrados para você</h3>
+						<ul id="exerciciosCadastrados"></ul>
+
+						<div id="divCamposAdicionarExercicio" class="divCamposAdicionarExercicio containerFlexCarrossel">
+					        <label for="addExercicio" class="labelAddExercicio" >Exercício:</label>
+					        <input type="text" id="addExercicio" class="inputAdicionarExercicioNoSistema">
+					        <button class="botaoAdicionarExercicioNoSistema" onclick="adicionarExercicioNoSistema()">Adicionar</button>
+						</div>
+					</div>
+					
 				</div>
 
 			</div>
 
 			<div id="divConfiguracaoDeTreino" class="divConfiguracaoDeTreino">
-				<div id="divFichasDeTreino" class="containerGrid3">
+				<div id="divFichasDeTreino" class="containerGrid">
 				</div>
 				<div class="containerFlexPilha">
 		        	<button id="botaoAdicionarFichaDeTreino" class="btnConfirmarAlteracaoDeRegistro" onclick="criarFichaDeTreino()">+1 Ficha</button>
 		        	<button id="botaoSalvarFichaDeTreino" style="display: none;" class="btnConfirmarAlteracaoDeRegistro" onclick="salvarFichasDeTreino()">Salvar Fichas</button>
 		        	<button id="botaoExcluirFichaDeTreino" class="botaoExcluirTodosOsDados" onclick="excluirFichasDeTreino()">Excluir Fichas</button>
-				</div>
-				<div class="divExerciciosCadastrados containerFlexPilha bordear">
-					<h3 id="rotuloExerciciosCadastrados" style="display:none">Exercícios cadastrados para você</h3>
-					<ul id="exerciciosCadastrados"></ul>
-
-					<div id="divCamposAdicionarExercicio" class="divCamposAdicionarExercicio containerFlexCarrossel">
-				        <label for="addExercicio" class="labelAddExercicio" >Exercício:</label>
-				        <input type="text" id="addExercicio" class="inputAdicionarExercicioNoSistema">
-				        <button class="botaoAdicionarExercicioNoSistema" onclick="adicionarExercicioNoSistema()">Adicionar</button>
-					</div>
 				</div>
 			</div>
 

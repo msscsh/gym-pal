@@ -154,11 +154,6 @@ table {
   grid-template-columns: repeat(2, 1fr); 
 }
 
-.containerGrid3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-}
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -348,7 +343,10 @@ button {
 }
 
 .divConfiguracaoDeTela {
-  padding-bottom: 20px;
+  max-height: 60vh;
+  min-width: 50vw;
+  overflow-y: auto;  
+  transition: height 0.5s ease-in-out;
 }
 
 .divAdicionarExercicio {
@@ -373,6 +371,13 @@ button {
 .divTabelaTreinos {
   max-height: 60vh;
   min-width: 50vw;
+  overflow-y: auto;  
+  transition: height 0.5s ease-in-out;
+}
+
+.divConfiguracaoDeTreino {
+  max-height: 70vh;
+  max-width: 70vw;
   overflow-y: auto;  
   transition: height 0.5s ease-in-out;
 }

@@ -82,6 +82,12 @@ function criarFichaDeTreino(index) {
     novaDiv.appendChild(elementoSelect);
 
     document.getElementById("botaoSalvarFichaDeTreino").style.display = '';
+    const gridContainer = document.getElementById('divFichasDeTreino');
+    const numItens = gridContainer.children.length;
+    let numCols = Math.ceil(Math.sqrt(numItens));
+    let numRows = Math.ceil(numItens / numCols);
+    gridContainer.style.gridTemplateColumns = `repeat(${numCols}, 1fr)`;
+    gridContainer.style.gridTemplateRows = `repeat(${numRows}, 1fr)`;
 }
 
 function removerFichaDeTreino(index) {
@@ -146,6 +152,8 @@ function excluirFichasDeTreino() {
 function exibirFichasDeTreino() {
     const divFichas = document.getElementById("divFichasDeTreino");
     divFichas.innerHTML = '';
+    divFichas.style.gridTemplateColumns = `repeat(1, 1fr)`;
+    divFichas.style.gridTemplateColumns = `repeat(1, 1fr)`;
 
     if (divFichas) {
         const minhasFichas = localStorage.getItem('minhasFichas');
@@ -170,11 +178,17 @@ function exibirFichasDeTreino() {
                 divFicha.appendChild(ulTreino);
                 divFichas.appendChild(divFicha);
             });
+
+            const gridContainer = document.getElementById('divFichasDeTreino');
+            const numItens = gridContainer.children.length;
+            let numCols = Math.ceil(Math.sqrt(numItens));
+            let numRows = Math.ceil(numItens / numCols);
+            gridContainer.style.gridTemplateColumns = `repeat(${numCols}, 1fr)`;
+            gridContainer.style.gridTemplateRows = `repeat(${numRows}, 1fr)`;
+
         }
     }
-    else {
-        console.log("Elemento divFichasDeTreino não encontrado.");
-    }
+
 }
 
 function ajustarApresentacaoDeBotoesDaCriacaoDeFicha() {
