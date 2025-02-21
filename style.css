@@ -342,7 +342,7 @@ button {
     border-style: solid;
 }
 
-.divConfiguracaoDeTela {
+.divConfiguracoes {
   max-height: 60vh;
   min-width: 50vw;
   overflow-y: auto;  

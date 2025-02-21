@@ -478,7 +478,7 @@ function apresentarDivAlvo(divAlvo) {
 
     realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo);
     document.getElementById("divAdicionarExercicio").style.display = "none";
-    document.getElementById("divConfiguracaoDeTela").style.display = "none";
+    document.getElementById("divConfiguracoes").style.display = "none";
     document.getElementById("divTreinos").style.display = "none";
     document.getElementById("divConfiguracaoDeTreino").style.display = "none";
     if ( divAlvo ) {
@@ -515,6 +515,9 @@ function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
         apresentarExerciciosCadastrados();
         exibirFichasDeTreino();
         ajustarApresentacaoDeBotoesDaCriacaoDeFicha();
+    }
+    else if ( divAlvo === 'divConfiguracoes' ) {
+        apresentarExerciciosCadastrados();
     }
 
     if ( divAlvo === 'divAdicionarExercicioEspecifico' ) {
