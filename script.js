@@ -58,11 +58,18 @@ function criarFichaDeTreino(index) {
     novaDiv.className = 'divFichaTreino';
     const divPai = document.getElementById('divFichasDeTreino');
     divPai.appendChild(novaDiv);
-    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoMaisDo'+index, '+1 Ficha', 'botaoAdicionarExecucaoDeTreinoEspecifico', criarFichaDeTreino, index+1);
-    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoMenosDo'+index, '-1', 'botaoExcluirRegistroDeTreino', removerFichaDeTreino, index);
-    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoIncluirExercicioNaFicha'+index, '+1', 'botaoIncluirExercicioNaFicha', incluirExercicioNaFicha, index);
+    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoMaisDo'+index, '+1 Ficha', 'botaoAdicionarExecucaoDeTreinoEspecifico maisUmaFichaDeTreino', criarFichaDeTreino, index+1);
+    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoMenosDo'+index, '-1 Ficha', 'botaoExcluirRegistroDeTreino menosUmaFichaDeTreino', removerFichaDeTreino, index);
+
+    let lista = document.createElement('ul');
+    lista.id = "listaExerciciosDaFicha"+index;
+    lista.className = 'listagemDeExerciciosDaFicha';
+    novaDiv.appendChild(lista);
+
+    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoIncluirExercicioNaFicha'+index, '+1', 'botaoAdicionarExecucaoDeTreinoEspecifico adicionarExerciciosNaFichaDeTreino', incluirExercicioNaFicha, index);
     const elementoSelect = preencherComboDeExercicios().cloneNode(true);
     elementoSelect.id = 'sel'+novaDiv.id;
+    elementoSelect.className = 'selectExerciciosCadastrados';
     novaDiv.appendChild(elementoSelect);
 
     document.getElementById("botaoSalvarFichaDeTreino").style.display = '';
@@ -82,21 +89,10 @@ function removerFichaDeTreino(index) {
 }
 
 function incluirExercicioNaFicha(index) {
-
-    let lista; 
-    if ( !document.getElementById('listaExerciciosDaFicha'+index) ) {
-        lista = document.createElement('ul');
-        lista.id = "listaExerciciosDaFicha"+index;
-        document.getElementById('divTreino'+index).appendChild(lista);
-    }
-    else {
-        lista = document.getElementById('listaExerciciosDaFicha'+index);
-    }
-
+    let lista = document.getElementById('listaExerciciosDaFicha'+index);
     const li = document.createElement('li');
     li.innerHTML = `<strong>${document.getElementById('seldivTreino'+index).value}</strong>`;
     lista.appendChild(li);
-
 }
 
 function salvarFichasDeTreino() {
@@ -282,10 +278,21 @@ function criarBotaoNoElementoComAcaoComID(elementoPai, id, texto, classe, funcao
     elementoPai.lastElementChild.id=id;
 }
 
-function criarBotaoNoElementoComAcao(elementoPai, texto, classe, funcaoDoBotao, argumentoDaFuncao) {
+function criarBotaoNoElementoComAcao(elementoPai, texto, classes, funcaoDoBotao, argumentoDaFuncao) {
     const botao = document.createElement('button');
     botao.textContent = texto;
-    botao.classList.add(classe);
+
+    if (classes.includes(" ")) {
+        const classesArray = classes.split(" ");
+        classesArray.forEach(classe => {
+          botao.classList.add(classe);
+        });
+    }
+    else {
+        botao.classList.add(classes);
+    }
+
+
     botao.onclick = () => {
         funcaoDoBotao(argumentoDaFuncao);
     };

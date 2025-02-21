@@ -49,16 +49,16 @@
 				<div id="divFichasDeTreino" class="containerFlexCarrossel">
 				</div>
 				<div class="containerFlexPilha">
-		        	<button id="botaoAdicionarFichaDeTreino" onclick="criarFichaDeTreino()">+1 Ficha</button>
-		        	<button id="botaoSalvarFichaDeTreino" style="display: none;" onclick="salvarFichasDeTreino()">Salvar Ficha</button>
+		        	<button id="botaoAdicionarFichaDeTreino" class="btnConfirmarAlteracaoDeRegistro" onclick="criarFichaDeTreino()">+1 Ficha</button>
+		        	<button id="botaoSalvarFichaDeTreino" style="display: none;" class="btnConfirmarAlteracaoDeRegistro" onclick="salvarFichasDeTreino()">Salvar Ficha</button>
 		        	<button id="botaoExcluirFichaDeTreino" class="botaoExcluirTodosOsDados" onclick="excluirFichasDeTreino()">Excluir Ficha</button>
 				</div>
-				<div class="containerFlexPilha">
+				<div class="divExerciciosCadastrados containerFlexPilha bordear">
 					<ul id="exerciciosCadastrados"></ul>
 
 					<div id="divCamposAdicionarExercicio" class="divCamposAdicionarExercicio containerFlexCarrossel">
-				        <label for="addExercicio">Exercicio:</label>
-				        <input type="text" id="addExercicio">
+				        <label for="addExercicio" class="labelAddExercicio" >Exercício:</label>
+				        <input type="text" id="addExercicio" class="inputAdicionarExercicioNoSistema">
 				        <button class="botaoAdicionarExercicioNoSistema" onclick="adicionarExercicioNoSistema()">Adicionar</button>
 					</div>
 				</div>
@@ -86,7 +86,7 @@
 			        	<button id="btnConfirmarAlteracaoDeRegistro" class="btnConfirmarAlteracaoDeRegistro" style="display: none;" type="button" onclick="adicionarRegistroDeExecucao()">Alterar</button>
 			    	</div>
 					<div id="divBotaoAdicionar" class="divBotaoAdicionar">
-			        	<button class="botaoVoltarNoHistoricoDeTreino" type="button" onclick="apresentarDivAlvo('divTreinos')">Histórico de treino</button>
+			        	<button class="botaoVoltarNoHistoricoDeTreino" type="button" onclick="apresentarDivAlvo('divTreinos')"><< Histórico de treino</button>
 			    	</div>
 			    </form>
 			</div>
@@ -114,7 +114,7 @@
 				<div id="divBotoesTabelaTreino" class="containerFlexCarrossel">
 				    <button id="botaoExecucaoGenerica" class="botaoAdicionarExecucaoDeTreino" style="display: none;" onclick="apresentarDivAlvo('divAdicionarExercicioGenerico')">+1 execução</button>
 				    <button id="botaoExecucaoEspecifica" class="botaoAdicionarExecucaoDeTreino" style="display: none;" onclick="apresentarDivAlvo('divAdicionarExercicioEspecifico')">+1 execução específica</button>
-				    <button id="botaoVoltarNoHistoricoDeTreino" class="botaoAdicionarExecucaoDeTreino" type="button" style="display: none;" onclick="apresentarDivAlvo('divTreinos')">Histórico de treino</button>
+				    <button id="botaoVoltarNoHistoricoDeTreino" class="botaoAdicionarExecucaoDeTreino" type="button" style="display: none;" onclick="apresentarDivAlvo('divTreinos')"><< Histórico de treino</button>
 				</div>
 
 			</div>

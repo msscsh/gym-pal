@@ -218,10 +218,19 @@ button {
 }
 
 .btnConfirmarAdicaoDeRegistro, .btnConfirmarAlteracaoDeRegistro {
-  background-color: var(--amarelo-medio);
+  background-color: var(--preto);
+  color: white;
   margin-top: 20px;
-  border-color: black;
-  border-width: 1px;
+  border-color: var(--amarelo-medio);
+  border-width: 2px;
+  border-style: solid;
+}
+
+.botaoAdicionarExercicioNoSistema {
+  background-color: var(--preto);
+  color: white;
+  border-color: var(--amarelo-medio);
+  border-width: 2px;
   border-style: solid;
 }
 
@@ -295,6 +304,26 @@ button {
   color: white;
 }
 
+.labelAddExercicio {
+  padding-right: 5px;
+}
+
+.inputAdicionarExercicioNoSistema {
+  margin-right: 20px;
+}
+
+.bordear {
+  border-color: var(--preto);
+  border-width: 1px;
+  border-style: solid;
+}
+
+
+.divExerciciosCadastrados {
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+
 .divBotoesTabelaTreino {
   padding-top: 20px;
 }
@@ -338,17 +367,72 @@ button {
   transition: height 0.5s ease-in-out;
 }
 
-.divFichaTreino {
-    display: inline-block;
-    min-width: 20vh;
-    min-height: 20vh;
-    cursor: pointer;
+.divFichaTreino {    
+    display: grid;
+    grid-template-areas:
+    "maisUmaFichaDeTreino menosUmaFichaDeTreino"
+    "listagemDeExerciciosDaFicha listagemDeExerciciosDaFicha"
+    "selectExerciciosCadastrados adicionarExerciciosNaFichaDeTreino";
     background-color: var(--amarelo-claro);
     border-color: black;
-    border-width: 3px;
+    border-width: 2px;
     border-style: solid;
     margin: 5px;
     padding: 3px;
+    align-items: center
+}
+
+.maisUmaFichaDeTreino {    
+  grid-area: maisUmaFichaDeTreino;
+  max-width: 100px;
+  min-width: 100px;
+  max-height: 20px;
+  min-height: 20px;
+  padding: 0px !important;
+  margin: 0px !important;
+  margin-top: 10px !important;
+  margin-left: 10px !important;
+}
+
+.menosUmaFichaDeTreino {    
+  grid-area: menosUmaFichaDeTreino;
+  max-width: 100px;
+  min-width: 100px;
+  max-height: 20px;
+  min-height: 20px;
+  padding: 0px !important;
+  margin: 0px !important;
+  margin-top: 10px !important;
+  margin-right: 10px !important;
+}
+
+.listagemDeExerciciosDaFicha {    
+  grid-area: listagemDeExerciciosDaFicha;
+  padding: 0px;
+  margin: 0px;
+  margin-top: 20px !important;
+  margin-left: 20% !important;
+}
+
+.selectExerciciosCadastrados {    
+  grid-area: selectExerciciosCadastrados;
+  padding: 0px !important;
+  margin: 0px !important;
+  margin-left: 60px !important;
+  margin-bottom: 20px !important;
+  margin-top: 10px !important;
+}
+
+.adicionarExerciciosNaFichaDeTreino {
+  max-width: 20px;
+  min-width: 20px; 
+  max-height: 20px;
+  min-height: 20px;
+  grid-area: adicionarExerciciosNaFichaDeTreino;
+  padding: 0px !important;
+  margin: 0px !important;
+  margin-bottom: 20px !important;
+  margin-top: 10px !important;
 }
 
 .encolherDiv {
