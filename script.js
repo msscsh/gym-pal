@@ -103,7 +103,7 @@ function removerFichaDeTreino(index) {
         let selectAnterior = document.getElementById('seldivTreino'+(index-1));
         selectAnterior.classList.remove('comprimirSelectExerciciosCadastrados');
     }
-    
+
     const gridContainer = document.getElementById('divFichasDeTreino');
     const numItens = gridContainer.children.length;
     let numCols = Math.ceil(Math.sqrt(numItens));
@@ -204,7 +204,7 @@ function ajustarApresentacaoDeBotoesDaCriacaoDeFicha() {
     if (divFichas) {
         const divsFilhas = divFichas.querySelectorAll("div");
         if (divsFilhas.length >= 1) {
-            document.getElementById("botaoAdicionarFichaDeTreino").style.display = '';
+            document.getElementById("botaoAdicionarFichaDeTreino").style.display = 'none';
         }
         else {
             document.getElementById("botaoAdicionarFichaDeTreino").style.display = '';
@@ -219,6 +219,7 @@ function ajustarApresentacaoDeBotoesDaCriacaoDeFicha() {
     }
     else {
         document.getElementById("botaoExcluirFichaDeTreino").style.display = 'none';
+        document.getElementById("botaoSalvarFichaDeTreino").style.display = 'none';
     }
 
 }
