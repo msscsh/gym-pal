@@ -399,6 +399,8 @@ function pesquisarExecucoesAnterioresDoTreino(index) {
     apresentarDivAlvo('divTreinos');
     if (dadosFiltrado.length > 0) {
         criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dadosFiltrado, false);
+        const elementoZoom = document.getElementById('container');
+        elementoZoom.style.transform = `scale(1.4)`;
     }
     else {
         alert('Nenhum histórico deste exercício foi encontrado')
@@ -459,17 +461,17 @@ function criarListenerDeImportacaoDeJson() {
     });
 }
 
-function criarListenerDeZoom() {
+// function criarListenerDeZoom() {
 
-    const input = document.getElementById('zoomInput');
-    const elementoZoom = document.getElementById('container');
+//     const input = document.getElementById('zoomInput');
+//     const elementoZoom = document.getElementById('container');
 
-    input.addEventListener('input', () => {
-        const valorZoom = input.value;
-        elementoZoom.style.transform = `scale(${valorZoom})`;
-    });
+//     input.addEventListener('input', () => {
+//         const valorZoom = input.value;
+//         elementoZoom.style.transform = `scale(${valorZoom})`;
+//     });
 
-}
+// }
 
 function mostrarMenuLateral() {
     const divLateral = document.getElementById('menuLateral');
@@ -509,7 +511,7 @@ function apresentarDivAlvo(divAlvo) {
 
 function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
     const elementoZoom = document.getElementById('container');
-    elementoZoom.style.transform = `scale(1.2)`;
+    elementoZoom.style.transform = `scale(1)`;
     if ( divAlvo === 'divTreinos' ) {
         exibirTabela();        
         document.getElementById("botaoExecucaoEspecifica").style.display = "none";
@@ -618,7 +620,7 @@ function preencherComboDeExercicios() {
 
 function init() {
     criarListenerDeImportacaoDeJson();
-    criarListenerDeZoom();
+    // criarListenerDeZoom();
     //ajustarProblemasNosJSON();
     limparApresentacao();
 }
