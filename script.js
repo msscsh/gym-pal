@@ -508,6 +508,8 @@ function apresentarDivAlvo(divAlvo) {
 }
 
 function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
+    const elementoZoom = document.getElementById('container');
+    elementoZoom.style.transform = `scale(1.2)`;
     if ( divAlvo === 'divTreinos' ) {
         exibirTabela();        
         document.getElementById("botaoExecucaoEspecifica").style.display = "none";
@@ -518,11 +520,15 @@ function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
         document.getElementById('btnConfirmarAdicaoDeRegistro').style.display = '';
         limparCamposNaTela();
         preencherComboDeExercicios();
+        const elementoZoom = document.getElementById('container');
+        elementoZoom.style.transform = `scale(1.3)`;
     }
     else if ( divAlvo === 'divEditarExercicio' ) {
         document.getElementById('btnConfirmarAlteracaoDeRegistro').style.display = '';
         document.getElementById('btnConfirmarAdicaoDeRegistro').style.display = 'none';
         preencherComboDeExercicios();
+        const elementoZoom = document.getElementById('container');
+        elementoZoom.style.transform = `scale(1.3)`;
     }
     else if ( divAlvo === 'divConfiguracaoDeTreino' ) {
         apresentarExerciciosCadastrados();
