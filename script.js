@@ -295,7 +295,7 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, is
             const celulaAcoes = novaLinha.insertCell();
             criarBotaoNoElementoComAcao(celulaAcoes, '\u{1F4DD}', 'botaoEditarExecucaoDeTreinoEspecifico', editarExecucaoDeTreinoEspecifico, index);
             criarBotaoNoElementoComAcao(celulaAcoes, '+', 'botaoAdicionarExecucaoDeTreinoEspecifico', adicionarExecucaoDeTreinoEspecifico, index);
-            criarBotaoNoElementoComAcao(celulaAcoes, '\u{1F50D}', 'botaoPesquisarExecucoesAnterioresDoTreino', pesquisarExecucoesAnterioresDoTreino, index);
+            criarBotaoNoElementoComAcao(celulaAcoes, '\u{231B}', 'botaoPesquisarExecucoesAnterioresDoTreino', pesquisarExecucoesAnterioresDoTreino, index);
             criarBotaoNoElementoComAcao(celulaAcoes, '\u{1F5D1}', 'botaoExcluirRegistroDeTreino', excluirRegistro, index);
         }
         else {
@@ -391,7 +391,7 @@ function pesquisarExecucoesAnterioresDoTreino(index) {
     const itemParaPesquisar = meusDados[index];
     let dadosFiltrado = [];
     meusDados.forEach((registro, indexRegistros) => {
-        if( (registro.exercicio.trim().toLowerCase() == itemParaPesquisar.exercicio.trim().toLowerCase()) && (indexRegistros > index) ) {
+        if( (registro.exercicio.trim().toLowerCase() == itemParaPesquisar.exercicio.trim().toLowerCase()) && (indexRegistros >= index) ) {
             dadosFiltrado.push(registro);
         }
     });
