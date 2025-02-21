@@ -511,7 +511,7 @@ function apresentarDivAlvo(divAlvo) {
 
 function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
     const elementoZoom = document.getElementById('container');
-    elementoZoom.style.transform = `scale(1)`;
+    elementoZoom.style.transform = `scale(1.1)`;
     if ( divAlvo === 'divTreinos' ) {
         exibirTabela();        
         document.getElementById("botaoExecucaoEspecifica").style.display = "none";
