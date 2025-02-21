@@ -120,7 +120,7 @@ function salvarFichasDeTreino() {
             }
         });
         localStorage.setItem('minhasFichas', JSON.stringify(minhasFichas, null, 2));
-        ajustarApresentacaoDeBotoesDaCriacaoDeFicha();
+        apresentarDivAlvo('divConfiguracaoDeTreino');
     }
     else {
         console.log("Elemento divFichasDeTreino não encontrado.");
@@ -131,18 +131,19 @@ function salvarFichasDeTreino() {
 function excluirFichasDeTreino() {
     if (confirm("Tem certeza que deseja excluir TODAS as fichas de treino?")) {
         localStorage.removeItem('minhasFichas');
+        apresentarDivAlvo('divConfiguracaoDeTreino');
     }
 }
 
 function exibirFichasDeTreino() {
     const divFichas = document.getElementById("divFichasDeTreino");
+    divFichas.innerHTML = '';
 
     if (divFichas) {
         const minhasFichas = localStorage.getItem('minhasFichas');
 
         if (minhasFichas) {
             const fichas = JSON.parse(minhasFichas);
-            divFichas.innerHTML = '';
             fichas.forEach(ficha => {
                 const divFicha = document.createElement('div');
                 divFicha.id = ficha.nome;
@@ -184,6 +185,8 @@ function ajustarApresentacaoDeBotoesDaCriacaoDeFicha() {
     const minhasFichas = localStorage.getItem('minhasFichas');
     if (minhasFichas) {
         document.getElementById("botaoExcluirFichaDeTreino").style.display = '';
+        document.getElementById("botaoAdicionarFichaDeTreino").style.display = 'none';
+        document.getElementById("botaoSalvarFichaDeTreino").style.display = 'none';
     }
     else {
         document.getElementById("botaoExcluirFichaDeTreino").style.display = 'none';
