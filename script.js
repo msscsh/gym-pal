@@ -123,7 +123,8 @@ function salvarFichasDeTreino() {
                         conteudo.push(strong.textContent);
                     }
                 });
-                minhasFichas.push({nome: div.id, treino: conteudo});
+                input = div.querySelector("input");
+                minhasFichas.push({nome: input.value, treino: conteudo});
             }
         });
         localStorage.setItem('minhasFichas', JSON.stringify(minhasFichas, null, 2));
