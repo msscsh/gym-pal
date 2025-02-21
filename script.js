@@ -408,6 +408,27 @@ function pesquisarExecucoesAnterioresDoTreino(index) {
 
 }
 
+function pesquisarTodasAsExecucoesAnterioresDoTreino(exercicio) {
+    let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
+    let dadosFiltrado = [];
+    meusDados.forEach((registro) => {
+        if( (registro.exercicio.trim().toLowerCase() == exercicio.trim().toLowerCase()) ) {
+            dadosFiltrado.push(registro);
+        }
+    });
+    
+    if (dadosFiltrado.length > 0) {
+        apresentarDivAlvo('divTreinos');
+        criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dadosFiltrado, false);
+        const elementoZoom = document.getElementById('container');
+        elementoZoom.style.transform = `scale(1.4)`;
+    }
+    else {
+        alert('Nenhum histórico deste exercício foi encontrado')
+    }
+
+}
+
 function adicionarExecucaoDeTreinoEspecifico(index) {
     let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
     const itemParaEditar = meusDados[index];
@@ -597,6 +618,9 @@ function apresentarExerciciosCadastrados() {
     exerciciosCadastrados.forEach(exercicioCadastrado => {
         const li = document.createElement('li');
         li.innerHTML = `<strong>${exercicioCadastrado.nomeDoExercicio}</strong>`;
+        li.onclick = () => {
+            pesquisarTodasAsExecucoesAnterioresDoTreino(exercicioCadastrado.nomeDoExercicio);
+        };
         lista.appendChild(li);
     });
 }
