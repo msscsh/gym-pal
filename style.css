@@ -25,25 +25,43 @@
   overflow: hidden;
 }
 
-@media (max-width: 850px) {
+@media (min-width: 1001px) and (max-width: 6000px) {
   .menu {
-    width: 50px;
-    height: 50px;
+    width: 200px;
+    height: 200px;
   }
   .menuLateral {
-    width: 50px;
-    height: 500px;
+    width: 200px;
+    top: 10% !important;
+  }
+  table {
+    font-size: 2.5em !important;
+  }
+  button {
+    font-size: 2.5em !important;
+  }
+  body {
+    padding-top: 5vh !important;
   }
 }
 
-@media (min-width: 851px) {
+@media (min-width: 801px) and (max-width: 1000px) {
   .menu {
     width: 170px;
     height: 170px;
   }
   .menuLateral {
     width: 170px;
-    height: 30%;
+    top: 8% !important;
+  }
+  table {
+    font-size: 1.3em !important;
+  }
+  button {
+    font-size: 1.8em !important;
+  }
+  body {
+    padding-top: 20vh !important;
   }
 }
 
@@ -76,17 +94,13 @@
 
 .itemDeMenu {
   margin: 20px;
-  font-size: 1.7em;
-}
-
-@media (max-height: 1500px) {
-}
-
-@media (min-height: 1501px) {
+  margin-left: 0px;
+  margin-right: 0px;
+  font-size: 1.9em;
 }
 
 .animarMenuDeCimaPraBaixo {
-  height: 50%;
+  height: 40vh;
 }
 
 html {
@@ -100,7 +114,6 @@ html {
   border-left: none;
   border-right: none;
   border-top: none;
-/*  border-image: repeating-linear-gradient(45deg, var(--amarelo-claro), var(--preto), var(--amarelo-escuro) 30px) 60;*/
   box-sizing: border-box;
   max-height: 100%;
   max-width: 100%;
@@ -114,12 +127,12 @@ body {
   padding: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
   overflow: scroll;
   background-color: var(--cinza-claro);
   font-size: small;
   min-height: 100%;
   min-width: 100%;
+  padding-top: 20vh;
 }
 
 h3 {
@@ -134,6 +147,7 @@ ul {
 
 table {
   display: table;
+  font-size: 1.3em;
 }
 
 .containerFlexPilha {
@@ -157,6 +171,11 @@ table {
 .containerGridReduzido {
   display: grid;
   grid-template-columns: 20px 20px 1.5fr;
+}
+
+.containerGridReduzido4 {
+  display: grid;
+  grid-template-columns: repeat(4, 40px);
 }
 
 table {
@@ -224,18 +243,10 @@ button {
   border-color: black;
   border-width: 1px;
   border-style: solid;
+  font-size: 1.3em;
 }
 
-.btnConfirmarAdicaoDeRegistro, .btnConfirmarAlteracaoDeRegistro {
-  background-color: var(--preto);
-  color: white;
-  margin-top: 20px;
-  border-color: var(--amarelo-medio);
-  border-width: 2px;
-  border-style: solid;
-}
-
-.botaoAdicionarExercicioNoSistema {
+.buttonPreto {
   background-color: var(--preto);
   color: white;
   border-color: var(--amarelo-medio);
@@ -243,74 +254,12 @@ button {
   border-style: solid;
 }
 
-.botaoVoltarNoHistoricoDeTreino {
-  background-color: var(--preto);
-  color: white;
-  margin-top: 10px;
-  border-color: var(--amarelo-medio);
-  border-width: 2px;
-  border-style: solid;
-}
-
-.botaoEditarExecucaoDeTreinoEspecifico {
-  margin-left: 5px;
-  background-color: var(--preto);
-  font-size: x-small;
-  border-color: var(--amarelo-medio);
-  border-width: 2px;
-  border-style: solid;
-}
-
-.botaoAdicionarExecucaoDeTreinoEspecifico {
-  background-color: var(--preto);
-  color: white;
-  font-size: x-small;
-  margin-left: 5px;
-  border-color: var(--amarelo-medio);
-  border-width: 2px;
-  border-style: solid;
-}
-
-.botaoPesquisarExecucoesAnterioresDoTreino {
-  background-color: var(--preto);
-  font-size: x-small;
-  margin-left: 5px;
-  margin-right: 20px;
-  border-color: var(--amarelo-medio);
-  border-width: 2px;
-  border-style: solid;
-}
-
-.botaoExcluirRegistroDeTreino {
+.buttonVermelho {
   background-color: var(--vermelho);
   color: white;
-  font-size: x-small;
-  margin-right: 5px;
   border-color: white;
   border-width: 1px;
   border-style: solid;
-}
-
-.botaoAdicionarExecucaoDeTreino {
-  background-color: var(--preto);
-  color: white;
-  margin-top: 20px;
-  border-color: var(--amarelo-medio);
-  border-width: 2px;
-  border-style: solid;
-}
-
-.botaoVoltarListaDeTreinos {
-  background-color: var(--preto);
-  color: white;
-  border-color: var(--amarelo-medio);
-  border-width: 2px;
-  border-style: solid;
-}
-
-.botaoExcluirTodosOsDados {
-  background-color: var(--vermelho);
-  color: white;
 }
 
 .labelAddExercicio {
@@ -337,25 +286,11 @@ button {
   padding-top: 20px;
 }
 
-.botaoImportarJsonDeTreino {
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
-    background-color: var(--amarelo-claro);
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
-}
-
 .divConfiguracoes {
   max-height: 60vh;
   min-width: 50vw;
   overflow-y: auto;  
   transition: height 0.5s ease-in-out;
-}
-
-.divAdicionarExercicio {
-  border: 1px solid var(--cinza-medio);
 }
 
 .divCamposAdicionarExercicio {
@@ -388,14 +323,14 @@ button {
 }
 
 .divFichaTreinoApresentacao {
-    background-color: var(--amarelo-claro);
-    border-color: black;
-    border-width: 2px;
-    border-style: solid;
-    margin: 5px;
-    padding: 20px;
-    padding-top: 10px;
-    padding-bottom: 5px;
+  background-color: var(--amarelo-claro);
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  margin: 5px;
+  padding: 20px;
+  padding-top: 10px;
+  padding-bottom: 5px;
 }
 
 .divFichaTreino {    

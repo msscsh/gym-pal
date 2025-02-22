@@ -39,9 +39,9 @@
 					<div id="tamanhoDaTela"></div>
 
 					<div id="divBotoesTabelaTreino" class="divBotoesTabelaTreino">
-					    <button onclick="exportarJSON()">Exportar meus dados</button>
-					    <button id="excluir" class="botaoExcluirTodosOsDados" onclick="excluirTodosRegistros()">Excluir Tudo</button>
-					    <input type="file" id="botaoImportarJsonDeTreino" class="botaoImportarJsonDeTreino">
+					    <button class="classeBaseBotao" onclick="exportarJSON()">Exportar meus dados</button>
+					    <button class="classeBaseBotao" id="excluir" class="botaoExcluirTodosOsDados" onclick="excluirTodosRegistros()">Excluir Tudo</button>
+					    <input class="classeBaseBotao" type="file" id="botaoImportarJsonDeTreino" class="botaoImportarJsonDeTreino">
 					</div>
 
 				</div>
@@ -56,7 +56,7 @@
 					<div id="divCamposAdicionarExercicio" class="divCamposAdicionarExercicio containerFlexCarrossel">
 				        <label for="addExercicio" class="labelAddExercicio" >Exercício:</label>
 				        <input type="text" id="addExercicio" class="inputAdicionarExercicioNoSistema">
-				        <button class="botaoAdicionarExercicioNoSistema" onclick="adicionarExercicioNoSistema()">Adicionar</button>
+				        <button class="botaoAdicionarExercicioNoSistema classeBaseBotao" onclick="adicionarExercicioNoSistema()">Adicionar</button>
 					</div>
 				</div>
 			</div>
@@ -65,37 +65,40 @@
 				<div id="divFichasDeTreino" class="containerGrid">
 				</div>
 				<div class="containerFlexPilha">
-		        	<button id="botaoAdicionarFichaDeTreino" class="btnConfirmarAlteracaoDeRegistro" onclick="criarFichaDeTreino()">+1 Ficha</button>
-		        	<button id="botaoSalvarFichaDeTreino" style="display: none;" class="btnConfirmarAlteracaoDeRegistro" onclick="salvarFichasDeTreino()">Salvar Fichas</button>
-		        	<button id="botaoExcluirFichaDeTreino" class="botaoExcluirTodosOsDados" onclick="excluirFichasDeTreino()">Excluir Fichas</button>
+		        	<button id="botaoAdicionarFichaDeTreino" class="btnConfirmarAlteracaoDeRegistro classeBaseBotao" onclick="criarFichaDeTreino()">+1 Ficha</button>
+		        	<button id="botaoSalvarFichaDeTreino" style="display: none;" class="btnConfirmarAlteracaoDeRegistro classeBaseBotao" onclick="salvarFichasDeTreino()">Salvar Fichas</button>
+		        	<button id="botaoExcluirFichaDeTreino" class="botaoExcluirTodosOsDados classeBaseBotao" onclick="excluirFichasDeTreino()">Excluir Fichas</button>
 				</div>
 			</div>
 
 			<div id="divAdicionarExercicio" class="divAdicionarExercicio">
-			    <form id="meuFormulario">
-					<div id="divCamposAdicionarExercicio" class="divCamposAdicionarExercicio containerGrid">
-				        <label for="exercicio">Exercício:</label>
-				        <select id="exercicio">
-						</select>
-				        <label for="carga">Carga:</label>
-				        <input type="number" id="carga">
-				        <label for="intensidade">Intensidade:</label>
-				        <select id="intensidade">
-							<option value="muito leve">😁&nbsp;&nbsp;&nbsp;&nbsp;muito leve</option>
-							<option value="leve">🙂&nbsp;&nbsp;&nbsp;&nbsp;leve</option>
-							<option value="moderado">😐&nbsp;&nbsp;&nbsp;&nbsp;moderado</option>
-							<option value="pesado">😰&nbsp;&nbsp;&nbsp;&nbsp;pesado</option>
-							<option value="muito pesado">🥵&nbsp;&nbsp;&nbsp;&nbsp;muito pesado</option>
-						</select>
-						<input type="hidden" id="index">
-				        <label ></label>
-			        	<button id="btnConfirmarAdicaoDeRegistro" class="btnConfirmarAdicaoDeRegistro" style="display: none;" type="button" onclick="adicionarRegistroDeExecucao()">Adicionar</button>
-			        	<button id="btnConfirmarAlteracaoDeRegistro" class="btnConfirmarAlteracaoDeRegistro" style="display: none;" type="button" onclick="adicionarRegistroDeExecucao()">Alterar</button>
-			    	</div>
-					<div id="divBotaoAdicionar" class="divBotaoAdicionar">
-			        	<button class="botaoVoltarNoHistoricoDeTreino" type="button" onclick="apresentarDivAlvo('divTreinos')"><< Histórico de treino</button>
-			    	</div>
-			    </form>
+
+				<div class="containerFlexPilha bordear">
+				    <form id="meuFormulario">
+						<div id="divCamposAdicionarExercicio" class="divCamposAdicionarExercicio containerGrid">
+					        <label for="exercicio">Exercício:</label>
+					        <select id="exercicio">
+							</select>
+					        <label for="carga">Carga:</label>
+					        <input type="number" id="carga">
+					        <label for="intensidade">Intensidade:</label>
+					        <select id="intensidade">
+								<option value="muito leve">😁&nbsp;&nbsp;&nbsp;&nbsp;muito leve</option>
+								<option value="leve">🙂&nbsp;&nbsp;&nbsp;&nbsp;leve</option>
+								<option value="moderado">😐&nbsp;&nbsp;&nbsp;&nbsp;moderado</option>
+								<option value="pesado">😰&nbsp;&nbsp;&nbsp;&nbsp;pesado</option>
+								<option value="muito pesado">🥵&nbsp;&nbsp;&nbsp;&nbsp;muito pesado</option>
+							</select>
+							<input type="hidden" id="index">
+					        <label ></label>
+				        	<button id="btnConfirmarAdicaoDeRegistro" class="btnConfirmarAdicaoDeRegistro classeBaseBotao" style="display: none;" type="button" onclick="adicionarRegistroDeExecucao()">Adicionar</button>
+				        	<button id="btnConfirmarAlteracaoDeRegistro" class="btnConfirmarAlteracaoDeRegistro classeBaseBotao" style="display: none;" type="button" onclick="adicionarRegistroDeExecucao()">Alterar</button>
+				    	</div>
+				    </form>
+		    	</div>
+				<div id="divBotaoAdicionar" class="divBotaoAdicionar">
+		        	<button class="botaoVoltarNoHistoricoDeTreino classeBaseBotao" type="button" onclick="apresentarDivAlvo('divTreinos')"><< Histórico de treino</button>
+		    	</div>
 			</div>
 
 			<div id="divTreinos" class="divTreinos">
@@ -119,10 +122,10 @@
 				</div>
 
 				<div id="divBotoesTabelaTreino" class="containerFlexCarrossel">
-				    <button id="botaoExecucaoGenerica" class="botaoAdicionarExecucaoDeTreino" style="display: none;" onclick="apresentarDivAlvo('divAdicionarExercicioGenerico')">+1 execução</button>
-				    <button id="botaoExecucaoEspecifica" class="botaoAdicionarExecucaoDeTreino" style="display: none;" onclick="apresentarDivAlvo('divAdicionarExercicioEspecifico')">+1 execução específica</button>
-				    <button id="botaoVoltarNoHistoricoDeTreino" class="botaoAdicionarExecucaoDeTreino" type="button" style="display: none;" onclick="apresentarDivAlvo('divTreinos')"><< Histórico de treino</button>
-				    <button class="botaoAdicionarExecucaoDeTreino" type="button" style="display: none;" onclick="apresentarDivAlvo('divConfigurarExercicios')"><< Seus exercícios</button>
+				    <button id="botaoExecucaoGenerica" class="botaoAdicionarExecucaoDeTreino classeBaseBotao" style="display: none;" onclick="apresentarDivAlvo('divAdicionarExercicioGenerico')">+1 execução</button>
+				    <button id="botaoExecucaoEspecifica" class="botaoAdicionarExecucaoDeTreino classeBaseBotao" style="display: none;" onclick="apresentarDivAlvo('divAdicionarExercicioEspecifico')">+1 execução específica</button>
+				    <button id="botaoVoltarNoHistoricoDeTreino" class="botaoAdicionarExecucaoDeTreino classeBaseBotao" type="button" style="display: none;" onclick="apresentarDivAlvo('divTreinos')"><< Histórico de treino</button>
+				    <button class="botaoAdicionarExecucaoDeTreino classeBaseBotao" type="button" style="display: none;" onclick="apresentarDivAlvo('divConfigurarExercicios')"><< Seus exercícios</button>
 				</div>
 
 			</div>

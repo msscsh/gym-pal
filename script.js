@@ -310,10 +310,11 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, is
 
         if (isApresentacaoDefault) {
             const celulaAcoes = novaLinha.insertCell();
-            criarBotaoNoElementoComAcao(celulaAcoes, '\u{1F4DD}', 'botaoEditarExecucaoDeTreinoEspecifico', editarExecucaoDeTreinoEspecifico, index);
-            criarBotaoNoElementoComAcao(celulaAcoes, '+', 'botaoAdicionarExecucaoDeTreinoEspecifico', adicionarExecucaoDeTreinoEspecifico, index);
-            criarBotaoNoElementoComAcao(celulaAcoes, '\u{231B}', 'botaoPesquisarExecucoesAnterioresDoTreino', pesquisarExecucoesAnterioresDoTreino, index);
-            criarBotaoNoElementoComAcao(celulaAcoes, '\u{1F5D1}', 'botaoExcluirRegistroDeTreino', excluirRegistro, index);
+            criarDivElementoComAcao(celulaAcoes, '\u{1F4DD}', 'emojiAcao', editarExecucaoDeTreinoEspecifico, index);
+            criarDivElementoComAcao(celulaAcoes, '\u{2795}', 'emojiAcao', adicionarExecucaoDeTreinoEspecifico, index);
+            criarDivElementoComAcao(celulaAcoes, '\u{231B}', 'emojiAcao', pesquisarExecucoesAnterioresDoTreino, index);
+            criarDivElementoComAcao(celulaAcoes, '\u{1F5D1}', 'emojiAcao', excluirRegistro, index);
+            celulaAcoes.classList.add('containerGridReduzido4');
         }
         else {
             document.getElementById("botaoExecucaoEspecifica").style.display = "";
@@ -327,6 +328,27 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, is
 function criarBotaoNoElementoComAcaoComID(elementoPai, id, texto, classe, funcaoDoBotao, argumentoDaFuncao) {
     criarBotaoNoElementoComAcao(elementoPai, texto, classe, funcaoDoBotao, argumentoDaFuncao)
     elementoPai.lastElementChild.id=id;
+}
+
+
+function criarDivElementoComAcao(elementoPai, texto, classes, funcaoDoBotao, argumentoDaFuncao) {
+    const div = document.createElement('div');
+    div.textContent = texto;
+
+    if (classes.includes(" ")) {
+        const classesArray = classes.split(" ");
+        classesArray.forEach(classe => {
+          div.classList.add(classe);
+        });
+    }
+    else {
+        div.classList.add(classes);
+    }
+
+    div.onclick = () => {
+        funcaoDoBotao(argumentoDaFuncao);
+    };
+    elementoPai.appendChild(div);
 }
 
 function criarBotaoNoElementoComAcao(elementoPai, texto, classes, funcaoDoBotao, argumentoDaFuncao) {
