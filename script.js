@@ -9,14 +9,31 @@
 // }
 
 function exportarJSON() {
-    const jsonSalvo = localStorage.getItem('meusDados');
-    const jsonComQuebrasDeLinha = jsonSalvo.replace(/\\n/g, '\r\n'); // Ou '\n'
-    const bytes = new TextEncoder().encode(jsonComQuebrasDeLinha);
+    const meusDadosString = localStorage.getItem('meusDados');
+    const exerciciosCadastradosString = localStorage.getItem('exerciciosCadastrados');
+
+    const jsonSalvo = {
+        meusDados: tryParseJson(meusDadosString),
+        exerciciosCadastrados: tryParseJson(exerciciosCadastradosString)
+    };
+
+    const jsonString = JSON.stringify(jsonSalvo, null, 2);
+
+    const bytes = new TextEncoder().encode(jsonString);
     const blob = new Blob([bytes], { type: 'application/json' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
     link.download = `meus_dados_de_treino_ts_${Date.now()}.json`;
     link.click();
+}
+
+function tryParseJson(jsonString) {
+    try {
+        return JSON.parse(jsonString);
+    } catch (e) {
+        console.warn("Erro ao parsear JSON. Usando valor original:", jsonString);
+        return jsonString;
+    }
 }
 
 /**
