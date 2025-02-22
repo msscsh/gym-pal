@@ -591,6 +591,9 @@ function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
     else if ( divAlvo === 'divConfigurarExercicios' ) {
         apresentarExerciciosCadastrados();
     }
+    else if ( divAlvo === 'divConfiguracoes' ) {
+        verificarResolucaoDoDispositivo();
+    }
 
     if ( divAlvo === 'divAdicionarExercicioEspecifico' ) {
         const tabela = document.getElementById("tabelaTreinos");
@@ -706,6 +709,13 @@ function preencherComboDeExercicios() {
         select.appendChild(option);
     });
     return select;
+}
+
+function verificarResolucaoDoDispositivo() {
+    const largura = window.screen.width;
+    const altura = window.screen.height;
+    const divTamanhoTela = document.getElementById('tamanhoDaTela');
+    divTamanhoTela.textContent = `<strong>Sua resolução ${altura}px x ${largura}px</strong>`;
 }
 
 function init() {
