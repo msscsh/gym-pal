@@ -480,6 +480,8 @@ function excluirRegistro(index) {
 function excluirTodosRegistros() {
     if (confirm("Tem certeza que deseja excluir TODOS os registros?\n\nVocê pode exportar os registros NO BOTÃO AO LADO antes de realizar esta exclusão.")) {
         localStorage.setItem('meusDados', JSON.stringify([]));
+        localStorage.setItem('exerciciosCadastrados', JSON.stringify([]));
+        apresentarDivAlvo('divConfiguracoes');
     }
 }
 
@@ -488,25 +490,17 @@ function criarListenerDeImportacaoDeJson() {
     input.addEventListener('change', () => {
         const reader = new FileReader();
         reader.onload = () => {
-        // const meusDados = JSON.parse(reader.result);
-        // localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
-        // console.log('JSON importado com sucesso!');
-        // exibirTabela();
-
             try {
-
                 const dadosImportados = JSON.parse(reader.result);
                 if (dadosImportados && dadosImportados.meusDados && dadosImportados.exerciciosCadastrados) {
-                    const meusDados = JSON.parse(dadosImportados.meusDados);
-                    const exerciciosCadastrados = JSON.parse(dadosImportados.exerciciosCadastrados);
-                    localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
-                    localStorage.setItem('exerciciosCadastrados', JSON.stringify(exerciciosCadastrados, null, 2));
-                    exibirTabela();
+                    localStorage.setItem('meusDados', JSON.stringify(dadosImportados.meusDados, null, 2));
+                    localStorage.setItem('exerciciosCadastrados', JSON.stringify(dadosImportados.exerciciosCadastrados, null, 2));
+                    apresentarDivAlvo('divConfiguracoes');
+                    alert('Dados importados com sucesso.');
                 }
                 else {
                     alert('Erro ao importar JSON. Verifique o arquivo.');
                 }
-
             } catch (error) {
                 console.error('Erro ao parsear JSON importado:', error);
                 alert('Erro ao importar JSON. Arquivo corrompido ou inválido.');
