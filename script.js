@@ -546,6 +546,7 @@ function apresentarDivAlvo(divAlvo) {
     document.getElementById("divConfiguracoes").style.display = "none";
     document.getElementById("divTreinos").style.display = "none";
     document.getElementById("divConfiguracaoDeTreino").style.display = "none";
+    document.getElementById("divConfigurarExercicios").style.display = "none";
     if ( divAlvo ) {
         if ( document.getElementById(divAlvo) ) {
             document.getElementById(divAlvo).style.display = "";
@@ -587,7 +588,7 @@ function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
         exibirFichasDeTreino();
         ajustarApresentacaoDeBotoesDaCriacaoDeFicha();
     }
-    else if ( divAlvo === 'divConfiguracoes' ) {
+    else if ( divAlvo === 'divConfigurarExercicios' ) {
         apresentarExerciciosCadastrados();
     }
 

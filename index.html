@@ -42,19 +42,21 @@
 					    <input type="file" id="botaoImportarJsonDeTreino" class="botaoImportarJsonDeTreino">
 					</div>
 
-					<div class="divExerciciosCadastrados containerFlexPilha bordear">
-						<h3 id="rotuloExerciciosCadastrados" style="display:none">Exercícios cadastrados para você</h3>
-						<ul id="exerciciosCadastrados"></ul>
-
-						<div id="divCamposAdicionarExercicio" class="divCamposAdicionarExercicio containerFlexCarrossel">
-					        <label for="addExercicio" class="labelAddExercicio" >Exercício:</label>
-					        <input type="text" id="addExercicio" class="inputAdicionarExercicioNoSistema">
-					        <button class="botaoAdicionarExercicioNoSistema" onclick="adicionarExercicioNoSistema()">Adicionar</button>
-						</div>
-					</div>
-					
 				</div>
 
+			</div>
+
+			<div id="divConfigurarExercicios" class="divConfigurarExercicios">
+				<div class="divExerciciosCadastrados containerFlexPilha bordear">
+					<h3 id="rotuloExerciciosCadastrados" style="display:none">Exercícios cadastrados para você</h3>
+					<ul id="exerciciosCadastrados"></ul>
+
+					<div id="divCamposAdicionarExercicio" class="divCamposAdicionarExercicio containerFlexCarrossel">
+				        <label for="addExercicio" class="labelAddExercicio" >Exercício:</label>
+				        <input type="text" id="addExercicio" class="inputAdicionarExercicioNoSistema">
+				        <button class="botaoAdicionarExercicioNoSistema" onclick="adicionarExercicioNoSistema()">Adicionar</button>
+					</div>
+				</div>
 			</div>
 
 			<div id="divConfiguracaoDeTreino" class="divConfiguracaoDeTreino">
@@ -118,6 +120,7 @@
 				    <button id="botaoExecucaoGenerica" class="botaoAdicionarExecucaoDeTreino" style="display: none;" onclick="apresentarDivAlvo('divAdicionarExercicioGenerico')">+1 execução</button>
 				    <button id="botaoExecucaoEspecifica" class="botaoAdicionarExecucaoDeTreino" style="display: none;" onclick="apresentarDivAlvo('divAdicionarExercicioEspecifico')">+1 execução específica</button>
 				    <button id="botaoVoltarNoHistoricoDeTreino" class="botaoAdicionarExecucaoDeTreino" type="button" style="display: none;" onclick="apresentarDivAlvo('divTreinos')"><< Histórico de treino</button>
+				    <button class="botaoAdicionarExecucaoDeTreino" type="button" style="display: none;" onclick="apresentarDivAlvo('divConfigurarExercicios')"><< Seus exercícios</button>
 				</div>
 
 			</div>
@@ -129,7 +132,10 @@
 	  			<img id="imagemDoMenu" src="home.png" alt="home">
 			</div>
 			<div id="menuLateral" class="menuLateral containerFlexPilha" >
-				<div id="itemDeMenuTabelaDeTreino" class="itemDeMenuPrimeiro itemDeMenu" onclick="apresentarDivAlvo('divTreinos');">
+				<div id="itemDeMenuConfigurarExercicios" class="itemDeMenuPrimeiro itemDeMenu" onclick="apresentarDivAlvo('divConfigurarExercicios')">
+					Exercícios
+				</div>
+				<div id="itemDeMenuTabelaDeTreino" class=" itemDeMenu" onclick="apresentarDivAlvo('divTreinos');">
 					Histórico
 				</div>
 				<div id="itemDeMenuConfigurarTreino" class="itemDeMenu" onclick="apresentarDivAlvo('divConfiguracaoDeTreino')">
