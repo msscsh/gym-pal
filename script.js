@@ -511,54 +511,6 @@ function criarListenerDeImportacaoDeJson() {
     });
 }
 
-function importando() {
-
-    input.addEventListener('change', () => {
-        const reader = new FileReader();
-
-        reader.onload = () => {
-        try {
-        const dadosImportados = JSON.parse(reader.result);
-
-        // Verifica se os dados importados têm a estrutura esperada (meusDados e exerciciosCadastrados)
-        if (dadosImportados && dadosImportados.meusDados && dadosImportados.exerciciosCadastrados) {
-        const meusDados = JSON.parse(dadosImportados.meusDados); // Parse 'meusDados'
-        const exerciciosCadastrados = JSON.parse(dadosImportados.exerciciosCadastrados); // Parse 'exerciciosCadastrados'
-
-        localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
-        localStorage.setItem('exerciciosCadastrados', JSON.stringify(exerciciosCadastrados, null, 2));
-
-        console.log('JSON importado e dados separados com sucesso!');
-        exibirTabela();
-
-        } else if (dadosImportados && dadosImportados.meusDados) { // Caso só tenha meusDados
-        const meusDados = JSON.parse(dadosImportados.meusDados);
-        localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
-        console.log('JSON importado (meusDados) com sucesso!');
-        exibirTabela();
-
-        } else if (dadosImportados && dadosImportados.exerciciosCadastrados) { // Caso só tenha exerciciosCadastrados
-        const exerciciosCadastrados = JSON.parse(dadosImportados.exerciciosCadastrados);
-        localStorage.setItem('exerciciosCadastrados', JSON.stringify(exerciciosCadastrados, null, 2));
-        console.log('JSON importado (exerciciosCadastrados) com sucesso!');
-        exibirTabela();
-
-        } else {
-        console.error('Estrutura do JSON importado inválida.  O arquivo deve conter "meusDados" e/ou "exerciciosCadastrados".');
-        alert('Erro ao importar JSON. Verifique o arquivo.'); // Alerta para o usuário
-        }
-
-        } catch (error) {
-        console.error('Erro ao parsear JSON importado:', error);
-        alert('Erro ao importar JSON. Arquivo corrompido ou inválido.'); // Alerta para o usuário
-        }
-        };
-
-        reader.readAsText(input.files[0]);
-    });
-
-}
-
 // function criarListenerDeZoom() {
 
 //     const input = document.getElementById('zoomInput');
