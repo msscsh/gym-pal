@@ -715,7 +715,7 @@ function verificarResolucaoDoDispositivo() {
     const largura = window.screen.width;
     const altura = window.screen.height;
     const divTamanhoTela = document.getElementById('tamanhoDaTela');
-    divTamanhoTela.textContent = `<strong>Sua resolução ${altura}px x ${largura}px</strong>`;
+    divTamanhoTela.innerHTML = `<strong>Sua resolução ${altura}px x ${largura}px</strong>`;
 }
 
 function init() {
