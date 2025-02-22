@@ -27,23 +27,23 @@
 
 @media (max-width: 850px) {
   .menu {
-    width: 50px; /* Largura fixa: 500px */
-    height: 50px; /* Largura fixa: 500px */
+    width: 50px;
+    height: 50px;
   }
   .menuLateral {
-    width: 50px; /* Largura fixa: 500px */
-    height: 500px; /* Largura fixa: 500px */
+    width: 50px;
+    height: 500px;
   }
 }
 
 @media (min-width: 851px) {
   .menu {
-    width: 100px; /* Largura fixa: 500px */
-    height: 100px; /* Largura fixa: 500px */
+    width: 170px;
+    height: 170px;
   }
   .menuLateral {
-    width: 100px; /* Largura fixa: 500px */
-    height: 80%; /* Largura fixa: 500px */
+    width: 170px;
+    height: 30%;
   }
 }
 
@@ -56,7 +56,7 @@
 
 .menuLateral {
   left: 1%;
-  top: 6%;
+  top: 7%;
   right: 0px;
   bottom: 0px;
   z-index: 2;
@@ -71,12 +71,12 @@
 }
 
 .itemDeMenuPrimeiro {
-  margin-top: 80px !important;
+  margin-top: 120px !important;
 }
 
 .itemDeMenu {
   margin: 20px;
-  font-size: x-small;
+  font-size: 1.7em;
 }
 
 @media (max-height: 1500px) {
