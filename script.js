@@ -15,7 +15,7 @@ function exportarJSON() {
 
     const jsonSalvo = {
         meusDados: tryParseJson(meusDadosString),
-        exerciciosCadastrados: tryParseJson(exerciciosCadastradosString)
+        exerciciosCadastrados: tryParseJson(exerciciosCadastradosString),
         minhasFichas: tryParseJson(minhasFichasString)
     };
 
