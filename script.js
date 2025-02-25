@@ -552,6 +552,12 @@ function criarListenerDeImportacaoDeJson() {
 function mostrarMenuLateral() {
     const divLateral = document.getElementById('menuLateral');
     if ( !divLateral.classList.contains("animarMenuDeCimaPraBaixo") ) {
+        const divMenu = document.getElementById('divMenu');
+        const rect = menuHome.getBoundingClientRect();
+        const top = (rect.top + window.scrollY) + divMenu.offsetWidth/2;
+        const left = rect.left + window.scrollX;
+        divLateral.style.top = `${top}px`;
+        divLateral.style.left = `${left}px`;
         divLateral.classList.add("animarMenuDeCimaPraBaixo");
     }
     else {

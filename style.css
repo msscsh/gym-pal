@@ -25,34 +25,17 @@
   overflow: hidden;
 }
 
-@media (min-width: 1001px) and (max-width: 6000px) {
+@media (min-width: 600px) {
   .menu {
-    width: 200px;
-    height: 200px;
+    width: 140px;
+    height: 140px;
   }
   .menuLateral {
-    width: 200px;
-    top: 10% !important;
+    width: 140px;
+/*    top: 8% !important;*/
   }
-  table {
-    font-size: 2.5em !important;
-  }
-  button {
-    font-size: 2.5em !important;
-  }
-  body {
-    padding-top: 5vh !important;
-  }
-}
-
-@media (min-width: 801px) and (max-width: 1000px) {
-  .menu {
-    width: 170px;
-    height: 170px;
-  }
-  .menuLateral {
-    width: 170px;
-    top: 8% !important;
+  .animarMenuDeCimaPraBaixo {
+    height: 500px !important;
   }
   table {
     font-size: 1.3em !important;
@@ -61,7 +44,54 @@
     font-size: 1.8em !important;
   }
   body {
-    padding-top: 20vh !important;
+    padding-top: 150px !important;
+    font-size: x-small !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .menu {
+    width: 160px;
+    height: 160px;
+  }
+  .menuLateral {
+    width: 160px;
+  }
+  .animarMenuDeCimaPraBaixo {
+    height: 500px !important;
+  }
+  table {
+    font-size: 1.3em !important;
+  }
+  button {
+    font-size: 1.8em !important;
+  }
+  body {
+    padding-top: 170px !important;
+    font-size: x-small !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .menu {
+    width: 200px;
+    height: 200px;
+  }
+  .menuLateral {
+    width: 200px;
+  }
+  .animarMenuDeCimaPraBaixo {
+    height: 500px !important;
+  }
+  table {
+    font-size: 1.3em !important;
+  }
+  button {
+    font-size: 1.8em !important;
+  }
+  body {
+    padding-top: 210px !important;
+    font-size: small !important;
   }
 }
 
@@ -88,6 +118,10 @@
   color: white;
 }
 
+.animarMenuDeCimaPraBaixo {
+/*  height: 40vh;*/
+}
+
 .itemDeMenuPrimeiro {
   margin-top: 120px !important;
 }
@@ -97,10 +131,6 @@
   margin-left: 0px;
   margin-right: 0px;
   font-size: 1.9em;
-}
-
-.animarMenuDeCimaPraBaixo {
-  height: 40vh;
 }
 
 html {
