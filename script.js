@@ -11,10 +11,12 @@
 function exportarJSON() {
     const meusDadosString = localStorage.getItem('meusDados');
     const exerciciosCadastradosString = localStorage.getItem('exerciciosCadastrados');
+    const minhasFichasString = localStorage.getItem('minhasFichas');
 
     const jsonSalvo = {
         meusDados: tryParseJson(meusDadosString),
         exerciciosCadastrados: tryParseJson(exerciciosCadastradosString)
+        minhasFichas: tryParseJson(minhasFichasString)
     };
 
     const jsonString = JSON.stringify(jsonSalvo, null, 2);
@@ -503,6 +505,7 @@ function excluirTodosRegistros() {
     if (confirm("Tem certeza que deseja excluir TODOS os registros?\n\nVocê pode exportar os registros NO BOTÃO AO LADO antes de realizar esta exclusão.")) {
         localStorage.setItem('meusDados', JSON.stringify([]));
         localStorage.setItem('exerciciosCadastrados', JSON.stringify([]));
+        localStorage.setItem('minhasFichas', JSON.stringify([]));
         apresentarDivAlvo('divConfiguracoes');
     }
 }
@@ -517,6 +520,7 @@ function criarListenerDeImportacaoDeJson() {
                 if (dadosImportados && dadosImportados.meusDados && dadosImportados.exerciciosCadastrados) {
                     localStorage.setItem('meusDados', JSON.stringify(dadosImportados.meusDados, null, 2));
                     localStorage.setItem('exerciciosCadastrados', JSON.stringify(dadosImportados.exerciciosCadastrados, null, 2));
+                    localStorage.setItem('minhasFichas', JSON.stringify(dadosImportados.minhasFichas, null, 2));
                     apresentarDivAlvo('divConfiguracoes');
                     alert('Dados importados com sucesso.');
                 }
