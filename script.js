@@ -517,7 +517,7 @@ function criarListenerDeImportacaoDeJson() {
         reader.onload = () => {
             try {
                 const dadosImportados = JSON.parse(reader.result);
-                if (dadosImportados && dadosImportados.meusDados && dadosImportados.exerciciosCadastrados) {
+                if (dadosImportados && dadosImportados.meusDados && dadosImportados.exerciciosCadastrados && dadosImportados.minhasFichas) {
                     localStorage.setItem('meusDados', JSON.stringify(dadosImportados.meusDados, null, 2));
                     localStorage.setItem('exerciciosCadastrados', JSON.stringify(dadosImportados.exerciciosCadastrados, null, 2));
                     localStorage.setItem('minhasFichas', JSON.stringify(dadosImportados.minhasFichas, null, 2));
