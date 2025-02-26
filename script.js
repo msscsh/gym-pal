@@ -207,14 +207,32 @@ function exibirFichasDeTreino() {
 
             const gridContainer = document.getElementById('divFichasDeTreino');
             const numItens = gridContainer.children.length;
-            let numCols = Math.ceil(Math.sqrt(numItens));
-            let numRows = Math.ceil(numItens / numCols);
+            const larguraTela = window.innerWidth;
+            const numCols = calcularNumCols(larguraTela, numItens);
+            const numRows = calcularNumRows(numCols, numItens);
+
             gridContainer.style.gridTemplateColumns = `repeat(${numCols}, 1fr)`;
             gridContainer.style.gridTemplateRows = `repeat(${numRows}, 1fr)`;
 
         }
     }
 
+}
+
+function calcularNumCols(larguraTela, numItens) {
+    if (larguraTela < 768) {
+        return 1;
+    }
+    else if (larguraTela < 992) {
+        return 2;
+    }
+    else {
+        return Math.ceil(Math.sqrt(numItens));
+    }
+}
+
+function calcularNumRows(numCols, numItens) {
+    return Math.ceil(numItens / numCols);
 }
 
 function ajustarApresentacaoDeBotoesDaCriacaoDeFicha() {
