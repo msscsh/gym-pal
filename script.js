@@ -222,45 +222,51 @@ function exibirFichasDeTreino() {
 
 }
 
-globalIndexExercicioAtual = 0;
-globalIndexFicha = 0;
-globalIsInLive = false;
+function getValorNumerico(chave) {
+  const valorString = localStorage.getItem(chave);
+  if (valorString === null) {
+    return 0;
+  }
+  return parseInt(JSON.parse(valorString));
+}
 
 function executarTreinoLiveDoIndex(indexFicha, indexExercicioAtual) {
 
     let minhasFichas = JSON.parse(localStorage.getItem('minhasFichas')) || [];
-    const itemMinhaFichas = minhasFichas[indexFicha];
 
-    if ( !indexExercicioAtual ) {
-        globalIndexExercicioAtual = 0
-        cancelarExecucaoLive();
+    if (!indexExercicioAtual) {
+        indexExercicioAtual = 0;
     }
 
-    pesquisarExecucoesAnterioresDoTreino(0, itemMinhaFichas.treino[globalIndexExercicioAtual])
+    const itemMinhaFichas = minhasFichas[indexFicha];
+    pesquisarExecucoesAnterioresDoTreino(undefined, itemMinhaFichas.treino[indexExercicioAtual])
 
-    document.getElementById('divNomeDaFichaLive').innerHTML = itemMinhaFichas.nome;
-    document.getElementById('divNomeDoExercicioLive').innerHTML = itemMinhaFichas.treino[globalIndexExercicioAtual];
     document.getElementById('divExecucaoLive').style.display = '';
-    globalIndexFicha = indexFicha;
-    globalIndexExercicioAtual = globalIndexExercicioAtual;
-    globalIsInLive = true;
+    document.getElementById('divNomeDaFichaLive').innerHTML = itemMinhaFichas.nome;
+    document.getElementById('divNomeDoExercicioLive').innerHTML = itemMinhaFichas.treino[indexExercicioAtual];
+
+    localStorage.setItem('globalIndexFicha', JSON.stringify(indexFicha));
+    localStorage.setItem('globalIndexExercicioAtual', JSON.stringify(indexExercicioAtual));
 }
 
 function cancelarExecucaoLive() {
     document.getElementById('divProximoExercicioLive').style.display = '';
     document.getElementById('divExecucaoLive').style.display = 'none';
-    globalIndexExercicioAtual = 0;
-    globalIndexFicha = 0;
+    localStorage.setItem('globalIndexFicha', JSON.stringify([]));
+    localStorage.setItem('globalIndexFicha', JSON.stringify([]));
+    globalIndexExercicioAtual = null;
+    globalIndexFicha = null;
     globalIsInLive = false;
     document.getElementById('cargaLive').value = '';
     document.getElementById('intensidadeLive').value = '';
 }
 
 function adicionarRegistroDeExecucaoLive() {
-    console.log('added: ');
     const carga = document.getElementById('cargaLive').value;
     const intensidade = document.getElementById('intensidadeLive').value;
     const exercicioLive = getExercicioDaFichaLive();
+
+    alert(carga+""+intensidade+""+exercicioLive+"")
 
     let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
     exerciciosCadastrados.forEach(exercicioCadastrado => {
@@ -273,34 +279,45 @@ function adicionarRegistroDeExecucaoLive() {
     const timestampDoExercicio = Date.now();
     const novoRegistro = { exercicio, carga, intensidade, timestampDoExercicio };
     meusDados.unshift(novoRegistro);
-    // executarTreinoLiveDoIndex(globalIndexFicha, globalIndexExercicioAtual);
     localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
 
     let minhasFichas = JSON.parse(localStorage.getItem('minhasFichas')) || [];
     const itemMinhaFichas = minhasFichas[globalIndexFicha];
-    pesquisarExecucoesAnterioresDoTreino(0, itemMinhaFichas.treino[globalIndexExercicioAtual])
+
+
+    // localStorage.setItem('globalIndexExercicioAtual', JSON.stringify(globalIndexExercicioAtual));
+    globalIndexExercicioAtual = getValorNumerico('globalIndexExercicioAtual') + 1;
+
+    // if (!globalIndexExercicioAtual) {
+    //     localStorage.setItem('globalIndexExercicioAtual', JSON.stringify(0));
+    //     globalIndexExercicioAtual = obterValorBooleano('globalIndexFicha')
+    // }
+
+
+    pesquisarExecucoesAnterioresDoTreino(undefined, itemMinhaFichas.treino[globalIndexExercicioAtual])
 }
 
 function executarProximoExercicioLive() {
 
-    globalIndexExercicioAtual = globalIndexExercicioAtual+1;
+    const globalIndexExercicioAtual = getValorNumerico('globalIndexExercicioAtual') + 1;
+    const globalIndexFicha = getValorNumerico('globalIndexFicha');
 
     let minhasFichas = JSON.parse(localStorage.getItem('minhasFichas')) || [];
-    const itemMinhaFichas = minhasFichas[globalIndexFicha];
-    if ( globalIndexExercicioAtual <= itemMinhaFichas.treino.length ) {
+    const itemMinhaFicha = minhasFichas[globalIndexFicha];
+
+    if ( globalIndexExercicioAtual <= (itemMinhaFicha.treino.length - 1) ) {
         executarTreinoLiveDoIndex(globalIndexFicha, globalIndexExercicioAtual)
-        let minhasFichas = JSON.parse(localStorage.getItem('minhasFichas')) || [];
-        const itemMinhaFichas = minhasFichas[globalIndexFicha];
     }
-    
-    if ( globalIndexExercicioAtual+1 == itemMinhaFichas.treino.length ) {
-        document.getElementById('divProximoExercicioLive').style.display = 'none';
+
+    if ( (globalIndexExercicioAtual + 1) == itemMinhaFicha.treino.length ) {
         document.getElementById('divProximoExercicioLive').style.display = 'none';
     }
 
 }
 
 function getExercicioDaFichaLive() {
+    globalIndexFicha = getValorNumerico('globalIndexFicha');
+    globalIndexExercicioAtual = getValorNumerico('globalIndexExercicioAtual');
     let minhasFichas = JSON.parse(localStorage.getItem('minhasFichas')) || [];
     return minhasFichas[globalIndexFicha].treino[globalIndexExercicioAtual];
 }
@@ -488,7 +505,7 @@ function converterTimestampParaFormatacaoDataEHora(timestamp) {
             dayPeriod: "long",
         };
         const dataFormatadaPersonalizada = data.toLocaleString('pt-BR', options);
-        return dataFormatadaPersonalizada.replace(',', ' -').replace('-feira -', ',').replace(' às da ', ', de ');
+        return dataFormatadaPersonalizada.replace('-feira', '').replace(' às da ', ', de ');
     }
     return "sem registro de data";
 }
@@ -535,9 +552,12 @@ function pesquisarExecucoesAnterioresDoTreino(index, nomeUltimoExercicio) {
     let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
     let dadosFiltrado = [];
 
-    if (!nomeUltimoExercicio) {
+    if (index || index == 0) {
         const itemParaPesquisar = meusDados[index];
         nomeUltimoExercicio = itemParaPesquisar.exercicio;
+    }
+    else {
+        index = 0;
     }
 
     meusDados.forEach((registro, indexRegistros) => {
