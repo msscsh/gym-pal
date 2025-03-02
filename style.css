@@ -316,12 +316,12 @@ button {
 
 
 .divExecucaoLive {
-  left: 38%;
-  top: 87%;
+  top: 80%;
   z-index: 2;
   position: absolute;
   scale: 1.6;
   padding-bottom: 5%;
+  margin-left: 15vw;
 }
 
 .divAnteriorExercicioLive {
