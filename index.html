@@ -140,7 +140,7 @@
 				<div id="itemDeMenuConfigurarExercicios" class="itemDeMenuPrimeiro itemDeMenu" onclick="apresentarDivAlvo('divConfigurarExercicios')">
 					Exercícios
 				</div>
-				<div id="itemDeMenuTabelaDeTreino" class=" itemDeMenu" onclick=executarProximoExercicioLive"apresentarDivAlvo('divTreinos');">
+				<div id="itemDeMenuTabelaDeTreino" class=" itemDeMenu" onclick="apresentarDivAlvo('divTreinos')">
 					Histórico
 				</div>
 				<div id="itemDeMenuConfigurarTreino" class="itemDeMenu" onclick="apresentarDivAlvo('divConfiguracaoDeTreino')">
@@ -156,18 +156,17 @@
 			<div id="divNomeDaFichaLive" class="divNomeDaFichaLive">
 			</div>
 			<div id="divOpcoesExecucaoLive" class="divOpcoesExecucaoLive containerFlexCarrossel" >
-				<div id="divCancelarExecucaoLive" class="divCancelarExecucaoLive" onclick="apresentarDivAlvo('divConfiguracaoDeTreino')">
+				<div id="divCancelarExecucaoLive" class="divCancelarExecucaoLive" onclick="cancelarExecucaoLive()">
 					X
 				</div>
 				<div id="divNomeDoExercicioLive" class="divNomeDoExercicioLive">
 				</div>
-				<div id="divProximoExercicioLive" class="divProximoExercicioLive" onclick="executarProximoExercicioLive(
-				)">
+				<div id="divProximoExercicioLive" class="divProximoExercicioLive" onclick="executarProximoExercicioLive()">
 					>>
 				</div>
 			</div>
-			<div id="divAdicionarExecucaoDeExercicioLive" class="containerFlexCarrossel" >
-				<div id="divCamposAdicionarExercicio" class="containerGrid">
+			<div id="divAdicionarExecucaoDeExercicioLive" class="divAdicionarExecucaoDeExercicioLive containerFlexCarrossel" >
+				<div id="divCamposAdicionarExercicioLive" class="divCamposAdicionarExercicioLive containerGrid">
 			        <label for="cargaLive">Carga:</label>
 			        <input type="number" id="cargaLive">
 			        <label for="intensidadeLive">Intensidade:</label>

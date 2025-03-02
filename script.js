@@ -230,8 +230,18 @@ function getValorNumerico(chave) {
   return parseInt(JSON.parse(valorString));
 }
 
+function getValorLocalStorage(chave) {
+  const valorString = localStorage.getItem(chave);
+  if (valorString === null) {
+    return undefined;
+  }
+  return JSON.parse(valorString);
+}
+
+
 function executarTreinoLiveDoIndex(indexFicha, indexExercicioAtual) {
 
+    localStorage.setItem('globalIsExecucaoLive', true);
     let minhasFichas = JSON.parse(localStorage.getItem('minhasFichas')) || [];
 
     if (!indexExercicioAtual) {
@@ -247,6 +257,15 @@ function executarTreinoLiveDoIndex(indexFicha, indexExercicioAtual) {
 
     localStorage.setItem('globalIndexFicha', JSON.stringify(indexFicha));
     localStorage.setItem('globalIndexExercicioAtual', JSON.stringify(indexExercicioAtual));
+
+    let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
+    const registroEncontrado = meusDados.find(registro => {
+        return registro.exercicio.trim().toLowerCase() === itemMinhaFichas.treino[indexExercicioAtual].trim().toLowerCase();
+    });
+
+    document.getElementById('cargaLive').value = registroEncontrado.carga;
+    document.getElementById('intensidadeLive').value = '';
+
 }
 
 function cancelarExecucaoLive() {
@@ -259,14 +278,14 @@ function cancelarExecucaoLive() {
     globalIsInLive = false;
     document.getElementById('cargaLive').value = '';
     document.getElementById('intensidadeLive').value = '';
+    localStorage.setItem('globalIsExecucaoLive', false);
+    apresentarDivAlvo('divConfiguracaoDeTreino');
 }
 
 function adicionarRegistroDeExecucaoLive() {
     const carga = document.getElementById('cargaLive').value;
     const intensidade = document.getElementById('intensidadeLive').value;
     const exercicioLive = getExercicioDaFichaLive();
-
-    alert(carga+""+intensidade+""+exercicioLive+"")
 
     let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
     exerciciosCadastrados.forEach(exercicioCadastrado => {
@@ -281,20 +300,7 @@ function adicionarRegistroDeExecucaoLive() {
     meusDados.unshift(novoRegistro);
     localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
 
-    let minhasFichas = JSON.parse(localStorage.getItem('minhasFichas')) || [];
-    const itemMinhaFichas = minhasFichas[globalIndexFicha];
-
-
-    // localStorage.setItem('globalIndexExercicioAtual', JSON.stringify(globalIndexExercicioAtual));
-    globalIndexExercicioAtual = getValorNumerico('globalIndexExercicioAtual') + 1;
-
-    // if (!globalIndexExercicioAtual) {
-    //     localStorage.setItem('globalIndexExercicioAtual', JSON.stringify(0));
-    //     globalIndexExercicioAtual = obterValorBooleano('globalIndexFicha')
-    // }
-
-
-    pesquisarExecucoesAnterioresDoTreino(undefined, itemMinhaFichas.treino[globalIndexExercicioAtual])
+    executarTreinoLiveDoIndex(getValorNumerico('globalIndexFicha'), getValorNumerico('globalIndexExercicioAtual'));
 }
 
 function executarProximoExercicioLive() {
@@ -440,9 +446,18 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, is
             celulaAcoes.classList.add('containerGridReduzido4');
         }
         else {
-            document.getElementById("botaoExecucaoEspecifica").style.display = "";
-            document.getElementById("botaoExecucaoGenerica").style.display = "none";
-            document.getElementById("botaoVoltarNoHistoricoDeTreino").style.display = "";
+
+            //Cuidado com esta gambira. Resolver ela centralizando o "controle de botoes" em uma verificacao a parte
+            if ( getValorLocalStorage('globalIsExecucaoLive') ) {
+                document.getElementById("botaoExecucaoEspecifica").style.display = "none";
+                document.getElementById("botaoExecucaoGenerica").style.display = "none";
+                document.getElementById("botaoVoltarNoHistoricoDeTreino").style.display = "none";   
+            }
+            else {
+                document.getElementById("botaoExecucaoEspecifica").style.display = "";
+                document.getElementById("botaoExecucaoGenerica").style.display = "none";
+                document.getElementById("botaoVoltarNoHistoricoDeTreino").style.display = ""; 
+            }
         }
 
     });
@@ -701,7 +716,6 @@ function apresentarDivAlvo(divAlvo) {
     }
 
     document.getElementById("botaoVoltarNoHistoricoDeTreino").style.display = "none";
-    realizarAcoesGenericasDeLimpeza();
     realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo);
     document.getElementById("divAdicionarExercicio").style.display = "none";
     document.getElementById("divConfiguracoes").style.display = "none";
@@ -719,11 +733,6 @@ function apresentarDivAlvo(divAlvo) {
             console.log('Div inexistente: ' + divAlvo);
         }
     }
-}
-
-function realizarAcoesGenericasDeLimpeza() {
-    cancelarExecucaoLive();
-    // limparExecucaoLive(); algumas limpezas aqui
 }
 
 function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
