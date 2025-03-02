@@ -73,11 +73,14 @@
 
 @media (min-width: 1200px) {
   .menu {
-    width: 200px;
-    height: 200px;
+    width: 230px;
+    height: 230px;
   }
   .menuLateral {
-    width: 200px;
+    width: 230px;
+  }
+  .itemDeMenuPrimeiro {
+    margin-top: 140px !important;
   }
   .animarMenuDeCimaPraBaixo {
     height: 500px !important;
@@ -90,7 +93,7 @@
   }
   body {
     padding-top: 210px !important;
-    font-size: small !important;
+    font-size: medium !important;
   }
 }
 

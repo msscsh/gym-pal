@@ -233,6 +233,7 @@ function executarTreinoLiveDoIndex(indexFicha, indexExercicioAtual) {
 
     if ( !indexExercicioAtual ) {
         globalIndexExercicioAtual = 0
+        cancelarExecucaoLive();
     }
 
     pesquisarExecucoesAnterioresDoTreino(0, itemMinhaFichas.treino[globalIndexExercicioAtual])
@@ -245,21 +246,39 @@ function executarTreinoLiveDoIndex(indexFicha, indexExercicioAtual) {
     globalIsInLive = true;
 }
 
-function limparExecucaoLive() {
-    document.getElementById('divProximoExercicioLive').style.display = '';
-    document.getElementById('divExecucaoLive').style.display = 'none';
-}
-
 function cancelarExecucaoLive() {
     document.getElementById('divProximoExercicioLive').style.display = '';
     document.getElementById('divExecucaoLive').style.display = 'none';
     globalIndexExercicioAtual = 0;
     globalIndexFicha = 0;
     globalIsInLive = false;
+    document.getElementById('cargaLive').value = '';
+    document.getElementById('intensidadeLive').value = '';
 }
 
 function adicionarRegistroDeExecucaoLive() {
     console.log('added: ');
+    const carga = document.getElementById('cargaLive').value;
+    const intensidade = document.getElementById('intensidadeLive').value;
+    const exercicioLive = getExercicioDaFichaLive();
+
+    let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
+    exerciciosCadastrados.forEach(exercicioCadastrado => {
+        if ( exercicioCadastrado.nomeDoExercicio.trim().toLowerCase() == exercicioLive.trim().toLowerCase() ) {
+            exercicio = exercicioCadastrado.nomeDoExercicio;
+        }
+    });
+
+    let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
+    const timestampDoExercicio = Date.now();
+    const novoRegistro = { exercicio, carga, intensidade, timestampDoExercicio };
+    meusDados.unshift(novoRegistro);
+    // executarTreinoLiveDoIndex(globalIndexFicha, globalIndexExercicioAtual);
+    localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
+
+    let minhasFichas = JSON.parse(localStorage.getItem('minhasFichas')) || [];
+    const itemMinhaFichas = minhasFichas[globalIndexFicha];
+    pesquisarExecucoesAnterioresDoTreino(0, itemMinhaFichas.treino[globalIndexExercicioAtual])
 }
 
 function executarProximoExercicioLive() {
@@ -276,8 +295,14 @@ function executarProximoExercicioLive() {
     
     if ( globalIndexExercicioAtual+1 == itemMinhaFichas.treino.length ) {
         document.getElementById('divProximoExercicioLive').style.display = 'none';
+        document.getElementById('divProximoExercicioLive').style.display = 'none';
     }
 
+}
+
+function getExercicioDaFichaLive() {
+    let minhasFichas = JSON.parse(localStorage.getItem('minhasFichas')) || [];
+    return minhasFichas[globalIndexFicha].treino[globalIndexExercicioAtual];
 }
 
 function calcularNumCols(larguraTela, numItens) {
@@ -677,7 +702,8 @@ function apresentarDivAlvo(divAlvo) {
 }
 
 function realizarAcoesGenericasDeLimpeza() {
-    limparExecucaoLive();
+    cancelarExecucaoLive();
+    // limparExecucaoLive(); algumas limpezas aqui
 }
 
 function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
