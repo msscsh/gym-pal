@@ -153,18 +153,29 @@
 		</div>
 
 		<div id="divExecucaoLive" class="divExecucaoLive containerFlexPilha" style="display: none;">
-			<div id="divNomeDaFichaLive" class="divNomeDaFichaLive">
-			</div>
+
 			<div id="divOpcoesExecucaoLive" class="divOpcoesExecucaoLive containerFlexCarrossel" >
-				<div id="divCancelarExecucaoLive" class="divCancelarExecucaoLive" onclick="cancelarExecucaoLive()">
-					X
+				<div onclick="cancelarExecucaoLive()" class="divEmoji">
+		        	&#9940;
+				</div>
+				<div id="divNomeDaFichaLive" class="divNomeDaFichaLive">
+				</div>
+				<div onclick="cancelarExecucaoLive()" class="divEmoji">
+		        	&#9940;
+				</div>
+			</div>
+
+			<div id="divOpcoesExecucaoLive" class="divOpcoesExecucaoLive containerFlexCarrossel" >
+				<div id="divAnteriorExercicioLive" class="divAnteriorExercicioLive" onclick="executarExercicioAnteriorLive()">
+					&#9198;
 				</div>
 				<div id="divNomeDoExercicioLive" class="divNomeDoExercicioLive">
 				</div>
 				<div id="divProximoExercicioLive" class="divProximoExercicioLive" onclick="executarProximoExercicioLive()">
-					>>
+					&#9197;
 				</div>
 			</div>
+
 			<div id="divAdicionarExecucaoDeExercicioLive" class="divAdicionarExecucaoDeExercicioLive containerFlexCarrossel" >
 				<div id="divCamposAdicionarExercicioLive" class="divCamposAdicionarExercicioLive containerGrid">
 			        <label for="cargaLive">Carga:</label>
@@ -178,8 +189,8 @@
 						<option value="muito pesado">🥵&nbsp;&nbsp;&nbsp;&nbsp;muito pesado</option>
 					</select>
 		    	</div>
-				<div >
-		        	<button class="classeBaseBotao" type="button" onclick="adicionarRegistroDeExecucaoLive()">+</button>
+				<div onclick="adicionarRegistroDeExecucaoLive()" class="divEmoji" style="font-size: 1.5em;">
+		        	&#128229;
 				</div>
 			</div>
 		</div>

@@ -316,15 +316,16 @@ button {
 
 
 .divExecucaoLive {
-  left: 41%;
-  top: 90%;
+  left: 38%;
+  top: 87%;
   z-index: 2;
   position: absolute;
-  overflow: auto;
-  overflow-x: hidden;
-  transition: height 0.6s ease;
-  scale: 1.8;
+  scale: 1.6;
   padding-bottom: 5%;
+}
+
+.divAnteriorExercicioLive {
+  margin-right: 20px;
 }
 
 .divProximoExercicioLive {
@@ -339,10 +340,22 @@ button {
   margin-left: 20px;
 }
 
+.divAdicionarExecucaoDeExercicioLive {
+  margin-top: 20px;
+}
+
 .divCamposAdicionarExercicioLive {
   margin-right: 20px;
 }
 
+.divNomeDoExercicioLive {
+  width: 300px;
+  text-align: center;
+}
+
+.divEmoji {
+  font-size: 1.5em;
+}
 
 .divExerciciosCadastrados {
   margin-top: 20px;
