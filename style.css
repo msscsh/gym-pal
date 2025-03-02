@@ -172,6 +172,7 @@ h3 {
 ul {
   list-style-type: none;
   padding-left: 0px;
+  height: 30%;
 }
 
 table {
@@ -295,6 +296,11 @@ button {
   padding-right: 5px;
 }
 
+.foo {
+  margin-top: 30%;
+  margin-left: 30%;
+}
+
 .inputAdicionarExercicioNoSistema {
   margin-right: 20px;
 }
@@ -305,6 +311,16 @@ button {
   border-style: solid;
 }
 
+
+.divExecucaoLive {
+  left: 41%;
+  top: 90%;
+  z-index: 2;
+  position: absolute;
+  overflow: auto;
+  overflow-x: hidden;
+  transition: height 0.6s ease;
+}
 
 .divExerciciosCadastrados {
   margin-top: 20px;
@@ -360,6 +376,7 @@ button {
   padding: 20px;
   padding-top: 10px;
   padding-bottom: 5px;
+  height: 80%;
 }
 
 .divFichaTreino {    

@@ -79,7 +79,7 @@ function criarFichaDeTreino(index) {
     novaDiv.className = 'divFichaTreino';
     const divPai = document.getElementById('divFichasDeTreino');
     divPai.appendChild(novaDiv);
-    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoMaisDo'+index, '+1 Ficha', 'botaoAdicionarExecucaoDeTreinoEspecifico maisUmaFichaDeTreino', criarFichaDeTreino, index+1);
+    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoMaisDo'+index, '+1 Ficha', 'maisUmaFichaDeTreino', criarFichaDeTreino, index+1);
     criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoMenosDo'+index, '-1 Ficha', 'botaoExcluirRegistroDeTreino menosUmaFichaDeTreino', removerFichaDeTreino, index);
 
     let lista = document.createElement('ul');
@@ -94,7 +94,7 @@ function criarFichaDeTreino(index) {
     inputNome.placeholder = 'Digite o nome desta ficha';
     novaDiv.appendChild(inputNome);
 
-    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoIncluirExercicioNaFicha'+index, '+1', 'botaoAdicionarExecucaoDeTreinoEspecifico adicionarExerciciosNaFichaDeTreino', incluirExercicioNaFicha, index);
+    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoIncluirExercicioNaFicha'+index, '+1', 'adicionarExerciciosNaFichaDeTreino', incluirExercicioNaFicha, index);
     const elementoSelect = preencherComboDeExercicios().cloneNode(true);
     elementoSelect.id = 'sel'+novaDiv.id;
     elementoSelect.className = 'selectExerciciosCadastrados';
@@ -186,7 +186,7 @@ function exibirFichasDeTreino() {
 
         if (minhasFichas) {
             const fichas = JSON.parse(minhasFichas);
-            fichas.forEach(ficha => {
+            fichas.forEach( (ficha, index) => {
                 const divFicha = document.createElement('div');
                 divFicha.id = ficha.nome;
                 divFicha.className = 'divFichaTreinoApresentacao';
@@ -202,6 +202,9 @@ function exibirFichasDeTreino() {
                     ulTreino.appendChild(liExercicio);
                 });
                 divFicha.appendChild(ulTreino);
+
+                criarBotaoNoElementoComAcao(divFicha, 'GO', 'foo', executarTreinoLiveDoIndex, index);
+
                 divFichas.appendChild(divFicha);
             });
 
@@ -215,6 +218,64 @@ function exibirFichasDeTreino() {
             gridContainer.style.gridTemplateRows = `repeat(${numRows}, 1fr)`;
 
         }
+    }
+
+}
+
+globalIndexExercicioAtual = 0;
+globalIndexFicha = 0;
+globalIsInLive = false;
+
+function executarTreinoLiveDoIndex(indexFicha, indexExercicioAtual) {
+
+    let minhasFichas = JSON.parse(localStorage.getItem('minhasFichas')) || [];
+    const itemMinhaFichas = minhasFichas[indexFicha];
+
+    if ( !indexExercicioAtual ) {
+        globalIndexExercicioAtual = 0
+    }
+
+    pesquisarExecucoesAnterioresDoTreino(0, itemMinhaFichas.treino[globalIndexExercicioAtual])
+
+    document.getElementById('divNomeDaFichaLive').innerHTML = itemMinhaFichas.nome;
+    document.getElementById('divNomeDoExercicioLive').innerHTML = itemMinhaFichas.treino[globalIndexExercicioAtual];
+    document.getElementById('divExecucaoLive').style.display = '';
+    globalIndexFicha = indexFicha;
+    globalIndexExercicioAtual = globalIndexExercicioAtual;
+    globalIsInLive = true;
+}
+
+function limparExecucaoLive() {
+    document.getElementById('divProximoExercicioLive').style.display = '';
+    document.getElementById('divExecucaoLive').style.display = 'none';
+}
+
+function cancelarExecucaoLive() {
+    document.getElementById('divProximoExercicioLive').style.display = '';
+    document.getElementById('divExecucaoLive').style.display = 'none';
+    globalIndexExercicioAtual = 0;
+    globalIndexFicha = 0;
+    globalIsInLive = false;
+}
+
+function adicionarRegistroDeExecucaoLive() {
+    console.log('added: ');
+}
+
+function executarProximoExercicioLive() {
+
+    globalIndexExercicioAtual = globalIndexExercicioAtual+1;
+
+    let minhasFichas = JSON.parse(localStorage.getItem('minhasFichas')) || [];
+    const itemMinhaFichas = minhasFichas[globalIndexFicha];
+    if ( globalIndexExercicioAtual <= itemMinhaFichas.treino.length ) {
+        executarTreinoLiveDoIndex(globalIndexFicha, globalIndexExercicioAtual)
+        let minhasFichas = JSON.parse(localStorage.getItem('minhasFichas')) || [];
+        const itemMinhaFichas = minhasFichas[globalIndexFicha];
+    }
+    
+    if ( globalIndexExercicioAtual+1 == itemMinhaFichas.treino.length ) {
+        document.getElementById('divProximoExercicioLive').style.display = 'none';
     }
 
 }
@@ -371,7 +432,7 @@ function criarDivElementoComAcao(elementoPai, texto, classes, funcaoDoBotao, arg
     elementoPai.appendChild(div);
 }
 
-function criarBotaoNoElementoComAcao(elementoPai, texto, classes, funcaoDoBotao, argumentoDaFuncao) {
+function criarBotaoNoElementoComAcao(elementoPai, texto, classes, funcaoDoBotao, arg1) {
     const botao = document.createElement('button');
     botao.textContent = texto;
 
@@ -387,7 +448,7 @@ function criarBotaoNoElementoComAcao(elementoPai, texto, classes, funcaoDoBotao,
 
 
     botao.onclick = () => {
-        funcaoDoBotao(argumentoDaFuncao);
+        funcaoDoBotao(arg1);
     };
     elementoPai.appendChild(botao);
 }
@@ -445,12 +506,17 @@ function identificarEmojiDeIntensidadeDoExercicio(valor) {
     return emoji;
 }
 
-function pesquisarExecucoesAnterioresDoTreino(index) {
+function pesquisarExecucoesAnterioresDoTreino(index, nomeUltimoExercicio) {
     let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
-    const itemParaPesquisar = meusDados[index];
     let dadosFiltrado = [];
+
+    if (!nomeUltimoExercicio) {
+        const itemParaPesquisar = meusDados[index];
+        nomeUltimoExercicio = itemParaPesquisar.exercicio;
+    }
+
     meusDados.forEach((registro, indexRegistros) => {
-        if( (registro.exercicio.trim().toLowerCase() == itemParaPesquisar.exercicio.trim().toLowerCase()) && (indexRegistros >= index) ) {
+        if( (registro.exercicio.trim().toLowerCase() == nomeUltimoExercicio.trim().toLowerCase()) && (indexRegistros >= index) ) {
             dadosFiltrado.push(registro);
         }
     });
@@ -590,7 +656,7 @@ function apresentarDivAlvo(divAlvo) {
     }
 
     document.getElementById("botaoVoltarNoHistoricoDeTreino").style.display = "none";
-
+    realizarAcoesGenericasDeLimpeza();
     realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo);
     document.getElementById("divAdicionarExercicio").style.display = "none";
     document.getElementById("divConfiguracoes").style.display = "none";
@@ -608,6 +674,10 @@ function apresentarDivAlvo(divAlvo) {
             console.log('Div inexistente: ' + divAlvo);
         }
     }
+}
+
+function realizarAcoesGenericasDeLimpeza() {
+    limparExecucaoLive();
 }
 
 function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
@@ -655,10 +725,6 @@ function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
         document.getElementById('exercicio').value = '';
     }
 
-}
-
-function limparApresentacao() {
-    apresentarDivAlvo('divTreinos');
 }
 
 function formatarStringParaApresentacao(str) {
@@ -772,7 +838,7 @@ function init() {
     criarListenerDeImportacaoDeJson();
     // criarListenerDeZoom();
     //ajustarProblemasNosJSON();
-    limparApresentacao();
+    apresentarDivAlvo('divTreinos');
 }
 
 init();
