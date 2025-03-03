@@ -25,6 +25,35 @@
   overflow: hidden;
 }
 
+@media (max-width: 600px) {
+  .container {
+    width: 100% !important;
+    padding: 10px !important;
+  }
+  .menu {
+    width: 80px;
+    height: 80px;
+  }
+  .menuLateral {
+    width: 80px;
+  }
+  .animarMenuDeCimaPraBaixo {
+    height: 260px !important;
+  }
+  .itemDeMenuPrimeiro {
+    margin-top: 60px !important;
+  }
+  table {
+    font-size: 1em !important;
+  }
+  button {
+    font-size: 1em !important;
+  }
+  body {
+    font-size: x-small !important;
+  }
+}
+
 @media (min-width: 600px) {
   .menu {
     width: 140px;
@@ -32,9 +61,13 @@
   }
   .menuLateral {
     width: 140px;
+    font-size: 1.5em !important;
   }
   .animarMenuDeCimaPraBaixo {
     height: 500px !important;
+  }
+  .itemDeMenuPrimeiro {
+    margin-top: 140px !important;
   }
   table {
     font-size: 1.3em !important;
@@ -126,14 +159,13 @@
 }
 
 .itemDeMenuPrimeiro {
-  margin-top: 120px !important;
+  margin-top: 120px;
 }
 
 .itemDeMenu {
   margin: 20px;
   margin-left: 0px;
   margin-right: 0px;
-  font-size: 1.9em;
 }
 /*2560×1278*/
 html {
@@ -181,7 +213,13 @@ ul {
 
 table {
   display: table;
-  font-size: 1.3em;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .containerFlexPilha {
@@ -277,7 +315,6 @@ button {
   border-color: black;
   border-width: 1px;
   border-style: solid;
-  font-size: 1.3em;
 }
 
 .buttonPreto {

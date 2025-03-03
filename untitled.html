@@ -1,15 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Div 3D Giratória</title>
+<title>Tela Responsiva</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
+/* Reset CSS básico */
+body, h1, p {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f0f0f0;
-  perspective: 800px; /* Adiciona perspectiva 3D */
+  font-family: sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%; /* Largura relativa */
+  max-width: 1200px; /* Largura máxima */
+  margin: 0 auto; /* Centralizar */
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+img {
+  max-width: 100%; /* Imagem responsiva */
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+/* Media query para telas menores */
+@media (max-width: 600px) {
+  .container {
+    width: 100%; /* Largura total em telas pequenas */
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
 }
 
 .cubo {
@@ -29,9 +63,12 @@ body {
   }
 }
 </style>
-<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="cubo"></div>
+  <div class="container">
+    <h1>Bem-vindo à Tela Responsiva</h1>
+    <p>Este é um exemplo de tela HTML que se adapta aos limites da tela do usuário.</p>
+    <div class="cubo"></div>
+  </div>
 </body>
 </html>
