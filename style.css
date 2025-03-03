@@ -399,6 +399,7 @@ button {
   border-radius: 40px 40px 0px 0px;
   border-style: solid;
   opacity: 0.9;
+  width: 50vw;
 }
 
 .arrastavel {
@@ -434,8 +435,8 @@ button {
 }
 
 .divNomeDoExercicioLive {
-  width: 300px;
   text-align: center;
+  width: 20vw;
 }
 
 .divEmoji {
