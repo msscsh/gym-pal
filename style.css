@@ -277,6 +277,8 @@ table tr:last-child td {
 table td:last-child {
   border-right: none;
   border-top: none;
+  border-bottom: none !important;
+  padding-top: 2vh;
 }
 
 table tr:nth-child(even) {
