@@ -2,6 +2,7 @@
   --cinza-claro: #f2f2f2;
   --cinza-medio: #ddd;
   --cinza-escuro: #333;
+  --amarelo-claro-real: #f0f2a2;
   --amarelo-claro: #d4d4d4;
   --amarelo-medio: #edf03c;
   --amarelo-escuro: #f8fc0d;
@@ -356,19 +357,27 @@ button {
 
 
 .divExecucaoLive {
-  top: 100%;
+  top: 60%;
   z-index: 3;
   position: absolute;
   scale: 1.5;
   left: 8vw;
+  background: var(--amarelo-claro-real);
+}
+
+.arrastavel {
+  position: absolute;
+  cursor: move;
 }
 
 .divAnteriorExercicioLive {
   margin-right: 20px;
+  font-size: 2rem;
 }
 
 .divProximoExercicioLive {
   margin-left: 20px;
+  font-size: 2rem;
 }
 
 .divCancelarExecucaoLive {
@@ -376,11 +385,12 @@ button {
 }
 
 .divOpcoesExecucaoLive {
-  margin-left: 20px;
+  margin-top: 2vh;
 }
 
 .divAdicionarExecucaoDeExercicioLive {
-  margin-top: 20px;
+  padding-bottom: 2vh;
+  margin-top: 2vh;
 }
 
 .divCamposAdicionarExercicioLive {
@@ -394,6 +404,7 @@ button {
 
 .divEmoji {
   font-size: 1.5em;
+  padding-right: 4vw;
 }
 
 .divExerciciosCadastrados {

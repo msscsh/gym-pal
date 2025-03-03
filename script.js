@@ -945,8 +945,39 @@ function verificarResolucaoDoDispositivo() {
     divTamanhoTela.innerHTML = `<strong>Sua resolução ${largura}px x ${altura}px</strong>`;
 }
 
+
+let posicaoInicialX, posicaoInicialY, offsetX = 0, offsetY = 0;
+let arrastando = false;
+let minhaDivArrastavel;
+
+function iniciarArrasto(e) {
+    posicaoInicialX = e.clientX - offsetX;
+    posicaoInicialY = e.clientY - offsetY;
+    arrastando = true;
+}
+
+function arrastar(e) {
+    if (arrastando) {
+        offsetX = e.clientX - posicaoInicialX;
+        offsetY = e.clientY - posicaoInicialY;
+        minhaDivArrastavel.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+    }
+}
+
+function pararArrasto() {
+  arrastando = false;
+}
+
+function criarListenerDeArrastoDeDivJson(divAlvo) {
+    minhaDivArrastavel = document.getElementById(divAlvo);
+    minhaDivArrastavel.addEventListener('mousedown', iniciarArrasto);
+    document.addEventListener('mousemove', arrastar);
+    document.addEventListener('mouseup', pararArrasto);
+}
+
 function init() {
     criarListenerDeImportacaoDeJson();
+    criarListenerDeArrastoDeDivJson('divExecucaoLive');
     // criarListenerDeZoom();
     //ajustarProblemasNosJSON();
     apresentarDivAlvo('divTreinos');
