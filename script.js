@@ -954,15 +954,27 @@ let arrastando = false;
 let minhaDivArrastavel;
 
 function iniciarArrasto(e) {
-    posicaoInicialX = e.clientX - offsetX;
-    posicaoInicialY = e.clientY - offsetY;
+    if (e.type === 'touchstart') {
+        posicaoInicialX = e.touches[0].clientX - offsetX;
+        posicaoInicialY = e.touches[0].clientY - offsetY;
+    }
+    else {
+        posicaoInicialX = e.clientX - offsetX;
+        posicaoInicialY = e.clientY - offsetY;
+    }
     arrastando = true;
 }
 
 function arrastar(e) {
     if (arrastando) {
-        offsetX = e.clientX - posicaoInicialX;
-        offsetY = e.clientY - posicaoInicialY;
+        if (e.type === 'touchmove') {
+            offsetX = e.touches[0].clientX - posicaoInicialX;
+            offsetY = e.touches[0].clientY - posicaoInicialY;
+        }
+        else {
+            offsetX = e.clientX - posicaoInicialX;
+            offsetY = e.clientY - posicaoInicialY;
+        }
         minhaDivArrastavel.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
     }
 }
@@ -974,6 +986,9 @@ function pararArrasto() {
 function criarListenerDeArrastoDeDivJson(divAlvo) {
     minhaDivArrastavel = document.getElementById(divAlvo);
     minhaDivArrastavel.addEventListener('mousedown', iniciarArrasto);
+    minhaDivArrastavel.addEventListener('touchstart', iniciarArrasto);
+    document.addEventListener('touchmove', arrastar);
+    document.addEventListener('touchend', pararArrasto);
     document.addEventListener('mousemove', arrastar);
     document.addEventListener('mouseup', pararArrasto);
 }
