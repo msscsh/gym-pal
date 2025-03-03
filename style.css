@@ -43,7 +43,6 @@
     font-size: 1.8em !important;
   }
   body {
-    padding-top: 150px !important;
     font-size: x-small !important;
   }
 }
@@ -66,7 +65,6 @@
     font-size: 1.8em !important;
   }
   body {
-    padding-top: 170px !important;
     font-size: x-small !important;
   }
 }
@@ -92,7 +90,6 @@
     font-size: 1.8em !important;
   }
   body {
-    padding-top: 210px !important;
     font-size: medium !important;
   }
 }
@@ -102,6 +99,10 @@
   max-height: 100%;
   object-fit: contain;
   cursor: pointer;
+}
+
+.menuCompleto {
+  opacity: 0.4;
 }
 
 .menuLateral {
@@ -134,9 +135,9 @@
   margin-right: 0px;
   font-size: 1.9em;
 }
-
+/*2560×1278*/
 html {
-  z-index:2; 
+  z-index:1; 
   height: 100%;
   margin: 0;
   padding: 0;
@@ -164,7 +165,7 @@ body {
   font-size: small;
   min-height: 100%;
   min-width: 100%;
-  padding-top: 20vh;
+  padding-top: 10vh;
 }
 
 h3 {
@@ -316,12 +317,11 @@ button {
 
 
 .divExecucaoLive {
-  top: 80%;
-  z-index: 2;
+  top: 100%;
+  z-index: 3;
   position: absolute;
-  scale: 1.6;
-  padding-bottom: 5%;
-  margin-left: 15vw;
+  scale: 1.5;
+  left: 8vw;
 }
 
 .divAnteriorExercicioLive {

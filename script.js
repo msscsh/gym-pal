@@ -630,7 +630,7 @@ function pesquisarExecucoesAnterioresDoTreino(index, nomeUltimoExercicio) {
     if (dadosFiltrado.length > 0) {
         criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dadosFiltrado, false);
         const elementoZoom = document.getElementById('container');
-        elementoZoom.style.transform = `scale(1.2)`;
+        // elementoZoom.style.transform = `scale(1.2)`;
     }
     else {
         alert('Nenhum histórico deste exercício foi encontrado')
@@ -651,7 +651,7 @@ function pesquisarTodasAsExecucoesAnterioresDoTreino(exercicio) {
         apresentarDivAlvo('divTreinos');
         criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dadosFiltrado, false);
         const elementoZoom = document.getElementById('container');
-        elementoZoom.style.transform = `scale(1.4)`;
+        // elementoZoom.style.transform = `scale(1.4)`;
     }
     else {
         alert('Nenhum histórico deste exercício foi encontrado')
@@ -748,9 +748,12 @@ function mostrarMenuLateral() {
         divLateral.style.top = `${top}px`;
         divLateral.style.left = `${left}px`;
         divLateral.classList.add("animarMenuDeCimaPraBaixo");
+        document.getElementById('menuCompleto').style.opacity = 0.7;
+
     }
     else {
         divLateral.classList.remove("animarMenuDeCimaPraBaixo");  
+        document.getElementById('menuCompleto').style.opacity = 0.4;
     }
 }
 
@@ -782,7 +785,7 @@ function apresentarDivAlvo(divAlvo) {
 
 function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
     const elementoZoom = document.getElementById('container');
-    elementoZoom.style.transform = `scale(1.1)`;
+    // elementoZoom.style.transform = `scale(1.1)`;
     if ( divAlvo === 'divTreinos' ) {
         exibirTabela();
         //Cuidado com esta gambira. Resolver ela centralizando o "controle de botoes" em uma verificacao a parte
@@ -802,14 +805,14 @@ function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
         limparCamposNaTela();
         preencherComboDeExercicios();
         const elementoZoom = document.getElementById('container');
-        elementoZoom.style.transform = `scale(1.3)`;
+        // elementoZoom.style.transform = `scale(1.3)`;
     }
     else if ( divAlvo === 'divEditarExercicio' ) {
         document.getElementById('btnConfirmarAlteracaoDeRegistro').style.display = '';
         document.getElementById('btnConfirmarAdicaoDeRegistro').style.display = 'none';
         preencherComboDeExercicios();
         const elementoZoom = document.getElementById('container');
-        elementoZoom.style.transform = `scale(1.3)`;
+        // elementoZoom.style.transform = `scale(1.3)`;
     }
     else if ( divAlvo === 'divConfiguracaoDeTreino' ) {
         apresentarExerciciosCadastrados();
