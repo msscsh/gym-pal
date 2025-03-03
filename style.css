@@ -44,6 +44,12 @@
   .itemDeMenuPrimeiro {
     margin-top: 60px !important;
   }
+  .divAfastadaDasBordas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) !important;
+    padding: 3em !important;
+    font-size: 0.8em !important;
+  }
   table {
     font-size: 1em !important;
   }
@@ -70,6 +76,12 @@
   .itemDeMenuPrimeiro {
     margin-top: 140px !important;
   }
+  .divAfastadaDasBordas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) !important;
+    padding: 3em !important;
+    font-size: 0.8em !important;
+  }
   table {
     font-size: 1.3em !important;
   }
@@ -91,6 +103,12 @@
   }
   .animarMenuDeCimaPraBaixo {
     height: 500px !important;
+  }
+  .divAfastadaDasBordas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) !important;
+    padding: 5em !important;
+    font-size: 1em !important;
   }
   table {
     font-size: 1.3em !important;
@@ -116,6 +134,12 @@
   }
   .animarMenuDeCimaPraBaixo {
     height: 500px !important;
+  }
+  .divAfastadaDasBordas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) !important;
+    padding: 5em !important;
+    font-size: 1em !important;
   }
   table {
     font-size: 1.3em !important;
@@ -355,6 +379,15 @@ button {
   border-style: solid;
 }
 
+.divConfigurarExercicios {
+  margin-bottom: 20vh;
+}
+
+.divAfastadaDasBordas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 5em;
+}
 
 .divExecucaoLive {
   top: 60%;
@@ -363,6 +396,9 @@ button {
   scale: 1.5;
   left: 8vw;
   background: var(--amarelo-claro-real);
+  border-radius: 40px 40px 0px 0px;
+  border-style: solid;
+  opacity: 0.9;
 }
 
 .arrastavel {
@@ -404,7 +440,7 @@ button {
 
 .divEmoji {
   font-size: 1.5em;
-  padding-right: 4vw;
+  margin-right: 4vw;
 }
 
 .divExerciciosCadastrados {

@@ -894,6 +894,8 @@ function apresentarExerciciosCadastrados() {
     const rotuloExerciciosCadastrados = document.getElementById('rotuloExerciciosCadastrados');
     rotuloExerciciosCadastrados.style.display = "";
     lista.innerHTML = '';
+    const divListas = document.createElement('div');
+    divListas.classList.add('divAfastadaDasBordas');
     exerciciosCadastrados.forEach(exercicioCadastrado => {
 
         const li = document.createElement('li');
@@ -917,8 +919,9 @@ function apresentarExerciciosCadastrados() {
         li.appendChild(strong);
 
         li.classList.add('containerGridReduzido');
-        lista.appendChild(li);
+        divListas.appendChild(li);
     });
+    lista.appendChild(divListas);
 }
 
 function preencherComboDeExercicios() {
