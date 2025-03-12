@@ -1077,27 +1077,27 @@ function verificarLargura() {
           // Largura >= 1200px (e, portanto, >= 768px e >= 600px)
           console.log('Largura da janela >= 1200px');
           escala = 0.4;
-          starting = {width: 950, height: 650, x: 300, y: 150};
+          starting = {width: 700, height: 600, x: 50, y: 50};
           // Adicione aqui o código para largura >= 1200px
         } else {
           // Largura >= 768px e < 1200px
           console.log('Largura da janela >= 768px e < 1200px');
           escala = 0.3;
-          starting = {width: 500, height: 400, x: 150, y: 150};
+          starting = {width: 425, height: 350, x: 15, y: 15};
           // Adicione aqui o código para largura >= 768px e < 1200px
         }
       } else {
         // Largura >= 600px e < 768px
         console.log('Largura da janela >= 600px e < 768px');
         escala = 0.25;
-        starting = {width: 500, height: 400, x: 150, y: 150};
+        starting = {width: 425, height: 350, x: 15, y: 15};
         // Adicione aqui o código para largura >= 600px e < 768px
       }
     } else {
       // Largura < 600px
       console.log('Largura da janela < 600px');
       escala = 0.25;
-      starting = {width: 500, height: 400, x: 150, y: 150};
+      starting = {width: 425, height: 350, x: 15, y: 15};
       // Adicione aqui o código para largura < 600px
     }
   }
@@ -1128,7 +1128,7 @@ function init() {
     imagem.onload = function() {
         canvasImagem.width = starting.width;
         canvasImagem.height = starting.height;
-        // canvasImagem.maxWidth = 800;
+        canvasImagem.maxWidth = 1200;
         // canvasImagem.maxHeight = 1200;
         contexto.scale(escala, escala);
         contexto.drawImage(imagem, starting.x, starting.y);
