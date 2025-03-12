@@ -1062,11 +1062,59 @@ function criarListenerDeArrastoDeDivJson(divAlvo) {
       }
 
 
+let escala = 0.4;
+let starting = {width: 400, height: 400, x: 150, y: 150};
 
+function verificarLargura() {
+  const media600 = window.matchMedia('(min-width: 600px)');
+  const media768 = window.matchMedia('(min-width: 768px)');
+  const media1200 = window.matchMedia('(min-width: 1200px)');
+
+  function lidarComMudanca() {
+    if (media600.matches) {
+      if (media768.matches) {
+        if (media1200.matches) {
+          // Largura >= 1200px (e, portanto, >= 768px e >= 600px)
+          console.log('Largura da janela >= 1200px');
+          escala = 0.4;
+          starting = {width: 950, height: 650, x: 300, y: 150};
+          // Adicione aqui o código para largura >= 1200px
+        } else {
+          // Largura >= 768px e < 1200px
+          console.log('Largura da janela >= 768px e < 1200px');
+          escala = 0.3;
+          starting = {width: 500, height: 400, x: 150, y: 150};
+          // Adicione aqui o código para largura >= 768px e < 1200px
+        }
+      } else {
+        // Largura >= 600px e < 768px
+        console.log('Largura da janela >= 600px e < 768px');
+        escala = 0.25;
+        starting = {width: 500, height: 400, x: 150, y: 150};
+        // Adicione aqui o código para largura >= 600px e < 768px
+      }
+    } else {
+      // Largura < 600px
+      console.log('Largura da janela < 600px');
+      escala = 0.25;
+      starting = {width: 500, height: 400, x: 150, y: 150};
+      // Adicione aqui o código para largura < 600px
+    }
+  }
+
+  // Executa a função inicialmente
+  lidarComMudanca();
+
+  // Adiciona listeners para mudanças
+  media600.addListener(lidarComMudanca);
+  media768.addListener(lidarComMudanca);
+  media1200.addListener(lidarComMudanca);
+}
 
 let cliques = [];
 
 function init() {
+    verificarLargura();
     criarListenerDeImportacaoDeJson();
     criarListenerDeArrastoDeDivJson('divExecucaoLive');
     // criarListenerDeZoom();
@@ -1078,11 +1126,13 @@ function init() {
     const imagem = new Image();
     imagem.crossOrigin = 'anonymous';
     imagem.onload = function() {
-        canvasImagem.width = 800;
-        canvasImagem.height = 700;
-        contexto.scale(0.4, 0.4);
-        contexto.drawImage(imagem, 150, 150);
-        canvasImagem.addEventListener('click', function(e) {
+        canvasImagem.width = starting.width;
+        canvasImagem.height = starting.height;
+        // canvasImagem.maxWidth = 800;
+        // canvasImagem.maxHeight = 1200;
+        contexto.scale(escala, escala);
+        contexto.drawImage(imagem, starting.x, starting.y);
+        canvasImagem.addEventListener('click', function(e) { 
           const x = e.offsetX;
           const y = e.offsetY;
           if(cliques) {
