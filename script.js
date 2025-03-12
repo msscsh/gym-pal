@@ -821,6 +821,15 @@ function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
     }
     else if ( divAlvo === 'divConfigurarExercicios' ) {
         apresentarExerciciosCadastrados();
+        cliques = localStorage.getItem('cliques');
+        if (cliques) {
+            cliques = JSON.parse(cliques);
+            cliques.forEach(click => {
+                colorirArea(click.x, click.y);
+            });
+        } else {
+            cliques = [];
+        }
     }
     else if ( divAlvo === 'divConfiguracoes' ) {
         verificarResolucaoDoDispositivo();
@@ -993,12 +1002,100 @@ function criarListenerDeArrastoDeDivJson(divAlvo) {
     document.addEventListener('mouseup', pararArrasto);
 }
 
+    const canvasImagem = document.getElementById('canvasImagem');
+      const imagemColorida = document.getElementById('imagemColorida');
+      const contexto = canvasImagem.getContext('2d');
+
+      function colorirArea(x, y) {
+        const dadosImagem = contexto.getImageData(0, 0, canvasImagem.width, canvasImagem.height);
+        const dados = dadosImagem.data;
+        const pixelIndex = (y * canvasImagem.width + x) * 4;
+
+        const vermelho = dados[pixelIndex];
+        const verde = dados[pixelIndex + 1];
+        const azul = dados[pixelIndex + 2];
+
+        if (vermelho > 200 && verde > 200 && azul > 200) {
+          floodFill(x, y, dados, 'vermelho');
+          contexto.putImageData(dadosImagem, 0, 0);
+        }
+        else {
+          floodFillBranco(x, y, dados);
+          contexto.putImageData(dadosImagem, 0, 0);
+        }
+      }
+
+      function floodFill(x, y, dados) {
+        const pixelIndex = (y * canvasImagem.width + x) * 4;
+        const vermelho = dados[pixelIndex];
+        const verde = dados[pixelIndex + 1];
+        const azul = dados[pixelIndex + 2];
+
+        if (vermelho === 255 && verde === 255 && azul === 255) {
+          dados[pixelIndex] = 255;
+          dados[pixelIndex + 1] = 0;
+          dados[pixelIndex + 2] = 0;
+
+          floodFill(x + 1, y, dados);
+          floodFill(x - 1, y, dados);
+          floodFill(x, y + 1, dados);
+          floodFill(x, y - 1, dados);
+        }
+      }
+
+      function floodFillBranco(x, y, dados, cor) {
+        const pixelIndex = (y * canvasImagem.width + x) * 4;
+        const vermelho = dados[pixelIndex];
+        const verde = dados[pixelIndex + 1];
+        const azul = dados[pixelIndex + 2];
+
+        if (vermelho === 255 && verde === 0 && azul  === 0) {
+          dados[pixelIndex] = 255;
+          dados[pixelIndex + 1] = 255;
+          dados[pixelIndex + 2] = 255;
+
+          floodFillBranco(x + 1, y, dados);
+          floodFillBranco(x - 1, y, dados);
+          floodFillBranco(x, y + 1, dados);
+          floodFillBranco(x, y - 1, dados);
+        }
+      }
+
+
+
+
+let cliques = [];
+
 function init() {
     criarListenerDeImportacaoDeJson();
     criarListenerDeArrastoDeDivJson('divExecucaoLive');
     // criarListenerDeZoom();
     //ajustarProblemasNosJSON();
     apresentarDivAlvo('divTreinos');
+
+
+
+    const imagem = new Image();
+    imagem.crossOrigin = 'anonymous';
+    imagem.onload = function() {
+        canvasImagem.width = 800;
+        canvasImagem.height = 700;
+        contexto.scale(0.4, 0.4);
+        contexto.drawImage(imagem, 150, 150);
+        canvasImagem.addEventListener('click', function(e) {
+          const x = e.offsetX;
+          const y = e.offsetY;
+          if(cliques) {
+              cliques.push({ x: x, y: y }); 
+          }
+          colorirArea(x, y);
+          localStorage.setItem('cliques', JSON.stringify(cliques));
+
+        });
+    };
+
+    imagem.src = 'https://msscsh.github.io/gym-pal/body-modified.png';
+
 }
 
 init();

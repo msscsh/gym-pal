@@ -34,10 +34,7 @@
 			<div id="divConfiguracoes" class="divConfiguracoes">
 
 				<div class="containerFlexPilha">
-					<!-- <input type="number" id="zoomInput" placeholder="Um pouco de zoom?"> -->
-
 					<div id="tamanhoDaTela"></div>
-
 					<div id="divBotoesTabelaTreino" class="divBotoesTabelaTreino">
 					    <button class="classeBaseBotao" onclick="exportarJSON()">Exportar meus dados</button>
 					    <button class="classeBaseBotao" id="excluir" class="botaoExcluirTodosOsDados" onclick="excluirTodosRegistros()">Excluir Tudo</button>
@@ -49,14 +46,16 @@
 			</div>
 
 			<div id="divConfigurarExercicios" class="divConfigurarExercicios">
+				<h3 id="rotuloExerciciosCadastrados" style="display:none">Exercícios cadastrados para você</h3>
+				<ul id="exerciciosCadastrados"></ul>
 				<div class="divExerciciosCadastrados containerFlexPilha bordear">
-					<h3 id="rotuloExerciciosCadastrados" style="display:none">Exercícios cadastrados para você</h3>
-					<ul id="exerciciosCadastrados"></ul>
-
-					<div id="divCamposAdicionarExercicio" class="divCamposAdicionarExercicio containerFlexCarrossel">
-				        <label for="addExercicio" class="labelAddExercicio" >Exercício:</label>
-				        <input type="text" id="addExercicio" class="inputAdicionarExercicioNoSistema">
-				        <button class="botaoAdicionarExercicioNoSistema classeBaseBotao" onclick="adicionarExercicioNoSistema()">Adicionar</button>
+					<div class="containerFlexCarrossel">
+						<canvas id="canvasImagem" ></canvas>
+						<div id="divCamposAdicionarExercicio" class="divCamposAdicionarExercicio containerFlexPilha">
+					        <label for="addExercicio" class="labelAddExercicio" >Exercício:</label>
+					        <input type="text" id="addExercicio" class="inputAdicionarExercicioNoSistema">
+			        		<button class="botaoAdicionarExercicioNoSistema classeBaseBotao" style="margin-top: 20px" onclick="adicionarExercicioNoSistema()">Adicionar</button>	
+						</div>
 					</div>
 				</div>
 			</div>
