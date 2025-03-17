@@ -1033,25 +1033,27 @@ function criarListenerDeArrastoDeDivJson(divAlvo) {
       const contexto = canvasImagem.getContext('2d');
 
       function colorirArea(x, y) {
+        const pixelData = contexto.getImageData(x, y, 1, 1).data;
         const dadosImagem = contexto.getImageData(0, 0, canvasImagem.width, canvasImagem.height);
         const dados = dadosImagem.data;
         const pixelIndex = (y * canvasImagem.width + x) * 4;
 
-        const vermelho = dados[pixelIndex];
-        const verde = dados[pixelIndex + 1];
-        const azul = dados[pixelIndex + 2];
-
-        if (vermelho > 200 && verde > 200 && azul > 200) {
-          floodFill(x, y, dados, 'vermelho');
+        if (pixelData[0] == 255 && pixelData[1] == 255 && pixelData[2] == 255 ) {
+          floodFillVermelho(x, y, dados);
           contexto.putImageData(dadosImagem, 0, 0);
         }
-        else {
+        else if (pixelData[0] == 255 && pixelData[1] == 0 && pixelData[2] == 0 ) {
+          floodFillLaranja(x, y, dados);
+          contexto.putImageData(dadosImagem, 0, 0);
+        }
+        else if (pixelData[0] == 255 && pixelData[1] == 175 && pixelData[2] == 0 )  {
           floodFillBranco(x, y, dados);
           contexto.putImageData(dadosImagem, 0, 0);
         }
+
       }
 
-      function floodFill(x, y, dados) {
+      function floodFillVermelho(x, y, dados) {
         const pixelIndex = (y * canvasImagem.width + x) * 4;
         const vermelho = dados[pixelIndex];
         const verde = dados[pixelIndex + 1];
@@ -1062,20 +1064,38 @@ function criarListenerDeArrastoDeDivJson(divAlvo) {
           dados[pixelIndex + 1] = 0;
           dados[pixelIndex + 2] = 0;
 
-          floodFill(x + 1, y, dados);
-          floodFill(x - 1, y, dados);
-          floodFill(x, y + 1, dados);
-          floodFill(x, y - 1, dados);
+          floodFillVermelho(x + 1, y, dados);
+          floodFillVermelho(x - 1, y, dados);
+          floodFillVermelho(x, y + 1, dados);
+          floodFillVermelho(x, y - 1, dados);
         }
       }
 
-      function floodFillBranco(x, y, dados, cor) {
+      function floodFillLaranja(x, y, dados) {
         const pixelIndex = (y * canvasImagem.width + x) * 4;
         const vermelho = dados[pixelIndex];
         const verde = dados[pixelIndex + 1];
         const azul = dados[pixelIndex + 2];
 
         if (vermelho === 255 && verde === 0 && azul  === 0) {
+          dados[pixelIndex] = 255;
+          dados[pixelIndex + 1] = 175;
+          dados[pixelIndex + 2] = 0;
+
+          floodFillLaranja(x + 1, y, dados);
+          floodFillLaranja(x - 1, y, dados);
+          floodFillLaranja(x, y + 1, dados);
+          floodFillLaranja(x, y - 1, dados);
+        }
+      }
+
+      function floodFillBranco(x, y, dados) {
+        const pixelIndex = (y * canvasImagem.width + x) * 4;
+        const vermelho = dados[pixelIndex];
+        const verde = dados[pixelIndex + 1];
+        const azul = dados[pixelIndex + 2];
+
+        if (vermelho === 255 && verde === 175 && azul  === 0) {
           dados[pixelIndex] = 255;
           dados[pixelIndex + 1] = 255;
           dados[pixelIndex + 2] = 255;
@@ -1128,10 +1148,7 @@ function verificarLargura() {
     }
   }
 
-  // Executa a função inicialmente
-  // lidarComMudanca();
-
-  // Adiciona listeners para mudanças
+  lidarComMudanca();
   media600.addListener(lidarComMudanca);
   media768.addListener(lidarComMudanca);
   media1200.addListener(lidarComMudanca);
@@ -1152,7 +1169,7 @@ function init() {
     const imagem = new Image();
     imagem.crossOrigin = 'anonymous';
     imagem.onload = function() {
-        canvasImagem.width = 1600;
+        canvasImagem.width = starting.width;
         canvasImagem.height = starting.height;
         canvasImagem.maxWidth = 1200;
         // canvasImagem.maxHeight = 1200;
@@ -1170,7 +1187,7 @@ function init() {
         });
     };
 
-    imagem.src = 'https://msscsh.github.io/gym-pal/bodys.png';
+    imagem.src = 'https://msscsh.github.io/gym-pal/body-modified.png';
 
 }
 
