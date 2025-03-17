@@ -158,6 +158,32 @@
   }
 }
 
+.linhaTopo {
+  border-top-width: 3px;
+  border-top-style: solid;
+  border-right-width: 3px;
+  border-right-style: solid;
+  border-left-width: 3px;
+  border-left-style: solid;
+}
+
+.linhaMeio {
+  border-right-width: 3px;
+  border-right-style: solid;
+  border-left-width: 3px;
+  border-left-style: solid;
+}
+
+
+.linhaFim {
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-right-width: 3px;
+  border-right-style: solid;
+  border-left-width: 3px;
+  border-left-style: solid;
+}
+
 .menu img {
   max-width: 100%;
   max-height: 100%;
@@ -292,7 +318,7 @@ th {
 }
 
 td {
-  border: 1px solid var(--cinza-medio);
+  /*border: 1px solid var(--cinza-medio);*/
   padding: 4px;
   text-align: left;
 }

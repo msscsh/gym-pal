@@ -470,8 +470,30 @@ function alterarExibicaoConformeTamanhoDaTabela(isTabelaVazia) {
 function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, isApresentacaoDefault) {
     const tabela = document.getElementById('tabelaTreinos').getElementsByTagName('tbody')[0];
     tabela.innerHTML = '';
+    let diaAnterior = 0;
+    let inicioDia = true;
+    let options = {
+        day: "numeric",
+    };
     meusDados.forEach((registro, index) => {
+
+        let dia = converterTimestampParaFormatacaoDataEHora(registro.timestampDoExercicio, options);
         const novaLinha = tabela.insertRow();
+
+        novaLinha.className = 'linhaFim';
+
+        if (index == 0 || inicioDia) {
+            novaLinha.className = 'linhaTopo';
+        }
+
+        if (dia == diaAnterior) {
+            novaLinha.className = 'linhaMeio';
+        }
+        else {
+            novaLinha.className = 'linhaTopo';
+            inicioDia = false;
+        }
+
         const celulaExercicio = novaLinha.insertCell();
         const celulaCarga = novaLinha.insertCell();
         const celulaIntensidade = novaLinha.insertCell();
@@ -504,6 +526,8 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, is
                 document.getElementById("botaoVoltarNoHistoricoDeTreino").style.display = ""; 
             }
         }
+
+        diaAnterior = dia;
 
     });
 }
@@ -555,17 +579,19 @@ function criarBotaoNoElementoComAcao(elementoPai, texto, classes, funcaoDoBotao,
     elementoPai.appendChild(botao);
 }
 
-function converterTimestampParaFormatacaoDataEHora(timestamp) {
+function converterTimestampParaFormatacaoDataEHora(timestamp, options) {
     if (timestamp) {
         const data = new Date(timestamp);
-        const options = {
-            weekday: "long",
-            month: "long",
-            day: "numeric",
-            dayPeriod: "long",
-        };
+        if (!options) {
+            options = {
+                weekday: "long",
+                month: "long",
+                day: "numeric",
+                dayPeriod: "long",
+            };
+        }
         const dataFormatadaPersonalizada = data.toLocaleString('pt-BR', options);
-        return dataFormatadaPersonalizada.replace('-feira', '').replace(' às da ', ', de ');
+        return dataFormatadaPersonalizada.replace('-feira', '').replace(' às da ', ', de ').replace(' às ', ', ao ');
     }
     return "sem registro de data";
 }
@@ -1062,7 +1088,7 @@ function criarListenerDeArrastoDeDivJson(divAlvo) {
       }
 
 
-let escala = 0.4;
+let escala = 1;
 let starting = {width: 400, height: 400, x: 150, y: 150};
 
 function verificarLargura() {
@@ -1103,7 +1129,7 @@ function verificarLargura() {
   }
 
   // Executa a função inicialmente
-  lidarComMudanca();
+  // lidarComMudanca();
 
   // Adiciona listeners para mudanças
   media600.addListener(lidarComMudanca);
@@ -1126,7 +1152,7 @@ function init() {
     const imagem = new Image();
     imagem.crossOrigin = 'anonymous';
     imagem.onload = function() {
-        canvasImagem.width = starting.width;
+        canvasImagem.width = 1600;
         canvasImagem.height = starting.height;
         canvasImagem.maxWidth = 1200;
         // canvasImagem.maxHeight = 1200;
@@ -1144,7 +1170,7 @@ function init() {
         });
     };
 
-    imagem.src = 'https://msscsh.github.io/gym-pal/body-modified.png';
+    imagem.src = 'https://msscsh.github.io/gym-pal/bodys.png';
 
 }
 
