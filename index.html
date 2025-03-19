@@ -30,20 +30,6 @@
 	<div>
 
 		<div id="container" class="containerFlexPilha container">
-			
-			<div id="divConfiguracoes" class="divConfiguracoes">
-
-				<div class="containerFlexPilha">
-					<div id="tamanhoDaTela"></div>
-					<div id="divBotoesTabelaTreino" class="divBotoesTabelaTreino">
-					    <button class="classeBaseBotao" onclick="exportarJSON()">Exportar meus dados</button>
-					    <button class="classeBaseBotao" id="excluir" class="botaoExcluirTodosOsDados" onclick="excluirTodosRegistros()">Excluir Tudo</button>
-					    <input class="classeBaseBotao" type="file" id="botaoImportarJsonDeTreino" class="botaoImportarJsonDeTreino">
-					</div>
-
-				</div>
-
-			</div>
 
 			<div id="divConfigurarExercicios" class="divConfigurarExercicios">
 				<h3 id="rotuloExerciciosCadastrados" style="display:none">Exercícios cadastrados para você</h3>
@@ -126,29 +112,76 @@
 				    <button id="botaoVoltarNoHistoricoDeTreino" class="classeBaseBotao" type="button" style="display: none;" onclick="apresentarDivAlvo('divTreinos')"><< Histórico de treino</button>
 				    <button class="classeBaseBotao" type="button" style="display: none;" onclick="apresentarDivAlvo('divConfigurarExercicios')"><< Seus exercícios</button>
 				</div>
-
 			</div>
 
-		</div>
+			<div id="divConfiguracoes" class="divConfiguracoes">
 
-		<div id="menuCompleto" class="containerFlexCarrossel menuCompleto" >
-			<div id="divMenu" class="menu" onclick="mostrarMenuLateral()">
-	  			<img id="imagemDoMenu" src="home.png" alt="home">
-			</div>
-			<div id="menuLateral" class="menuLateral containerFlexPilha" >
-				<div id="itemDeMenuConfigurarExercicios" class="itemDeMenuPrimeiro itemDeMenu" onclick="apresentarDivAlvo('divConfigurarExercicios')">
-					Exercícios
-				</div>
-				<div id="itemDeMenuTabelaDeTreino" class=" itemDeMenu" onclick="apresentarDivAlvo('divTreinos')">
-					Histórico
-				</div>
-				<div id="itemDeMenuConfigurarTreino" class="itemDeMenu" onclick="apresentarDivAlvo('divConfiguracaoDeTreino')">
-					Treino
-				</div>
-				<div id="itemDeMenuConfiguracaoDeTela" class="itemDeMenu" onclick="apresentarDivAlvo('divConfiguracoes')">
-					Configurações
+				<div class="containerFlexPilha">
+					<div id="tamanhoDaTela"></div>
+					<div id="divBotoesTabelaTreino" class="divBotoesTabelaTreino">
+					    <button class="classeBaseBotao" onclick="exportarJSON()">Exportar meus dados</button>
+					    <button class="classeBaseBotao" id="excluir" class="botaoExcluirTodosOsDados" onclick="excluirTodosRegistros()">Excluir Tudo</button>
+					    <input class="classeBaseBotao" type="file" id="botaoImportarJsonDeTreino" class="botaoImportarJsonDeTreino">
+					</div>
+
 				</div>
 			</div>
+			
+			<div id="divMacros" class="containerFlexPilha" style="gap: 10px;">
+				<div id="configurarMacros" class="containerFlexPilha bordear" style="padding: 40px;" >
+					<h3>Grama/kg</h3>
+					<div class="containerFlexCarrossel" style="gap: 10px; margin-bottom: 20px;" >
+						<span>seu peso</span>
+				        <input class="inputSimples" id="inputPeso">
+					</div>
+					<div class="containerFlexCarrossel" style="gap: 10px; padding-bottom: 20px; margin-bottom: 20px;" >
+						<div class="containerFlexPilha">
+	  						<img id="prot" class="iconeMacros" src="assets/ico-proteina.png" alt="home">
+					        <input class="inputSimples inputMacros" id="inputProteina">
+					        <input class="inputSimples inputMacros" id="inputProteinaRestante">
+						</div>
+						<div class="containerFlexPilha">
+	  						<img id="carb" class="iconeMacros" src="assets/ico-carboidrato.png" alt="home">
+					        <input class="inputSimples inputMacros" id="inputCarboidrato">
+					        <input class="inputSimples inputMacros" id="inputCarboidratoRestante">
+						</div>
+						<div class="containerFlexPilha">
+	  						<img id="fat" class="iconeMacros" src="assets/ico-gordura.png" alt="home">
+					        <input class="inputSimples inputMacros" id="inputGordura">
+					        <input class="inputSimples inputMacros" id="inputGorduraRestante">
+						</div>
+					</div>
+					<div class="containerFlexCarrossel" style="gap: 10px; margin-bottom: 20px; border-top: 1px solid; " >
+						<span>consumo ideal de</span>
+				        <input class="inputSimples" id="inputCalorias" style="background-color: var(--cinza-claro)" disabled>
+				        <span>Kcal</span>
+					</div>
+				</div>
+				<div id="configurarRefeições" class="containerFlexPilha bordear" style="padding: 20px;" >
+					<div id="refeicoes" class="containerFlexCarrossel" style="gap: 40px;">
+					</div>
+				</div>
+				<div id="adicionarRefeicaoDoDia" class="bordear">
+					<div class="containerFlexPilha" style="gap: 10px; padding-bottom: 20px; margin-bottom: 20px;" >
+
+						  <label for="inputTitulo">Título:</label>
+						  <input type="text" id="inputTitulo"><br><br>
+
+						  <label for="inputProt">Proteína:</label>
+						  <input type="number" id="inputProt"><br><br>
+
+						  <label for="inputCarb">Carboidrato:</label>
+						  <input type="number" id="inputCarb"><br><br>
+
+						  <label for="inputFat">Gordura:</label>
+						  <input type="number" id="inputFat"><br><br>
+
+					</div>
+
+						  <button onclick="adicionarRefeicao()">Adicionar Refeição</button>
+				</div>
+			</div>
+
 		</div>
 
 		<div id="divExecucaoLive" class="divExecucaoLive containerFlexPilha arrastavel" style="display: none;">
@@ -191,6 +224,29 @@
 				<div onclick="adicionarRegistroDeExecucaoLive()" class="divEmoji" style="font-size: 1.5em;">
 		        	<!-- &#128229; -->
 		        	&#9989;
+				</div>
+			</div>
+		</div>
+
+		<div id="menuCompleto" class="containerFlexCarrossel menuCompleto" >
+			<div id="divMenu" class="menu" onclick="mostrarMenuLateral()">
+	  			<img id="imagemDoMenu" src="home.png" alt="home">
+			</div>
+			<div id="menuLateral" class="menuLateral containerFlexPilha" >
+				<div id="itemDeMenuConfigurarExercicios" class="itemDeMenuPrimeiro itemDeMenu" onclick="apresentarDivAlvo('divConfigurarExercicios')">
+					Exercícios
+				</div>
+				<div id="itemDeMenuTabelaDeTreino" class=" itemDeMenu" onclick="apresentarDivAlvo('divTreinos')">
+					Histórico
+				</div>
+				<div id="itemDeMenuConfigurarTreino" class="itemDeMenu" onclick="apresentarDivAlvo('divConfiguracaoDeTreino')">
+					Treino
+				</div>
+				<div id="itemDeMenuMacros" class="itemDeMenu" onclick="apresentarDivAlvo('divMacros')">
+					Macros
+				</div>
+				<div id="itemDeMenuConfiguracaoDeTela" class="itemDeMenu" onclick="apresentarDivAlvo('divConfiguracoes')">
+					Configurações
 				</div>
 			</div>
 		</div>

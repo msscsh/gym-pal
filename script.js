@@ -8,6 +8,9 @@
     // document.body.removeChild(downloadLink);
 // }
 
+
+let dadosRefeicoes = [];
+
 function exportarJSON() {
     const meusDadosString = localStorage.getItem('meusDados');
     const exerciciosCadastradosString = localStorage.getItem('exerciciosCadastrados');
@@ -752,18 +755,6 @@ function criarListenerDeImportacaoDeJson() {
     });
 }
 
-// function criarListenerDeZoom() {
-
-//     const input = document.getElementById('zoomInput');
-//     const elementoZoom = document.getElementById('container');
-
-//     input.addEventListener('input', () => {
-//         const valorZoom = input.value;
-//         elementoZoom.style.transform = `scale(${valorZoom})`;
-//     });
-
-// }
-
 function mostrarMenuLateral() {
     const divLateral = document.getElementById('menuLateral');
     if ( !divLateral.classList.contains("animarMenuDeCimaPraBaixo") ) {
@@ -796,6 +787,7 @@ function apresentarDivAlvo(divAlvo) {
     document.getElementById("divTreinos").style.display = "none";
     document.getElementById("divConfiguracaoDeTreino").style.display = "none";
     document.getElementById("divConfigurarExercicios").style.display = "none";
+    document.getElementById("divMacros").style.display = "none";
     if ( divAlvo ) {
         if ( document.getElementById(divAlvo) ) {
             document.getElementById(divAlvo).style.display = "";
@@ -1162,8 +1154,12 @@ function init() {
     criarListenerDeArrastoDeDivJson('divExecucaoLive');
     // criarListenerDeZoom();
     //ajustarProblemasNosJSON();
-    apresentarDivAlvo('divTreinos');
+    apresentarDivAlvo('divMacros');
+    criarListenerCalorias();
 
+    inputProteinaRestante.value = '';
+    inputCarboidratoRestante.value = '';
+    inputGorduraRestante.value = '';
 
 
     const imagem = new Image();
@@ -1187,8 +1183,125 @@ function init() {
         });
     };
 
-    imagem.src = 'https://msscsh.github.io/gym-pal/body-modified.png';
+    imagem.src = 'https://msscsh.github.io/gym-pal/assets/body-modified.png';
+
+}
+
+function criarListenerCalorias() {
+
+    const inputPeso = document.getElementById('inputPeso');
+
+    const inputCalorias = document.getElementById('inputCalorias');
+    const inputProteina = document.getElementById('inputProteina');
+    const inputCarboidrato = document.getElementById('inputCarboidrato');
+    const inputGordura = document.getElementById('inputGordura');
+
+    inputProteina.addEventListener('input', () => {
+        inputCalorias.value = (inputProteina.value*4)+(inputCarboidrato.value*4)+(inputGordura.value*9);
+    });
+    inputCarboidrato.addEventListener('input', () => {
+        inputCalorias.value = (inputProteina.value*4)+(inputCarboidrato.value*4)+(inputGordura.value*9);
+    });
+    inputGordura.addEventListener('input', () => {
+        inputCalorias.value = (inputProteina.value*4)+(inputCarboidrato.value*4)+(inputGordura.value*9);
+    });
 
 }
 
 init();
+
+
+function calcularMacrosRestantes() {
+
+    const inputProteinaRestante = document.getElementById('inputProteinaRestante');
+    const inputCarboidratoRestante = document.getElementById('inputCarboidratoRestante');
+    const inputGorduraRestante = document.getElementById('inputGorduraRestante');
+
+    let totalProt = 0;
+    let totalCarbo = 0;
+    let totalGord = 0;
+    dadosRefeicoes.forEach(refeicao => {
+        totalProt += parseInt(refeicao.proteina);
+        totalCarbo += parseInt(refeicao.carboidrato);
+        totalGord += parseInt(refeicao.gordura);
+    });
+    inputProteinaRestante.value = parseInt(totalProt);
+    inputCarboidratoRestante.value = parseInt(totalCarbo);
+    inputGorduraRestante.value = parseInt(totalGord);
+}
+
+// dadosRefeicoes.push({titulo: 'refeição x', proteina: 2, carboidrato: 3, gordura: 4}); 
+
+function adicionarRefeicao() {
+
+  const dadosInput = document.getElementById('dadosRefeicaoNova')
+
+  const tituloInput = document.querySelector('#inputTitulo');
+  const protInput = document.querySelector('#inputProt');
+  const carbInput = document.querySelector('#inputCarb');
+  const fatInput = document.querySelector('#inputFat');
+
+  const refeicao = {
+    titulo: tituloInput.value,
+    proteina: protInput.value,
+    carboidrato: carbInput.value,
+    gordura: fatInput.value,
+  };
+
+  dadosRefeicoes.push(refeicao);
+  const containerPai = document.getElementById('refeicoes');
+  containerPai.innerHTML = '';
+  reexecutarDadosDeRefeicoes();
+
+}
+
+
+function reexecutarDadosDeRefeicoes() {
+    dadosRefeicoes.forEach(refeicao => {
+          const divNovaRefeicao = document.createElement('div');
+          divNovaRefeicao.classList.add('containerFlexPilha');
+
+          const h3Titulo = document.createElement('h3');
+          h3Titulo.textContent = refeicao.titulo;
+          divNovaRefeicao.appendChild(h3Titulo);
+
+          const divCarrossel = document.createElement('div');
+          divCarrossel.classList.add('containerFlexCarrossel');
+          divCarrossel.style.gap = '10px';
+
+          const macros = ['proteina', 'carboidrato', 'gordura'];
+          macros.forEach(macro => {
+            const divMacro = document.createElement('div');
+            divMacro.classList.add('containerFlexPilha');
+
+            const imgIcone = document.createElement('img');
+            imgIcone.id = macro;
+            imgIcone.classList.add('iconeMacrosReduzido');
+            imgIcone.src = `assets/ico-${macro}.png`;
+            imgIcone.alt = macro;
+            divMacro.appendChild(imgIcone);
+
+            const spanValor = document.createElement('span');
+            spanValor.textContent = refeicao[macro];
+            divMacro.appendChild(spanValor);
+
+            divCarrossel.appendChild(divMacro);
+          });
+          divNovaRefeicao.appendChild(divCarrossel);
+
+          const divCalorias = document.createElement('div');
+          divCalorias.classList.add('containerFlexPilha');
+          divCalorias.style.gap = '10px';
+          divCalorias.style.marginBottom = '20px';
+          divCalorias.style.borderTop = '1px solid';
+
+          const spanCalorias = document.createElement('span');
+          spanCalorias.textContent = (refeicao.proteina*4)+(refeicao.carboidrato*4)+(refeicao.gordura*9);
+          divCalorias.appendChild(spanCalorias);
+          divNovaRefeicao.appendChild(divCalorias);
+
+          const containerPai = document.getElementById('refeicoes');
+          containerPai.appendChild(divNovaRefeicao);
+    });
+    calcularMacrosRestantes()
+}
