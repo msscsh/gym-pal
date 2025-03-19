@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exemplo de Notificação Push</title>
+</head>
+<body>
+  <h1>Notificações Push</h1>
+  <button id="solicitarPermissao">Solicitar Permissão de Notificação</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const botaoSolicitarPermissao = document.getElementById('solicitarPermissao');
+
+      botaoSolicitarPermissao.addEventListener('click', async () => {
+        if ('Notification' in window && 'serviceWorker' in navigator) {
+          const permission = await Notification.requestPermission();
+          if (permission === 'granted') {
+            console.log('Permissão de notificação concedida.');
+            registrarServiceWorker();
+          } else {
+            console.log('Permissão de notificação negada.');
+          }
+        } else {
+          console.log('Notificações ou Service Workers não são suportados neste navegador.');
+        }
+      });
+
+      async function registrarServiceWorker() {
+        try {
+          const registration = await navigator.serviceWorker.register('/service-worker.js');
+          console.log('Service Worker registrado com sucesso:', registration);
+        } catch (error) {
+          console.error('Falha ao registrar Service Worker:', error);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
