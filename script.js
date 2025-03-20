@@ -332,6 +332,12 @@ function executarProximoExercicioLive() {
     executarExercicioLive(globalIndexFicha, globalIndexExercicioAtual)
 }
 
+function executarExercicioAtualLive() {
+    const globalIndexExercicioAtual = getValorNumerico('globalIndexExercicioAtual');
+    const globalIndexFicha = getValorNumerico('globalIndexFicha');
+    executarExercicioLive(globalIndexFicha, globalIndexExercicioAtual)
+}
+
 function getExercicioDaFichaLive() {
     globalIndexFicha = getValorNumerico('globalIndexFicha');
     globalIndexExercicioAtual = getValorNumerico('globalIndexExercicioAtual');
@@ -1099,6 +1105,10 @@ function init() {
     criarListenerDeArrastoDeDivJson('divExecucaoLive');
     apresentarDivAlvo('divTreinos');
     criarListenerCalorias();
+    
+    if (getValorLocalStorage('globalIsExecucaoLive')) {
+        executarExercicioAtualLive();
+    }
 
     inputProteinaRestante.value = '';
     inputCarboidratoRestante.value = '';
