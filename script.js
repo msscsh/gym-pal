@@ -1,14 +1,3 @@
-// function downloadJSON(jsonData) {
-    // const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(jsonData);
-    // const downloadLink = document.createElement("a");
-    // downloadLink.setAttribute("href", dataStr);
-    // downloadLink.setAttribute("download", "meu_arquivo.json");
-    // document.body.appendChild(downloadLink);
-    // downloadLink.click();
-    // document.body.removeChild(downloadLink);
-// }
-
-
 let dadosRefeicoes = [];
 
 function exportarJSON() {
@@ -54,7 +43,7 @@ function ajustarProblemasNosJSON() {
 
     const meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
     // meusDados.forEach(umDado => {
-        // mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(umDado, 'nome', 'exercicio');
+    // mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(umDado, 'nome', 'exercicio');
     // });
     localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
 }
@@ -68,38 +57,38 @@ function mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(objeto, nomeAntigo, no
 
 function criarFichaDeTreino(index) {
     const novaDiv = document.createElement('div');
-    if( !index ) {
+    if (!index) {
         index = 1;
         document.getElementById("botaoAdicionarFichaDeTreino").style.display = "none";
     }
-    else if ( index >= 1) {
-        document.getElementById('botaoMaisDo'+(index-1)).style.display = "none";
-        document.getElementById('botaoMenosDo'+(index-1)).style.display = "none";
-        let selectAnterior = document.getElementById('seldivTreino'+(index-1));
+    else if (index >= 1) {
+        document.getElementById('botaoMaisDo' + (index - 1)).style.display = "none";
+        document.getElementById('botaoMenosDo' + (index - 1)).style.display = "none";
+        let selectAnterior = document.getElementById('seldivTreino' + (index - 1));
         selectAnterior.classList.add('comprimirSelectExerciciosCadastrados');
     }
-    novaDiv.id = 'divTreino'+index;
+    novaDiv.id = 'divTreino' + index;
     novaDiv.className = 'divFichaTreino';
     const divPai = document.getElementById('divFichasDeTreino');
     divPai.appendChild(novaDiv);
-    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoMaisDo'+index, '+1 Ficha', 'maisUmaFichaDeTreino', criarFichaDeTreino, index+1);
-    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoMenosDo'+index, '-1 Ficha', 'botaoExcluirRegistroDeTreino menosUmaFichaDeTreino', removerFichaDeTreino, index);
+    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoMaisDo' + index, '+1 Ficha', 'maisUmaFichaDeTreino', criarFichaDeTreino, index + 1);
+    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoMenosDo' + index, '-1 Ficha', 'botaoExcluirRegistroDeTreino menosUmaFichaDeTreino', removerFichaDeTreino, index);
 
     let lista = document.createElement('ul');
-    lista.id = "listaExerciciosDaFicha"+index;
+    lista.id = "listaExerciciosDaFicha" + index;
     lista.className = 'listagemDeExerciciosDaFicha';
     novaDiv.appendChild(lista);
 
     let inputNome = document.createElement('input');
-    inputNome.id = "inputNomeDaFicha"+index;
+    inputNome.id = "inputNomeDaFicha" + index;
     inputNome.type = 'text';
     inputNome.className = 'inputNomeDaFicha';
     inputNome.placeholder = 'Digite o nome desta ficha';
     novaDiv.appendChild(inputNome);
 
-    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoIncluirExercicioNaFicha'+index, '+1', 'adicionarExerciciosNaFichaDeTreino', incluirExercicioNaFicha, index);
+    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoIncluirExercicioNaFicha' + index, '+1', 'adicionarExerciciosNaFichaDeTreino', incluirExercicioNaFicha, index);
     const elementoSelect = preencherComboDeExercicios().cloneNode(true);
-    elementoSelect.id = 'sel'+novaDiv.id;
+    elementoSelect.id = 'sel' + novaDiv.id;
     elementoSelect.className = 'selectExerciciosCadastrados';
     novaDiv.appendChild(elementoSelect);
 
@@ -113,16 +102,16 @@ function criarFichaDeTreino(index) {
 }
 
 function removerFichaDeTreino(index) {
-    document.getElementById('divTreino'+index).remove();
+    document.getElementById('divTreino' + index).remove();
     if (index == '1') {
         document.getElementById("botaoAdicionarFichaDeTreino").style.display = "";
         document.getElementById("botaoSalvarFichaDeTreino").style.display = 'none';
-        document.getElementById('divTreino'+index).remove();
+        document.getElementById('divTreino' + index).remove();
     }
     else {
-        document.getElementById('botaoMaisDo'+(index-1)).style.display = "";
-        document.getElementById('botaoMenosDo'+(index-1)).style.display = "";
-        let selectAnterior = document.getElementById('seldivTreino'+(index-1));
+        document.getElementById('botaoMaisDo' + (index - 1)).style.display = "";
+        document.getElementById('botaoMenosDo' + (index - 1)).style.display = "";
+        let selectAnterior = document.getElementById('seldivTreino' + (index - 1));
         selectAnterior.classList.remove('comprimirSelectExerciciosCadastrados');
     }
 
@@ -135,9 +124,9 @@ function removerFichaDeTreino(index) {
 }
 
 function incluirExercicioNaFicha(index) {
-    let lista = document.getElementById('listaExerciciosDaFicha'+index);
+    let lista = document.getElementById('listaExerciciosDaFicha' + index);
     const li = document.createElement('li');
-    li.innerHTML = `<strong>${document.getElementById('seldivTreino'+index).value}</strong>`;
+    li.innerHTML = `<strong>${document.getElementById('seldivTreino' + index).value}</strong>`;
     lista.appendChild(li);
 }
 
@@ -159,7 +148,7 @@ function salvarFichasDeTreino() {
                     }
                 });
                 input = div.querySelector("input");
-                minhasFichas.push({nome: input.value, treino: conteudo});
+                minhasFichas.push({ nome: input.value, treino: conteudo });
             }
         });
         localStorage.setItem('minhasFichas', JSON.stringify(minhasFichas, null, 2));
@@ -189,7 +178,7 @@ function exibirFichasDeTreino() {
 
         if (minhasFichas) {
             const fichas = JSON.parse(minhasFichas);
-            fichas.forEach( (ficha, index) => {
+            fichas.forEach((ficha, index) => {
                 const divFicha = document.createElement('div');
                 divFicha.id = ficha.nome;
                 divFicha.className = 'divFichaTreinoApresentacao';
@@ -226,19 +215,19 @@ function exibirFichasDeTreino() {
 }
 
 function getValorNumerico(chave) {
-  const valorString = localStorage.getItem(chave);
-  if (valorString === null) {
-    return 0;
-  }
-  return parseInt(JSON.parse(valorString));
+    const valorString = localStorage.getItem(chave);
+    if (valorString === null) {
+        return 0;
+    }
+    return parseInt(JSON.parse(valorString));
 }
 
 function getValorLocalStorage(chave) {
-  const valorString = localStorage.getItem(chave);
-  if (valorString === null) {
-    return undefined;
-  }
-  return JSON.parse(valorString);
+    const valorString = localStorage.getItem(chave);
+    if (valorString === null) {
+        return undefined;
+    }
+    return JSON.parse(valorString);
 }
 
 
@@ -255,7 +244,7 @@ function executarTreinoLiveDoIndex(indexFicha, indexExercicioAtual) {
     pesquisarExecucoesAnterioresDoTreino(undefined, itemMinhaFichas.treino[indexExercicioAtual])
 
     document.getElementById('divExecucaoLive').style.display = '';
-    document.getElementById('divNomeDaFichaLive').innerHTML = '<strong>'+itemMinhaFichas.nome+'</strong>';
+    document.getElementById('divNomeDaFichaLive').innerHTML = '<strong>' + itemMinhaFichas.nome + '</strong>';
     document.getElementById('divNomeDoExercicioLive').innerHTML = itemMinhaFichas.treino[indexExercicioAtual];
 
     localStorage.setItem('globalIndexFicha', JSON.stringify(indexFicha));
@@ -292,7 +281,7 @@ function adicionarRegistroDeExecucaoLive() {
 
     let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
     exerciciosCadastrados.forEach(exercicioCadastrado => {
-        if ( exercicioCadastrado.nomeDoExercicio.trim().toLowerCase() == exercicioLive.trim().toLowerCase() ) {
+        if (exercicioCadastrado.nomeDoExercicio.trim().toLowerCase() == exercicioLive.trim().toLowerCase()) {
             exercicio = exercicioCadastrado.nomeDoExercicio;
         }
     });
@@ -311,18 +300,18 @@ function executarExercicioLive(globalIndexFicha, globalIndexExercicioAtual) {
     let minhasFichas = JSON.parse(localStorage.getItem('minhasFichas')) || [];
     const itemMinhaFicha = minhasFichas[globalIndexFicha];
 
-    if ( globalIndexExercicioAtual <= (itemMinhaFicha.treino.length - 1) ) {
+    if (globalIndexExercicioAtual <= (itemMinhaFicha.treino.length - 1)) {
         executarTreinoLiveDoIndex(globalIndexFicha, globalIndexExercicioAtual)
     }
 
-    if ( (globalIndexExercicioAtual + 1) == itemMinhaFicha.treino.length ) {
+    if ((globalIndexExercicioAtual + 1) == itemMinhaFicha.treino.length) {
         document.getElementById('divProximoExercicioLive').style.display = 'none';
     }
     else {
         document.getElementById('divProximoExercicioLive').style.display = '';
     }
 
-    if ( (globalIndexExercicioAtual - 1) < 0 ) {
+    if ((globalIndexExercicioAtual - 1) < 0) {
         document.getElementById('divAnteriorExercicioLive').style.display = 'none';
     }
     else {
@@ -332,41 +321,15 @@ function executarExercicioLive(globalIndexFicha, globalIndexExercicioAtual) {
 }
 
 function executarExercicioAnteriorLive() {
-
     const globalIndexExercicioAtual = getValorNumerico('globalIndexExercicioAtual') - 1;
     const globalIndexFicha = getValorNumerico('globalIndexFicha');
     executarExercicioLive(globalIndexFicha, globalIndexExercicioAtual)
-
-    // let minhasFichas = JSON.parse(localStorage.getItem('minhasFichas')) || [];
-    // const itemMinhaFicha = minhasFichas[globalIndexFicha];
-
-    // if ( globalIndexExercicioAtual <= (itemMinhaFicha.treino.length - 1) ) {
-    //     executarTreinoLiveDoIndex(globalIndexFicha, globalIndexExercicioAtual)
-    // }
-
-    // if ( (globalIndexExercicioAtual + 1) == itemMinhaFicha.treino.length ) {
-    //     document.getElementById('divProximoExercicioLive').style.display = 'none';
-    // }
-
 }
 
 function executarProximoExercicioLive() {
-
     const globalIndexExercicioAtual = getValorNumerico('globalIndexExercicioAtual') + 1;
     const globalIndexFicha = getValorNumerico('globalIndexFicha');
     executarExercicioLive(globalIndexFicha, globalIndexExercicioAtual)
-
-    // let minhasFichas = JSON.parse(localStorage.getItem('minhasFichas')) || [];
-    // const itemMinhaFicha = minhasFichas[globalIndexFicha];
-
-    // if ( globalIndexExercicioAtual <= (itemMinhaFicha.treino.length - 1) ) {
-    //     executarTreinoLiveDoIndex(globalIndexFicha, globalIndexExercicioAtual)
-    // }
-
-    // if ( (globalIndexExercicioAtual + 1) == itemMinhaFicha.treino.length ) {
-    //     document.getElementById('divProximoExercicioLive').style.display = 'none';
-    // }
-
 }
 
 function getExercicioDaFichaLive() {
@@ -394,7 +357,7 @@ function calcularNumRows(numCols, numItens) {
 
 function ajustarApresentacaoDeBotoesDaCriacaoDeFicha() {
 
-    const divFichas = document.getElementById("divFichasDeTreino"); //depende da montage das divs e nao do storage
+    const divFichas = document.getElementById("divFichasDeTreino"); //depende da montage das divs e nao do storage.. AJUSTAR
     if (divFichas) {
         const divsFilhas = divFichas.querySelectorAll("div");
         if (divsFilhas.length >= 1) {
@@ -426,7 +389,7 @@ function adicionarRegistroDeExecucao() {
 
     let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
     exerciciosCadastrados.forEach(exercicioCadastrado => {
-        if ( exercicioCadastrado.nomeDoExercicio.trim().toLowerCase() == document.getElementById('exercicio').value.trim().toLowerCase() ) {
+        if (exercicioCadastrado.nomeDoExercicio.trim().toLowerCase() == document.getElementById('exercicio').value.trim().toLowerCase()) {
             exercicio = exercicioCadastrado.nomeDoExercicio;
         }
     });
@@ -460,12 +423,12 @@ function limparCamposNaTela() {
 function alterarExibicaoConformeTamanhoDaTabela(isTabelaVazia) {
     if (isTabelaVazia) {
         document.getElementById('tabelaTreinos').style.display = 'none';
-        document.getElementById('mensagem').textContent = 'Você ainda não possui registros de treinos.';        
+        document.getElementById('mensagem').textContent = 'Você ainda não possui registros de treinos.';
         document.getElementById('divTabelaTreinos').classList.add('encolherDiv');
     }
     else {
         document.getElementById('tabelaTreinos').removeAttribute('style');
-        document.getElementById('mensagem').textContent = '';  
+        document.getElementById('mensagem').textContent = '';
         document.getElementById('divTabelaTreinos').classList.remove('encolherDiv');
     }
 }
@@ -518,15 +481,15 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, is
         else {
 
             //Cuidado com esta gambira. Resolver ela centralizando o "controle de botoes" em uma verificacao a parte
-            if ( getValorLocalStorage('globalIsExecucaoLive') ) {
+            if (getValorLocalStorage('globalIsExecucaoLive')) {
                 document.getElementById("botaoExecucaoEspecifica").style.display = "none";
                 document.getElementById("botaoExecucaoGenerica").style.display = "none";
-                document.getElementById("botaoVoltarNoHistoricoDeTreino").style.display = "none";   
+                document.getElementById("botaoVoltarNoHistoricoDeTreino").style.display = "none";
             }
             else {
                 document.getElementById("botaoExecucaoEspecifica").style.display = "";
                 document.getElementById("botaoExecucaoGenerica").style.display = "none";
-                document.getElementById("botaoVoltarNoHistoricoDeTreino").style.display = ""; 
+                document.getElementById("botaoVoltarNoHistoricoDeTreino").style.display = "";
             }
         }
 
@@ -537,7 +500,7 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, is
 
 function criarBotaoNoElementoComAcaoComID(elementoPai, id, texto, classe, funcaoDoBotao, argumentoDaFuncao) {
     criarBotaoNoElementoComAcao(elementoPai, texto, classe, funcaoDoBotao, argumentoDaFuncao)
-    elementoPai.lastElementChild.id=id;
+    elementoPai.lastElementChild.id = id;
 }
 
 
@@ -548,7 +511,7 @@ function criarDivElementoComAcao(elementoPai, texto, classes, funcaoDoBotao, arg
     if (classes.includes(" ")) {
         const classesArray = classes.split(" ");
         classesArray.forEach(classe => {
-          div.classList.add(classe);
+            div.classList.add(classe);
         });
     }
     else {
@@ -568,7 +531,7 @@ function criarBotaoNoElementoComAcao(elementoPai, texto, classes, funcaoDoBotao,
     if (classes.includes(" ")) {
         const classesArray = classes.split(" ");
         classesArray.forEach(classe => {
-          botao.classList.add(classe);
+            botao.classList.add(classe);
         });
     }
     else {
@@ -650,7 +613,7 @@ function pesquisarExecucoesAnterioresDoTreino(index, nomeUltimoExercicio) {
     }
 
     meusDados.forEach((registro, indexRegistros) => {
-        if( (registro.exercicio.trim().toLowerCase() == nomeUltimoExercicio.trim().toLowerCase()) && (indexRegistros >= index) ) {
+        if ((registro.exercicio.trim().toLowerCase() == nomeUltimoExercicio.trim().toLowerCase()) && (indexRegistros >= index)) {
             dadosFiltrado.push(registro);
         }
     });
@@ -659,7 +622,6 @@ function pesquisarExecucoesAnterioresDoTreino(index, nomeUltimoExercicio) {
     if (dadosFiltrado.length > 0) {
         criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dadosFiltrado, false);
         const elementoZoom = document.getElementById('container');
-        // elementoZoom.style.transform = `scale(1.2)`;
     }
     else {
         alert('Nenhum histórico deste exercício foi encontrado')
@@ -671,7 +633,7 @@ function pesquisarTodasAsExecucoesAnterioresDoTreino(exercicio) {
     let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
     let dadosFiltrado = [];
     meusDados.forEach((registro) => {
-        if( (registro.exercicio.trim().toLowerCase() == exercicio.trim().toLowerCase()) ) {
+        if ((registro.exercicio.trim().toLowerCase() == exercicio.trim().toLowerCase())) {
             dadosFiltrado.push(registro);
         }
     });
@@ -680,7 +642,6 @@ function pesquisarTodasAsExecucoesAnterioresDoTreino(exercicio) {
         apresentarDivAlvo('divTreinos');
         criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(dadosFiltrado, false);
         const elementoZoom = document.getElementById('container');
-        // elementoZoom.style.transform = `scale(1.4)`;
     }
     else {
         alert('Nenhum histórico deste exercício foi encontrado')
@@ -694,7 +655,6 @@ function adicionarExecucaoDeTreinoEspecifico(index) {
     apresentarDivAlvo('divAdicionarExercicio');
     document.getElementById('exercicio').value = itemParaEditar.exercicio.trim().toLowerCase();
     document.getElementById('carga').value = itemParaEditar.carga;
-    // document.getElementById('intensidade').value = itemParaEditar.intensidade;
 }
 
 function editarExecucaoDeTreinoEspecifico(index) {
@@ -712,7 +672,7 @@ function excluirRegistro(index) {
     let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
     let itemAlvo = meusDados[index];
 
-    if (confirm("Tem certeza que deseja excluir ("+itemAlvo.exercicio+"-"+itemAlvo.carga+"-"+itemAlvo.intensidade+") ?")) {
+    if (confirm("Tem certeza que deseja excluir (" + itemAlvo.exercicio + "-" + itemAlvo.carga + "-" + itemAlvo.intensidade + ") ?")) {
         meusDados.splice(index, 1);
         localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
         apresentarDivAlvo('divTreinos');
@@ -757,10 +717,10 @@ function criarListenerDeImportacaoDeJson() {
 
 function mostrarMenuLateral() {
     const divLateral = document.getElementById('menuLateral');
-    if ( !divLateral.classList.contains("animarMenuDeCimaPraBaixo") ) {
+    if (!divLateral.classList.contains("animarMenuDeCimaPraBaixo")) {
         const divMenu = document.getElementById('divMenu');
         const rect = divMenu.getBoundingClientRect();
-        const top = (rect.top + window.scrollY) + divMenu.offsetWidth/2;
+        const top = (rect.top + window.scrollY) + divMenu.offsetWidth / 2;
         const left = rect.left + window.scrollX;
         divLateral.style.top = `${top}px`;
         divLateral.style.left = `${left}px`;
@@ -769,14 +729,14 @@ function mostrarMenuLateral() {
 
     }
     else {
-        divLateral.classList.remove("animarMenuDeCimaPraBaixo");  
+        divLateral.classList.remove("animarMenuDeCimaPraBaixo");
         document.getElementById('menuCompleto').style.opacity = 0.4;
     }
 }
 
 function apresentarDivAlvo(divAlvo) {
-    
-    if( document.getElementById('menuLateral').classList.contains("animarMenuDeCimaPraBaixo") ) {
+
+    if (document.getElementById('menuLateral').classList.contains("animarMenuDeCimaPraBaixo")) {
         document.getElementById("divMenu").click();
     }
 
@@ -788,11 +748,11 @@ function apresentarDivAlvo(divAlvo) {
     document.getElementById("divConfiguracaoDeTreino").style.display = "none";
     document.getElementById("divConfigurarExercicios").style.display = "none";
     document.getElementById("divMacros").style.display = "none";
-    if ( divAlvo ) {
-        if ( document.getElementById(divAlvo) ) {
+    if (divAlvo) {
+        if (document.getElementById(divAlvo)) {
             document.getElementById(divAlvo).style.display = "";
         }
-        else if ( divAlvo == 'divEditarExercicio' || divAlvo === 'divAdicionarExercicioGenerico' || divAlvo === 'divAdicionarExercicioEspecifico' ) {
+        else if (divAlvo == 'divEditarExercicio' || divAlvo === 'divAdicionarExercicioGenerico' || divAlvo === 'divAdicionarExercicioEspecifico') {
             document.getElementById("divAdicionarExercicio").style.display = "";
         }
         else {
@@ -803,41 +763,38 @@ function apresentarDivAlvo(divAlvo) {
 
 function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
     const elementoZoom = document.getElementById('container');
-    // elementoZoom.style.transform = `scale(1.1)`;
-    if ( divAlvo === 'divTreinos' ) {
+    if (divAlvo === 'divTreinos') {
         exibirTabela();
         //Cuidado com esta gambira. Resolver ela centralizando o "controle de botoes" em uma verificacao a parte
-        if ( getValorLocalStorage('globalIsExecucaoLive') ) {
+        if (getValorLocalStorage('globalIsExecucaoLive')) {
             document.getElementById("botaoExecucaoEspecifica").style.display = "none";
             document.getElementById("botaoExecucaoGenerica").style.display = "none";
-            document.getElementById("botaoVoltarNoHistoricoDeTreino").style.display = "none";   
+            document.getElementById("botaoVoltarNoHistoricoDeTreino").style.display = "none";
         }
         else {
             document.getElementById("botaoExecucaoEspecifica").style.display = "none";
             document.getElementById("botaoExecucaoGenerica").style.display = "";
         }
     }
-    else if ( divAlvo === 'divAdicionarExercicio' || divAlvo === 'divAdicionarExercicioGenerico' || divAlvo === 'divAdicionarExercicioEspecifico' ) {
+    else if (divAlvo === 'divAdicionarExercicio' || divAlvo === 'divAdicionarExercicioGenerico' || divAlvo === 'divAdicionarExercicioEspecifico') {
         document.getElementById('btnConfirmarAlteracaoDeRegistro').style.display = 'none';
         document.getElementById('btnConfirmarAdicaoDeRegistro').style.display = '';
         limparCamposNaTela();
         preencherComboDeExercicios();
         const elementoZoom = document.getElementById('container');
-        // elementoZoom.style.transform = `scale(1.3)`;
     }
-    else if ( divAlvo === 'divEditarExercicio' ) {
+    else if (divAlvo === 'divEditarExercicio') {
         document.getElementById('btnConfirmarAlteracaoDeRegistro').style.display = '';
         document.getElementById('btnConfirmarAdicaoDeRegistro').style.display = 'none';
         preencherComboDeExercicios();
         const elementoZoom = document.getElementById('container');
-        // elementoZoom.style.transform = `scale(1.3)`;
     }
-    else if ( divAlvo === 'divConfiguracaoDeTreino' ) {
+    else if (divAlvo === 'divConfiguracaoDeTreino') {
         apresentarExerciciosCadastrados();
         exibirFichasDeTreino();
         ajustarApresentacaoDeBotoesDaCriacaoDeFicha();
     }
-    else if ( divAlvo === 'divConfigurarExercicios' ) {
+    else if (divAlvo === 'divConfigurarExercicios') {
         apresentarExerciciosCadastrados();
         cliques = localStorage.getItem('cliques');
         if (cliques) {
@@ -849,17 +806,17 @@ function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
             cliques = [];
         }
     }
-    else if ( divAlvo === 'divConfiguracoes' ) {
+    else if (divAlvo === 'divConfiguracoes') {
         verificarResolucaoDoDispositivo();
     }
 
-    if ( divAlvo === 'divAdicionarExercicioEspecifico' ) {
+    if (divAlvo === 'divAdicionarExercicioEspecifico') {
         const tabela = document.getElementById("tabelaTreinos");
         if (tabela && tabela.tBodies.length > 0) {
             document.getElementById('exercicio').value = tabela.tBodies[0].rows[0].firstChild.innerHTML.trim().toLowerCase();
         }
     }
-    else if ( divAlvo === 'divAdicionarExercicioGenerico' ) {
+    else if (divAlvo === 'divAdicionarExercicioGenerico') {
         document.getElementById('exercicio').value = '';
     }
 
@@ -874,13 +831,13 @@ function formatarStringParaApresentacao(str) {
 
 function excluirExercicioNoSistema(nomeDoExercicio) {
 
-    if (confirm("Tem certeza que deseja excluir ("+nomeDoExercicio+") ?")) {
+    if (confirm("Tem certeza que deseja excluir (" + nomeDoExercicio + ") ?")) {
 
-        if( nomeDoExercicio ) {
+        if (nomeDoExercicio) {
             let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
 
             const exerciciosCadastradosAtualizados = exerciciosCadastrados.filter((registro) => {
-              return registro.nomeDoExercicio.trim().toLowerCase() !== nomeDoExercicio.trim().toLowerCase();
+                return registro.nomeDoExercicio.trim().toLowerCase() !== nomeDoExercicio.trim().toLowerCase();
             });
 
             localStorage.setItem('exerciciosCadastrados', JSON.stringify(exerciciosCadastradosAtualizados));
@@ -895,15 +852,15 @@ function adicionarExercicioNoSistema() {
 
     const nomeDoExercicio = document.getElementById("addExercicio").value;
 
-    if( nomeDoExercicio ) {
+    if (nomeDoExercicio) {
         let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
-        const novoRegistro = {nomeDoExercicio};
+        const novoRegistro = { nomeDoExercicio };
         exerciciosCadastrados.push(novoRegistro);
         exerciciosCadastrados.sort((atual, seguinte) => {
-            if (atual.nomeDoExercicio.substring(0,3) < seguinte.nomeDoExercicio.substring(0,3)) {
+            if (atual.nomeDoExercicio.substring(0, 3) < seguinte.nomeDoExercicio.substring(0, 3)) {
                 return -1;
             }
-            if (atual.nomeDoExercicio.substring(0,3) > seguinte.nomeDoExercicio.substring(0,3)) {
+            if (atual.nomeDoExercicio.substring(0, 3) > seguinte.nomeDoExercicio.substring(0, 3)) {
                 return 1;
             }
             return 0;
@@ -1007,7 +964,7 @@ function arrastar(e) {
 }
 
 function pararArrasto() {
-  arrastando = false;
+    arrastando = false;
 }
 
 function criarListenerDeArrastoDeDivJson(divAlvo) {
@@ -1020,130 +977,118 @@ function criarListenerDeArrastoDeDivJson(divAlvo) {
     document.addEventListener('mouseup', pararArrasto);
 }
 
-    const canvasImagem = document.getElementById('canvasImagem');
-      const imagemColorida = document.getElementById('imagemColorida');
-      const contexto = canvasImagem.getContext('2d');
+const canvasImagem = document.getElementById('canvasImagem');
+const imagemColorida = document.getElementById('imagemColorida');
+const contexto = canvasImagem.getContext('2d');
 
-      function colorirArea(x, y) {
-        const pixelData = contexto.getImageData(x, y, 1, 1).data;
-        const dadosImagem = contexto.getImageData(0, 0, canvasImagem.width, canvasImagem.height);
-        const dados = dadosImagem.data;
-        const pixelIndex = (y * canvasImagem.width + x) * 4;
+function colorirArea(x, y) {
+    const pixelData = contexto.getImageData(x, y, 1, 1).data;
+    const dadosImagem = contexto.getImageData(0, 0, canvasImagem.width, canvasImagem.height);
+    const dados = dadosImagem.data;
+    const pixelIndex = (y * canvasImagem.width + x) * 4;
 
-        if (pixelData[0] == 255 && pixelData[1] == 255 && pixelData[2] == 255 ) {
-          floodFillVermelho(x, y, dados);
-          contexto.putImageData(dadosImagem, 0, 0);
-        }
-        else if (pixelData[0] == 255 && pixelData[1] == 0 && pixelData[2] == 0 ) {
-          floodFillLaranja(x, y, dados);
-          contexto.putImageData(dadosImagem, 0, 0);
-        }
-        else if (pixelData[0] == 255 && pixelData[1] == 175 && pixelData[2] == 0 )  {
-          floodFillBranco(x, y, dados);
-          contexto.putImageData(dadosImagem, 0, 0);
-        }
+    if (pixelData[0] == 255 && pixelData[1] == 255 && pixelData[2] == 255) {
+        floodFillVermelho(x, y, dados);
+        contexto.putImageData(dadosImagem, 0, 0);
+    }
+    else if (pixelData[0] == 255 && pixelData[1] == 0 && pixelData[2] == 0) {
+        floodFillLaranja(x, y, dados);
+        contexto.putImageData(dadosImagem, 0, 0);
+    }
+    else if (pixelData[0] == 255 && pixelData[1] == 175 && pixelData[2] == 0) {
+        floodFillBranco(x, y, dados);
+        contexto.putImageData(dadosImagem, 0, 0);
+    }
 
-      }
+}
 
-      function floodFillVermelho(x, y, dados) {
-        const pixelIndex = (y * canvasImagem.width + x) * 4;
-        const vermelho = dados[pixelIndex];
-        const verde = dados[pixelIndex + 1];
-        const azul = dados[pixelIndex + 2];
+function floodFillVermelho(x, y, dados) {
+    const pixelIndex = (y * canvasImagem.width + x) * 4;
+    const vermelho = dados[pixelIndex];
+    const verde = dados[pixelIndex + 1];
+    const azul = dados[pixelIndex + 2];
 
-        if (vermelho === 255 && verde === 255 && azul === 255) {
-          dados[pixelIndex] = 255;
-          dados[pixelIndex + 1] = 0;
-          dados[pixelIndex + 2] = 0;
+    if (vermelho === 255 && verde === 255 && azul === 255) {
+        dados[pixelIndex] = 255;
+        dados[pixelIndex + 1] = 0;
+        dados[pixelIndex + 2] = 0;
 
-          floodFillVermelho(x + 1, y, dados);
-          floodFillVermelho(x - 1, y, dados);
-          floodFillVermelho(x, y + 1, dados);
-          floodFillVermelho(x, y - 1, dados);
-        }
-      }
+        floodFillVermelho(x + 1, y, dados);
+        floodFillVermelho(x - 1, y, dados);
+        floodFillVermelho(x, y + 1, dados);
+        floodFillVermelho(x, y - 1, dados);
+    }
+}
 
-      function floodFillLaranja(x, y, dados) {
-        const pixelIndex = (y * canvasImagem.width + x) * 4;
-        const vermelho = dados[pixelIndex];
-        const verde = dados[pixelIndex + 1];
-        const azul = dados[pixelIndex + 2];
+function floodFillLaranja(x, y, dados) {
+    const pixelIndex = (y * canvasImagem.width + x) * 4;
+    const vermelho = dados[pixelIndex];
+    const verde = dados[pixelIndex + 1];
+    const azul = dados[pixelIndex + 2];
 
-        if (vermelho === 255 && verde === 0 && azul  === 0) {
-          dados[pixelIndex] = 255;
-          dados[pixelIndex + 1] = 175;
-          dados[pixelIndex + 2] = 0;
+    if (vermelho === 255 && verde === 0 && azul === 0) {
+        dados[pixelIndex] = 255;
+        dados[pixelIndex + 1] = 175;
+        dados[pixelIndex + 2] = 0;
 
-          floodFillLaranja(x + 1, y, dados);
-          floodFillLaranja(x - 1, y, dados);
-          floodFillLaranja(x, y + 1, dados);
-          floodFillLaranja(x, y - 1, dados);
-        }
-      }
+        floodFillLaranja(x + 1, y, dados);
+        floodFillLaranja(x - 1, y, dados);
+        floodFillLaranja(x, y + 1, dados);
+        floodFillLaranja(x, y - 1, dados);
+    }
+}
 
-      function floodFillBranco(x, y, dados) {
-        const pixelIndex = (y * canvasImagem.width + x) * 4;
-        const vermelho = dados[pixelIndex];
-        const verde = dados[pixelIndex + 1];
-        const azul = dados[pixelIndex + 2];
+function floodFillBranco(x, y, dados) {
+    const pixelIndex = (y * canvasImagem.width + x) * 4;
+    const vermelho = dados[pixelIndex];
+    const verde = dados[pixelIndex + 1];
+    const azul = dados[pixelIndex + 2];
 
-        if (vermelho === 255 && verde === 175 && azul  === 0) {
-          dados[pixelIndex] = 255;
-          dados[pixelIndex + 1] = 255;
-          dados[pixelIndex + 2] = 255;
+    if (vermelho === 255 && verde === 175 && azul === 0) {
+        dados[pixelIndex] = 255;
+        dados[pixelIndex + 1] = 255;
+        dados[pixelIndex + 2] = 255;
 
-          floodFillBranco(x + 1, y, dados);
-          floodFillBranco(x - 1, y, dados);
-          floodFillBranco(x, y + 1, dados);
-          floodFillBranco(x, y - 1, dados);
-        }
-      }
+        floodFillBranco(x + 1, y, dados);
+        floodFillBranco(x - 1, y, dados);
+        floodFillBranco(x, y + 1, dados);
+        floodFillBranco(x, y - 1, dados);
+    }
+}
 
 
 let escala = 1;
-let starting = {width: 400, height: 400, x: 150, y: 150};
+let starting = { width: 400, height: 400, x: 150, y: 150 };
 
 function verificarLargura() {
-  const media600 = window.matchMedia('(min-width: 600px)');
-  const media768 = window.matchMedia('(min-width: 768px)');
-  const media1200 = window.matchMedia('(min-width: 1200px)');
+    const media600 = window.matchMedia('(min-width: 600px)');
+    const media768 = window.matchMedia('(min-width: 768px)');
+    const media1200 = window.matchMedia('(min-width: 1200px)');
 
-  function lidarComMudanca() {
-    if (media600.matches) {
-      if (media768.matches) {
-        if (media1200.matches) {
-          // Largura >= 1200px (e, portanto, >= 768px e >= 600px)
-          console.log('Largura da janela >= 1200px');
-          escala = 0.4;
-          starting = {width: 700, height: 600, x: 50, y: 50};
-          // Adicione aqui o código para largura >= 1200px
+    function lidarComMudanca() {
+        if (media600.matches) {
+            if (media768.matches) {
+                if (media1200.matches) {
+                    escala = 0.4;
+                    starting = { width: 700, height: 600, x: 50, y: 50 };
+                } else {
+                    escala = 0.3;
+                    starting = { width: 425, height: 350, x: 15, y: 15 };
+                }
+            } else {
+                escala = 0.25;
+                starting = { width: 425, height: 350, x: 15, y: 15 };
+            }
         } else {
-          // Largura >= 768px e < 1200px
-          console.log('Largura da janela >= 768px e < 1200px');
-          escala = 0.3;
-          starting = {width: 425, height: 350, x: 15, y: 15};
-          // Adicione aqui o código para largura >= 768px e < 1200px
+            escala = 0.25;
+            starting = { width: 425, height: 350, x: 15, y: 15 };
         }
-      } else {
-        // Largura >= 600px e < 768px
-        console.log('Largura da janela >= 600px e < 768px');
-        escala = 0.25;
-        starting = {width: 425, height: 350, x: 15, y: 15};
-        // Adicione aqui o código para largura >= 600px e < 768px
-      }
-    } else {
-      // Largura < 600px
-      console.log('Largura da janela < 600px');
-      escala = 0.25;
-      starting = {width: 425, height: 350, x: 15, y: 15};
-      // Adicione aqui o código para largura < 600px
     }
-  }
 
-  lidarComMudanca();
-  media600.addListener(lidarComMudanca);
-  media768.addListener(lidarComMudanca);
-  media1200.addListener(lidarComMudanca);
+    lidarComMudanca();
+    media600.addListener(lidarComMudanca);
+    media768.addListener(lidarComMudanca);
+    media1200.addListener(lidarComMudanca);
 }
 
 let cliques = [];
@@ -1152,33 +1097,29 @@ function init() {
     verificarLargura();
     criarListenerDeImportacaoDeJson();
     criarListenerDeArrastoDeDivJson('divExecucaoLive');
-    // criarListenerDeZoom();
-    //ajustarProblemasNosJSON();
-    apresentarDivAlvo('divMacros');
+    apresentarDivAlvo('divTreinos');
     criarListenerCalorias();
 
     inputProteinaRestante.value = '';
     inputCarboidratoRestante.value = '';
     inputGorduraRestante.value = '';
 
-
     const imagem = new Image();
     imagem.crossOrigin = 'anonymous';
-    imagem.onload = function() {
+    imagem.onload = function () {
         canvasImagem.width = starting.width;
         canvasImagem.height = starting.height;
         canvasImagem.maxWidth = 1200;
-        // canvasImagem.maxHeight = 1200;
         contexto.scale(escala, escala);
         contexto.drawImage(imagem, starting.x, starting.y);
-        canvasImagem.addEventListener('click', function(e) { 
-          const x = e.offsetX;
-          const y = e.offsetY;
-          if(cliques) {
-              cliques.push({ x: x, y: y }); 
-          }
-          colorirArea(x, y);
-          localStorage.setItem('cliques', JSON.stringify(cliques));
+        canvasImagem.addEventListener('click', function (e) {
+            const x = e.offsetX;
+            const y = e.offsetY;
+            if (cliques) {
+                cliques.push({ x: x, y: y });
+            }
+            colorirArea(x, y);
+            localStorage.setItem('cliques', JSON.stringify(cliques));
 
         });
     };
@@ -1197,13 +1138,13 @@ function criarListenerCalorias() {
     const inputGordura = document.getElementById('inputGordura');
 
     inputProteina.addEventListener('input', () => {
-        inputCalorias.value = (inputProteina.value*4)+(inputCarboidrato.value*4)+(inputGordura.value*9);
+        inputCalorias.value = (inputProteina.value * 4) + (inputCarboidrato.value * 4) + (inputGordura.value * 9);
     });
     inputCarboidrato.addEventListener('input', () => {
-        inputCalorias.value = (inputProteina.value*4)+(inputCarboidrato.value*4)+(inputGordura.value*9);
+        inputCalorias.value = (inputProteina.value * 4) + (inputCarboidrato.value * 4) + (inputGordura.value * 9);
     });
     inputGordura.addEventListener('input', () => {
-        inputCalorias.value = (inputProteina.value*4)+(inputCarboidrato.value*4)+(inputGordura.value*9);
+        inputCalorias.value = (inputProteina.value * 4) + (inputCarboidrato.value * 4) + (inputGordura.value * 9);
     });
 
 }
@@ -1230,47 +1171,45 @@ function calcularMacrosRestantes() {
     inputGorduraRestante.value = parseInt(totalGord);
 }
 
-// dadosRefeicoes.push({titulo: 'refeição x', proteina: 2, carboidrato: 3, gordura: 4}); 
-
 function adicionarRefeicao() {
 
-  const dadosInput = document.getElementById('dadosRefeicaoNova')
+    const dadosInput = document.getElementById('dadosRefeicaoNova')
 
-  const tituloInput = document.querySelector('#inputTitulo');
-  const protInput = document.querySelector('#inputProt');
-  const carbInput = document.querySelector('#inputCarb');
-  const fatInput = document.querySelector('#inputFat');
+    const tituloInput = document.querySelector('#inputTitulo');
+    const protInput = document.querySelector('#inputProt');
+    const carbInput = document.querySelector('#inputCarb');
+    const fatInput = document.querySelector('#inputFat');
 
-  const refeicao = {
-    titulo: tituloInput.value,
-    proteina: protInput.value,
-    carboidrato: carbInput.value,
-    gordura: fatInput.value,
-  };
+    const refeicao = {
+        titulo: tituloInput.value,
+        proteina: protInput.value,
+        carboidrato: carbInput.value,
+        gordura: fatInput.value,
+    };
 
-  dadosRefeicoes.push(refeicao);
-  const containerPai = document.getElementById('refeicoes');
-  containerPai.innerHTML = '';
-  reexecutarDadosDeRefeicoes();
+    dadosRefeicoes.push(refeicao);
+    const containerPai = document.getElementById('refeicoes');
+    containerPai.innerHTML = '';
+    reexecutarDadosDeRefeicoes();
 
 }
 
 
 function reexecutarDadosDeRefeicoes() {
     dadosRefeicoes.forEach(refeicao => {
-          const divNovaRefeicao = document.createElement('div');
-          divNovaRefeicao.classList.add('containerFlexPilha');
+        const divNovaRefeicao = document.createElement('div');
+        divNovaRefeicao.classList.add('containerFlexPilha');
 
-          const h3Titulo = document.createElement('h3');
-          h3Titulo.textContent = refeicao.titulo;
-          divNovaRefeicao.appendChild(h3Titulo);
+        const h3Titulo = document.createElement('h3');
+        h3Titulo.textContent = refeicao.titulo;
+        divNovaRefeicao.appendChild(h3Titulo);
 
-          const divCarrossel = document.createElement('div');
-          divCarrossel.classList.add('containerFlexCarrossel');
-          divCarrossel.style.gap = '10px';
+        const divCarrossel = document.createElement('div');
+        divCarrossel.classList.add('containerFlexCarrossel');
+        divCarrossel.style.gap = '10px';
 
-          const macros = ['proteina', 'carboidrato', 'gordura'];
-          macros.forEach(macro => {
+        const macros = ['proteina', 'carboidrato', 'gordura'];
+        macros.forEach(macro => {
             const divMacro = document.createElement('div');
             divMacro.classList.add('containerFlexPilha');
 
@@ -1286,22 +1225,22 @@ function reexecutarDadosDeRefeicoes() {
             divMacro.appendChild(spanValor);
 
             divCarrossel.appendChild(divMacro);
-          });
-          divNovaRefeicao.appendChild(divCarrossel);
+        });
+        divNovaRefeicao.appendChild(divCarrossel);
 
-          const divCalorias = document.createElement('div');
-          divCalorias.classList.add('containerFlexPilha');
-          divCalorias.style.gap = '10px';
-          divCalorias.style.marginBottom = '20px';
-          divCalorias.style.borderTop = '1px solid';
+        const divCalorias = document.createElement('div');
+        divCalorias.classList.add('containerFlexPilha');
+        divCalorias.style.gap = '10px';
+        divCalorias.style.marginBottom = '20px';
+        divCalorias.style.borderTop = '1px solid';
 
-          const spanCalorias = document.createElement('span');
-          spanCalorias.textContent = (refeicao.proteina*4)+(refeicao.carboidrato*4)+(refeicao.gordura*9);
-          divCalorias.appendChild(spanCalorias);
-          divNovaRefeicao.appendChild(divCalorias);
+        const spanCalorias = document.createElement('span');
+        spanCalorias.textContent = (refeicao.proteina * 4) + (refeicao.carboidrato * 4) + (refeicao.gordura * 9);
+        divCalorias.appendChild(spanCalorias);
+        divNovaRefeicao.appendChild(divCalorias);
 
-          const containerPai = document.getElementById('refeicoes');
-          containerPai.appendChild(divNovaRefeicao);
+        const containerPai = document.getElementById('refeicoes');
+        containerPai.appendChild(divNovaRefeicao);
     });
     calcularMacrosRestantes()
 }
