@@ -806,7 +806,10 @@ function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
         if (cliques) {
             cliques = JSON.parse(cliques);
             cliques.forEach(click => {
-                colorirArea(click.x, click.y);
+                let x = Math.ceil(click.x * canvasImagem.width);
+                let y = Math.ceil(click.y * canvasImagem.height);
+                console.log(`Clique restaurado de (${click.x}, ${click.y}) com escala ${click.escala} para (${x}, ${y})`);
+                colorirArea(x, y);
             });
         } else {
             cliques = [];
@@ -988,80 +991,53 @@ const imagemColorida = document.getElementById('imagemColorida');
 const contexto = canvasImagem.getContext('2d');
 
 function colorirArea(x, y) {
-    const pixelData = contexto.getImageData(x, y, 1, 1).data;
-    const dadosImagem = contexto.getImageData(0, 0, canvasImagem.width, canvasImagem.height);
-    const dados = dadosImagem.data;
-    const pixelIndex = (y * canvasImagem.width + x) * 4;
 
-    if (pixelData[0] == 255 && pixelData[1] == 255 && pixelData[2] == 255) {
-        floodFillVermelho(x, y, dados);
-        contexto.putImageData(dadosImagem, 0, 0);
+    console.log('colorindo em start: (' + x + ', ' + y + ')');
+
+    try {
+        const pixelData = contexto.getImageData(x, y, 1, 1).data;
+        const dadosImagem = contexto.getImageData(0, 0, canvasImagem.width, canvasImagem.height);
+
+        let vermelho = [255, 0, 0];
+        let branco = [255, 255, 255];
+        let laranja = [255, 175, 0];
+
+        if (pixelData[0] == 255 && pixelData[1] == 255 && pixelData[2] == 255) {
+            floodFillDePara(x, y, dadosImagem.data, branco, laranja);
+            contexto.putImageData(dadosImagem, 0, 0);
+        }
+        else if (pixelData[0] == 255 && pixelData[1] == 0 && pixelData[2] == 0) {
+            floodFillDePara(x, y, dadosImagem.data, vermelho, branco);
+            contexto.putImageData(dadosImagem, 0, 0);
+        }
+        else if (pixelData[0] == 255 && pixelData[1] == 175 && pixelData[2] == 0) {
+            floodFillDePara(x, y, dadosImagem.data, laranja, vermelho);
+            contexto.putImageData(dadosImagem, 0, 0);
+        }
+
     }
-    else if (pixelData[0] == 255 && pixelData[1] == 0 && pixelData[2] == 0) {
-        floodFillLaranja(x, y, dados);
-        contexto.putImageData(dadosImagem, 0, 0);
-    }
-    else if (pixelData[0] == 255 && pixelData[1] == 175 && pixelData[2] == 0) {
-        floodFillBranco(x, y, dados);
-        contexto.putImageData(dadosImagem, 0, 0);
+    catch (erro) {
+        if (erro.name === 'RangeError' && erro.message === 'Maximum call stack size exceeded') {
+            console.error('Erro: Recursão excessiva detectada.');
+        } else {
+            console.error('Ocorreu um erro:', erro);
+        }
     }
 
 }
 
-function floodFillVermelho(x, y, dados) {
+function floodFillDePara(x, y, dados, corAlvo, corFill) {
     const pixelIndex = (y * canvasImagem.width + x) * 4;
-    const vermelho = dados[pixelIndex];
-    const verde = dados[pixelIndex + 1];
-    const azul = dados[pixelIndex + 2];
-
-    if (vermelho === 255 && verde === 255 && azul === 255) {
-        dados[pixelIndex] = 255;
-        dados[pixelIndex + 1] = 0;
-        dados[pixelIndex + 2] = 0;
-
-        floodFillVermelho(x + 1, y, dados);
-        floodFillVermelho(x - 1, y, dados);
-        floodFillVermelho(x, y + 1, dados);
-        floodFillVermelho(x, y - 1, dados);
+    if (dados[pixelIndex] === corAlvo[0] && dados[pixelIndex + 1] === corAlvo[1] && dados[pixelIndex + 2] === corAlvo[2]) {
+        dados[pixelIndex] = corFill[0];
+        dados[pixelIndex + 1] = corFill[1];
+        dados[pixelIndex + 2] = corFill[2];
+        floodFillDePara(x + 1, y, dados, corAlvo, corFill);
+        floodFillDePara(x - 1, y, dados, corAlvo, corFill);
+        floodFillDePara(x, y + 1, dados, corAlvo, corFill);
+        floodFillDePara(x, y - 1, dados, corAlvo, corFill);
     }
 }
-
-function floodFillLaranja(x, y, dados) {
-    const pixelIndex = (y * canvasImagem.width + x) * 4;
-    const vermelho = dados[pixelIndex];
-    const verde = dados[pixelIndex + 1];
-    const azul = dados[pixelIndex + 2];
-
-    if (vermelho === 255 && verde === 0 && azul === 0) {
-        dados[pixelIndex] = 255;
-        dados[pixelIndex + 1] = 175;
-        dados[pixelIndex + 2] = 0;
-
-        floodFillLaranja(x + 1, y, dados);
-        floodFillLaranja(x - 1, y, dados);
-        floodFillLaranja(x, y + 1, dados);
-        floodFillLaranja(x, y - 1, dados);
-    }
-}
-
-function floodFillBranco(x, y, dados) {
-    const pixelIndex = (y * canvasImagem.width + x) * 4;
-    const vermelho = dados[pixelIndex];
-    const verde = dados[pixelIndex + 1];
-    const azul = dados[pixelIndex + 2];
-
-    if (vermelho === 255 && verde === 175 && azul === 0) {
-        dados[pixelIndex] = 255;
-        dados[pixelIndex + 1] = 255;
-        dados[pixelIndex + 2] = 255;
-
-        floodFillBranco(x + 1, y, dados);
-        floodFillBranco(x - 1, y, dados);
-        floodFillBranco(x, y + 1, dados);
-        floodFillBranco(x, y - 1, dados);
-    }
-}
-
 
 let escala = 1;
 let starting = { width: 400, height: 400, x: 150, y: 150 };
@@ -1076,17 +1052,17 @@ function verificarLargura() {
             if (media768.matches) {
                 if (media1200.matches) {
                     escala = 0.4;
-                    starting = { width: 700, height: 600, x: 50, y: 50 };
+                    starting = { width: 700, height: 600, x: 50, y: 50 }; //(423, 407)
                 } else {
                     escala = 0.3;
                     starting = { width: 425, height: 350, x: 15, y: 15 };
                 }
             } else {
-                escala = 0.25;
+                escala = 0.3;
                 starting = { width: 425, height: 350, x: 15, y: 15 };
             }
         } else {
-            escala = 0.25;
+            escala = 0.2;
             starting = { width: 425, height: 350, x: 15, y: 15 };
         }
     }
@@ -1098,6 +1074,9 @@ function verificarLargura() {
 }
 
 let cliques = [];
+const imageWidth = 1674;
+const imageHeight = 1388;
+const imagem = new Image();
 
 function init() {
     verificarLargura();
@@ -1105,7 +1084,7 @@ function init() {
     criarListenerDeArrastoDeDivJson('divExecucaoLive');
     apresentarDivAlvo('divTreinos');
     criarListenerCalorias();
-    
+
     if (getValorLocalStorage('globalIsExecucaoLive')) {
         executarExercicioAtualLive();
     }
@@ -1114,21 +1093,23 @@ function init() {
     inputCarboidratoRestante.value = '';
     inputGorduraRestante.value = '';
 
-    const imagem = new Image();
     imagem.crossOrigin = 'anonymous';
     imagem.onload = function () {
-        canvasImagem.width = starting.width;
-        canvasImagem.height = starting.height;
-        canvasImagem.maxWidth = 1200;
-        contexto.scale(escala, escala);
-        contexto.drawImage(imagem, starting.x, starting.y);
+
+        aplicarEscala(escala);
         canvasImagem.addEventListener('click', function (e) {
-            const x = e.offsetX;
-            const y = e.offsetY;
+            const xoff = e.offsetX;
+            const yoff = e.offsetY;
+            const x = (xoff) * (imageWidth / canvasImagem.width);
+            const y = (yoff) * (imageHeight / canvasImagem.height);
+            colorirArea(xoff, yoff);
+
             if (cliques) {
-                cliques.push({ x: x, y: y });
+                // cliques.push({ escala: starting.escala, x: x / imageWidth, y: y / imageHeight });
+                cliques.push({ x: x / imageWidth, y: y / imageHeight });
             }
-            colorirArea(x, y);
+
+            // colorirArea(x, y);
             localStorage.setItem('cliques', JSON.stringify(cliques));
 
         });
@@ -1204,7 +1185,6 @@ function adicionarRefeicao() {
 
 }
 
-
 function reexecutarDadosDeRefeicoes() {
     dadosRefeicoes.forEach(refeicao => {
         const divNovaRefeicao = document.createElement('div');
@@ -1253,4 +1233,13 @@ function reexecutarDadosDeRefeicoes() {
         containerPai.appendChild(divNovaRefeicao);
     });
     calcularMacrosRestantes()
+}
+
+function aplicarEscala(escalaNova) {
+    const novaLargura = imageWidth * escalaNova;
+    const novaAltura = imageHeight * escalaNova;
+    canvasImagem.width = novaLargura;
+    canvasImagem.height = novaAltura;
+    contexto.clearRect(0, 0, canvasImagem.width, canvasImagem.height);
+    contexto.drawImage(imagem, 0, 0, canvasImagem.width, canvasImagem.height);
 }
