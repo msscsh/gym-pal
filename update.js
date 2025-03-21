@@ -1,7 +1,7 @@
 console.log("Script carregado com sucesso!");
 
 function minhaFuncao() {
-  console.log("Minha função foi chamada!");
+  console.log("Minha função foi chamada e editada!");
 }
 
 minhaFuncao();
