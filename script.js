@@ -1244,6 +1244,7 @@ function aplicarEscala(escalaNova) {
     contexto.drawImage(imagem, 0, 0, canvasImagem.width, canvasImagem.height);
 }
 
+let tag;
 function verificarAtualizacao() {
     let url = 'https://msscsh.github.io/gym-pal/update.js';
     fetch(url, { method: 'HEAD', cache: 'no-cache' })
@@ -1271,6 +1272,7 @@ function verificarAtualizacao() {
             console.log(`Script ${url} foi modificado. Carregando...`);
             localStorage.setItem(`${chaveCache}_lastModified`, lastModified);
             localStorage.setItem(`${chaveCache}_etag`, etag);
+            tag = etag;
 
             document.getElementById('btnAtualizar').style.display = '';
 
@@ -1278,16 +1280,11 @@ function verificarAtualizacao() {
         .catch(error => console.error(error));
 }
 
-setInterval(verificarAtualizacao, 60000)
+setInterval(verificarAtualizacao, 20000)
 
 const btnAtualizar = document.getElementById("btnAtualizar");
 btnAtualizar.addEventListener("click", () => {
-    fetch("https://msscsh.github.io/gym-pal/data.json", {
-        headers: {
-            'Cache-Control': 'no-cache',
-            'Expires': '0'
-        }
-    })
+    fetch("https://msscsh.github.io/gym-pal/data/data-"+tag+".json")
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Erro na requisição: " + response.status);
