@@ -1,5 +1,3 @@
-minhaFuncao();
-
 console.log("Script carregado com sucesso!");
 
 function minhaFuncao() {
