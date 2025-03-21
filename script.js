@@ -755,6 +755,7 @@ function apresentarDivAlvo(divAlvo) {
     document.getElementById("divConfigurarExercicios").style.display = "none";
     document.getElementById("divMacros").style.display = "none";
     if (divAlvo) {
+        verificarEAtualizarScript();
         if (document.getElementById(divAlvo)) {
             document.getElementById(divAlvo).style.display = "";
         }
@@ -1243,3 +1244,38 @@ function aplicarEscala(escalaNova) {
     contexto.clearRect(0, 0, canvasImagem.width, canvasImagem.height);
     contexto.drawImage(imagem, 0, 0, canvasImagem.width, canvasImagem.height);
 }
+
+function verificarEAtualizarScript() {
+    let url = 'https://msscsh.github.io/gym-pal/script.js';
+    fetch(url, { method: 'HEAD', cache: 'no-cache' })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Erro ao verificar a URL: ${response.status}`);
+        }
+        const lastModified = response.headers.get('Last-Modified');
+        const etag = response.headers.get('ETag');
+  
+        const chaveCache = `cache_${url}`;
+        const lastModifiedCache = localStorage.getItem(`${chaveCache}_lastModified`);
+        const etagCache = localStorage.getItem(`${chaveCache}_etag`);
+  
+        if (lastModified && lastModifiedCache && lastModified === lastModifiedCache) {
+          console.log(`Script ${url} não foi modificado.`);
+          return;
+        }
+  
+        if (etag && etagCache && etag === etagCache) {
+          console.log(`Script ${url} não foi modificado.`);
+          return;
+        }
+  
+        console.log(`Script ${url} foi modificado. Carregando...`);
+        localStorage.setItem(`${chaveCache}_lastModified`, lastModified);
+        localStorage.setItem(`${chaveCache}_etag`, etag);
+  
+        const script = document.createElement('script');
+        script.src = url;
+        document.head.appendChild(script);
+      })
+      .catch(error => console.error(error));
+  }
