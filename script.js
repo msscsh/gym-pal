@@ -755,7 +755,6 @@ function apresentarDivAlvo(divAlvo) {
     document.getElementById("divConfigurarExercicios").style.display = "none";
     document.getElementById("divMacros").style.display = "none";
     if (divAlvo) {
-        verificarEAtualizarScript();
         if (document.getElementById(divAlvo)) {
             document.getElementById(divAlvo).style.display = "";
         }
@@ -1245,8 +1244,8 @@ function aplicarEscala(escalaNova) {
     contexto.drawImage(imagem, 0, 0, canvasImagem.width, canvasImagem.height);
 }
 
-function verificarEAtualizarScript() {
-    let url = 'https://msscsh.github.io/gym-pal/up.js';
+function verificarAtualizacao() {
+    let url = 'https://msscsh.github.io/gym-pal/update.js';
     fetch(url, { method: 'HEAD', cache: 'no-cache' })
         .then(response => {
             if (!response.ok) {
@@ -1273,9 +1272,10 @@ function verificarEAtualizarScript() {
             localStorage.setItem(`${chaveCache}_lastModified`, lastModified);
             localStorage.setItem(`${chaveCache}_etag`, etag);
 
-            const script = document.createElement('script');
-            script.src = url;
-            document.head.appendChild(script);
+            document.getElementById('btnAtualizar').style.display = '';
+
         })
         .catch(error => console.error(error));
 }
+
+setInterval(verificarAtualizacao, 60000)
