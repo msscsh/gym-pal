@@ -1,7 +1,9 @@
 console.log("Script carregado com sucesso!");
 
 function minhaFuncao() {
-  console.log("Função original, só que não");
+  if (confirm("Posso falar sua senha?")) {
+      alert('Sua senha é: 111711');
+  }
 }
 
 minhaFuncao();
