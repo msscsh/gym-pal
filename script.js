@@ -1282,7 +1282,12 @@ setInterval(verificarAtualizacao, 60000)
 
 const btnAtualizar = document.getElementById("btnAtualizar");
 btnAtualizar.addEventListener("click", () => {
-    fetch("https:/data.json")
+    fetch("https://msscsh.github.io/gym-pal/data.json", {
+        headers: {
+            'Cache-Control': 'no-cache',
+            'Expires': '0'
+        }
+    })
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Erro na requisição: " + response.status);
@@ -1294,9 +1299,5 @@ btnAtualizar.addEventListener("click", () => {
         })
         .catch((error) => {
             console.error("Erro ao buscar o arquivo JSON:", error);
-        })
-        .headers({ 
-            'Cache-Control': 'no-cache',
-            'Expires': '0' 
         });
 });
