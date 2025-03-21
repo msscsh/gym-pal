@@ -1279,3 +1279,9 @@ function verificarEAtualizarScript() {
       })
       .catch(error => console.error(error));
   }
+
+function hello() {
+    console.log('hello')
+}
+
+setTimeout(hello, 10000);
