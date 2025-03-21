@@ -1279,3 +1279,20 @@ function verificarAtualizacao() {
 }
 
 setInterval(verificarAtualizacao, 60000)
+
+const btnAtualizar = document.getElementById("btnAtualizar");
+btnAtualizar.addEventListener("click", () => {
+    fetch("https://msscsh.github.io/gym-pal/data.json")
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Erro na requisição: " + response.status);
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((error) => {
+            console.error("Erro ao buscar o arquivo JSON:", error);
+        });
+});
