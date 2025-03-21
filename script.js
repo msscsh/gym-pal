@@ -1244,57 +1244,44 @@ function aplicarEscala(escalaNova) {
     contexto.drawImage(imagem, 0, 0, canvasImagem.width, canvasImagem.height);
 }
 
-let tag;
 function verificarAtualizacao() {
     let url = 'https://msscsh.github.io/gym-pal/update.js';
     fetch(url, { method: 'HEAD', cache: 'no-cache' })
         .then(response => {
-            if (!response.ok) {
-                throw new Error(`Erro ao verificar a URL: ${response.status}`);
-            }
             const lastModified = response.headers.get('Last-Modified');
             const etag = response.headers.get('ETag');
-
             const chaveCache = `cache_${url}`;
             const lastModifiedCache = localStorage.getItem(`${chaveCache}_lastModified`);
             const etagCache = localStorage.getItem(`${chaveCache}_etag`);
-
             if (lastModified && lastModifiedCache && lastModified === lastModifiedCache) {
-                console.log(`Script ${url} não foi modificado.`);
+                // console.log(`Script ${url} não foi modificado.`);
                 return;
             }
-
             if (etag && etagCache && etag === etagCache) {
-                console.log(`Script ${url} não foi modificado.`);
+                // console.log(`Script ${url} não foi modificado.`);
                 return;
             }
-
-            console.log(`Script ${url} foi modificado. Carregando...`);
             localStorage.setItem(`${chaveCache}_lastModified`, lastModified);
             localStorage.setItem(`${chaveCache}_etag`, etag);
-            tag = etag;
-
-            document.getElementById('btnAtualizar').style.display = '';
+            atualizar();
 
         })
         .catch(error => console.error(error));
 }
 
-setInterval(verificarAtualizacao, 20000)
-
-const btnAtualizar = document.getElementById("btnAtualizar");
-btnAtualizar.addEventListener("click", () => {
-    fetch("https://msscsh.github.io/gym-pal/data/data-"+tag+".json")
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error("Erro na requisição: " + response.status);
-            }
-            return response.json();
+function atualizar() {
+    let url = 'https://msscsh.github.io/gym-pal/update.js?id=' + Math.random();
+    fetch(url)
+        .then(response => response.text())
+        .then(scriptText => {
+            eval(scriptText);
         })
-        .then((data) => {
-            console.log(data);
-        })
-        .catch((error) => {
-            console.error("Erro ao buscar o arquivo JSON:", error);
+        .catch(error => {
+            console.error('Erro ao carregar o script:', error);
         });
-});
+}
+
+setInterval(verificarAtualizacao, 15000)
+
+
+
