@@ -55,6 +55,103 @@ function mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(objeto, nomeAntigo, no
     }
 }
 
+
+
+let dadosTreinos = [];
+let execucoesParaAdicionarNoTreinoAtual = [];
+function adicionarExecucaoNoTreino() {
+    const exercicio = document.getElementById('selAddExercicioNaFicha').value;
+    const repeticoes = document.getElementById('selAddRepeticaoNaFicha').value;
+
+    const execucao = {
+        exercicio: exercicio,
+        repeticoes: repeticoes,
+    };
+
+    execucoesParaAdicionarNoTreinoAtual.push(execucao);
+
+    const containerExecucoesDoTreino = document.getElementById('execucoesDoTreino');
+    containerExecucoesDoTreino.innerHTML = '';
+    execucoesParaAdicionarNoTreinoAtual.forEach((execucaoPraTela, index) => {
+        const novaDiv = document.createElement('div');
+        novaDiv.id = 'execucaoDeTreino'+index;
+        novaDiv.innerHTML = `${execucaoPraTela.repeticoes}x ${execucaoPraTela.exercicio}`;
+        containerExecucoesDoTreino.append(novaDiv);
+    });
+    
+}
+function limparExecucoesDeTreinoNaFicha() {
+    execucoesParaAdicionarNoTreinoAtual = [];
+}
+
+function adicionarTreino() {
+    const nomeDoTreino = document.getElementById('inputTituloTreino').value;
+
+    const treino = {
+        nome: nomeDoTreino,
+        execucoes: execucoesParaAdicionarNoTreinoAtual
+    };
+
+    const meusTreinos = JSON.parse(localStorage.getItem('meusTreinos') )|| [];
+    meusTreinos.push(treino);
+    localStorage.setItem('meusTreinos', JSON.stringify(meusTreinos, null, 2));
+
+    const execucoesDoTreino = document.getElementById('execucoesDoTreino');
+    execucoesDoTreino.innerHTML = '';
+    reexecutarDadosDeTreino();
+    limparExecucoesDeTreinoNaFicha();
+}
+
+function removerTreino() {
+}
+
+function reexecutarDadosDeTreino() {
+
+    const divFichas = document.getElementById("divFichasDeTreino");
+    divFichas.innerHTML = '';
+    divFichas.style.gridTemplateColumns = `repeat(1, 1fr)`;
+    divFichas.style.gridTemplateColumns = `repeat(1, 1fr)`;
+    
+    const meusTreinos = JSON.parse(localStorage.getItem('meusTreinos') )|| [];
+    if (meusTreinos) {
+        meusTreinos.forEach((treino, index) => {
+
+            const divFicha = document.createElement('div');
+            divFicha.id = 'idTreino'+index;
+            divFicha.className = 'divFichaTreinoApresentacao';
+
+            const tituloFicha = document.createElement('h3');
+            tituloFicha.textContent = treino.nome;
+            divFicha.appendChild(tituloFicha);
+
+            treino.execucoes.forEach(execucaoPraTela => {
+                const novaDiv = document.createElement('div');
+                novaDiv.id = 'execucaoDeTreino'+index;
+                novaDiv.innerHTML = `${execucaoPraTela.repeticoes}x ${execucaoPraTela.exercicio}`;
+                divFicha.appendChild(novaDiv);
+            });
+
+            divFichas.appendChild(divFicha);
+        });
+    }
+    else {
+        divFichas.innerHTML = 'Nenhuma ficha de treino foi cadastrada';
+    }
+
+    const numItens = divFichas.children.length;
+    const larguraTela = window.innerWidth;
+    const numCols = calcularNumCols(larguraTela, numItens);
+    const numRows = calcularNumRows(numCols, numItens);
+    divFichas.style.gridTemplateColumns = `repeat(${numCols}, 1fr)`;
+    divFichas.style.gridTemplateRows = `repeat(${numRows}, 1fr)`;
+
+}
+
+
+
+
+
+
 function criarFichaDeTreino(index) {
     const novaDiv = document.createElement('div');
     if (!index) {
@@ -796,9 +893,11 @@ function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
         const elementoZoom = document.getElementById('container');
     }
     else if (divAlvo === 'divConfiguracaoDeTreino') {
-        apresentarExerciciosCadastrados();
-        exibirFichasDeTreino();
-        ajustarApresentacaoDeBotoesDaCriacaoDeFicha();
+        // apresentarExerciciosCadastrados();
+        // exibirFichasDeTreino();
+        // ajustarApresentacaoDeBotoesDaCriacaoDeFicha();
+        preencherComboDeExercicios('selAddExercicioNaFicha');
+        reexecutarDadosDeTreino();
     }
     else if (divAlvo === 'divConfigurarExercicios') {
         apresentarExerciciosCadastrados();
@@ -917,9 +1016,14 @@ function apresentarExerciciosCadastrados() {
     lista.appendChild(divListas);
 }
 
-function preencherComboDeExercicios() {
+function preencherComboDeExercicios(id) {
+
+    if (!id) {
+        id = 'exercicio'
+    }
+
     const exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
-    const select = document.getElementById('exercicio');
+    const select = document.getElementById(id);
     select.innerHTML = '';
     const optionDefault = document.createElement('option');
     optionDefault.value = '';
@@ -1082,7 +1186,7 @@ function init() {
     verificarLargura();
     criarListenerDeImportacaoDeJson();
     criarListenerDeArrastoDeDivJson('divExecucaoLive');
-    apresentarDivAlvo('divTreinos');
+    apresentarDivAlvo('divConfiguracaoDeTreino');
     criarListenerCalorias();
 
     if (getValorLocalStorage('globalIsExecucaoLive')) {

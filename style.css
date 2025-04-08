@@ -365,10 +365,10 @@ p {
 }
 
 button {
-  background-color: var(--amarelo-medio);
-  color: var(--preto);
+  background-color: var(--preto);
+  color: var(--amarelo-medio);
+  font-size: 1.2em !important;
   border: none;
-  padding: 10px 20px;
   border-radius: 30px;
   cursor: pointer;
   border-color: black;
@@ -529,10 +529,6 @@ button {
   border-color: black;
   border-width: 2px;
   border-style: solid;
-  margin: 5px;
-  padding: 20px;
-  padding-top: 10px;
-  padding-bottom: 5px;
   height: 80%;
 }
 
