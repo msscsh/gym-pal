@@ -3,12 +3,12 @@ let dadosRefeicoes = [];
 function exportarJSON() {
     const meusDadosString = localStorage.getItem('meusDados');
     const exerciciosCadastradosString = localStorage.getItem('exerciciosCadastrados');
-    const minhasFichasString = localStorage.getItem('minhasFichas');
+    const meusTreinosString = localStorage.getItem('meusTreinos');
 
     const jsonSalvo = {
         meusDados: tryParseJson(meusDadosString),
         exerciciosCadastrados: tryParseJson(exerciciosCadastradosString),
-        minhasFichas: tryParseJson(minhasFichasString)
+        meusTreinos: tryParseJson(meusTreinosString)
     };
 
     const jsonString = JSON.stringify(jsonSalvo, null, 2);
@@ -98,14 +98,22 @@ function adicionarTreino() {
 
     const execucoesDoTreino = document.getElementById('execucoesDoTreino');
     execucoesDoTreino.innerHTML = '';
-    reexecutarDadosDeTreino();
+    apresentarDadosDeTreino();
     limparExecucoesDeTreinoNaFicha();
 }
 
-function removerTreino() {
+function removerTreino(index) {
+    let meusTreinos = JSON.parse(localStorage.getItem('meusTreinos')) || [];
+    let itemAlvo = meusTreinos[index];
+
+    if (confirm("Tem certeza que deseja excluir o treino " + itemAlvo.nome +" ?")) {
+        meusTreinos.splice(index, 1);
+        localStorage.setItem('meusTreinos', JSON.stringify(meusTreinos, null, 2));
+        apresentarDadosDeTreino();
+    }
 }
 
-function reexecutarDadosDeTreino() {
+function apresentarDadosDeTreino() {
 
     const divFichas = document.getElementById("divFichasDeTreino");
     divFichas.innerHTML = '';
@@ -131,6 +139,12 @@ function reexecutarDadosDeTreino() {
                 divFicha.appendChild(novaDiv);
             });
 
+            const divAcoes = document.createElement('div');
+            divAcoes.className = 'containerFlexCarrossel';
+            criarDivElementoComAcao(divAcoes, '🗑', 'emojiAcoesAddTreino', removerTreino, index);
+            criarDivElementoComAcao(divAcoes, '▶️', 'emojiAcoesAddTreino', executarTreinoLiveDoIndex, index);
+            divFicha.appendChild(divAcoes);
+
             divFichas.appendChild(divFicha);
         });
     }
@@ -144,170 +158,6 @@ function reexecutarDadosDeTreino() {
     const numRows = calcularNumRows(numCols, numItens);
     divFichas.style.gridTemplateColumns = `repeat(${numCols}, 1fr)`;
     divFichas.style.gridTemplateRows = `repeat(${numRows}, 1fr)`;
-
-}
-
-
-
-
-
-
-function criarFichaDeTreino(index) {
-    const novaDiv = document.createElement('div');
-    if (!index) {
-        index = 1;
-        document.getElementById("botaoAdicionarFichaDeTreino").style.display = "none";
-    }
-    else if (index >= 1) {
-        document.getElementById('botaoMaisDo' + (index - 1)).style.display = "none";
-        document.getElementById('botaoMenosDo' + (index - 1)).style.display = "none";
-        let selectAnterior = document.getElementById('seldivTreino' + (index - 1));
-        selectAnterior.classList.add('comprimirSelectExerciciosCadastrados');
-    }
-    novaDiv.id = 'divTreino' + index;
-    novaDiv.className = 'divFichaTreino';
-    const divPai = document.getElementById('divFichasDeTreino');
-    divPai.appendChild(novaDiv);
-    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoMaisDo' + index, '+1 Ficha', 'maisUmaFichaDeTreino', criarFichaDeTreino, index + 1);
-    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoMenosDo' + index, '-1 Ficha', 'botaoExcluirRegistroDeTreino menosUmaFichaDeTreino', removerFichaDeTreino, index);
-
-    let lista = document.createElement('ul');
-    lista.id = "listaExerciciosDaFicha" + index;
-    lista.className = 'listagemDeExerciciosDaFicha';
-    novaDiv.appendChild(lista);
-
-    let inputNome = document.createElement('input');
-    inputNome.id = "inputNomeDaFicha" + index;
-    inputNome.type = 'text';
-    inputNome.className = 'inputNomeDaFicha';
-    inputNome.placeholder = 'Digite o nome desta ficha';
-    novaDiv.appendChild(inputNome);
-
-    criarBotaoNoElementoComAcaoComID(novaDiv, 'botaoIncluirExercicioNaFicha' + index, '+1', 'adicionarExerciciosNaFichaDeTreino', incluirExercicioNaFicha, index);
-    const elementoSelect = preencherComboDeExercicios().cloneNode(true);
-    elementoSelect.id = 'sel' + novaDiv.id;
-    elementoSelect.className = 'selectExerciciosCadastrados';
-    novaDiv.appendChild(elementoSelect);
-
-    document.getElementById("botaoSalvarFichaDeTreino").style.display = '';
-    const gridContainer = document.getElementById('divFichasDeTreino');
-    const numItens = gridContainer.children.length;
-    let numCols = Math.ceil(Math.sqrt(numItens));
-    let numRows = Math.ceil(numItens / numCols);
-    gridContainer.style.gridTemplateColumns = `repeat(${numCols}, 1fr)`;
-    gridContainer.style.gridTemplateRows = `repeat(${numRows}, 1fr)`;
-}
-
-function removerFichaDeTreino(index) {
-    document.getElementById('divTreino' + index).remove();
-    if (index == '1') {
-        document.getElementById("botaoAdicionarFichaDeTreino").style.display = "";
-        document.getElementById("botaoSalvarFichaDeTreino").style.display = 'none';
-        document.getElementById('divTreino' + index).remove();
-    }
-    else {
-        document.getElementById('botaoMaisDo' + (index - 1)).style.display = "";
-        document.getElementById('botaoMenosDo' + (index - 1)).style.display = "";
-        let selectAnterior = document.getElementById('seldivTreino' + (index - 1));
-        selectAnterior.classList.remove('comprimirSelectExerciciosCadastrados');
-    }
-
-    const gridContainer = document.getElementById('divFichasDeTreino');
-    const numItens = gridContainer.children.length;
-    let numCols = Math.ceil(Math.sqrt(numItens));
-    let numRows = Math.ceil(numItens / numCols);
-    gridContainer.style.gridTemplateColumns = `repeat(${numCols}, 1fr)`;
-    gridContainer.style.gridTemplateRows = `repeat(${numRows}, 1fr)`;
-}
-
-function incluirExercicioNaFicha(index) {
-    let lista = document.getElementById('listaExerciciosDaFicha' + index);
-    const li = document.createElement('li');
-    li.innerHTML = `<strong>${document.getElementById('seldivTreino' + index).value}</strong>`;
-    lista.appendChild(li);
-}
-
-function salvarFichasDeTreino() {
-
-    const divFichas = document.getElementById("divFichasDeTreino");
-    minhasFichas = [];
-    if (divFichas) {
-        const divsFilhas = divFichas.querySelectorAll("div");
-        divsFilhas.forEach(div => {
-            const ul = div.querySelector("ul");
-            if (ul) {
-                const itens = ul.querySelectorAll("li");
-                const conteudo = [];
-                itens.forEach(li => {
-                    const strong = li.querySelector("strong");
-                    if (strong) {
-                        conteudo.push(strong.textContent);
-                    }
-                });
-                input = div.querySelector("input");
-                minhasFichas.push({ nome: input.value, treino: conteudo });
-            }
-        });
-        localStorage.setItem('minhasFichas', JSON.stringify(minhasFichas, null, 2));
-        apresentarDivAlvo('divConfiguracaoDeTreino');
-    }
-    else {
-        console.log("Elemento divFichasDeTreino não encontrado.");
-    }
-
-}
-
-function excluirFichasDeTreino() {
-    if (confirm("Tem certeza que deseja excluir TODAS as fichas de treino?")) {
-        localStorage.removeItem('minhasFichas');
-        apresentarDivAlvo('divConfiguracaoDeTreino');
-    }
-}
-
-function exibirFichasDeTreino() {
-    const divFichas = document.getElementById("divFichasDeTreino");
-    divFichas.innerHTML = '';
-    divFichas.style.gridTemplateColumns = `repeat(1, 1fr)`;
-    divFichas.style.gridTemplateColumns = `repeat(1, 1fr)`;
-
-    if (divFichas) {
-        const minhasFichas = localStorage.getItem('minhasFichas');
-
-        if (minhasFichas) {
-            const fichas = JSON.parse(minhasFichas);
-            fichas.forEach((ficha, index) => {
-                const divFicha = document.createElement('div');
-                divFicha.id = ficha.nome;
-                divFicha.className = 'divFichaTreinoApresentacao';
-
-                const tituloFicha = document.createElement('h3');
-                tituloFicha.textContent = ficha.nome;
-                divFicha.appendChild(tituloFicha);
-
-                const ulTreino = document.createElement('ul');
-                ficha.treino.forEach(exercicio => {
-                    const liExercicio = document.createElement('li');
-                    liExercicio.textContent = exercicio;
-                    ulTreino.appendChild(liExercicio);
-                });
-                divFicha.appendChild(ulTreino);
-
-                criarBotaoNoElementoComAcao(divFicha, 'GO', 'foo', executarTreinoLiveDoIndex, index);
-
-                divFichas.appendChild(divFicha);
-            });
-
-            const gridContainer = document.getElementById('divFichasDeTreino');
-            const numItens = gridContainer.children.length;
-            const larguraTela = window.innerWidth;
-            const numCols = calcularNumCols(larguraTela, numItens);
-            const numRows = calcularNumRows(numCols, numItens);
-
-            gridContainer.style.gridTemplateColumns = `repeat(${numCols}, 1fr)`;
-            gridContainer.style.gridTemplateRows = `repeat(${numRows}, 1fr)`;
-
-        }
-    }
 
 }
 
@@ -328,31 +178,31 @@ function getValorLocalStorage(chave) {
 }
 
 
-function executarTreinoLiveDoIndex(indexFicha, indexExercicioAtual) {
+function executarTreinoLiveDoIndex(indexTreino, indexExercicioAtual) {
 
     localStorage.setItem('globalIsExecucaoLive', true);
-    let minhasFichas = JSON.parse(localStorage.getItem('minhasFichas')) || [];
+    let meusTreinos = JSON.parse(localStorage.getItem('meusTreinos')) || [];
 
     if (!indexExercicioAtual) {
         indexExercicioAtual = 0;
     }
 
-    const itemMinhaFichas = minhasFichas[indexFicha];
-    pesquisarExecucoesAnterioresDoTreino(undefined, itemMinhaFichas.treino[indexExercicioAtual])
+    const itemMinhaFichas = meusTreinos[indexTreino];
+    pesquisarExecucoesAnterioresDoTreino(undefined, itemMinhaFichas.execucoes[indexExercicioAtual].exercicio)
 
     document.getElementById('divExecucaoLive').style.display = '';
     document.getElementById('divNomeDaFichaLive').innerHTML = '<strong>' + itemMinhaFichas.nome + '</strong>';
-    document.getElementById('divNomeDoExercicioLive').innerHTML = itemMinhaFichas.treino[indexExercicioAtual];
+    document.getElementById('divNomeDoExercicioLive').innerHTML = itemMinhaFichas.execucoes[indexExercicioAtual].exercicio;
 
-    localStorage.setItem('globalIndexFicha', JSON.stringify(indexFicha));
+    localStorage.setItem('globalIndexFicha', JSON.stringify(indexTreino));
     localStorage.setItem('globalIndexExercicioAtual', JSON.stringify(indexExercicioAtual));
 
     let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
     const registroEncontrado = meusDados.find(registro => {
-        return registro.exercicio.trim().toLowerCase() === itemMinhaFichas.treino[indexExercicioAtual].trim().toLowerCase();
+        return registro.exercicio.trim().toLowerCase() === itemMinhaFichas.execucoes[indexExercicioAtual].exercicio.trim().toLowerCase();
     });
 
-    document.getElementById('cargaLive').value = registroEncontrado.carga;
+    document.getElementById('cargaLive').value = registroEncontrado.carga || 999;
     document.getElementById('intensidadeLive').value = '';
 
 }
@@ -394,14 +244,14 @@ function adicionarRegistroDeExecucaoLive() {
 
 function executarExercicioLive(globalIndexFicha, globalIndexExercicioAtual) {
 
-    let minhasFichas = JSON.parse(localStorage.getItem('minhasFichas')) || [];
-    const itemMinhaFicha = minhasFichas[globalIndexFicha];
+    let meusTreinos = JSON.parse(localStorage.getItem('meusTreinos')) || [];
+    const itemMinhaFicha = meusTreinos[globalIndexFicha];
 
-    if (globalIndexExercicioAtual <= (itemMinhaFicha.treino.length - 1)) {
+    if (globalIndexExercicioAtual <= (itemMinhaFicha.execucoes.length - 1)) {
         executarTreinoLiveDoIndex(globalIndexFicha, globalIndexExercicioAtual)
     }
 
-    if ((globalIndexExercicioAtual + 1) == itemMinhaFicha.treino.length) {
+    if ((globalIndexExercicioAtual + 1) == itemMinhaFicha.execucoes.length) {
         document.getElementById('divProximoExercicioLive').style.display = 'none';
     }
     else {
@@ -438,8 +288,8 @@ function executarExercicioAtualLive() {
 function getExercicioDaFichaLive() {
     globalIndexFicha = getValorNumerico('globalIndexFicha');
     globalIndexExercicioAtual = getValorNumerico('globalIndexExercicioAtual');
-    let minhasFichas = JSON.parse(localStorage.getItem('minhasFichas')) || [];
-    return minhasFichas[globalIndexFicha].treino[globalIndexExercicioAtual];
+    let meusTreinos = JSON.parse(localStorage.getItem('meusTreinos')) || [];
+    return meusTreinos[globalIndexFicha].execucoes[globalIndexExercicioAtual];
 }
 
 function calcularNumCols(larguraTela, numItens) {
@@ -456,32 +306,6 @@ function calcularNumCols(larguraTela, numItens) {
 
 function calcularNumRows(numCols, numItens) {
     return Math.ceil(numItens / numCols);
-}
-
-function ajustarApresentacaoDeBotoesDaCriacaoDeFicha() {
-
-    const divFichas = document.getElementById("divFichasDeTreino"); //depende da montage das divs e nao do storage.. AJUSTAR
-    if (divFichas) {
-        const divsFilhas = divFichas.querySelectorAll("div");
-        if (divsFilhas.length >= 1) {
-            document.getElementById("botaoAdicionarFichaDeTreino").style.display = 'none';
-        }
-        else {
-            document.getElementById("botaoAdicionarFichaDeTreino").style.display = '';
-        }
-    }
-
-    const minhasFichas = localStorage.getItem('minhasFichas');
-    if (minhasFichas) {
-        document.getElementById("botaoExcluirFichaDeTreino").style.display = '';
-        document.getElementById("botaoAdicionarFichaDeTreino").style.display = 'none';
-        document.getElementById("botaoSalvarFichaDeTreino").style.display = 'none';
-    }
-    else {
-        document.getElementById("botaoExcluirFichaDeTreino").style.display = 'none';
-        document.getElementById("botaoSalvarFichaDeTreino").style.display = 'none';
-    }
-
 }
 
 function adicionarRegistroDeExecucao() {
@@ -787,6 +611,7 @@ function excluirTodosRegistros() {
         localStorage.setItem('meusDados', JSON.stringify([]));
         localStorage.setItem('exerciciosCadastrados', JSON.stringify([]));
         localStorage.setItem('minhasFichas', JSON.stringify([]));
+        localStorage.setItem('meusTreinos', JSON.stringify([]));
         apresentarDivAlvo('divConfiguracoes');
     }
 }
@@ -798,10 +623,10 @@ function criarListenerDeImportacaoDeJson() {
         reader.onload = () => {
             try {
                 const dadosImportados = JSON.parse(reader.result);
-                if (dadosImportados && dadosImportados.meusDados && dadosImportados.exerciciosCadastrados && dadosImportados.minhasFichas) {
+                if (dadosImportados && dadosImportados.meusDados && dadosImportados.exerciciosCadastrados && dadosImportados.meusTreinos) {
                     localStorage.setItem('meusDados', JSON.stringify(dadosImportados.meusDados, null, 2));
                     localStorage.setItem('exerciciosCadastrados', JSON.stringify(dadosImportados.exerciciosCadastrados, null, 2));
-                    localStorage.setItem('minhasFichas', JSON.stringify(dadosImportados.minhasFichas, null, 2));
+                    localStorage.setItem('meusTreinos', JSON.stringify(dadosImportados.meusTreinos, null, 2));
                     apresentarDivAlvo('divConfiguracoes');
                     alert('Dados importados com sucesso.');
                 }
@@ -893,11 +718,8 @@ function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
         const elementoZoom = document.getElementById('container');
     }
     else if (divAlvo === 'divConfiguracaoDeTreino') {
-        // apresentarExerciciosCadastrados();
-        // exibirFichasDeTreino();
-        // ajustarApresentacaoDeBotoesDaCriacaoDeFicha();
         preencherComboDeExercicios('selAddExercicioNaFicha');
-        reexecutarDadosDeTreino();
+        apresentarDadosDeTreino();
     }
     else if (divAlvo === 'divConfigurarExercicios') {
         apresentarExerciciosCadastrados();

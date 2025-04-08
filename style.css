@@ -529,7 +529,7 @@ button {
   border-color: black;
   border-width: 2px;
   border-style: solid;
-  height: 80%;
+  padding: 10px;
 }
 
 .divFichaTreino {    
@@ -622,4 +622,9 @@ button {
 .iconeMacrosReduzido {
   width: 40px;
   border-radius: 100%;
+}
+
+.emojiAcoesAddTreino {
+  padding-top: 20px;
+  margin-right: 40%;
 }
