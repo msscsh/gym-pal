@@ -1,0 +1,3773 @@
+{
+  "meusDados": [
+    {
+      "exercicio": "Leg Press inclinado",
+      "carga": "120",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1744129531919
+    },
+    {
+      "exercicio": "Leg Press inclinado",
+      "carga": "120",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1744129527268
+    },
+    {
+      "exercicio": "Leg Press inclinado",
+      "carga": "120",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1744129513638
+    },
+    {
+      "exercicio": "Cadeira Abdutora",
+      "carga": "38",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1744127852695
+    },
+    {
+      "exercicio": "Cadeira Abdutora",
+      "carga": "38",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1744127769948
+    },
+    {
+      "exercicio": "Cadeira Abdutora",
+      "carga": "32",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1744127641239
+    },
+    {
+      "exercicio": "Cadeira Abdutora",
+      "carga": "32",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1744127557454
+    },
+    {
+      "exercicio": "Cadeira Adutora",
+      "carga": "32",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1744127537318
+    },
+    {
+      "exercicio": "Cadeira Adutora",
+      "carga": "32",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1744127530414
+    },
+    {
+      "exercicio": "Cadeira Adutora",
+      "carga": "32",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1744127185727
+    },
+    {
+      "exercicio": "Cadeira Adutora",
+      "carga": "32",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1744127076332
+    },
+    {
+      "exercicio": "Panturrilha máquina ",
+      "carga": "36",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1744126986075
+    },
+    {
+      "exercicio": "Panturrilha máquina ",
+      "carga": "36",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1744126833764
+    },
+    {
+      "exercicio": "Panturrilha máquina ",
+      "carga": "36",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1744126724156
+    },
+    {
+      "exercicio": "Panturrilha máquina ",
+      "carga": "32",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1744126543045
+    },
+    {
+      "exercicio": "Cadeira Flexora",
+      "carga": "50",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1744126377277
+    },
+    {
+      "exercicio": "Cadeira Flexora",
+      "carga": "50",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1744126234517
+    },
+    {
+      "exercicio": "Cadeira Flexora",
+      "carga": "50",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1744126117710
+    },
+    {
+      "exercicio": "Cadeira Flexora",
+      "carga": "50",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1744125975507
+    },
+    {
+      "exercicio": "Cadeira Extensora",
+      "carga": "50",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1744125749563
+    },
+    {
+      "exercicio": "Cadeira Extensora",
+      "carga": "50",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1744125650815
+    },
+    {
+      "exercicio": "Cadeira Extensora",
+      "carga": "50",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1744125559908
+    },
+    {
+      "exercicio": "Cadeira Extensora",
+      "carga": "50",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1744125454395
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1744048891829
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1744048852927
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1744048728096
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1744048723557
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1744048587048
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1744048579210
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "muito leve",
+      "timestampDoExercicio": 1744048451549
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1744048446041
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "25",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1744048348472
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "25",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1744048132440
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "25",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1744047991163
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "25",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1744047987849
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "19.5",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1744047659776
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "19.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1744047516976
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "19.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1744047514386
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "19.5",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1744047511112
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "25",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1744047191417
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "25",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1744046994449
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "25",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1744046785007
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "25",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1744046588622
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "12",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1744046425993
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "12",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1744046247847
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "12",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1744046105550
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "12",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1744046006516
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "12",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1743678065690
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "12",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1743677760315
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "12",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743677609580
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "15",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1743677366644
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "15",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1743676936557
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "15",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1743676693415
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "15",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1743676457649
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "15",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1743676249208
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "15",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743676043355
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "68",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743629849382
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "68",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743628883288
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "68",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743628694420
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "68",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743628559610
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "60",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743628386500
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "60",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743628132633
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "60",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743628003914
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "60",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743627882394
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "62",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1743627579595
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "62",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1743627576451
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "62",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743627574123
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "62",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743627006287
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "25",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1743424217564
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "25",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1743424213391
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "25",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743423843976
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "10",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1743423739052
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "10",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743423735381
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "10",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743423732981
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "10",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1743423152617
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743178565261
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1743178554870
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743178402776
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1743178394827
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1743178257216
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743178243347
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1743178137005
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1743178132101
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "22",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1743178123568
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "22",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743177812660
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "22",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1743177810095
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "22",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1743177484363
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "18.5",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1743177229040
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "18.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743177020066
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "18",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1743176900745
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "18",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1743176897642
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "25",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1743176610307
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "25",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1743176166550
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "25",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1743176163492
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "25",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743175811344
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "12",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1743175643106
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "12",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1743175408816
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "12",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743175406272
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "12",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1743175166181
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "11",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1743085565777
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "11",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1743085411714
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "11",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743085409061
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "11",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743085138816
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "13.5",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1743084751911
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "13.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1743084604593
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "13.5",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1743084429478
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "13.5",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1743084241167
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1743084040474
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1743083885270
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "59",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742908755943
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "59",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742908637834
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "59",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742908490988
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "59",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742908398246
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "30",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742908161244
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "30",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742908019015
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "30",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742907913118
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "30",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742907820035
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "66",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742907687833
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "66",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742907684215
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "65",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742907288432
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "65",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742907153920
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "60",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1742906831212
+    },
+    {
+      "exercicio": "Puxada vertical",
+      "carga": "60",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1742906704790
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "60",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742906487567
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "60",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742906370653
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "22",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1742831820243
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "22",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1742828563626
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "22",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742828479860
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "22",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742828478712
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "17.5",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1742828255025
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "17.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742827937968
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "17.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742827844786
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "17.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742827659235
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1742827400143
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1742827383757
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742827230073
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1742827225398
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742827050241
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742827039285
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742826878811
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742826870678
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "24",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1742826754789
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "24",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1742826524759
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "24",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742826389179
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "24",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742826155378
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "11",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742825897405
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "11",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742825617117
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "11",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742825533269
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "11",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742825370157
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "11",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1742571308581
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "11",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742571138847
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "11",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742571014096
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1742570590011
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742570426530
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742570261765
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742570082003
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "8",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1742569819322
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "8",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742569708844
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "8",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742569706092
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "8",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742569370784
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "29",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742479957039
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "29",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742478986864
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "29",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742478884799
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "29",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742478773576
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "58",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1742478507147
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "58",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742478361460
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "58",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742478280843
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "58",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742478168621
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "64",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742477596359
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "64",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742477398609
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "64",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742477254665
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "64",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742477107444
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "59",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1742476906904
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "59",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742476641163
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "59",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742476477248
+    },
+    {
+      "exercicio": "Puxada vertical",
+      "carga": "59",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742476385540
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "22",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742396503342
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "22",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742396353884
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "22",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742396207578
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "20",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742396053601
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "17.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742395840784
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "17",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742395725068
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "17",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742395587192
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "16",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742395501757
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1742395266217
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "muito leve",
+      "timestampDoExercicio": 1742395260383
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "muito leve",
+      "timestampDoExercicio": 1742395088501
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1742395080220
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742394954952
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "muito leve",
+      "timestampDoExercicio": 1742394944705
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742394818735
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "muito leve",
+      "timestampDoExercicio": 1742394762418
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "22",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742394664140
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "22",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742394331359
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "22",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742394154056
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "22",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742393999099
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "10",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742393740932
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "10",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742393576988
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "10",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742393443751
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "10",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742393329300
+    },
+    {
+      "exercicio": "Voador",
+      "carga": "44",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742302129878
+    },
+    {
+      "exercicio": "Voador",
+      "carga": "44",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742301890395
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "10",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742301697238
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "10",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742301514451
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "10",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742301380445
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "10",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742301318716
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1742300711779
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742300534062
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742300343173
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742300178624
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "8",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742299983605
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "7",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742299867760
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "7",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742299694120
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "7",
+      "intensidade": "muito leve",
+      "timestampDoExercicio": 1742299555914
+    },
+    {
+      "exercicio": "Leg Press inclinado",
+      "carga": "120",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1742227055583
+    },
+    {
+      "exercicio": "Leg Press inclinado",
+      "carga": "120",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1742226895679
+    },
+    {
+      "exercicio": "Leg Press inclinado",
+      "carga": "120",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742226707424
+    },
+    {
+      "exercicio": "Leg Press inclinado",
+      "carga": "120",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742226520091
+    },
+    {
+      "exercicio": "Cadeira Extensora",
+      "carga": "52",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1742226202495
+    },
+    {
+      "exercicio": "Cadeira Extensora",
+      "carga": "52",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742226086959
+    },
+    {
+      "exercicio": "Cadeira Extensora",
+      "carga": "52",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1742226005974
+    },
+    {
+      "exercicio": "Cadeira Extensora",
+      "carga": "52",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1742225913298
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "27",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741969724477
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "27",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741963089892
+    },
+    {
+      "exercicio": "Encolhimento",
+      "carga": "27",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741963080560
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "27",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741962799767
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "62",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741962566507
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "62",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741962412150
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "62",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741962250611
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "62",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741962119295
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "57",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741961875985
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "57",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741961757542
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "57",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741961753314
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "57",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741961483452
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "57",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1741961212039
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "57",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741961049313
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "57",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741960913467
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "57",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741960733219
+    },
+    {
+      "exercicio": "Voador",
+      "carga": "46",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1741789951778
+    },
+    {
+      "exercicio": "Voador",
+      "carga": "46",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1741789733188
+    },
+    {
+      "exercicio": "Voador",
+      "carga": "46",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1741789513117
+    },
+    {
+      "exercicio": "Voador",
+      "carga": "46",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741789305595
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "10",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741789128384
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "10",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1741788826349
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "10",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741788578469
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "10",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1741788358269
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1741787985258
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741787824561
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741787651346
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741787468621
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "7",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741787054020
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "7",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741786938840
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "7",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741786810254
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "7",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741786666126
+    },
+    {
+      "exercicio": "Ombro máquina",
+      "carga": "24",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1741707494847
+    },
+    {
+      "exercicio": "Ombro máquina",
+      "carga": "24",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1741707270377
+    },
+    {
+      "exercicio": "Ombro máquina",
+      "carga": "24",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1741706965010
+    },
+    {
+      "exercicio": "Ombro máquina",
+      "carga": "24",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1741706771768
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "10",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1741706581928
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "10",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1741706309422
+    },
+    {
+      "exercicio": "Elevação lateral",
+      "carga": "10",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1741706015537
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "10",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741705818063
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "24",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741705690515
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "24",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741705438972
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "24",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741705222149
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "24",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741705139587
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741619849226
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741619756026
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "muito leve",
+      "timestampDoExercicio": 1741619654644
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "muito leve",
+      "timestampDoExercicio": 1741619536016
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1741619371524
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1741619281706
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741619158513
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741619086571
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "20",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741618930142
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "20",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741618736612
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "20",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741618575505
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "20",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741618453344
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "15",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1741618249296
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "15",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741618081378
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "15",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741617955124
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "15",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741617863382
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "20",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1741617622297
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "20",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741617331637
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "20",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741617229521
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "20",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741616941814
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "10",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1741616836111
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "10",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741616602375
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "10",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741616382192
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "10",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741616268270
+    },
+    {
+      "exercicio": "Panturrilha máquina ",
+      "carga": "32",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741364509300
+    },
+    {
+      "exercicio": "Panturrilha máquina ",
+      "carga": "32",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741363612334
+    },
+    {
+      "exercicio": "Panturrilha máquina ",
+      "carga": "32",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741363483955
+    },
+    {
+      "exercicio": "Panturrilha máquina ",
+      "carga": "32",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741363409191
+    },
+    {
+      "exercicio": "Cadeira Abdutora",
+      "carga": "32",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741363178184
+    },
+    {
+      "exercicio": "Cadeira Abdutora",
+      "carga": "32",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741363063064
+    },
+    {
+      "exercicio": "Cadeira Abdutora",
+      "carga": "32",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741362928264
+    },
+    {
+      "exercicio": "Cadeira Abdutora",
+      "carga": "32",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741362791844
+    },
+    {
+      "exercicio": "Cadeira Adutora",
+      "carga": "32",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741362562966
+    },
+    {
+      "exercicio": "Cadeira Adutora",
+      "carga": "32",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741362417612
+    },
+    {
+      "exercicio": "Cadeira Adutora",
+      "carga": "32",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741362341972
+    },
+    {
+      "exercicio": "Cadeira Adutora",
+      "carga": "32",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1741362211429
+    },
+    {
+      "exercicio": "Leg Press inclinado",
+      "carga": "100",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741361862032
+    },
+    {
+      "exercicio": "Leg Press inclinado",
+      "carga": "100",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741361698275
+    },
+    {
+      "exercicio": "Leg Press inclinado",
+      "carga": "100",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741361535742
+    },
+    {
+      "exercicio": "Leg Press inclinado",
+      "carga": "100",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741361339190
+    },
+    {
+      "exercicio": "Cadeira Flexora",
+      "carga": "50",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741360971012
+    },
+    {
+      "exercicio": "Cadeira Flexora",
+      "carga": "50",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741360825625
+    },
+    {
+      "exercicio": "Cadeira Flexora",
+      "carga": "50",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741360690277
+    },
+    {
+      "exercicio": "Cadeira Flexora",
+      "carga": "50",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741360564454
+    },
+    {
+      "exercicio": "Cadeira Extensora",
+      "carga": "50",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1741360173175
+    },
+    {
+      "exercicio": "Cadeira Extensora",
+      "carga": "50",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741360074170
+    },
+    {
+      "exercicio": "Cadeira Extensora",
+      "carga": "50",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741359943693
+    },
+    {
+      "exercicio": "Cadeira Extensora",
+      "carga": "50",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1741359846849
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "60",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740759990047
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "60",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740759809704
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "60",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740759654139
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "56",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740759294786
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "56",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740759148696
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "56",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740758989485
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "56",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740758852094
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "56",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1740758635218
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "56",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740758494423
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "56",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740758380002
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "56",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740758371031
+    },
+    {
+      "exercicio": "Voador",
+      "carga": "46",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740585690522
+    },
+    {
+      "exercicio": "Voador",
+      "carga": "46",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740585448506
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "9.5",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740585181482
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "9.5",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740584989662
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "10",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1740584870069
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "10",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740584723007
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1740584396734
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740584195024
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740584039426
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740583903454
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "7",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1740583558803
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "7",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1740583429779
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "7",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1740583331655
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "7",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1740583248274
+    },
+    {
+      "exercicio": "Panturrilha máquina",
+      "carga": "32",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740505029281
+    },
+    {
+      "exercicio": "Panturrilha máquina ",
+      "carga": "32",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740502931967
+    },
+    {
+      "exercicio": "Panturrilha máquina ",
+      "carga": "26",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1740502829213
+    },
+    {
+      "exercicio": "Panturrilha máquina ",
+      "carga": "26",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1740502679822
+    },
+    {
+      "exercicio": "Leg Press inclinado",
+      "carga": "100",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740502251047
+    },
+    {
+      "exercicio": "Leg Press inclinado",
+      "carga": "100",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740502049870
+    },
+    {
+      "exercicio": "Leg Press inclinado",
+      "carga": "80",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740501866177
+    },
+    {
+      "exercicio": "Cadeira Flexora",
+      "carga": "50",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740501660314
+    },
+    {
+      "exercicio": "Cadeira Flexora",
+      "carga": "50",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740501494784
+    },
+    {
+      "exercicio": "Cadeira Flexora",
+      "carga": "50",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740501314415
+    },
+    {
+      "exercicio": "Cadeira Flexora",
+      "carga": "50",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1740501189844
+    },
+    {
+      "exercicio": "Cadeira Extensora",
+      "carga": "50",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740500903248
+    },
+    {
+      "exercicio": "Cadeira Extensora",
+      "carga": "50",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740500773792
+    },
+    {
+      "exercicio": "Cadeira Extensora",
+      "carga": "50",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740500667521
+    },
+    {
+      "exercicio": "Cadeira Extensora",
+      "carga": "50",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1740500571015
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "26",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740412357404
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "26",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740407907638
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "26",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740407748738
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "26",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740407639657
+    },
+    {
+      "exercicio": "Ombro máquina",
+      "carga": "23",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1740407310582
+    },
+    {
+      "exercicio": "Ombro máquina",
+      "carga": "23",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740407062296
+    },
+    {
+      "exercicio": "Ombro máquina",
+      "carga": "23",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740406824460
+    },
+    {
+      "exercicio": "Ombro máquina",
+      "carga": "23",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740406687761
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "22",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740406466005
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "22",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740406277253
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "22",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740406267792
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "22",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740405925228
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "9",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740405619620
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "9",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740405437320
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "9",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740405430868
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "9",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1740405205608
+    },
+    {
+      "exercicio": "Voador",
+      "carga": "46",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1740147867338
+    },
+    {
+      "exercicio": "Voador",
+      "carga": "46",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740147692529
+    },
+    {
+      "exercicio": "Voador",
+      "carga": "46",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740147666435
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "10",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740147241440
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "9.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740147125408
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "9.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740147118471
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "9.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740147112119
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740146674081
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740146453201
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740146278043
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740146138704
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "7",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740145858336
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "7",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740145729448
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "7",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1740145641506
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "6",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1740145526313
+    },
+    {
+      "exercicio": "Ombro máquina",
+      "carga": "23",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1740069177435
+    },
+    {
+      "exercicio": "Ombro máquina",
+      "carga": "23",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740069065297
+    },
+    {
+      "exercicio": "Ombro máquina",
+      "carga": "22",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1740068902618
+    },
+    {
+      "exercicio": "Ombro máquina",
+      "carga": "22",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1740068653511
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "22",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740068339404
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "22",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740068185539
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "22",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740068174710
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "22",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740067812888
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "9",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740067554280
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "9",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1740067395095
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "9",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740067258898
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "9",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1740067192971
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "26",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739888769509
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "26",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739888612944
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "26",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739888603001
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "26",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1739888270423
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "58",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739888024491
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "58",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739887893495
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "58",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739887769853
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "58",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1739887623272
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "56",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739887329962
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "56",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739887195810
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "56",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1739887075264
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "56",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1739886958091
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "54",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1739886295642
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "54",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739886131819
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "54",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739886036739
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "54",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739885876108
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739798459328
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739798271919
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739798148599
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1739798018526
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1739797855382
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1739797794666
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "muito leve",
+      "timestampDoExercicio": 1739797712691
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "muito leve",
+      "timestampDoExercicio": 1739797633206
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "19",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739797511554
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "19",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739797499424
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "19",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739797106590
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "19",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1739796833105
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "15",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739796646687
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "15",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739796475034
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "15",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739796346725
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "15",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1739796234917
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "20",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739795941610
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "20",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739795814921
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "20",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739795598781
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "20",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739795480379
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "10",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739795307431
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "10",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739795054636
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "10",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1739794977418
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "10",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1739794852163
+    },
+    {
+      "exercicio": "Voador",
+      "carga": "46",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739535138796
+    },
+    {
+      "exercicio": "Voador",
+      "carga": "46",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739534877203
+    },
+    {
+      "exercicio": "Voador",
+      "carga": "46",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739534683695
+    },
+    {
+      "exercicio": "Voador",
+      "carga": "44",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739534519702
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "9.5",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739534230675
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "9.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739534106878
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "9.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739533876873
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "9.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739533597703
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "10",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739533188917
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "10",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739532988977
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "10",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739532785077
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "10",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1739532653636
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "6",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1739532316812
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "6",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739532237409
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "6",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739532130950
+    },
+    {
+      "exercicio": "Manguito rotador halteres",
+      "carga": "6",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739531918157
+    },
+    {
+      "exercicio": "Ombro máquina",
+      "carga": "22",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1739455736126
+    },
+    {
+      "exercicio": "Ombro máquina",
+      "carga": "22",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1739455503826
+    },
+    {
+      "exercicio": "Ombro máquina",
+      "carga": "22",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739455335929
+    },
+    {
+      "exercicio": "Ombro máquina",
+      "carga": "22",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739455111898
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "9",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1739454840361
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "9",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739454610736
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "9",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739454429696
+    },
+    {
+      "exercicio": "Elevação lateral",
+      "carga": "9",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739454194918
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "22",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739454084660
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "20",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739453885918
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "19",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1739453748479
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "19",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1739453579566
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "25",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739383895489
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "25",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739367464357
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "25",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739367301742
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "25",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739367187067
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "57",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1739367025841
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "57",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739366874993
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "57",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739366738136
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "57",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739366614934
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "53",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739366286207
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "52",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739366130114
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "52",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739365952713
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "52",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739365839323
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "54",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739365603871
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "53",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739365452304
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "53",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739365237977
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "53",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739365125714
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1739286094625
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1739285993656
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739285882537
+    },
+    {
+      "exercicio": "Extensão de punho",
+      "carga": "15",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1739285776838
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739285666440
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739285645496
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1739285347621
+    },
+    {
+      "exercicio": "Flexão de punho ",
+      "carga": "15",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1739285223597
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "17",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739285132597
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "17",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739284870129
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "17",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739284688338
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "17",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1739284529134
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "14",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1739284226563
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "14",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1739284012637
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "14",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739283835656
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "14",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1739283770971
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "20",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739283533686
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "20",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739283202491
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "20",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739282927852
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "20",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739282917691
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "10",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739282537404
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "10",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739282418903
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "10",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739282284462
+    },
+    {
+      "exercicio": "Rosca martelo",
+      "carga": "10",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739282271759
+    },
+    {
+      "exercicio": "Voador",
+      "carga": "44",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1739215783458
+    },
+    {
+      "exercicio": "Voador",
+      "carga": "44",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1739215775059
+    },
+    {
+      "exercicio": "Voador",
+      "carga": "44",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739215484406
+    },
+    {
+      "exercicio": "Voador",
+      "carga": "44",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739215419161
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "10",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1739215318001
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1739215120903
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739215016241
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739214940787
+    },
+    {
+      "exercicio": "Manguito rotador barra",
+      "carga": "15",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1739214892210
+    },
+    {
+      "exercicio": "Manguito rotador barra",
+      "carga": "15",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739214885081
+    },
+    {
+      "exercicio": "Manguito rotador barra",
+      "carga": "15",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739214876453
+    },
+    {
+      "exercicio": "Ombro máquina",
+      "carga": "20",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739214215514
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "17",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739214199201
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "17",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739214182293
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "17",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739214163800
+    },
+    {
+      "exercicio": "Desenvolvimento militar",
+      "carga": "17",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739214158434
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "8",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739214143631
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "8",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1739214135312
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "8",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739214126654
+    },
+    {
+      "exercicio": "Elevação lateral ",
+      "carga": "8",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1739214119977
+    },
+    {
+      "exercicio": "Encolhimento",
+      "carga": "25",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738849790511
+    },
+    {
+      "exercicio": "Encolhimento",
+      "carga": "25",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738849648781
+    },
+    {
+      "exercicio": "Encolhimento",
+      "carga": "25",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738849486941
+    },
+    {
+      "exercicio": "Encolhimento",
+      "carga": "25",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738849476355
+    },
+    {
+      "exercicio": "Remada com apoio",
+      "carga": "57",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1738849040442
+    },
+    {
+      "exercicio": "Remada com apoio",
+      "carga": "57",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738848834305
+    },
+    {
+      "exercicio": "Remada com apoio",
+      "carga": "56",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738848651355
+    },
+    {
+      "exercicio": "Remada com apoio",
+      "carga": "56",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738848467653
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "51",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738848249533
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "51",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738847992236
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "51",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738847789471
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "51",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738847636913
+    },
+    {
+      "exercicio": "Puxada vertical",
+      "carga": "53",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1738847388318
+    },
+    {
+      "exercicio": "Puxada vertical",
+      "carga": "53",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738847184893
+    },
+    {
+      "exercicio": "Puxada vertical",
+      "carga": "52",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738847080555
+    },
+    {
+      "exercicio": "Puxada vertical",
+      "carga": "52",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738846890786
+    },
+    {
+      "exercicio": "Rosca testa ",
+      "carga": "19",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738765858735
+    },
+    {
+      "exercicio": "Rosca testa ",
+      "carga": "17",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1738765620226
+    },
+    {
+      "exercicio": "Rosca testa ",
+      "carga": "17",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1738765467521
+    },
+    {
+      "exercicio": "Rosca testa",
+      "carga": "15",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1738765284002
+    },
+    {
+      "exercicio": "Tríceps pulley ",
+      "carga": "14",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738764931193
+    },
+    {
+      "exercicio": "Tríceps pulley ",
+      "carga": "14",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738764788280
+    },
+    {
+      "exercicio": "Tríceps pulley ",
+      "carga": "13",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1738764655514
+    },
+    {
+      "exercicio": "Tríceps pulley",
+      "carga": "13",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1738764536598
+    },
+    {
+      "exercicio": "Rosca direta",
+      "carga": "19",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738764123263
+    },
+    {
+      "exercicio": "Rosca direta",
+      "carga": "19",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738763882788
+    },
+    {
+      "exercicio": "Rosca direta ",
+      "carga": "19",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738763738392
+    },
+    {
+      "exercicio": "Rosca direta",
+      "carga": "19",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738763718633
+    },
+    {
+      "exercicio": "Rosca martelo ",
+      "carga": "10",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1738763114799
+    },
+    {
+      "exercicio": "Rosca martelo ",
+      "carga": "10",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738762915936
+    },
+    {
+      "exercicio": "Rosca martelo ",
+      "carga": "10",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738762776677
+    },
+    {
+      "exercicio": "Rosca martelo ",
+      "carga": "10",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738762648776
+    },
+    {
+      "exercicio": "Voador ",
+      "carga": "46",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738685303916
+    },
+    {
+      "exercicio": "Voador ",
+      "carga": "44",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738680842883
+    },
+    {
+      "exercicio": "Voador ",
+      "carga": "44",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738680764972
+    },
+    {
+      "exercicio": "Voador ",
+      "carga": "44",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738680417315
+    },
+    {
+      "exercicio": "Crossover polia alta ",
+      "carga": "9.5",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738680255516
+    },
+    {
+      "exercicio": "Crossover polia alta ",
+      "carga": "8.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738680031487
+    },
+    {
+      "exercicio": "Crossover polia alta ",
+      "carga": "8.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738679790446
+    },
+    {
+      "exercicio": "Crossover polia alta ",
+      "carga": "8.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738679673426
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "11",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1738679298382
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1738679056337
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738678756922
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1738678579582
+    },
+    {
+      "exercicio": "Manguito rotador ",
+      "carga": "12",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738678554648
+    },
+    {
+      "exercicio": "Manguito rotador ",
+      "carga": "12",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738677961311
+    },
+    {
+      "exercicio": "Manguito rotador ",
+      "carga": "12",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738677820762
+    },
+    {
+      "exercicio": "Manguito rotador ",
+      "carga": "12",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1738677809600
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "24",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738593941154
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "20",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1738593426066
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "19",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1738593231604
+    },
+    {
+      "exercicio": "Encolhimento ",
+      "carga": "15",
+      "intensidade": "muito leve",
+      "timestampDoExercicio": 1738593125819
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "62",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1738592909002
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "56",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738592746548
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "56",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738592611861
+    },
+    {
+      "exercicio": "Remada com apoio ",
+      "carga": "56",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738592448746
+    },
+    {
+      "exercicio": "Remada baixa ",
+      "carga": "50",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738592104495
+    },
+    {
+      "exercicio": "Remada baixa ",
+      "carga": "50",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738591991068
+    },
+    {
+      "exercicio": "Remada baixa ",
+      "carga": "50",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738591877403
+    },
+    {
+      "exercicio": "Remada baixa",
+      "carga": "44",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1738591765324
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "52",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1738591432041
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "52",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738591264823
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "50",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738591102645
+    },
+    {
+      "exercicio": "Puxada vertical ",
+      "carga": "50",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738590956112
+    },
+    {
+      "exercicio": "Voador ",
+      "carga": "42",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738348287083
+    },
+    {
+      "exercicio": "Voador ",
+      "carga": "42",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738334298329
+    },
+    {
+      "exercicio": "Voador ",
+      "carga": "38",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738334114502
+    },
+    {
+      "exercicio": "Voador",
+      "carga": "38",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1738333957536
+    },
+    {
+      "exercicio": "Crossover polia alta ",
+      "carga": "7.5",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738333794680
+    },
+    {
+      "exercicio": "Crossover polia alta ",
+      "carga": "7.5",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738333464020
+    },
+    {
+      "exercicio": "Crossover polia alta ",
+      "carga": "7.5",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738333235614
+    },
+    {
+      "exercicio": "Crossover polia alta",
+      "carga": "7.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738333105912
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "11",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1738332750723
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "muito pesado",
+      "timestampDoExercicio": 1738332654484
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738332380947
+    },
+    {
+      "exercicio": "Supino barra",
+      "carga": "12.5",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738332199480
+    },
+    {
+      "exercicio": "Manguito rotador barra ",
+      "carga": "12",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738332002422
+    },
+    {
+      "exercicio": "Manguito rotador barra ",
+      "carga": "12",
+      "intensidade": "pesado",
+      "timestampDoExercicio": 1738331690645
+    },
+    {
+      "exercicio": "Manguito rotador barra ",
+      "carga": "12",
+      "intensidade": "moderado",
+      "timestampDoExercicio": 1738331552607
+    },
+    {
+      "exercicio": "Manguito rotador barra",
+      "carga": "10",
+      "intensidade": "leve",
+      "timestampDoExercicio": 1738331539332
+    },
+    {
+      "carga": "15",
+      "intensidade": "moderado",
+      "exercicio": "Desenvolvimento militar"
+    },
+    {
+      "carga": "7",
+      "intensidade": "moderado",
+      "exercicio": "Elevação lateral"
+    },
+    {
+      "carga": "15",
+      "intensidade": "moderado",
+      "exercicio": "Ombro máquina"
+    }
+  ],
+  "exerciciosCadastrados": [
+    {
+      "nomeDoExercicio": "Cadeira Extensora"
+    },
+    {
+      "nomeDoExercicio": "Cadeira Flexora"
+    },
+    {
+      "nomeDoExercicio": "Cadeira Abdutora"
+    },
+    {
+      "nomeDoExercicio": "Cadeira Adutora"
+    },
+    {
+      "nomeDoExercicio": "Crossover polia alta"
+    },
+    {
+      "nomeDoExercicio": "Desenvolvimento militar"
+    },
+    {
+      "nomeDoExercicio": "Elevação lateral "
+    },
+    {
+      "nomeDoExercicio": "Encolhimento "
+    },
+    {
+      "nomeDoExercicio": "Extensão de punho"
+    },
+    {
+      "nomeDoExercicio": "Flexão de punho "
+    },
+    {
+      "nomeDoExercicio": "Leg Press inclinado"
+    },
+    {
+      "nomeDoExercicio": "Manguito rotador barra"
+    },
+    {
+      "nomeDoExercicio": "Manguito rotador halteres"
+    },
+    {
+      "nomeDoExercicio": "Ombro máquina"
+    },
+    {
+      "nomeDoExercicio": "Panturrilha máquina "
+    },
+    {
+      "nomeDoExercicio": "Puxada vertical "
+    },
+    {
+      "nomeDoExercicio": "Remada baixa"
+    },
+    {
+      "nomeDoExercicio": "Remada com apoio "
+    },
+    {
+      "nomeDoExercicio": "Rosca martelo"
+    },
+    {
+      "nomeDoExercicio": "Rosca direta "
+    },
+    {
+      "nomeDoExercicio": "Rosca testa"
+    },
+    {
+      "nomeDoExercicio": "Supino barra"
+    },
+    {
+      "nomeDoExercicio": "Tríceps pulley"
+    },
+    {
+      "nomeDoExercicio": "Voador"
+    }
+  ],
+  "minhasFichas": [
+    {
+      "nome": "Pernas",
+      "treino": [
+        "cadeira extensora",
+        "cadeira flexora",
+        "leg press inclinado",
+        "panturrilha máquina",
+        "cadeira abdutora",
+        "cadeira adutora"
+      ]
+    },
+    {
+      "nome": "Peito e Manguito",
+      "treino": [
+        "manguito rotador halteres",
+        "supino barra",
+        "crossover polia alta",
+        "voador"
+      ]
+    },
+    {
+      "nome": "Bíceps, Tríceps e Antebraço",
+      "treino": [
+        "rosca martelo",
+        "rosca direta",
+        "tríceps pulley",
+        "rosca testa",
+        "flexão de punho",
+        "extensão de punho"
+      ]
+    },
+    {
+      "nome": "Costas",
+      "treino": [
+        "puxada vertical",
+        "remada baixa",
+        "remada com apoio",
+        "encolhimento"
+      ]
+    },
+    {
+      "nome": "Deltóides",
+      "treino": [
+        "desenvolvimento militar",
+        "elevação lateral",
+        "ombro máquina"
+      ]
+    }
+  ]
+}
