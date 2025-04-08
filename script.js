@@ -1281,7 +1281,7 @@ function atualizar() {
         });
 }
 
-setInterval(verificarAtualizacao, 15000)
+// setInterval(verificarAtualizacao, 15000)
 
 
 
