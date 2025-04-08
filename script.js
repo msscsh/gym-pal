@@ -394,10 +394,10 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, is
             inicioDia = false;
         }
 
+        const celulaIntensidade = novaLinha.insertCell();
         const celulaExercicio = novaLinha.insertCell();
         const celulaCarga = novaLinha.insertCell();
         const celulaRepeticoes = novaLinha.insertCell();
-        const celulaIntensidade = novaLinha.insertCell();
         const celulaDataHoraExercicio = novaLinha.insertCell();
 
         celulaExercicio.textContent = registro.exercicio;

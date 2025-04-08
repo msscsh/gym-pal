@@ -347,7 +347,7 @@ table td:nth-child(1n){
   border-left: none;
 }
 
-table td:nth-child(2n), table td:nth-child(3n) {
+table td:nth-child(3n), table td:nth-child(4n), table td:nth-child(5n) {
   text-align: center;
 }
 
