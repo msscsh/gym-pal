@@ -30,6 +30,7 @@ function tryParseJson(jsonString) {
     }
 }
 
+// ajustarProblemasNosJSON();
 /**
  * Somente quando houver alterações no json
  * */
@@ -42,9 +43,10 @@ function ajustarProblemasNosJSON() {
     // localStorage.setItem('exerciciosCadastrados', JSON.stringify(exerciciosCadastrados));
 
     const meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
-    // meusDados.forEach(umDado => {
+    meusDados.forEach(umDado => {
+        umDado.repeticoes = 12;
     // mudarCampoPrimeiroNivelDeUmRotuloParaOutroRotulo(umDado, 'nome', 'exercicio');
-    // });
+    });
     localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
 }
 
@@ -203,6 +205,7 @@ function executarTreinoLiveDoIndex(indexTreino, indexExercicioAtual) {
     });
 
     document.getElementById('cargaLive').value = registroEncontrado.carga || 999;
+    document.getElementById('repeticoesLive').value = registroEncontrado.repeticoes || 999;
     document.getElementById('intensidadeLive').value = '';
 
 }
@@ -224,6 +227,7 @@ function cancelarExecucaoLive() {
 function adicionarRegistroDeExecucaoLive() {
     const carga = document.getElementById('cargaLive').value;
     const intensidade = document.getElementById('intensidadeLive').value;
+    const repeticoes = document.getElementById('repeticoesLive').value;
     const exercicioLive = getExercicioDaFichaLive();
 
     let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
@@ -235,7 +239,7 @@ function adicionarRegistroDeExecucaoLive() {
 
     let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
     const timestampDoExercicio = Date.now();
-    const novoRegistro = { exercicio, carga, intensidade, timestampDoExercicio };
+    const novoRegistro = { exercicio, carga, intensidade, repeticoes, timestampDoExercicio };
     meusDados.unshift(novoRegistro);
     localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
 
@@ -313,6 +317,7 @@ function adicionarRegistroDeExecucao() {
     let exercicio = document.getElementById('exercicio').value;
     const carga = document.getElementById('carga').value;
     const intensidade = document.getElementById('intensidade').value;
+    const repeticoes = document.getElementById('repeticoes').value;
 
     let exerciciosCadastrados = JSON.parse(localStorage.getItem('exerciciosCadastrados')) || [];
     exerciciosCadastrados.forEach(exercicioCadastrado => {
@@ -328,11 +333,12 @@ function adicionarRegistroDeExecucao() {
         itemAlvo.exercicio = exercicio.trim();
         itemAlvo.carga = carga;
         itemAlvo.intensidade = intensidade;
+        itemAlvo.repeticoes = repeticoes;
         meusDados[index] = itemAlvo;
     }
     else {
         const timestampDoExercicio = Date.now();
-        const novoRegistro = { exercicio, carga, intensidade, timestampDoExercicio };
+        const novoRegistro = { exercicio, carga, intensidade, repeticoes, timestampDoExercicio };
         meusDados.unshift(novoRegistro);
     }
 
@@ -344,6 +350,7 @@ function limparCamposNaTela() {
     document.getElementById('exercicio').value = ''
     document.getElementById('carga').value = ''
     document.getElementById('intensidade').value = ''
+    document.getElementById('repeticoes').value = ''
     document.getElementById('index').value = ''
 }
 
@@ -389,18 +396,19 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, is
 
         const celulaExercicio = novaLinha.insertCell();
         const celulaCarga = novaLinha.insertCell();
+        const celulaRepeticoes = novaLinha.insertCell();
         const celulaIntensidade = novaLinha.insertCell();
         const celulaDataHoraExercicio = novaLinha.insertCell();
 
         celulaExercicio.textContent = registro.exercicio;
         celulaCarga.textContent = registro.carga;
+        celulaRepeticoes.textContent = registro.repeticoes;
         celulaIntensidade.textContent = identificarEmojiDeIntensidadeDoExercicio(registro.intensidade);
         celulaDataHoraExercicio.textContent = converterTimestampParaFormatacaoDataEHora(registro.timestampDoExercicio);
 
         if (isApresentacaoDefault) {
             const celulaAcoes = novaLinha.insertCell();
             criarDivElementoComAcao(celulaAcoes, '\u{1F4DD}', 'emojiAcao', editarExecucaoDeTreinoEspecifico, index);
-            criarDivElementoComAcao(celulaAcoes, '\u{2795}', 'emojiAcao', adicionarExecucaoDeTreinoEspecifico, index);
             criarDivElementoComAcao(celulaAcoes, '\u{231B}', 'emojiAcao', pesquisarExecucoesAnterioresDoTreino, index);
             criarDivElementoComAcao(celulaAcoes, '\u{1F5D1}', 'emojiAcao', excluirRegistro, index);
             celulaAcoes.classList.add('containerGridReduzido4');
@@ -480,7 +488,7 @@ function converterTimestampParaFormatacaoDataEHora(timestamp, options) {
                 weekday: "long",
                 month: "long",
                 day: "numeric",
-                dayPeriod: "long",
+                // dayPeriod: "long",
             };
         }
         const dataFormatadaPersonalizada = data.toLocaleString('pt-BR', options);
@@ -576,14 +584,6 @@ function pesquisarTodasAsExecucoesAnterioresDoTreino(exercicio) {
 
 }
 
-function adicionarExecucaoDeTreinoEspecifico(index) {
-    let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
-    const itemParaEditar = meusDados[index];
-    apresentarDivAlvo('divAdicionarExercicio');
-    document.getElementById('exercicio').value = itemParaEditar.exercicio.trim().toLowerCase();
-    document.getElementById('carga').value = itemParaEditar.carga;
-}
-
 function editarExecucaoDeTreinoEspecifico(index) {
     let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
     const itemParaEditar = meusDados[index];
@@ -591,6 +591,7 @@ function editarExecucaoDeTreinoEspecifico(index) {
     document.getElementById('exercicio').value = itemParaEditar.exercicio.trim().toLowerCase();
     document.getElementById('carga').value = itemParaEditar.carga;
     document.getElementById('intensidade').value = itemParaEditar.intensidade;
+    document.getElementById('repeticoes').value = itemParaEditar.repeticoes;
     document.getElementById('index').value = index;
 }
 
@@ -599,7 +600,7 @@ function excluirRegistro(index) {
     let meusDados = JSON.parse(localStorage.getItem('meusDados')) || [];
     let itemAlvo = meusDados[index];
 
-    if (confirm("Tem certeza que deseja excluir (" + itemAlvo.exercicio + "-" + itemAlvo.carga + "-" + itemAlvo.intensidade + ") ?")) {
+    if (confirm("Tem certeza que deseja excluir (" + itemAlvo.exercicio + "-" + itemAlvo.carga + "-"  + itemAlvo.repeticoes + "-" + itemAlvo.intensidade + ") ?")) {
         meusDados.splice(index, 1);
         localStorage.setItem('meusDados', JSON.stringify(meusDados, null, 2));
         apresentarDivAlvo('divTreinos');
@@ -1008,7 +1009,7 @@ function init() {
     verificarLargura();
     criarListenerDeImportacaoDeJson();
     criarListenerDeArrastoDeDivJson('divExecucaoLive');
-    apresentarDivAlvo('divConfiguracaoDeTreino');
+    apresentarDivAlvo('divTreinos');
     criarListenerCalorias();
 
     if (getValorLocalStorage('globalIsExecucaoLive')) {
