@@ -304,7 +304,7 @@ table {
 
 .containerGridReduzido4 {
   display: grid;
-  grid-template-columns: repeat(4, 40px);
+  grid-template-columns: repeat(3, 40px);
 }
 
 table {
@@ -315,7 +315,6 @@ table {
 th {
   padding-bottom: 4px;
   text-align: center;
-  width: 20%;
 }
 
 td {
