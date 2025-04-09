@@ -86,6 +86,8 @@ function adicionarExecucaoNoTreino() {
         containerExecucoesDoTreino.append(novaDiv);
     });
     criarBotaoNoElementoComAcao(containerExecucoesDoTreino, 'Incluir ficha', 'botaoAdicionarFicha', adicionarTreino);
+    document.getElementById('selAddExercicioNaFicha').value = '';
+    document.getElementById('selAddRepeticaoNaFicha').value = '';
     
 }
 function limparExecucoesDeTreinoNaFicha() {
@@ -95,8 +97,13 @@ function limparExecucoesDeTreinoNaFicha() {
 function adicionarTreino() {
     const nomeDoTreino = document.getElementById('inputTituloTreino').value;
 
+    if(!nomeDoTreino || nomeDoTreino.trim().length == 0 ) {
+        alert('Informe o nome deste Treino')
+        return;
+    }
+
     const treino = {
-        nome: nomeDoTreino,
+        nome: nomeDoTreino.trim(),
         execucoes: execucoesParaAdicionarNoTreinoAtual
     };
 
@@ -720,6 +727,8 @@ function realizarAcoesParaDivAlvoAntesDaApresentacao(divAlvo) {
     }
     else if (divAlvo === 'divConfiguracaoDeTreino') {
         preencherComboDeExercicios('selAddExercicioNaFicha');
+        document.getElementById('selAddExercicioNaFicha').value = '';
+        document.getElementById('selAddRepeticaoNaFicha').value = '';
         apresentarDadosDeTreino();
     }
     else if (divAlvo === 'divConfigurarExercicios') {
