@@ -129,7 +129,7 @@ function apresentarDadosDeTreino() {
     divFichas.style.gridTemplateColumns = `repeat(1, 1fr)`;
     
     const meusTreinos = JSON.parse(localStorage.getItem('meusTreinos') )|| [];
-    if (meusTreinos) {
+    if (meusTreinos && meusTreinos.length > 0) {
         meusTreinos.forEach((treino, index) => {
 
             const divFicha = document.createElement('div');
