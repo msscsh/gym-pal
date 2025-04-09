@@ -273,10 +273,11 @@ table {
 }
 
 .container {
-  width: 90%;
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  padding: 20px;
+  margin: 20px;
+  margin-left: 0;
+  padding-left: 0px !important;
 }
 
 .containerFlexPilha {
@@ -507,7 +508,7 @@ button {
 }
 
 .divTreinos {
-  padding-top: 20px;
+  /* padding-top: 20px; */
 }
 
 .divTabelaTreinos {
@@ -550,30 +551,6 @@ button {
 
 .inputNomeDaFicha {    
   grid-area: inputNomeDaFicha;
-}
-
-.maisUmaFichaDeTreino {    
-  grid-area: maisUmaFichaDeTreino;
-  max-width: 100px;
-  min-width: 100px;
-  max-height: 20px;
-  min-height: 20px;
-  padding: 0px !important;
-  margin: 0px !important;
-  margin-top: 10px !important;
-  margin-left: 10px !important;
-}
-
-.menosUmaFichaDeTreino {    
-  grid-area: menosUmaFichaDeTreino;
-  max-width: 100px;
-  min-width: 100px;
-  max-height: 20px;
-  min-height: 20px;
-  padding: 0px !important;
-  margin: 0px !important;
-  margin-top: 10px !important;
-  margin-right: 10px !important;
 }
 
 .listagemDeExerciciosDaFicha {    
@@ -628,3 +605,8 @@ button {
   padding-top: 20px;
   margin-right: 40%;
 }
+
+.botaoAdicionarFicha {
+  margin-top: 15px;
+}
+

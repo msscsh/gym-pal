@@ -46,18 +46,18 @@
 				</div>
 			</div>
 
-			<div id="divConfiguracaoDeTreino" class="divConfiguracaoDeTreino">
+			<div id="divConfiguracaoDeTreino" >
 				<div id="divAdicionarFichaDeTreino" class="bordear">
-					<div class="containerFlexPilha" style="gap: 5px;" >
-						<label for="inputTituloTreino">Treino</label>
-						<div class="containerFlexCarrossel" >
-							<input type="text" id="inputTituloTreino">
-						</div>
-
+					<div class="containerFlexPilha bordear" style="gap: 5px;" >
+						<input type="text" id="inputTituloTreino" placeholder="Digite o nome desta ficha" style="margin: 10px; margin-bottom: 0px;">
+					</div>
+					<div id="execucoesDoTreino" class="containerFlexPilha" style="padding: 10px;" >
+						Adicione um Exercício nesta ficha
+					</div>
+					<div class="containerFlexPilha bordear" style="padding: 10px;" >
 						<label for="inputProt">Execução</label>
-						<div class="containerFlexCarrossel" style="gap: 10px; padding: 10px;" >
-					        <select id="selAddExercicioNaFicha"></select>
-					        <select id="selAddRepeticaoNaFicha">
+						<div class="containerFlexPilha" style="gap: 10px; padding: 10px;" >
+							<select id="selAddRepeticaoNaFicha">
 								<option value="1">1 repetição</option>
 								<option value="3">3 repetições</option>
 								<option value="5">5 repetições</option>
@@ -66,20 +66,16 @@
 								<option value="12">12 repetições</option>
 								<option value="15">15 repetições</option>
 							</select>
-							<button id="botaoAdicionarFichaDeTreino" onclick="adicionarExecucaoNoTreino()">+</button>
+							<select id="selAddExercicioNaFicha"></select>
 						</div>
-						<div id="execucoesDoTreino" class="containerFlexPilha" >
-							Adicione um Exercício nesta ficha
-						</div>
+						<button id="btnFinalizarFicha" onclick="adicionarExecucaoNoTreino()" style="margin-bottom: 20px; padding: 10px; padding-bottom: 5px; padding-top: 5px;">+</button>
 					</div>
-					<button id="btnFinalizarFicha" onclick="adicionarTreino()">Finalizar ficha</button>
 				</div>
 				<div id="divFichasDeTreino" class="containerGrid" style="gap: 10px; margin-top: 10px;">
 				</div>
 			</div>
 
 			<div id="divAdicionarExercicio" class="divAdicionarExercicio">
-
 				<div class="containerFlexPilha bordear">
 				    <form id="meuFormulario">
 						<div id="divCamposAdicionarExercicio" class="divCamposAdicionarExercicio containerGrid">

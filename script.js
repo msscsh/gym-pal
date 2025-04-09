@@ -70,6 +70,11 @@ function adicionarExecucaoNoTreino() {
         repeticoes: repeticoes,
     };
 
+    if(!exercicio || !repeticoes ) {
+        alert('Informe todos os dados')
+        return;
+    }
+
     execucoesParaAdicionarNoTreinoAtual.push(execucao);
 
     const containerExecucoesDoTreino = document.getElementById('execucoesDoTreino');
@@ -80,6 +85,7 @@ function adicionarExecucaoNoTreino() {
         novaDiv.innerHTML = `${execucaoPraTela.repeticoes}x ${execucaoPraTela.exercicio}`;
         containerExecucoesDoTreino.append(novaDiv);
     });
+    criarBotaoNoElementoComAcao(containerExecucoesDoTreino, 'Incluir ficha', 'botaoAdicionarFicha', adicionarTreino);
     
 }
 function limparExecucoesDeTreinoNaFicha() {
@@ -432,12 +438,6 @@ function criarTabelaHTMLParaApresentacaoDosDadosDosTreinosPassados(meusDados, is
 
     });
 }
-
-function criarBotaoNoElementoComAcaoComID(elementoPai, id, texto, classe, funcaoDoBotao, argumentoDaFuncao) {
-    criarBotaoNoElementoComAcao(elementoPai, texto, classe, funcaoDoBotao, argumentoDaFuncao)
-    elementoPai.lastElementChild.id = id;
-}
-
 
 function criarDivElementoComAcao(elementoPai, texto, classes, funcaoDoBotao, argumentoDaFuncao) {
     const div = document.createElement('div');
