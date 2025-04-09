@@ -299,7 +299,7 @@ function getExercicioDaFichaLive() {
     globalIndexFicha = getValorNumerico('globalIndexFicha');
     globalIndexExercicioAtual = getValorNumerico('globalIndexExercicioAtual');
     let meusTreinos = JSON.parse(localStorage.getItem('meusTreinos')) || [];
-    return meusTreinos[globalIndexFicha].execucoes[globalIndexExercicioAtual];
+    return meusTreinos[globalIndexFicha].execucoes[globalIndexExercicioAtual].exercicio;
 }
 
 function calcularNumCols(larguraTela, numItens) {
