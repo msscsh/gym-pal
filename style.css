@@ -601,9 +601,14 @@ button {
   border-radius: 100%;
 }
 
-.emojiAcoesAddTreino {
-  padding-top: 20px;
-  margin-left: 40%;
+.emojiAcoesAddTreinoRight {
+  padding-top: 10px;
+  margin-left: 20%;
+}
+
+.emojiAcoesAddTreinoLeft {
+  padding-top: 10px;
+  margin-right: 20%;
 }
 
 .botaoAdicionarFicha {

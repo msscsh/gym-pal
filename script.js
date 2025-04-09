@@ -156,8 +156,8 @@ function apresentarDadosDeTreino() {
 
             const divAcoes = document.createElement('div');
             divAcoes.className = 'containerFlexCarrossel';
-            criarDivElementoComAcao(divAcoes, '🗑', 'emojiAcoesAddTreino', removerTreino, index);
-            criarDivElementoComAcao(divAcoes, '▶️', 'emojiAcoesAddTreino', executarTreinoLiveDoIndex, index);
+            criarDivElementoComAcao(divAcoes, '🗑', 'emojiAcoesAddTreinoLeft', removerTreino, index);
+            criarDivElementoComAcao(divAcoes, '▶️', 'emojiAcoesAddTreinoRight', executarTreinoLiveDoIndex, index);
             divFicha.appendChild(divAcoes);
 
             divFichas.appendChild(divFicha);
